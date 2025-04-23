@@ -1,10 +1,10 @@
 import React from "react";
  
- const layout = ({
+  export default function layout ({
    children,
  }: Readonly<{
    children: React.ReactNode;
- }>) => {
+ }>)  {
    return (
      <html lang="en">
        <body>
@@ -14,4 +14,3 @@ import React from "react";
    );
  };
  
- export default layout;
