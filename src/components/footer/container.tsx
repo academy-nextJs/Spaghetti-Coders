@@ -15,10 +15,10 @@ export default function FooterContainer() {
         <div className="p-2 rounded-2xl bg-white">
           <Image src={FootPic1.src} alt="1" width={48} height={48} />
         </div>
-        <div className="p-2 rounded-2xl bg-white">
+        <div className="p-2 rounded-2xl bg-black">
           <Image src={FootPic2.src} alt="1" width={48} height={48} />
         </div>
-        <div className="p-2 rounded-2xl bg-white">
+        <div className="p-2 rounded-2xl bg-black">
           <Image src={FootPic3.src} alt="1" width={48} height={48} />
         </div>
       </div>
