@@ -5,12 +5,11 @@ interface StatCardProps {
     label: string;
     color: 'purple' | 'white';
     withAvatars?: boolean;
-    height?: number; // Optional height property
+    height?: number; 
 }
 const StatCard: React.FC<StatCardProps> = ({ count, label, color, withAvatars = false, height = 200 }) => {
     const bgColor = color === 'purple' ? 'bg-[#DFDFFF]' : 'bg-white';
 
-    // تنظیم کلاس‌ها بر اساس ارتفاع
     const heightClass = height === 200 ? 'h-[200px]' : height === 700 ? 'h-[700px]' : 'h-[400px]';
 
     return (
@@ -25,7 +24,6 @@ const StatCard: React.FC<StatCardProps> = ({ count, label, color, withAvatars = 
 
                 {withAvatars && (
                     <div className="flex mt-3 rounded-full justify-start">
-                        {/* Replace with actual avatar images */}
                         <Image
                             src="/avatar01.png"
                             alt="Avatar"
@@ -45,18 +43,3 @@ const StatCard: React.FC<StatCardProps> = ({ count, label, color, withAvatars = 
 
 export default StatCard;
 
-
-// import { Avatar, AvatarGroup } from "@heroui/react";
-
-// export default function StatCard() {
-//     return (
-//         <AvatarGroup isBordered>
-//             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-//             <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
-//             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-//             <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
-//             <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" />
-//             <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
-//         </AvatarGroup>
-//     );
-// }
