@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body  className="py-4 overflow-x-hidden">
+      <body dir='rtl' className="py-4 overflow-x-hidden">
         <main>{children}</main>
       </body>
     </html>
