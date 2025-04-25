@@ -1,10 +1,5 @@
-import CommonCardComment from '@/src/common/commonCardComment'
-import React from 'react'
+import React from 'react';
 
 export default function LandingPage() {
-  return (
-    <div>
-        <CommonCardComment/>
-    </div>
-  )
+  return <div></div>;
 }
