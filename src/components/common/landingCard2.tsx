@@ -28,9 +28,9 @@ export default function LandingCard2({
         <Image
           alt="Woman listing to music"
           className="object-cover z-0"
-          height={250}
+          height={450}
           src={src ? src : 'https://heroui.com/images/card-example-6.jpeg'}
-          width={250}
+          width={450}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>
