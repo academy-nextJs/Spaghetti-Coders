@@ -15,6 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body dir='rtl' className="py-4 overflow-x-hidden">
         <main>{children}</main>
+        <div id="modal-root"></div>
       </body>
     </html>
   );
