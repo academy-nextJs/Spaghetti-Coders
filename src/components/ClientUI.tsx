@@ -1,37 +1,23 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { ReactNode } from 'react';
+import { Button, ButtonProps } from '@heroui/react';
 
-export function ClientButtonPurple({
+interface ClientButtonProps extends ButtonProps {
+  customProp?: string;
+}
+
+export const ClientButton: React.FC<ClientButtonProps> = ({
   children,
   className = '',
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+  ...props
+}) => {
   return (
     <Button
-      className={`bg-[#7575FE] text-white font-semibold ${className}`}
+      className={`font-semibold ${className}`}
+      {...props}
       radius="full"
     >
       {children}
     </Button>
   );
-}
-export function ClientButtonGray({
-  children,
-  className = '',
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <Button
-      className={`bg-[#F0F0F0] text-black font-semibold ${className}`}
-      radius="full"
-    >
-      {children}
-    </Button>
-  );
-}
+};

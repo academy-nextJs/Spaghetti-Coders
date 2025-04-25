@@ -4,18 +4,19 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerBody,
-  Button,
   useDisclosure,
 } from '@heroui/react';
 import Link from 'next/link';
 import DrawerAccordion from './drawerAccordion';
+import HamburgerMenu from '@/src/assets/menu-burger.svg'
+import Image from 'next/image';
 
 export function HeaderDrawer() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      <Button onPress={onOpen}>Open Drawer</Button>
+        <Image onClick={onOpen} src={HamburgerMenu.src} width={36} height={36} alt='menu'/>
       <Drawer
         isOpen={isOpen}
         motionProps={{

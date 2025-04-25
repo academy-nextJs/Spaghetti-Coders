@@ -8,7 +8,7 @@ import InfowRow from './infowRow';
 
 export default function FooterContainer() {
   return (
-    <footer className="rounded-3xl bg-[#F9F9F9] w-full px-7 py-8 flex flex-col gap-12">
+    <>
       <Image src={Logo.src} alt="Logo" width={96} height={96} />
       <InfowRow/>
       <div className="flex gap-3">
@@ -22,6 +22,6 @@ export default function FooterContainer() {
           <Image src={FootPic3.src} alt="1" width={48} height={48} />
         </div>
       </div>
-    </footer>
+    </>
   );
 }

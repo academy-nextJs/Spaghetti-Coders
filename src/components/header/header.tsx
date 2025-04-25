@@ -1,5 +1,5 @@
 import React from 'react';
-import { ClientButtonGray, ClientButtonPurple } from '../ClientUI';
+import { ClientButton } from '../ClientUI';
 import { Divider } from '@heroui/react';
 import { HeaderFastSelect, HeaderOptionSelect } from './headerSelect';
 import Logo from '@/public/AlFA.svg';
@@ -8,25 +8,28 @@ import { HeaderDrawer } from './drawer';
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between w-full overflow-hidden">
+    <>
       <div className="lg:hidden">
         <HeaderDrawer />
       </div>
       <aside className="hidden lg:flex items-center gap-4">
-        <ClientButtonGray className="h-12">خانه</ClientButtonGray>
-        <ClientButtonGray className="h-12">مقالات</ClientButtonGray>
-        <ClientButtonGray className="h-12">درباره آلفا</ClientButtonGray>
+        <ClientButton className="bg-[#F0F0F0] text-black h-12 flex">
+          <div className='rounded-full bg-black w-2 h-2'></div>
+          خانه
+        </ClientButton>
+        <ClientButton className="bg-[#F0F0F0] text-black h-12">مقالات</ClientButton>
+        <ClientButton className="bg-[#F0F0F0] text-black h-12">درباره آلفا</ClientButton>
       </aside>
       <Image src={Logo.src} alt="Logo" width={78} height={78} />
       <aside className="hidden lg:flex items-center gap-4">
         <HeaderOptionSelect />
         <HeaderFastSelect />
         <Divider orientation="vertical" className="h-6 w-[2px]" />
-        <ClientButtonPurple className="h-12">ثبت نام / ورود</ClientButtonPurple>
+        <ClientButton className="bg-[#7575FE] text-white h-12">ثبت نام / ورود</ClientButton>
       </aside>
       <aside className='lg:hidden'>
-        <ClientButtonPurple className="h-12">ثبت نام / ورود</ClientButtonPurple>
+        <ClientButton className="bg-[#7575FE] text-white h-12">ثبت نام / ورود</ClientButton>
       </aside>
-    </header>
+    </>
   );
 }
