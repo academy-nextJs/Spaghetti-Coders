@@ -15,14 +15,14 @@ export default function Carousel({
   children,
   slidesPerView = 3,
   spaceBetween = 30,
-  className
+  className,
 }: CarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <div className={"relative flex "+className}>
+    <div className={'relative ' + className}>
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
@@ -45,9 +45,10 @@ export default function Carousel({
 
       {!isBeginning && (
         <Button
+          size="lg"
           isIconOnly
           onPress={() => swiperRef.current?.slidePrev()}
-          className="absolute top-1/2 -translate-y-1/2 -right-4 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition"
+          className="absolute top-1/2 -translate-y-1/2 -right-6 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition"
         >
           <SlArrowRight color="black" size="1.5em" />
         </Button>
@@ -56,8 +57,9 @@ export default function Carousel({
       {!isEnd && (
         <Button
           isIconOnly
+          size="lg"
           onPress={() => swiperRef.current?.slideNext()}
-          className="absolute top-1/2 -translate-y-1/2 left-6 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition"
+          className="absolute top-1/2 -translate-y-1/2 -left-6 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition "
         >
           <SlArrowLeft color="black" size="1.5em" />
         </Button>
