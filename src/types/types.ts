@@ -1,5 +1,6 @@
 import { InputProps } from "@heroui/react";
-
+import { ReactNode } from "react";
+import { ButtonProps } from "@heroui/react";
 
 export type FilterModalProps = {
   isOpen: boolean;
@@ -39,3 +40,10 @@ export type PersianSelectProps = {
     className?: string;
     labelClass?: string;
 }
+
+
+export type ClientButtonProps = ButtonProps & {
+    customProp?: string;
+    startIcon?: ReactNode;
+    endIcon?: ReactNode;
+};
