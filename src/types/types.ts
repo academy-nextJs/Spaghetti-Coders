@@ -1,7 +1,23 @@
-
 import { InputProps } from "@heroui/react";
 import { ReactNode } from "react";
 import { ButtonProps } from "@heroui/react";
+
+export interface LandingCard2Props {
+  text: string;
+  count?: number;
+  src?: string;
+  href: string;
+}
+export interface Category {
+  id: string;
+  name: string;
+}
+export interface CarouselProps {
+  children: ReactNode[];
+  slidesPerView?: number;
+  spaceBetween?: number;
+  className?: string;
+}
 
 export type FilterModalProps = {
   isOpen: boolean;
@@ -83,5 +99,4 @@ width?: number;
 [key: string]: unknown;
 
 }
-
 
