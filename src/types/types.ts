@@ -78,7 +78,7 @@ export type UserProps = {
 export interface LandingCard2Props {
     text: string;
     count?: number;
-    src: string;
+    src?: string;
     href: string;
   }
 
@@ -100,3 +100,13 @@ width?: number;
 
 }
 
+export type CustomBreadcrumbsProps = {
+    items: string[];
+    separator?: string;
+    classNames?: {
+        base?: string;
+    };
+    itemClasses?: {
+        item?: string;
+    };
+}
