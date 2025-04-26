@@ -6,7 +6,7 @@ import CategoryHelpText from './categoryHelpText';
 
 export default function CategoryCarousel({ data }: { data: Category[] }) {
   return (
-    <div className="w-4/5 float-left flex flex-col gap-6">
+    <div className="w-4/5 flex flex-col gap-6">
       <CategoryHelpText/>
       <Carousel className="mt-4">
         {data.map((item) => (

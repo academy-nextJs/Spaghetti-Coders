@@ -1,0 +1,11 @@
+.swiper {
+}
+
+.slide {
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+  transition: transform 0.3s, z-index 0.3s;
+}
