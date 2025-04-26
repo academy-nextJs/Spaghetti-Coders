@@ -47,3 +47,12 @@ export type ClientButtonProps = ButtonProps & {
     startIcon?: ReactNode;
     endIcon?: ReactNode;
 };
+
+
+
+export type UserProps = {
+    name: string;
+    description: string;
+    avatarProps: object;
+    className?: string;
+}
