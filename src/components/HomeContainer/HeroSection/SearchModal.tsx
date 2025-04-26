@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import { ClientButton } from '../../common/Buttons/common-btn';
 import Calender from '../../common/Calender/calender';
 import CommonInput from '../../common/inputs/input-btn';
+import { MyChip } from '../../common/Buttons/Chip-btn';
 
 const SearchModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
