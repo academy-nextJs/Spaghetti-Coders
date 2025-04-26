@@ -13,3 +13,29 @@ export interface PersianInputProps extends Omit<InputProps, 'ref' | 'size'> {
   placeholder?: string;
   icon?: React.ReactNode;
 }
+
+export type MultiInputOtpProps =  {
+    value: string;
+    onValueChange: (value: string) => void;
+    length?: number;
+}
+
+
+export type MyChipProps = {
+    children: React.ReactNode;
+    color?: "primary" | "default" | "secondary" | "success" | "warning" | "danger";
+    size?: "md" | "sm" | "lg";
+    className?: string; 
+    [key: string]: unknown;
+};
+
+
+export type PersianSelectProps = {
+    label?: string;
+    placeholder?: string;
+    options: { label: string; value: string }[];
+    selectedValue?: string;
+    onChange: (value: string) => void;
+    className?: string;
+    labelClass?: string;
+}

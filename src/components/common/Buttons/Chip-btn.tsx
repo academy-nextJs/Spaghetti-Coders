@@ -1,12 +1,6 @@
+import { MyChipProps } from "@/src/types/types";
 import { Chip } from "@heroui/react";
 
-type MyChipProps = {
-    children: React.ReactNode;
-    color?: "primary" | "default" | "secondary" | "success" | "warning" | "danger";
-    size?: "md" | "sm" | "lg";
-    className?: string; 
-    [key: string]: unknown;
-};
 
 export function MyChip({ children, size = "md", className, ...props }: MyChipProps) {
     return (

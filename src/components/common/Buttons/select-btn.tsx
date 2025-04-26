@@ -1,17 +1,10 @@
 'use client';
 
+import { PersianSelectProps } from '@/src/types/types';
 import { Select, SelectItem } from '@heroui/react';
 import { FC } from 'react';
 
-interface PersianSelectProps {
-    label?: string;
-    placeholder?: string;
-    options: { label: string; value: string }[];
-    selectedValue?: string;
-    onChange: (value: string) => void;
-    className?: string;
-    labelClass?: string;
-}
+
 
 const PersianSelect: FC<PersianSelectProps> = ({
     label,
