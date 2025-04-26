@@ -1,3 +1,4 @@
+
 import React from 'react';
 import api from '@/src/services/api';
 import CategoryCarousel from '@/src/components/landingCategory/categoryCarousel';
@@ -11,3 +12,4 @@ export default async function LandingPage() {
     </div>
   );
 }
+
