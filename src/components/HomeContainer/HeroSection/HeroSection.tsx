@@ -76,7 +76,7 @@ const HeroSection = () => {
                     </motion.div>
                 </motion.div>
 
-                <div className="w-full flex justify-center md:w-1/2 px-6 mt-8 py-12 md:py-20 md:pl-24 lg:pl-20 z-10">
+                <div className="w-full flex justify-center md:w-1/2 px-6 mt-8  mr-12 py-12 md:py-20 md:pl-24 lg:pl-20 z-10">
                     <div className="w-full h-full">
                         <motion.h4
                             className="text-right text-3xl font-bold text-gray-800 mb-2"

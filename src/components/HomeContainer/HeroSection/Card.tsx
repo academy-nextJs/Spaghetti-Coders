@@ -7,7 +7,7 @@ import { CardSvg, CardSvg2 } from '@/src/assets/svgs';
 const StatCard = () => {
     return (
         <div className="flex justify-center w-full">
-            <div className="flex flex-row w-full gap-2 sm:gap-4">
+            <div className="flex flex-row w-full gap-5 sm:gap-4">
                 <div className="bg-[#F9F9F9] h-[235px] mt-28 sm:h-[215px] md:h-[235px] w-[30%] sm:w-[158px] sm:mt-16 shadow-lg p-2 sm:p-3 rounded-2xl sm:rounded-3xl text-right">
                     <h2 className="text-xs sm:text-sm font-bold text-black text-right m-0">بیش از</h2>
                     <p className="text-xl sm:text-2xl md:text-3xl font-semibold pt-1 sm:pt-2 text-black text-right">۵۰۰۰ +</p>
