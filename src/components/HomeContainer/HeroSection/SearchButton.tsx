@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import SearchModal from './SearchModal'; 
 
-const FilterButton = () => {
+const SearchButton = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => setIsModalOpen(true);
@@ -25,7 +25,7 @@ const FilterButton = () => {
     );
 };
 
-export default FilterButton;
+export default SearchButton;
 
 
 

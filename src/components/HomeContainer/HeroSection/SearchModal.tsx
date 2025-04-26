@@ -7,7 +7,7 @@ import { ClientButton } from '../../common/Buttons/common-btn';
 import Calender from '../../common/Calender/calender';
 import CommonInput from '../../common/inputs/input-btn';
 
-const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
+const SearchModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const handleBackgroundClick = (e: React.MouseEvent) => {
@@ -76,4 +76,4 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default FilterModal;
+export default SearchModal;

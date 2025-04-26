@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import FilterButton from './FilterButton';
+import FilterButton from './SearchButton';
 import StatCard from './Card';
 
 const HeroSection = () => {
