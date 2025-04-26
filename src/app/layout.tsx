@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
+
 import Header from '../components/header/header';
 import FooterContainer from '../components/footer/container';
+
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,6 +25,7 @@ export default function RootLayout({
         <footer className="rounded-3xl bg-[#F9F9F9] w-full px-7 py-8 flex flex-col gap-12">
           <FooterContainer />
         </footer>
+
       </body>
     </html>
   );
