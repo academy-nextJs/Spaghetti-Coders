@@ -1,11 +1,13 @@
 import Image from 'next/image';
-import FilterButton from './FilterButton';
+import FilterButton from './SearchButton';
 import StatCard from './Card';
 
 const HeroSection = () => {
     return (
-        <div className="container h-1/3 flex justify-center mx-auto relative w-full max-w-[1400px] bg-white overflow-hidden">
-            <div className="flex flex-col  justify-center md:flex-row items-center gap-8 w-full">
+
+        <div className="container h-1/3 mx-auto relative w-full max-w-[1200px] bg-white">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+
                 <div className="w-full md:w-[530px] flex justify-center items-center relative">
                     <div className="w-full h-[430px] rounded-2xl relative">
                         <Image
