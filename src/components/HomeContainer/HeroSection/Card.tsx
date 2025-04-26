@@ -6,7 +6,7 @@ import { Avatar, AvatarGroup } from '@heroui/react';
 
 const StatCard = () => {
     return (
-        <div className="flex justify-center items-center w-full">
+        <div className="flex justify-center items-end w-full">
             <div className="flex flex-row w-full gap-2 sm:gap-4">
                 <div className="bg-[#F9F9F9] h-[140px] sm:h-[165px] md:h-[185px] w-[30%] sm:w-[158px] mt-4 sm:mt-16 shadow-lg p-2 sm:p-3 rounded-2xl sm:rounded-3xl text-right">
                     <h2 className="text-xs sm:text-sm font-bold text-black text-right m-0">بیش از</h2>
@@ -19,11 +19,12 @@ const StatCard = () => {
                             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
                             <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
                         </AvatarGroup>
-                        <p className="text-[10px] xs:text-xs text-black mt-1 sm:mt-2 text-right">
+                        <p className="text-[12px] xs:text-xs text-black mt-1 sm:mt-2 text-right">
                             رضایت مشتریانی که به آلفا اعتماد کرده اند
                         </p>
                     </div>
                 </div>
+
 
                 <aside className="bg-[#DFDFFF] h-[160px] sm:h-[180px] md:h-[210px] w-[30%] sm:w-1/3 mt-2 sm:mt-10 shadow-lg p-2 sm:p-3 rounded-2xl sm:rounded-3xl text-right">
                     <h2 className="text-xs sm:text-sm font-bold text-black text-right m-0">بیش از</h2>
@@ -36,6 +37,7 @@ const StatCard = () => {
                     <p className="text-xl sm:text-2xl md:text-3xl font-semibold pt-1 sm:pt-3 text-black text-right">۹۰۰۰+</p>
                     <p className="text-[10px] xs:text-xs text-black mt-1 sm:mt-2 text-right">ملک برای رزرو رهن و اجاره</p>
                 </aside>
+
             </div>
         </div>
     );

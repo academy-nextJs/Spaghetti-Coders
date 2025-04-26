@@ -4,8 +4,10 @@ import StatCard from './Card';
 
 const HeroSection = () => {
     return (
+
         <div className="container h-1/3 mx-auto relative w-full max-w-[1200px] bg-white">
             <div className="flex flex-col md:flex-row items-center gap-8">
+
                 <div className="w-full md:w-[530px] flex justify-center items-center relative">
                     <div className="w-full h-[430px] rounded-2xl relative">
                         <Image
@@ -21,8 +23,8 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full md:w-1/2 px-6 py-12 md:py-20 md:pl-12 lg:pl-20 z-10">
-                    <div className="max-w-2xl mt-4">
+                <div className="w-full flex justify-center md:w-1/2 px-6 py-12 md:py-20 md:pl-16 lg:pl-20 z-10">
+                    <div className="w-full mt-6">
                         <h4 className="text-right text-xl font-bold text-gray-800 mb-2">
                             خانه ای که میخوای،
                         </h4>
