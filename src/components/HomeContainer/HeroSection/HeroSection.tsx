@@ -9,7 +9,7 @@ const HeroSection = () => {
             <div className="flex flex-col md:flex-row items-center gap-8">
 
                 <div className="w-full md:w-1/2 flex justify-center items-center relative">
-                    <div className="w-full h-[480px] rounded-2xl relative">
+                    <div className="w-full h-[530px] rounded-2xl relative">
                         <Image
                             src="/hero.png"
                             alt="Modern apartment building"
@@ -23,12 +23,12 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full flex justify-center md:w-1/2 px-6 py-12 md:py-20 md:pl-24 lg:pl-20 z-10">
-                    <div className="w-full mt-6">
-                        <h4 className="text-right text-xl font-bold text-gray-800 mb-2">
+                <div className="w-full flex justify-center md:w-1/2 px-6 mt-8 py-12 md:py-20 md:pl-24 lg:pl-20 z-10">
+                    <div className="w-full h-full">
+                        <h4 className="text-right text-3xl font-bold text-gray-800 mb-2">
                             خانه ای که میخوای،
                         </h4>
-                        <h2 className="text-right text-xl font-bold text-gray-800 mb-6">
+                        <h2 className="text-right text-3xl font-bold text-gray-800 mb-6">
                             جایی که می‌خوای
                         </h2>
                         <p className="text-right text-[#767676] text-sm mb-8">
