@@ -8,12 +8,12 @@ import { useRef } from 'react';
 
 const textVariants = {
     hidden: { opacity: 0, x: 50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
 };
 
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.3 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.8 } },
 };
 
 const buttonVariants = {
@@ -22,7 +22,7 @@ const buttonVariants = {
         opacity: 1,
         scale: 1,
         transition: {
-            duration: 0.4,
+            duration: 0.8,
             type: 'spring',
             stiffness: 100
         }
