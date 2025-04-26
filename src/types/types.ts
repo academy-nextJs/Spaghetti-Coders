@@ -1,4 +1,12 @@
 
+export interface LandingCard2Props {
+    text: string;
+    count?: number;
+    src: string;
+    href: string;
+  }
+
+
 export interface CommonCardCommentProps {
   text?: string;
   name?: string;
@@ -15,3 +23,4 @@ width?: number;
 [key: string]: unknown;
 
 }
+
