@@ -45,6 +45,8 @@ const HeroSection = () => {
             ref={ref}
             className="container h-1/3 mx-auto relative w-full max-w-full bg-white"
         >
+            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 h-3/4 w-1/4 bg-gradient-to-r from-blue-100 to-transparent opacity-70 blur-3xl rounded-full z-0"></div>
+
             <div className="flex flex-col md:flex-row items-center gap-8">
                 <motion.div
                     className="w-full md:w-1/2 flex justify-center items-center relative"
@@ -54,7 +56,7 @@ const HeroSection = () => {
                 >
                     <motion.div
                         style={{ y }}
-                        className="w-full h-[530px] rounded-2xl relative"
+                        className="w-full h-[565px] rounded-2xl relative"
                     >
                         <Image
                             src="/hero.png"

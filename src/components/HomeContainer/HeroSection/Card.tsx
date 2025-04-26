@@ -8,11 +8,11 @@ const StatCard = () => {
     return (
         <div className="flex justify-center w-full">
             <div className="flex flex-row w-full gap-2 sm:gap-4">
-                <div className="bg-[#F9F9F9] h-[235px] mt-32 sm:h-[215px] md:h-[235px] w-[30%] sm:w-[158px] sm:mt-16 shadow-lg p-2 sm:p-3 rounded-2xl sm:rounded-3xl text-right">
+                <div className="bg-[#F9F9F9] h-[235px] mt-28 sm:h-[215px] md:h-[235px] w-[30%] sm:w-[158px] sm:mt-16 shadow-lg p-2 sm:p-3 rounded-2xl sm:rounded-3xl text-right">
                     <h2 className="text-xs sm:text-sm font-bold text-black text-right m-0">بیش از</h2>
                     <p className="text-xl sm:text-2xl md:text-3xl font-semibold pt-1 sm:pt-2 text-black text-right">۵۰۰۰ +</p>
 
-                    <div className="flex flex-col items-center rtl mt-1 sm:mt-2">
+                    <div className="flex flex-col items-center rtl pt-4 sm:mt-2">
                         <AvatarGroup isBordered size="sm" className="scale-75 sm:scale-90 md:scale-100">
                             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
                             <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
