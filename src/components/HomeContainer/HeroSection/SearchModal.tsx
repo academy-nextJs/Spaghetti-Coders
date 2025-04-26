@@ -3,9 +3,9 @@
 import { FilterModalProps } from '@/src/types/types';
 import { Select, SelectItem } from '@heroui/react';
 import ReactDOM from 'react-dom';
-import Calender from '../../common/Buttons/calender-btn';
 import { ClientButton } from '../../common/Buttons/common-btn';
-import CommonInput from '../../common/inputs/input-btn';
+import CommonInput from '../../common/Inputs/input-btn';
+import Calender from '../../common/Calender/calender';
 
 const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -48,7 +48,7 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
             <CommonInput
               label="تعداد نفرات"
               placeholder="وارد کنید"
-              className='bg-[#f1f1f1] h-12 p-4  rounded-full'
+              className='bg-[#f4f3f3] h-12 p-4  rounded-full'
             />
           </aside>
         </aside>
