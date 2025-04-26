@@ -1,10 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: ' ورود',
-    description: 'صفحه ورود',
+    title: 'ثبت نام',
 };
 
 export default function Login() {
-    return <div>صفحه ورود</div>;
+    return <div>صفحه ثبت  نام</div>;
 }
