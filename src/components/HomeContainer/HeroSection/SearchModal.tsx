@@ -1,4 +1,4 @@
-'use client';
+
 
 import { FilterModalProps } from '@/src/types/types';
 import { Select, SelectItem } from '@heroui/react';
