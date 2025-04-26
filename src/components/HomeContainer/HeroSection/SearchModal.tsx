@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 import Calender from '../../common/Buttons/calender-btn';
 import { ClientButton } from '../../common/Buttons/common-btn';
 import CommonInput from '../../common/inputs/input-btn';
-import PersianSelect from '../../common/Buttons/select-btn';
 
 const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -39,30 +38,17 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
         <aside className='flex flex-row gap-6'>
           <aside className='flex flex-col w-1/2'>
             <span className="text-sm font-medium  text-right mb-2">انتخاب مقصد</span>
-            <Select className="radius-full">
-              <SelectItem options="option1">بابل</SelectItem>
+            <Select label=" انتخاب کنید " className='w-1//2' radius='full' size='sm' >
+              <SelectItem>بابل</SelectItem>
+              <SelectItem>ساری</SelectItem>
             </Select>
-            {/* <PersianSelect
-              label="  "
-              placeholder="انتخاب کنید"
-              options={[
-                { label: 'گزینه 1', value: '1' },
-                { label: 'گزینه 2', value: '2' },
-                { label: 'گزینه 3', value: '3' },
-              ]}
-              selectedValue="1"
-              onChange={(value) => console.log(value)}
-              className="bg-[#F0F0F0]" // Custom styles can be added here
-              labelClass="text-blue-500" // Customize label text color
-            /> */}
-
           </aside>
 
           <aside className='flex flex-col w-1/2'>
             <CommonInput
               label="تعداد نفرات"
               placeholder="وارد کنید"
-              className='bg-[#F0F0F0] h-10 p-4  rounded-full'
+              className='bg-[#f1f1f1] h-12 p-4  rounded-full'
             />
           </aside>
         </aside>
