@@ -75,14 +75,6 @@ export type UserProps = {
 }
 
 
-export interface LandingCard2Props {
-    text: string;
-    count?: number;
-    src: string;
-    href: string;
-  }
-
-
 export interface CommonCardCommentProps {
   text?: string;
   name?: string;
