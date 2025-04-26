@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-import Header from '../components/header/header';
-import FooterContainer from '../components/footer/container';
+import LayoutWrapper from '../components/LayoutWrapper';
 
 
 export const metadata: Metadata = {
@@ -18,19 +17,14 @@ export default function RootLayout({
   return (
     <html lang="en">
 
-
-      <body dir="rtl" className="px-12 py-4 overflow-x-hidden">
-        <header className="flex items-center justify-between w-full overflow-hidden">
-          <Header />
-        </header>
-        <main>{children}</main>
-        <footer className="rounded-3xl bg-[#F9F9F9] w-full px-7 py-8 flex flex-col gap-12">
-          <FooterContainer />
-        </footer>
-
-
-<div id="modal-root"></div>
-      </body>
+      <html lang="en">
+        <body dir="rtl" className="px-12 py-4 overflow-x-hidden">
+          <LayoutWrapper>{children}</LayoutWrapper>
+          <div id="modal-root"></div>
+        </body>
+      </html>
     </html>
   );
 }
+
+
