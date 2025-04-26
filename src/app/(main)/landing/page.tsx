@@ -1,5 +1,13 @@
-import React from 'react';
 
-export default function LandingPage() {
-  return <div></div>;
+
+import HeroSection from '@/src/components/HomeContainer/HeroSection/HeroSection'
+
+
+const landing = () => {
+  return (
+    <div><HeroSection /></div>
+  )
 }
+
+export default landing
+
