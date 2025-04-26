@@ -1,6 +1,6 @@
 import React from 'react';
-import Carousel from '../common/carousel';
-import LandingCard2 from '../common/landingCard2';
+import Carousel from '../../common/carousel';
+import LandingCard2 from '../../common/landingCard2';
 import { Category } from '@/src/types/types';
 import CategoryHelpText from './categoryHelpText';
 
