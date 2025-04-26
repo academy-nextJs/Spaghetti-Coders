@@ -4,8 +4,8 @@ import { FilterModalProps } from '@/src/types/types';
 import { Select, SelectItem } from '@heroui/react';
 import ReactDOM from 'react-dom';
 import { ClientButton } from '../../common/Buttons/common-btn';
-import CommonInput from '../../common/Inputs/input-btn';
 import Calender from '../../common/Calender/calender';
+import CommonInput from '../../common/inputs/input-btn';
 
 const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
