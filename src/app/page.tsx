@@ -1,7 +1,10 @@
-import { ClientButton } from "../components/common/buttons/common-btn";
+
+import HeroSection from "../components/HomeContainer/HeroSection/HeroSection";
 
 export default function Home() {
   return (
-    <div>main page<ClientButton /></div>
+    <div>
+      <HeroSection />
+    </div>
   );
 }
