@@ -8,7 +8,6 @@ export default async function LandingPage() {
   const { data } = await api.get('/categories');
   return (
     <div>
-     
     <HeroSection />
     <CategoryCarousel data={data}/>
     </div>
