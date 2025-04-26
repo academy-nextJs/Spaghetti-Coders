@@ -1,14 +1,10 @@
 
 'use client';
 
-import { Button, ButtonProps } from '@heroui/react';
-import { ReactNode } from 'react';
+import { ClientButtonProps } from '@/src/types/types';
+import { Button } from '@heroui/react';
 
-interface ClientButtonProps extends ButtonProps {
-    customProp?: string;
-    startIcon?: ReactNode;
-    endIcon?: ReactNode;
-}
+
 
 export const ClientButton: React.FC<ClientButtonProps> = ({
     children,
