@@ -81,13 +81,13 @@ export default function Carousel({
       )}
 
       {houseCarousel ? 
-        <div className='absolute bottom-3 z-10 w-full flex justify-center'>
-          <div className="w-7/12 flex gap-2 justify-center mt-4">
+        <div className='absolute bottom-2 z-10 w-full flex justify-center'>
+          <div className="w-7/12 flex gap-2 justify-center">
             {Array.from({ length: totalSlides }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => swiperRef.current?.slideTo(index)}
-                className={`w-16 h-2 rounded-full transition-all ${activeIndex === index ? 'bg-gray-400' : 'bg-white hover:bg-gray-200'}`}
+                className={`w-16 h-2 rounded-full transition-all ${activeIndex === index ? 'bg-neutral-400' : 'bg-white hover:bg-gray-200'}`}
               />
             ))}
           </div>
