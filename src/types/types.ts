@@ -92,3 +92,9 @@ width?: number;
 
 }
 
+export interface SectionTopProps {
+  mainText?: string | React.ReactNode[];
+  subText?: string | React.ReactNode[];
+  chipText?: string;
+  children?: ReactNode;
+}
