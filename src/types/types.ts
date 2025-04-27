@@ -18,6 +18,7 @@ export interface CarouselProps {
   spaceBetween?: number;
   className?: string;
   houseCarousel?: boolean;
+  landingCardsCarousel?: boolean;
 }
 
 export type FilterModalProps = {

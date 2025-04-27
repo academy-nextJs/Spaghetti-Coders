@@ -18,7 +18,8 @@ export default function Carousel({
   slidesPerView = 3,
   spaceBetween = 30,
   className,
-  houseCarousel
+  houseCarousel = false,
+  landingCardsCarousel = false,
 }: CarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -50,7 +51,7 @@ export default function Carousel({
         ))}
       </Swiper>
 
-      {!isBeginning && (
+      {!isBeginning && !landingCardsCarousel && (
         <Button
           size="lg"
           isIconOnly
@@ -61,7 +62,7 @@ export default function Carousel({
         </Button>
       )}
 
-      {!isEnd && (
+      {!isEnd && !landingCardsCarousel && (
         <Button
           isIconOnly
           size="lg"
@@ -74,7 +75,7 @@ export default function Carousel({
 
       {houseCarousel ? 
         <div className='absolute bottom-3 z-10 w-full flex justify-center'>
-          <div className="w-4/5 flex gap-2 justify-center mt-4">
+          <div className="w-7/12 flex gap-2 justify-center mt-4">
             {Array.from({ length: totalSlides }).map((_, index) => (
               <button
                 key={index}
