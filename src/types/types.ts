@@ -16,6 +16,14 @@ export interface CarouselProps {
   children: ReactNode[];
   slidesPerView?: number;
   spaceBetween?: number;
+  breakpoints?: {
+    [width: number]: {
+      slidesPerView?: number;
+      spaceBetween?: number;
+    };
+  };
+  centeredSlidesBounds?: boolean;
+  centerInsufficientSlides?: boolean;
   className?: string;
   houseCarousel?: boolean;
   landingCardsCarousel?: boolean;

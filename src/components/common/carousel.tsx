@@ -17,6 +17,9 @@ export default function Carousel({
   children,
   slidesPerView = 3,
   spaceBetween = 30,
+  breakpoints,
+  centeredSlidesBounds,
+  centerInsufficientSlides,
   className,
   houseCarousel = false,
   landingCardsCarousel = false,
@@ -43,8 +46,12 @@ export default function Carousel({
         }}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
+        breakpoints={breakpoints}
         modules={[Navigation]}
         className="mySwiper"
+        // centeredSlides
+        centeredSlidesBounds={centeredSlidesBounds}
+        centerInsufficientSlides={centerInsufficientSlides}
       >
         {children.map((child, index) => (
           <SwiperSlide key={index}>{child}</SwiperSlide>
