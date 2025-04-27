@@ -56,6 +56,7 @@ export type PersianSelectProps = {
     onChange: (value: string) => void;
     className?: string;
     labelClass?: string;
+    size:'sm' | 'md' | 'lg' | undefined
 }
 
 
