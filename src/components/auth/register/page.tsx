@@ -1,6 +1,6 @@
 import { SvgBlue } from "@/src/assets/svgs";
-import ImageSlider from "../ImageSlider";
 import FormStep1 from "./Step1";
+import SwiperSlider from "../../common/auth/SwiperSlider";
 
 const RegisterPage = () => {
     return (
@@ -10,7 +10,7 @@ const RegisterPage = () => {
                 <FormStep1 />
             </section>
             <aside className="hidden md:block md:w-1/2 relative">
-                <ImageSlider />
+                <SwiperSlider />
             </aside>
         </section>
     );
