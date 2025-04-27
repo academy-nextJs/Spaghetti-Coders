@@ -4,11 +4,10 @@ import LandingCard2 from '../common/landingCard2';
 import axios from 'axios';
 import Loading from '../common/loading';
 interface Locations {
-  id:string,
-  area_name:string,
-  lat:string,
-  long:string
-
+  id: string;
+  area_name: string;
+  lat: string;
+  long: string;
 }
 export default function DreamCarousel() {
   const [locations, setLocations] = useState<Locations[]>([]);
@@ -17,10 +16,21 @@ export default function DreamCarousel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const {data} = await axios.get('https://delta-project.liara.run/api/locations');
-        setLocations(data); 
+        const { data } = await axios.get(
+          'https://delta-project.liara.run/api/locations'
+        );
+        // Create the new location object you want to add
+        const newLocation: Locations = {
+          id: '342',
+          area_name: 'سیرالئون',
+          lat: '35.6892',
+          long: '51.3890',
+        };
+
+        // Add it to the existing data
+        setLocations([...data, newLocation]);
         setLoading(false);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err: unknown) {
         setError('Failed to fetch data');
         setLoading(false);
@@ -34,13 +44,13 @@ export default function DreamCarousel() {
   return (
     <>
       <Carousel slidesPerView={3.5}>
-                {locations.map((item) => (
-                  <LandingCard2
-                    key={item.id}
-                    href={`houses/${item.id}`}
-                    text={item.area_name}
-                  />
-                ))}
+        {locations.map((item) => (
+          <LandingCard2
+            key={item.id}
+            href={`houses/${item.id}`}
+            text={item.area_name}
+          />
+        ))}
       </Carousel>
     </>
   );
