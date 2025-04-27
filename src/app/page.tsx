@@ -1,10 +1,10 @@
-import LandingCarousel from "../components/Landing/LandingCarousel/LandingCarousel";
+import LandingDiscountedSection from "../components/Landing/LandingDiscountedSection/LandingDiscountedSection";
 
 export default function Home() {
   return (
     <>
       <div className="pt-10">
-        <LandingCarousel />
+        <LandingDiscountedSection />
       </div>
     </>
   );
