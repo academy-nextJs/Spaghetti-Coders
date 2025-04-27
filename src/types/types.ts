@@ -88,6 +88,7 @@ export interface CommonCardCommentProps {
   date?: string;
   imageUrl?: string;
   isActive?: boolean;
+  isHidden?:boolean
 }
 
 export interface LoginBtnProps

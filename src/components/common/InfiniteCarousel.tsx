@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import CommonCardComment from './commonCardComment';
@@ -53,7 +53,11 @@ const testimonials = [
 export default function InfiniteCarousel() {
   const swiperRef = useRef<SwiperCore | null>(null);
   const [activeIndex, setActiveIndex] = useState(2);
-  const isMid = window.innerWidth < 1024;
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   return (
     <div className="relative">
@@ -63,60 +67,72 @@ export default function InfiniteCarousel() {
           setActiveIndex(swiper.realIndex);
           swiper.slides.forEach((slide, index) => {
             const slideEl = slide as HTMLElement;
-            const diff = Math.abs(index - swiper.activeIndex);
+            const diff = index - swiper.activeIndex;
             slideEl.style.transition = 'transform 0.3s';
             if (diff === 0) {
               slideEl.style.transform = 'scale(1)';
               slideEl.style.zIndex = '3';
             } else if (diff === 1) {
-              slideEl.style.transform = 'scale(0.7)';
+              slideEl.style.transform = 'scale(0.8)'; // updated scale for diff === 1
+              slideEl.style.zIndex = '2';
+            } else if (diff === -1) {
+              slideEl.style.transform = 'scale(0.8)'; // updated scale for diff === 1
               slideEl.style.zIndex = '2';
             } else if (diff === 2) {
-              slideEl.style.transform = 'scale(0.5)';
+              slideEl.style.transform = 'scale(0.6) translateX(120px)'; // added translateX for diff === 2
+              slideEl.style.zIndex = '1';
+            } else if (diff === -2) {
+              slideEl.style.transform = 'scale(0.6) translateX(-120px)'; // added translateX for diff === 2
               slideEl.style.zIndex = '1';
             } else {
-              slideEl.style.transform = 'scale(0.3)';
+              slideEl.style.transform = 'scale(0.5)'; // updated scale for other diffs
               slideEl.style.zIndex = '0';
             }
           });
         }}
         centeredSlides={true}
-        loop={true}
+        // loop={true}
         initialSlide={2}
         className={styles.swiper}
         breakpoints={{
           0: {
             slidesPerView: 1.5,
-            spaceBetween: 10,
+            spaceBetween: 10, // reduced from 10
           },
           640: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 20, // reduced from 20
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 30, // reduced from 30
           },
           1280: {
             slidesPerView: 5,
-            spaceBetween: 60,
+            spaceBetween: 60, // reduced from 60
           },
         }}
       >
-        {testimonials.map((testimonial, index) => (
-          <SwiperSlide key={index} className={styles.slide}>
-            <CommonCardComment
-              text={testimonial.text}
-              name={testimonial.name}
-              date={testimonial.date}
-              imageUrl={testimonial.imageUrl}
-              isActive={index === activeIndex}
-            />
-          </SwiperSlide>
-        ))}
+        {testimonials.map((testimonial, index) => {
+          const diff = index - activeIndex;
+          const isHidden = diff === 2 || diff === -2;
+
+          return (
+            <SwiperSlide key={index} className={styles.slide}>
+              <CommonCardComment
+                text={testimonial.text}
+                name={testimonial.name}
+                date={testimonial.date}
+                imageUrl={testimonial.imageUrl}
+                isActive={index === activeIndex}
+                isHidden={isHidden}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
       <Button
-        size={isMid ? 'md' : 'lg'}
+        size={isMobile ? 'md' : 'lg'}
         isIconOnly
         onPress={() => swiperRef.current?.slidePrev()}
         className="absolute top-1/2 -translate-y-1/2 md:right-1/6 right-3 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition"
@@ -125,7 +141,7 @@ export default function InfiniteCarousel() {
       </Button>
       <Button
         isIconOnly
-        size={isMid ? 'md' : 'lg'}
+        size={isMobile ? 'md' : 'lg'}
         onPress={() => swiperRef.current?.slideNext()}
         className="absolute top-1/2 -translate-y-1/2 md:left-1/6 left-3 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition "
       >
