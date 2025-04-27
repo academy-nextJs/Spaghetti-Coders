@@ -3,18 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { ClientButton } from "../../ClientUI";
 import BackPage from "../login/ui/back-page";
-import MultiInputOtp from "../../common/inputs/multi-input";
+import FromStep from "./Step3";
+import { VerificationStepProps } from "@/src/types/types";
 
-interface VerificationStepProps {
-    email: string;
-    onResendCode: () => void;
-    onBack: () => void;
-    onSubmit: () => void;
-}
-
-const VerificationStep = ({ email, onResendCode, onBack, onSubmit }: VerificationStepProps) => {
-    const [verificationCode, setVerificationCode] = useState(["", "", "", "", ""]);
+const VerificationStep = ({ email, onResendCode }: VerificationStepProps) => {
     const [timer, setTimer] = useState(120);
+    const [showNextStep, setShowNextStep] = useState(false);
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
     useEffect(() => {
@@ -37,24 +31,6 @@ const VerificationStep = ({ email, onResendCode, onBack, onSubmit }: Verificatio
         return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     };
 
-    const handleInputChange = (index: number, value: string) => {
-        if (!/^\d*$/.test(value)) return;
-
-        const newCode = [...verificationCode];
-        newCode[index] = value;
-        setVerificationCode(newCode);
-
-        if (value && index < 4) {
-            inputRefs.current[index + 1]?.focus();
-        }
-    };
-
-    const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Backspace' && !verificationCode[index] && index > 0) {
-            inputRefs.current[index - 1]?.focus();
-        }
-    };
-
     const handleResendCode = () => {
         setTimer(120);
         if (onResendCode) {
@@ -62,51 +38,35 @@ const VerificationStep = ({ email, onResendCode, onBack, onSubmit }: Verificatio
         }
     };
 
-    // const handleSubmit = (e: React.FormEvent) => {
-    //     e.preventDefault();
-    //     const code = verificationCode.join('');
-    //     if (code.length !== 5) {
-    //         alert("لطفا کد تأیید کامل را وارد کنید.");
-    //         return;
-    //     }
-    //     console.log("Submitting verification code:", code);
-    //     console.log("Calling onSubmit...");
-    //     onSubmit();
-    // };
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setShowNextStep(true);
+    };
+
+    if (showNextStep) {
+        return <FromStep />;
+    }
 
     return (
-        <div className="flex flex-col h-screen">
-            <div className="max-w-md w-[800px] mx-auto px-6 py-12">
+        <main className="min-h-screen flex flex-col">
+            <article className="max-w-md w-[800px] mx-auto px-6 py-12 flex-1">
                 <header className="flex flex-col mb-8">
-                    <div className="flex items-center gap-12 justify-between">
+                    <section className="flex items-center gap-12 justify-between">
                         <h1 className="text-3xl font-bold mb-4 text-right">ثبت نام در آلفا</h1>
-                        <BackPage onClick={onBack} />
-                    </div>
+                        <BackPage />
+                    </section>
                 </header>
 
-                <div className="flex items-center justify-between mb-4">
+                <section className="flex items-center justify-between mb-4">
                     <p className="text-sm text-[#767676] mb-12">
                         کد تایید ارسال شده به <span className="text-[#7575FE]">{email}</span> را وارد کنید
                     </p>
-                </div>
+                </section>
+
                 <span className="mb-4">کد تایید </span>
-                <form>
-                    {/* <div className="flex justify-center gap-2 mb-8 dir-ltr">
-                        {[0, 1, 2, 3, 4].map((index) => (
-                            <MultiInputOtp
-                                label="کد تایید"
-                                key={index}
-                                ref={(el: HTMLInputElement | null) => (inputRefs.current[index] = el)}
-                                type="text"
-                                maxLength={1}
-                                value={verificationCode[index]}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange(index, e.target.value)}
-                                onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => handleKeyDown(index, e)}
-                                className="w-14 h-14"
-                            />
-                        ))}
-                    </div> */}
-                    <div className="text-center mb-6">
+
+                <form onSubmit={handleSubmit}>
+                    <fieldset className="text-center mb-6">
                         <ClientButton
                             type="button"
                             onClick={handleResendCode}
@@ -115,7 +75,7 @@ const VerificationStep = ({ email, onResendCode, onBack, onSubmit }: Verificatio
                         >
                             {timer > 0 ? `ارسال مجدد کد تایید (${formatTime()})` : 'ارسال مجدد کد تایید'}
                         </ClientButton>
-                    </div>
+                    </fieldset>
 
                     <ClientButton
                         type="submit"
@@ -124,8 +84,8 @@ const VerificationStep = ({ email, onResendCode, onBack, onSubmit }: Verificatio
                         ارسال
                     </ClientButton>
                 </form>
-            </div>
-        </div>
+            </article>
+        </main>
     );
 };
 

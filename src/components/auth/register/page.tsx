@@ -6,11 +6,9 @@ const RegisterPage = () => {
     return (
         <section className="flex h-screen">
             <SvgBlue />
-         {/* <MultiStepRegister />  */}
             <section className="w-full md:w-1/2 flex items-center justify-center">
                 <FormStep1 />
             </section>
-
             <aside className="hidden md:block md:w-1/2 relative">
                 <ImageSlider />
             </aside>

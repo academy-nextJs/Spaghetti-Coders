@@ -79,7 +79,7 @@ export type UserProps = {
 export interface LandingCard2Props {
     text: string;
     count?: number;
-    src: string;
+    src?: string;
     href: string;
   }
 
@@ -99,5 +99,13 @@ export interface LoginBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElem
 width?: number;
 [key: string]: unknown;
 
+}
+
+
+export interface VerificationStepProps {
+    email: string;
+    onResendCode: () => void;
+    onBack: () => void;
+    onSubmit: () => void;
 }
 
