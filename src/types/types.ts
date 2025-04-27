@@ -35,7 +35,8 @@ export interface PersianInputProps extends Omit<InputProps, 'ref' | 'size'> {
 export type MultiInputOtpProps =  {
     value: string;
     onValueChange: (value: string) => void;
-    length?: number;
+  label?: string;
+      maxLength?: number;
 }
 
 

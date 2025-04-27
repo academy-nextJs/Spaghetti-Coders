@@ -1,3 +1,4 @@
+import LoginPage from '@/src/components/auth/Page';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Login() {
-    return <div>صفحه ورود</div>;
+    return <div><LoginPage /></div>;
 }

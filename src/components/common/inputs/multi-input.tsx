@@ -1,16 +1,35 @@
-import React from "react";
-import { InputOtp } from "@heroui/react";
-import { MultiInputOtpProps } from "@/src/types/types";
+import React, { forwardRef } from "react";
 
-
-
-export function MultiInputOtp({ value, onValueChange, length = 5, ...props }: MultiInputOtpProps) {
-    return (
-        <InputOtp
-            length={length}
-            value={value}
-            onValueChange={onValueChange}
-            {...props}
-        />
-    );
+interface MultiInputOtpProps {
+    label: string;
+    type: string;
+    maxLength: number;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+    className: string;
 }
+
+const MultiInputOtp = forwardRef<HTMLInputElement, MultiInputOtpProps>(
+    ({ label, type, maxLength, value, onChange, onKeyDown, className }, ref) => {
+        return (
+            <div>
+                <input
+                    type={type}
+                    maxLength={maxLength}
+                    value={value}
+                    onChange={onChange}
+                    onKeyDown={onKeyDown}
+                    className={className}
+                    ref={ref}
+                    aria-label={label}
+                />
+            </div>
+        );
+    }
+);
+
+// اضافه کردن displayName برای دیباگ بهتر
+MultiInputOtp.displayName = "MultiInputOtp";
+
+export default MultiInputOtp;
