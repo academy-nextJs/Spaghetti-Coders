@@ -5,7 +5,7 @@ import { ClientButton } from "../../common/Buttons/common-btn";
 
 export default function LandingDiscountedSection() {
   return (
-    <div className="relative flex flex-col gap-8">
+    <div className="relative flex flex-col gap-6">
       <div className='absolute -top-28 -left-96 -z-10 w-[500px] aspect-square bg-radial from-[#7575fe96] to-white blur-[100px]' />
       <div className="flex flex-col gap-4">
         <MyChip size="lg" className="bg-transparent border border-[#7575FE] text-[#7575FE] font-black py-6 px-3">
