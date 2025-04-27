@@ -73,13 +73,6 @@ const FormStep1 = () => {
                             ارسال کد تایید
                         </ClientButton>
                     </form>
-
-                    <footer className="flex gap-1 justify-center items-center mt-6 text-sm">
-                        <span>حساب کاربری دارید؟</span>
-                        <button className="text-[#7575FE] underline">
-                            ورود به حساب
-                        </button>
-                    </footer>
                 </article>
             </main>
         )

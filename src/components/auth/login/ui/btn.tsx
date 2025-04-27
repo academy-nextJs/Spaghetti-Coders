@@ -9,12 +9,12 @@ const Btn = () => {
                 <ClientButton
                     label="ورود با گوگل"
                     svg={<GoogleIcon />}
-                    className="flex items-center justify-center gap-1 bg-white border-1 border-[#F0F0F0] rounded-full py-3 px-2 w-1/2"
+                    className="flex items-center justify-center gap-1 bg-white border-1 border-[#d5d2d2] rounded-full py-3 px-2 w-1/2"
                 />
                 <ClientButton
                     label="ورود با اپل"
                     svg={<AppleIcon />}
-                    className="flex items-center justify-center gap-1 bg-white border-1 border-[#F0F0F0] rounded-full py-3 px-4 w-1/2"
+                    className="flex items-center justify-center gap-1 bg-white border-1 border-[#d5d2d2] rounded-full py-3 px-4 w-1/2"
                 />
             </section>
 
