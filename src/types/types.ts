@@ -16,9 +16,18 @@ export interface CarouselProps {
   children: ReactNode[];
   slidesPerView?: number;
   spaceBetween?: number;
+  breakpoints?: {
+    [width: number]: {
+      slidesPerView?: number;
+      spaceBetween?: number;
+    };
+  };
+  centeredSlidesBounds?: boolean;
+  centerInsufficientSlides?: boolean;
   className?: string;
+  houseCarousel?: boolean;
+  landingCardsCarousel?: boolean;
 }
-
 export type FilterModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -60,6 +69,7 @@ export type PersianSelectProps = {
   onChange: (value: string) => void;
   className?: string;
   labelClass?: string;
+  size: 'sm' | 'md' | 'lg' | undefined;
 };
 
 export type ClientButtonProps = ButtonProps & {
@@ -80,6 +90,10 @@ export interface LandingCard2Props {
   count?: number;
   src?: string;
   href: string;
+  name?: string;
+  description?: string;
+  avatarProps?: object;
+  className?: string;
 }
 
 export interface CommonCardCommentProps {
@@ -88,7 +102,7 @@ export interface CommonCardCommentProps {
   date?: string;
   imageUrl?: string;
   isActive?: boolean;
-  isHidden?:boolean
+  isHidden?: boolean;
 }
 
 export interface LoginBtnProps
@@ -98,4 +112,23 @@ export interface LoginBtnProps
   height?: number;
   width?: number;
   [key: string]: unknown;
+}
+
+export interface SectionTopProps {
+  mainText?: string | React.ReactNode[];
+  subText?: string | React.ReactNode[];
+  chipText?: string;
+  children?: ReactNode;
+}
+export interface HouseCardProps {
+  title: string;
+  location: string;
+  bathroom: number;
+  bedroom: number;
+  parking: number;
+  yard?: boolean;
+  price: number;
+  originalPrice?: number;
+  rating?: number;
+  discountPercentage?: number;
 }

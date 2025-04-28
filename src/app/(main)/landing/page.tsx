@@ -1,7 +1,8 @@
 import React from 'react';
 import api from '@/src/services/api';
-import CategoryCarousel from '@/src/components/landingCategory/categoryCarousel';
 import InfiniteCarousel from '@/src/components/common/InfiniteCarousel';
+import DreamSection from '@/src/components/dreamDestination/dreamSectionContainer';
+import CategoryCarousel from '@/src/components/Landing/landingCategory/categoryCarousel';
 
 export default async function LandingPage() {
   const { data } = await api.get('/categories')
@@ -17,6 +18,7 @@ export default async function LandingPage() {
         </h2>
         <InfiniteCarousel />
       </section>
+      <DreamSection />
     </div>
   );
 }
