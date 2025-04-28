@@ -30,7 +30,7 @@ export default function RootLayout({
         </footer>
 
 
-<div id="modal-root"></div>
+        <div id="modal-root"></div>
       </body>
     </html>
   );

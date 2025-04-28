@@ -16,7 +16,17 @@ export interface CarouselProps {
   children: ReactNode[];
   slidesPerView?: number;
   spaceBetween?: number;
+  breakpoints?: {
+    [width: number]: {
+      slidesPerView?: number;
+      spaceBetween?: number;
+    };
+  };
+  centeredSlidesBounds?: boolean;
+  centerInsufficientSlides?: boolean;
   className?: string;
+  houseCarousel?: boolean;
+  landingCardsCarousel?: boolean;
 }
 
 export type FilterModalProps = {
@@ -81,6 +91,12 @@ export interface LandingCard2Props {
     src?: string;
     href: string;
   }
+// export interface LandingCard2Props {
+//     text: string;
+//     count?: number;
+//     src: string;
+//     href: string;
+//   }
 
 
 export interface CommonCardCommentProps {
@@ -109,4 +125,17 @@ export type CustomBreadcrumbsProps = {
     itemClasses?: {
         item?: string;
     };
+}
+
+export interface HouseCardProps {
+  title: string;
+  location: string;
+  bathroom: number;
+  bedroom: number;
+  parking: number;
+  yard?: boolean; 
+  price: number;
+  originalPrice?: number;
+  rating?: number;
+  discountPercentage?: number;
 }
