@@ -4,6 +4,8 @@ import InfiniteCarousel from '@/src/components/common/InfiniteCarousel';
 import DreamSection from '@/src/components/dreamDestination/dreamSectionContainer';
 import CategoryCarousel from '@/src/components/landingCategory/categoryCarousel';
 import { SectionTop } from '@/src/components/common/sectionTop';
+import HeroSection from '@/src/components/HomeContainer/HeroSection/HeroSection';
+
 
 export default async function LandingPage() {
   const { data } = await api.get('/categories');
@@ -11,6 +13,7 @@ export default async function LandingPage() {
   return (
     <div>
       <h1>Landing Page</h1>
+      <HeroSection />
       <CategoryCarousel data={data} />
 
       <DreamSection />
