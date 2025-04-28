@@ -1,0 +1,8 @@
+.slide {
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
+  transition: transform 0.3s, z-index 0.3s;
+}
