@@ -8,21 +8,20 @@ export default function FilterPanel() {
     const [minPrice, setMinPrice] = useState(1500000);
     const [maxPrice, setMaxPrice] = useState(5500000);
 
-    const handleReset = () => {
-        setDestination('');
-        setSortBy('');
-        setMinPrice(1500000);
-        setMaxPrice(5500000);
-        setHotelFacilities('');
-        setHotelRating('');
-    };
+    // const handleReset = () => {
+    //     setDestination('');
+    //     setSortBy('');
+    //     setMinPrice(1500000);
+    //     setMaxPrice(5500000);
+    //     setHotelFacilities('');
+    //     setHotelRating('');
+    // };
 
     return (
         <div className="p-6 bg-white rounded-xl shadow-md w-full max-w-md mx-auto">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="font-bold text-lg">فیلتر ها</h2>
                 <ClientButton 
-                
                     svg={<SvgDelete />}
                     className="text-red-500 text-sm flex bg-white items-center">
                     حذف همه 
@@ -74,10 +73,6 @@ export default function FilterPanel() {
                 </Select>
             </div>
                 
-
-
-
-
             <div className="flex gap-4">
                  <ClientButton  className="flex-1 w-[79px] ">
                     بستن
