@@ -2,8 +2,12 @@ import { ClockTimerIcon } from "@/src/assets/SGVs";
 import { MyChip } from "../../common/Buttons/Chip-btn";
 import LandingCarousel from "../LandingCarousel/LandingCarousel";
 import { ClientButton } from "../../common/Buttons/common-btn";
+import api from "@/src/services/api";
 
-export default function LandingDiscountedSection() {
+export default async function LandingDiscountedSection() {
+  const { data } = await api.get('/houses?page=1&limit=8&sort=price&order=DESC')
+  if(!data) throw new Error('Failed to fetch Discounted Houses, Please try again later.')
+
   return (
     <div className="relative flex flex-col gap-6">
       <div className='absolute -top-28 -left-96 -z-10 w-[500px] aspect-square bg-radial from-[#7575fe96] to-white blur-[100px]' />
@@ -29,7 +33,7 @@ export default function LandingDiscountedSection() {
           <ClientButton size="lg" className="bg-[#7575FE] text-white py-6 mr-auto inline-flex">مشاهده همه</ClientButton>
         </div>
       </div>
-      <LandingCarousel />
+      <LandingCarousel data={data} discountedSection />
     </div>
   );
 }
