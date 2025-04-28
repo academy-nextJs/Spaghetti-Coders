@@ -16,6 +16,7 @@ export default function Carousel({
   slidesPerView = 3,
   spaceBetween = 30,
   className,
+  breakpoints
 }: CarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -50,17 +51,7 @@ export default function Carousel({
         spaceBetween={spaceBetween}
         modules={[Navigation]}
         className="mySwiper"
-        breakpoints={{
-          0: {
-            slidesPerView: slidesPerView-2,
-          },
-          768: {
-            slidesPerView: slidesPerView-1,
-          },
-          1280: {
-            slidesPerView: slidesPerView,
-          },
-        }}
+        breakpoints={breakpoints}
       >
         {children.map((child, index) => (
           <SwiperSlide key={index}>{child}</SwiperSlide>

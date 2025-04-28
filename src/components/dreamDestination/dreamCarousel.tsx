@@ -41,9 +41,20 @@ export default function DreamCarousel() {
   }, []);
   if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
+  const breakpoints = {
+    0: {
+      slidesPerView: 3.5-2,
+    },
+    768: {
+      slidesPerView: 3.5-1,
+    },
+    1280: {
+      slidesPerView: 3.5,
+    },
+  }
   return (
     <>
-      <Carousel slidesPerView={3.5}>
+      <Carousel slidesPerView={3.5} breakpoints={breakpoints}>
         {locations.map((item) => (
           <LandingCard2
             key={item.id}
