@@ -10,6 +10,7 @@ import Link from 'next/link';
 import DrawerAccordion from './drawerAccordion';
 import HamburgerMenu from '@/src/assets/menu-burger.svg'
 import Image from 'next/image';
+import { ThemeSwitcher } from '../ThemSwitcher';
 
 export function HeaderDrawer() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -40,6 +41,7 @@ export function HeaderDrawer() {
             <>
               <DrawerHeader className="flex flex-col gap-1">منو</DrawerHeader>
               <DrawerBody>
+                <ThemeSwitcher isMobile={true}/>
                 <Link href="/">خانه</Link>
                 <Link href="">مقالات</Link>
                 <Link href="">درباره آلفا</Link>
