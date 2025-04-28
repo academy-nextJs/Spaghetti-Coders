@@ -8,7 +8,7 @@ import { HeaderDrawer } from './drawer';
 
 export default function Header() {
   return (
-    <>
+    <header className="relative flex items-center justify-between w-full overflow-hidden">
       <div className="lg:hidden">
         <HeaderDrawer />
       </div>
@@ -20,7 +20,7 @@ export default function Header() {
         <ClientButton className="bg-[#F0F0F0] text-black h-12">مقالات</ClientButton>
         <ClientButton className="bg-[#F0F0F0] text-black h-12">درباره آلفا</ClientButton>
       </aside>
-      <Image src={Logo.src} alt="Logo" width={78} height={78} />
+      <Image src={Logo.src} alt="Logo" width={78} height={78} className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2' />
       <aside className="hidden lg:flex items-center gap-4">
         <HeaderOptionSelect />
         <HeaderFastSelect />
@@ -30,6 +30,6 @@ export default function Header() {
       <aside className='lg:hidden'>
         <ClientButton className="bg-[#7575FE] text-white h-12">ثبت نام / ورود</ClientButton>
       </aside>
-    </>
+    </header>
   );
 }
