@@ -72,12 +72,15 @@ const SwiperSlider = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="absolute bottom-6 left-6 flex gap-10 z-10">
-                <MyCircularProgress />
-                <div className="custom-prev w-[56px] h-[56px] cursor-pointer">
+
+            <div className="absolute bottom-6 left-6 flex gap-2 z-10">
+                <div className=' pt-3 pr-2 '>
+                    <MyCircularProgress />
+                </div>
+                <div className="custom-prev w-[56px] h-[56px] ml-8 cursor-pointer">
                     <SvgRightSlider />
                 </div>
-                <div className="custom-next w-[56px] h-[56px] cursor-pointer rotate-180">
+                <div className="custom-next w-[56px] h-[56px] mt-1 cursor-pointer rotate-180">
                     <SvgLeftSlider />
                 </div>
             </div>
