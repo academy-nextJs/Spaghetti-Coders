@@ -5,11 +5,15 @@ import { ClientButton } from "../../ClientUI";
 import BackPage from "../login/ui/back-page";
 import FromStep from "./Step3";
 import { VerificationStepProps } from "@/src/types/types";
+import OtpField from "../../common/inputs/multi-input";
+import { SvgClock } from "@/src/assets/svgs";
 
-const VerificationStep = ({ email, onResendCode }: VerificationStepProps) => {
+const VerificationStep = ({ email }: VerificationStepProps) => {
     const [timer, setTimer] = useState(120);
     const [showNextStep, setShowNextStep] = useState(false);
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+
 
     useEffect(() => {
         inputRefs.current = inputRefs.current.slice(0, 5);
@@ -25,18 +29,6 @@ const VerificationStep = ({ email, onResendCode }: VerificationStepProps) => {
         return () => clearInterval(countdown);
     }, [timer]);
 
-    const formatTime = () => {
-        const minutes = Math.floor(timer / 60);
-        const seconds = timer % 60;
-        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    };
-
-    const handleResendCode = () => {
-        setTimer(120);
-        if (onResendCode) {
-            onResendCode();
-        }
-    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -64,19 +56,22 @@ const VerificationStep = ({ email, onResendCode }: VerificationStepProps) => {
                 </section>
 
                 <span className="mb-4">کد تایید </span>
+                <OtpField
+                    description=""
+                    length={5}
+                    isInvalid={false}
+                    errorMessage="کد وارد شده صحیح نیست."
+                />
+                <div className="flex flex-row gap-1">
+                    <ClientButton
+                        label="01:20"
+                        className="bg-[#7575FE30] text-[#7575FE]"
+                        svg={<SvgClock />}
+                    />
+                    <span className="text-[#767676] text-xs mt-3">بعد از اتمام 2 دقیقه ارسال مجدد فعال میشود</span>
+                </div>
 
                 <form onSubmit={handleSubmit}>
-                    <fieldset className="text-center mb-6">
-                        <ClientButton
-                            type="button"
-                            onClick={handleResendCode}
-                            disabled={timer > 0}
-                            className={`text-sm bg-gray-200 mt-2 ${timer > 0 ? 'text-gray-400' : 'text-blue-600'}`}
-                        >
-                            {timer > 0 ? `ارسال مجدد کد تایید (${formatTime()})` : 'ارسال مجدد کد تایید'}
-                        </ClientButton>
-                    </fieldset>
-
                     <ClientButton
                         type="submit"
                         className="w-full bg-[#7575FE] text-white rounded-full py-3 mt-4"

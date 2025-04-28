@@ -1,35 +1,12 @@
-import React, { forwardRef } from "react";
+import { InputOtp } from "@heroui/react";
 
-interface MultiInputOtpProps {
-    label: string;
-    type: string;
-    maxLength: number;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-    className: string;
+export default function OtpField(props) {
+    return (
+        <div className="flex w-full justify-center flex-wrap md:flex-nowrap gap-8">
+            <InputOtp
+                {...props}
+                inputClassName="rounded-full border-gray-300 focus:border-primary focus:ring-0 text-center"
+            />
+        </div>
+    );
 }
-
-const MultiInputOtp = forwardRef<HTMLInputElement, MultiInputOtpProps>(
-    ({ label, type, maxLength, value, onChange, onKeyDown, className }, ref) => {
-        return (
-            <div>
-                <input
-                    type={type}
-                    maxLength={maxLength}
-                    value={value}
-                    onChange={onChange}
-                    onKeyDown={onKeyDown}
-                    className={className}
-                    ref={ref}
-                    aria-label={label}
-                />
-            </div>
-        );
-    }
-);
-
-// اضافه کردن displayName برای دیباگ بهتر
-MultiInputOtp.displayName = "MultiInputOtp";
-
-export default MultiInputOtp;
