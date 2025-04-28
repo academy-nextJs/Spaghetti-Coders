@@ -16,7 +16,17 @@ export interface CarouselProps {
   children: ReactNode[];
   slidesPerView?: number;
   spaceBetween?: number;
+  breakpoints?: {
+    [width: number]: {
+      slidesPerView?: number;
+      spaceBetween?: number;
+    };
+  };
+  centeredSlidesBounds?: boolean;
+  centerInsufficientSlides?: boolean;
   className?: string;
+  houseCarousel?: boolean;
+  landingCardsCarousel?: boolean;
 }
 
 export type FilterModalProps = {
@@ -92,3 +102,16 @@ width?: number;
 
 }
 
+
+export interface HouseCardProps {
+  title: string;
+  location: string;
+  bathroom: number;
+  bedroom: number;
+  parking: number;
+  yard?: boolean; 
+  price: number;
+  originalPrice?: number;
+  rating?: number;
+  discountPercentage?: number;
+}
