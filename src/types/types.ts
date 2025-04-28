@@ -5,7 +5,7 @@ import { ButtonProps } from "@heroui/react";
 export interface LandingCard2Props {
   text: string;
   count?: number;
-  src?: string;
+  src: string;
   href: string;
 }
 export interface Category {
