@@ -1,7 +1,6 @@
-
 import React from 'react';
 import api from '@/src/services/api';
-import CategoryCarousel from '@/src/components/landingCategory/categoryCarousel';
+import CategoryCarousel from '@/src/components/Landing/landingCategory/categoryCarousel';
 import DreamSection from '@/src/components/dreamDestination/dreamSectionContainer';
 
 export default async function LandingPage() {
@@ -9,8 +8,8 @@ export default async function LandingPage() {
   return (
     <div>
       <h1>Landing Page</h1>
-      <CategoryCarousel data={data}/>
-      <DreamSection/>
+      <CategoryCarousel data={data} />
+      <DreamSection />
     </div>
   );
 }

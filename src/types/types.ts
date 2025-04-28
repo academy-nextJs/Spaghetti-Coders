@@ -83,7 +83,6 @@ export type UserProps = {
     className?: string;
 }
 
-
 export interface CommonCardCommentProps {
   text?: string;
   name?: string;
@@ -106,4 +105,16 @@ export interface SectionTopProps {
   subText?: string | React.ReactNode[];
   chipText?: string;
   children?: ReactNode;
+}
+export interface HouseCardProps {
+  title: string;
+  location: string;
+  bathroom: number;
+  bedroom: number;
+  parking: number;
+  yard?: boolean; 
+  price: number;
+  originalPrice?: number;
+  rating?: number;
+  discountPercentage?: number;
 }
