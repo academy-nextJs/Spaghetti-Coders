@@ -15,7 +15,7 @@ export default function Header() {
         <HeaderDrawer />
       </div>
       <aside className="hidden lg:flex items-center gap-4">
-        <Link href='/'>
+        <Link href="/">
           <ClientButton className="bg-[#F0F0F0] text-black h-12 flex">
             <div className="rounded-full bg-black w-2 h-2"></div>
             خانه
@@ -29,7 +29,13 @@ export default function Header() {
         </ClientButton>
         <ThemeSwitcher />
       </aside>
-      <Image className='absolute left-1/2 transform -translate-x-1/2' src={Logo.src} alt="Logo" width={78} height={78} />
+      <Image
+        className="absolute left-1/2 transform -translate-x-1/2 dark:invert-100"
+        src={Logo.src}
+        alt="Logo"
+        width={78}
+        height={78}
+      />
       <aside className="hidden lg:flex items-center gap-4">
         <HeaderOptionSelect />
         <HeaderFastSelect />

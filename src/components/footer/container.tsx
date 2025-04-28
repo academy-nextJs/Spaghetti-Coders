@@ -9,7 +9,7 @@ import InfowRow from './infowRow';
 export default function FooterContainer() {
   return (
     <>
-      <Image src={Logo.src} alt="Logo" width={96} height={96} />
+      <Image src={Logo.src} alt="Logo" className='dark:invert-100' width={96} height={96} />
       <InfowRow/>
       <div className="flex gap-3">
         <div className="p-2 rounded-2xl bg-white">
