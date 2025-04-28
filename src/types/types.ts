@@ -1,4 +1,4 @@
-import { InputProps } from "@heroui/react";
+import { InputProps, PaginationItemRenderProps } from "@heroui/react";
 import { ReactNode } from "react";
 import { ButtonProps } from "@heroui/react";
 
@@ -100,3 +100,15 @@ width?: number;
 
 }
 
+
+export type CustomPaginationProps = {
+    className?: string;
+    total?: number;
+    initialPage?: number;
+    radius?: "none" | "sm" | "md" | "lg" | "full";
+    variant?: "light" | "solid" | "bordered" | string;
+    showControls?: boolean;
+    disableCursorAnimation?: boolean;
+    renderItem?: (props: PaginationItemRenderProps) => React.ReactNode;
+    onChange?: (page: number) => void;
+};
