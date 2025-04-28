@@ -1,8 +1,10 @@
+import LandingShinyAlphaSection from "../components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection";
+
 export default function Home() {
   return (
     <>
-      <div>
-        LandingPage
+      <div className="pt-10">
+        <LandingShinyAlphaSection />
       </div>
     </>
   );
