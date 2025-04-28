@@ -2,8 +2,12 @@
 import { MyChip } from "../../common/Buttons/Chip-btn";
 import LandingCarousel from "../LandingCarousel/LandingCarousel";
 import { ClientButton } from "../../common/Buttons/common-btn";
+import api from "@/src/services/api";
 
-export default function LandingBuySellSection() {
+export default async function LandingBuySellSection() {
+  const { data } = await api.get('/houses?page=1&limit=8&sort=rate&order=DESC')
+  if(!data) throw new Error('Failed to fetch Hot Houses, Please try again later.')
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
@@ -18,7 +22,7 @@ export default function LandingBuySellSection() {
           <ClientButton size="lg" className="bg-[#7575FE] text-white py-6 mr-auto inline-flex">مشاهده همه</ClientButton>
         </div>          
       </div>
-      <LandingCarousel />
+      <LandingCarousel data={data} />
     </div>
   );
 }
