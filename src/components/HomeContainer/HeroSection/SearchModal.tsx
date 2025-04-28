@@ -1,11 +1,12 @@
 
 
+
 import { FilterModalProps } from '@/src/types/types';
 import { Select, SelectItem } from '@heroui/react';
 import ReactDOM from 'react-dom';
-import { ClientButton } from '../../common/Buttons/common-btn';
 import Calender from '../../common/Calender/calender';
 import CommonInput from '../../common/inputs/input-btn';
+import { ClientButton } from '../../common/Buttons/common-btn';
 
 const SearchModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -18,7 +19,7 @@ const SearchModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
 
   return ReactDOM.createPortal(
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/30 backdrop-blur-xs"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-gray-500"
       onClick={handleBackgroundClick}
     >
       <aside className="w-[700px] rounded-xl bg-white p-6 shadow-xl relative">
