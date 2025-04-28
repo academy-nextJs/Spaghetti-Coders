@@ -28,6 +28,7 @@ export function ThemeSwitcher({ isMobile = false }) {
           checked={isDark}
           onChange={handleToggle}
           size="lg"
+          color='secondary'
           startContent={<Sun01Icon />}
           endContent={<Moon02Icon />}
         >
