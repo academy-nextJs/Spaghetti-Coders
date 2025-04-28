@@ -17,6 +17,7 @@ export interface CarouselProps {
   slidesPerView?: number;
   spaceBetween?: number;
   className?: string;
+  houseCarousel?: boolean;
 }
 
 export type FilterModalProps = {
@@ -75,12 +76,12 @@ export type UserProps = {
 }
 
 
-export interface LandingCard2Props {
-    text: string;
-    count?: number;
-    src: string;
-    href: string;
-  }
+// export interface LandingCard2Props {
+//     text: string;
+//     count?: number;
+//     src: string;
+//     href: string;
+//   }
 
 
 export interface CommonCardCommentProps {
@@ -100,3 +101,16 @@ width?: number;
 
 }
 
+
+export interface HouseCardProps {
+  title: string;
+  location: string;
+  bathroom: number;
+  bedroom: number;
+  parking: number;
+  yard?: boolean; 
+  price: number;
+  originalPrice?: number;
+  rating?: number;
+  discountPercentage?: number;
+}
