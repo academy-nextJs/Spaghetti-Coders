@@ -126,7 +126,6 @@ export interface HouseCardProps {
   parking?: number;
   capacity?: number;
   yardType?: string; 
-  yard?: boolean;
   price: number;
   originalPrice?: number;
   rating?: number;
@@ -139,6 +138,18 @@ export interface HouseCardProps {
 export interface LandingCarouselProps {
   data: ApartmentDataType[]; 
   discountedSection?: boolean; 
+}
+
+export interface MortgageCardProps {
+  title: string;
+  address: string;
+  bathroom?: number;
+  bedroom?: number;
+  parking?: number;
+  capacity?: number;
+  yardType?: string; 
+  price: number;
+  photos: string;
 }
 
 // API Types Below👇
