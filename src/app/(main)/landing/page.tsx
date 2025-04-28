@@ -5,6 +5,7 @@ import DreamSection from '@/src/components/dreamDestination/dreamSectionContaine
 import CategoryCarousel from '@/src/components/landingCategory/categoryCarousel';
 import { SectionTop } from '@/src/components/common/sectionTop';
 import HeroSection from '@/src/components/HomeContainer/HeroSection/HeroSection';
+import LandingShinyAlphaSection from '@/src/components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection';
 
 
 export default async function LandingPage() {
@@ -25,6 +26,7 @@ export default async function LandingPage() {
           ]}
         />
         <InfiniteCarousel />
+        <LandingShinyAlphaSection />
       </section>
     </div>
   );
