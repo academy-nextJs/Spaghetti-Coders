@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper/types';
 import { Navigation } from 'swiper/modules';
@@ -11,7 +11,7 @@ import { CarouselProps } from '@/src/types/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { LeftArrowIcon, RightArrowIcon } from '@/src/assets/SGVs';
+import { LeftArrowIcon, RightArrowIcon } from '@/src/assets/sgvs';
 
 export default function Carousel({
   children,
@@ -27,9 +27,22 @@ export default function Carousel({
   const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div className={'relative ' + className}>
       <Swiper
@@ -60,7 +73,7 @@ export default function Carousel({
 
       {!isBeginning && !landingCardsCarousel && (
         <Button
-          size="lg"
+          size={isMobile? 'md': 'lg'}
           isIconOnly
           onPress={() => swiperRef.current?.slidePrev()}
           className={`absolute top-1/2 -translate-y-1/2 z-10 rounded-full shadow-lg hover:shadow-xl transition ${houseCarousel ? 'right-2 bg-[#F9F9F970]' : '-right-6 bg-white'}`}
@@ -72,7 +85,7 @@ export default function Carousel({
       {!isEnd && !landingCardsCarousel && (
         <Button
           isIconOnly
-          size="lg"
+          size={isMobile? 'md': 'lg'}
           onPress={() => swiperRef.current?.slideNext()}
           className={`absolute top-1/2 -translate-y-1/2 z-10 rounded-full shadow-lg hover:shadow-xl transition ${houseCarousel ? 'left-2 bg-[#F9F9F970]' : '-left-6 bg-white'}`}
         >

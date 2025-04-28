@@ -28,7 +28,6 @@ export interface CarouselProps {
   houseCarousel?: boolean;
   landingCardsCarousel?: boolean;
 }
-
 export type FilterModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -84,15 +83,6 @@ export type UserProps = {
     className?: string;
 }
 
-
-// export interface LandingCard2Props {
-//     text: string;
-//     count?: number;
-//     src: string;
-//     href: string;
-//   }
-
-
 export interface CommonCardCommentProps {
   text?: string;
   name?: string;
@@ -110,7 +100,12 @@ width?: number;
 
 }
 
-
+export interface SectionTopProps {
+  mainText?: string | React.ReactNode[];
+  subText?: string | React.ReactNode[];
+  chipText?: string;
+  children?: ReactNode;
+}
 export interface HouseCardProps {
   title: string;
   location: string;
