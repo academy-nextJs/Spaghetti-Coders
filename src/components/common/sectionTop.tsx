@@ -5,7 +5,7 @@ import { SectionTopProps } from '@/src/types/types';
 export function SectionTop({
   mainText = '',
   subText = '',
-  chipText = '',
+  chipText,
   children,
 }: SectionTopProps) {
   const renderMultilineText = (text: string | React.ReactNode[]) => {
@@ -17,7 +17,7 @@ export function SectionTop({
         </React.Fragment>
       ));
     }
-    
+
     return text.split('\n').map((line, i) => (
       <React.Fragment key={`line-${i}`}>
         {line}
@@ -25,10 +25,14 @@ export function SectionTop({
       </React.Fragment>
     ));
   };
-  
+
   return (
     <div className="flex flex-col gap-6">
-      <MyChip className='bg-transparent text-[#7575FE] border-1 border-[#7575FE]'>{chipText}</MyChip>
+      {chipText && (
+        <MyChip className="bg-transparent text-[#7575FE] border-1 border-[#7575FE]">
+          {chipText}
+        </MyChip>
+      )}
 
       {/* Main Text */}
       <h1 className="text-3xl font-bold whitespace-pre-line animate-bounce">
