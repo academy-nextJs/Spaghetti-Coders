@@ -9,7 +9,7 @@ export default function FilterPanel() {
     const [maxPrice, setMaxPrice] = useState(5500000);
 
     return (
-        <div className="p-6 bg-white rounded-xl w-full border-1 border-gray-200 h-[600px] max-w-md mx-auto">
+        <div className="p-6 bg-white rounded-2xl w-full border-1 border-gray-200 h-[600px] max-w-md mx-auto">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="font-bold text-2xl">فیلتر ها</h2>
                 <ClientButton
