@@ -7,6 +7,10 @@ body {
   font-family: 'Noto Sans Arabic', sans-serif;
   font-weight: 600;
 }
+@theme inline {
+  --color-darkMode: #57534d;
+  --color-darkModText: white;
+  --color-darkModSubText:  #d6d3d1
 .circle {
   width: 300px;
   height: 300px;
