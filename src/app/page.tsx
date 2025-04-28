@@ -1,4 +1,4 @@
-import FilterPanel from "../components/common/fFlter-house-reserve/FilterModal";
+import FilterPanel from "../components/common/Filter-house-reserve/FilterModal";
 // import LandingShinyAlphaSection from "../components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection";
 
 export default function Home() {
