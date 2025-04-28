@@ -1,12 +1,10 @@
-import LandingBuySellSection from "../components/Landing/LandingBuySellSection/LandingBuySellSection";
-import LandingDiscountedSection from "../components/Landing/LandingDiscountedSection/LandingDiscountedSection";
+import LandingShinyAlphaSection from "../components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection";
 
 export default function Home() {
   return (
     <>
       <div className="pt-10">
-        <LandingDiscountedSection />
-        <LandingBuySellSection />
+        <LandingShinyAlphaSection />
       </div>
     </>
   );
