@@ -60,7 +60,7 @@ export default function InfiniteCarousel() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative mt-5 w-full">
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => {
@@ -73,25 +73,25 @@ export default function InfiniteCarousel() {
               slideEl.style.transform = 'scale(1)';
               slideEl.style.zIndex = '3';
             } else if (diff === 1) {
-              slideEl.style.transform = 'scale(0.8)'; // updated scale for diff === 1
+              slideEl.style.transform = 'scale(0.8) translateX( -80px)';
               slideEl.style.zIndex = '2';
             } else if (diff === -1) {
-              slideEl.style.transform = 'scale(0.8)'; // updated scale for diff === 1
+              slideEl.style.transform = 'scale(0.8) translateX( 80px)';
               slideEl.style.zIndex = '2';
             } else if (diff === 2) {
-              slideEl.style.transform = 'scale(0.6) translateX(120px)'; // added translateX for diff === 2
+              slideEl.style.transform = 'scale(0.6) translateX( -80px)';
               slideEl.style.zIndex = '1';
             } else if (diff === -2) {
-              slideEl.style.transform = 'scale(0.6) translateX(-120px)'; // added translateX for diff === 2
+              slideEl.style.transform = 'scale(0.6) translateX( 80px)';
               slideEl.style.zIndex = '1';
             } else {
-              slideEl.style.transform = 'scale(0.5)'; // updated scale for other diffs
+              slideEl.style.transform = 'scale(0.5)';
               slideEl.style.zIndex = '0';
             }
           });
         }}
         centeredSlides={true}
-        // loop={true}
+        loop={true}
         initialSlide={2}
         className={styles.swiper}
         breakpoints={{
@@ -109,7 +109,7 @@ export default function InfiniteCarousel() {
           },
           1280: {
             slidesPerView: 5,
-            spaceBetween: 60, // reduced from 60
+            spaceBetween: 90, // reduced from 60
           },
         }}
       >
@@ -135,7 +135,7 @@ export default function InfiniteCarousel() {
         size={isMobile ? 'md' : 'lg'}
         isIconOnly
         onPress={() => swiperRef.current?.slidePrev()}
-        className="absolute top-1/2 -translate-y-1/2 md:right-1/6 right-3 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition"
+        className="absolute top-1/2 -translate-y-1/2 md:right-[10%] -right-2 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition"
       >
         <SlArrowRight color="black" size="1.5em" />
       </Button>
@@ -143,7 +143,7 @@ export default function InfiniteCarousel() {
         isIconOnly
         size={isMobile ? 'md' : 'lg'}
         onPress={() => swiperRef.current?.slideNext()}
-        className="absolute top-1/2 -translate-y-1/2 md:left-1/6 left-3 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition "
+        className="absolute top-1/2 -translate-y-1/2 md:left-[10%] -left-2 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition "
       >
         <SlArrowLeft color="black" size="1.5em" />
       </Button>
