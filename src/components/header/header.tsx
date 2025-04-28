@@ -4,6 +4,7 @@ import { HeaderFastSelect, HeaderOptionSelect } from './headerSelect';
 import Logo from '@/public/AlFA.svg';
 import Image from 'next/image';
 import { HeaderDrawer } from './drawer';
+import { ThemeSwitcher } from '../ThemSwitcher';
 import { ClientButton } from '../common/Buttons/common-btn';
 import Link from 'next/link';
 
@@ -26,6 +27,7 @@ export default function Header() {
         <ClientButton className="bg-[#F0F0F0] text-black h-12">
           درباره آلفا
         </ClientButton>
+        <ThemeSwitcher />
       </aside>
       <Image src={Logo.src} alt="Logo" width={78} height={78} />
       <aside className="hidden lg:flex items-center gap-4">
@@ -36,7 +38,8 @@ export default function Header() {
           ثبت نام / ورود
         </ClientButton>
       </aside>
-      <aside className="lg:hidden">
+      <aside className="lg:hidden flex gap-3">
+        <ThemeSwitcher />
         <ClientButton className="bg-[#7575FE] text-white h-12">
           ثبت نام / ورود
         </ClientButton>
