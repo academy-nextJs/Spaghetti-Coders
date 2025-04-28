@@ -11,4 +11,16 @@ body {
   --color-darkMode: #57534d;
   --color-darkModText: white;
   --color-darkModSubText:  #d6d3d1
+.circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #7575fe49 0%, transparent 70%);
+}
+.quarter-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 100% 0 0 0;
+  background: radial-gradient(circle at bottom right, #7575FE30 0%, transparent 70%);
+  overflow: hidden;
 }

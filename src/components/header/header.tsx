@@ -1,11 +1,12 @@
 import React from 'react';
-import { ClientButton } from '../ClientUI';
 import { Divider } from '@heroui/react';
 import { HeaderFastSelect, HeaderOptionSelect } from './headerSelect';
 import Logo from '@/public/AlFA.svg';
 import Image from 'next/image';
 import { HeaderDrawer } from './drawer';
 import { ThemeSwitcher } from '../ThemSwitcher';
+import { ClientButton } from '../common/Buttons/common-btn';
+import Link from 'next/link';
 
 export default function Header() {
   return (
@@ -14,10 +15,12 @@ export default function Header() {
         <HeaderDrawer />
       </div>
       <aside className="hidden lg:flex items-center gap-4">
-        <ClientButton className="bg-[#F0F0F0] text-black h-12 flex">
-          <div className="rounded-full bg-black w-2 h-2"></div>
-          خانه
-        </ClientButton>
+        <Link href='/'>
+          <ClientButton className="bg-[#F0F0F0] text-black h-12 flex">
+            <div className="rounded-full bg-black w-2 h-2"></div>
+            خانه
+          </ClientButton>
+        </Link>
         <ClientButton className="bg-[#F0F0F0] text-black h-12">
           مقالات
         </ClientButton>
