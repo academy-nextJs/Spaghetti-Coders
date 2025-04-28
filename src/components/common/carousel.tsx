@@ -11,7 +11,7 @@ import { CarouselProps } from '@/src/types/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { LeftArrowIcon, RightArrowIcon } from '@/src/assets/SGVs';
+import { LeftArrowIcon, PinPointDoubleIcon, RightArrowIcon } from '@/src/assets/SVGs';
 
 export default function Carousel({
   children,
@@ -23,6 +23,7 @@ export default function Carousel({
   className,
   houseCarousel = false,
   landingCardsCarousel = false,
+  locOnMap = false,
 }: CarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -58,7 +59,7 @@ export default function Carousel({
         ))}
       </Swiper>
 
-      {!isBeginning && !landingCardsCarousel && (
+      {!isBeginning && !landingCardsCarousel && !locOnMap && (
         <Button
           size="lg"
           isIconOnly
@@ -69,7 +70,7 @@ export default function Carousel({
         </Button>
       )}
 
-      {!isEnd && !landingCardsCarousel && (
+      {!isEnd && !landingCardsCarousel && !locOnMap && (
         <Button
           isIconOnly
           size="lg"
@@ -80,7 +81,7 @@ export default function Carousel({
         </Button>
       )}
 
-      {houseCarousel ? 
+      {houseCarousel && !locOnMap?
         <div className='absolute bottom-2 z-10 w-full flex justify-center'>
           <div className="w-7/12 flex gap-2 justify-center">
             {Array.from({ length: totalSlides }).map((_, index) => (
@@ -91,6 +92,13 @@ export default function Carousel({
               />
             ))}
           </div>
+        </div>
+        : null}
+
+      {locOnMap ? 
+        <div className="float-end group absolute bottom-2 left-2 z-10 inline-flex items-center justify-end text-sm font-medium text-white bg-[#7575FE] rounded-full p-1.5 overflow-hidden">
+          <span className='whitespace-nowrap max-w-0 group-hover:max-w-[10rem] group-hover:px-1.5 overflow-hidden transition-all duration-500 text-white'>نمایش داخل نقشه</span>  
+          <PinPointDoubleIcon /> 
         </div>
       : null}
     </div>

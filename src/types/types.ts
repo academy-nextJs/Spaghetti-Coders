@@ -24,6 +24,7 @@ export interface CarouselProps {
   className?: string;
   houseCarousel?: boolean;
   landingCardsCarousel?: boolean;
+  locOnMap?: boolean;
 }
 
 export type FilterModalProps = {
@@ -111,8 +112,8 @@ width?: number;
 export interface HouseCardProps {
   title: string;
   address: string;
-  bathroom: number;
-  bedroom: number;
+  bathroom?: number;
+  bedroom?: number;
   parking?: number;
   capacity?: number;
   yardType?: string; 
@@ -121,6 +122,8 @@ export interface HouseCardProps {
   rating?: number;
   discountPercentage?: number;
   photos: string[];
+  nights?: number;
+  locOnMap?: boolean;
 }
 
 export interface LandingCarouselProps {

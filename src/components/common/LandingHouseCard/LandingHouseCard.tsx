@@ -3,7 +3,7 @@
 import Image from "next/image";
 // import Pic from '@/public/Mansion.png'
 import { HouseCardProps } from "@/src/types/types";
-import { BathroomIcon, BedroomIcon, MapLocationIcon, ParkingIcon, PeopleCapacityIcon, RatingHeartIcon, TomanIcon, YardIcon } from "@/src/assets/SGVs";
+import { BathroomIcon, BedroomIcon, BellNightIcon, MapLocationIcon, ParkingIcon, PeopleCapacityIcon, RatingHeartIcon, TomanIcon, YardIcon } from "@/src/assets/SVGs";
 import Carousel from "../carousel";
 import Classes from './LandingHouseCard.module.css'
 
@@ -11,8 +11,8 @@ export default function LandingHouseCard(
   {
     title,
     address,
-    bathroom,
-    bedroom,
+    bathroom = 0,
+    bedroom = 0,
     parking = 0,
     capacity = 0,
     yardType,
@@ -20,11 +20,13 @@ export default function LandingHouseCard(
     originalPrice,
     rating,
     discountPercentage,
-    photos
+    photos,
+    nights = 0,
+    locOnMap,
   }: HouseCardProps) {
   return (
-    <div className="relative w-[300px] overflow-hidden">
-      <Carousel slidesPerView={1} houseCarousel>
+    <div className="relative max-w-[300px] overflow-hidden">
+      <Carousel slidesPerView={1} houseCarousel locOnMap={locOnMap}>
         {(photos || []).map((photo, index) => (
           <Image
             key={index}
@@ -52,56 +54,68 @@ export default function LandingHouseCard(
           </div>
           : null}
       </div>
+
       <div className="pt-3 flex flex-col gap-4">
         <h3 className="text-xl font-semibold text-right">{title}</h3>
 
-        <div className="flex items-center gap-1 text-right">
-          <MapLocationIcon />
-          <span className="font-medium">{address}</span>
+        <div className="flex flex-nowrap items-center gap-1 text-right">
+          <div className="flex items-center gap-1 flex-1 min-w-0">
+            <MapLocationIcon />
+            <span className="font-medium truncate">{address}</span>
+          </div>
+
+          {nights > 0 ?
+            <div className="flex items-center gap-1 flex-shrink-0">
+              <BellNightIcon />
+              <span className="font-medium">{nights} شب</span>
+            </div>
+          : null}
         </div>
 
-        <div className={`w-full flex flex-wrap items-center gap-3 font-medium ${Classes['flex-container']}`}>
-          {bathroom > 0 ?
-            <div className={`flex items-center ${Classes['flex-item']}`}>
-              <BathroomIcon />
-              <span className="mx-1 text-nowrap">{bathroom} حمام</span>
-            </div>
-            : null}
+        {bathroom > 0 || yardType || bedroom > 0 || capacity > 0 || parking > 0 ? 
+          <div className={`w-full flex flex-wrap items-center gap-3 font-medium ${Classes['flex-container']}`}>
+            {bathroom > 0 ?
+              <div className={`flex items-center ${Classes['flex-item']}`}>
+                <BathroomIcon />
+                <span className="mx-1 text-nowrap">{bathroom} حمام</span>
+              </div>
+              : null}
 
-          {yardType ?
-            <div className={`flex items-center ${Classes['flex-item']}`}>
-              <YardIcon />
-              <span className="mx-1">{yardType}</span>
-            </div>
-            : null}
+            {yardType ?
+              <div className={`flex items-center ${Classes['flex-item']}`}>
+                <YardIcon />
+                <span className="mx-1">{yardType}</span>
+              </div>
+              : null}
 
-          {bedroom > 0 ?
-            <div className={`flex items-center ${Classes['flex-item']}`}>
-              <BedroomIcon />
-              <span className="mx-1 text-nowrap">{bedroom} خواب</span>
-            </div>
-            : null}
-          
-          {capacity > 0 ?
-            <div className={`flex items-center ${Classes['flex-item']}`}>
-              <PeopleCapacityIcon />
-              <span className="mx-1 text-nowrap">{capacity} نفر</span>
-            </div>
-            : null}
+            {bedroom > 0 ?
+              <div className={`flex items-center ${Classes['flex-item']}`}>
+                <BedroomIcon />
+                <span className="mx-1 text-nowrap">{bedroom} خواب</span>
+              </div>
+              : null}
 
-          {parking > 0 ?
-            <div className={`flex items-center ${Classes['flex-item']}`}>
-              <ParkingIcon />
-              <span className="mx-1 text-nowrap">{parking} پارکینگ</span>
-            </div>
-            : null}
-        </div>
+            {capacity > 0 ?
+              <div className={`flex items-center ${Classes['flex-item']}`}>
+                <PeopleCapacityIcon />
+                <span className="mx-1 text-nowrap">{capacity} نفر</span>
+              </div>
+              : null}
+
+            {parking > 0 ?
+              <div className={`flex items-center ${Classes['flex-item']}`}>
+                <ParkingIcon />
+                <span className="mx-1 text-nowrap">{parking} پارکینگ</span>
+              </div>
+              : null}
+          </div>
+        : null}
 
         <div className="flex items-end gap-1 text-right font-medium">
           {originalPrice ?
             <>
-              <div className='relative flex gap-1 items-end text-[#A6A6A6]'>
-                <span className="font-bold text-2xl leading-6">{originalPrice}</span>
+              <div className='relative flex items-end text-[#A6A6A6]'>
+                <span className="font-bold text-xl leading-6">{originalPrice}</span>
                 <TomanIcon fill='#A6A6A6' />
                 <div className="absolute top-1/2 left-0 w-full h-[1px] bg-red-500 rotate-[-10deg]"></div>
               </div>
@@ -109,9 +123,10 @@ export default function LandingHouseCard(
               <span className='font-black'>/</span>
             </>
             : null}
-
-          <span className="font-bold text-2xl leading-6">{price}</span>
-          <TomanIcon />
+          {/* <div className="flex items-end"> */}
+            <span className="font-bold text-xl leading-6">{price}</span>
+            <TomanIcon />
+          {/* </div> */}
         </div>
       </div>
     </div>
