@@ -81,7 +81,7 @@ export const RightArrowIcon = () => (
 
 export const LeftArrowIcon = ({ stroke = "white" }: { stroke?: string }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12.5 15C12.5 15 7.5 11.3176 7.5 10C7.5 8.68233 12.5 5 12.5 5" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12.5 15C12.5 15 7.5 11.3176 7.5 10C7.5 8.68233 12.5 5 12.5 5" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
@@ -92,6 +92,47 @@ export const ClockTimerIcon = () => (
     <path d="M18.8475 4.17041C19.0217 4.3242 19.1911 4.48354 19.3555 4.648C19.5199 4.81246 19.6791 4.98203 19.8328 5.15629M15 2C15.4821 2.14255 15.9548 2.32634 16.4134 2.54664M21.4375 7.55457C21.6647 8.02313 21.8539 8.50663 22 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
+
+
+
+export const SvgDelete = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.25 4.58331L15.7336 12.9376C15.6016 15.072 15.5357 16.1392 15.0007 16.9066C14.7361 17.2859 14.3956 17.6061 14.0006 17.8466C13.2017 18.3333 12.1325 18.3333 9.99392 18.3333C7.8526 18.3333 6.78192 18.3333 5.98254 17.8457C5.58733 17.6047 5.24667 17.284 4.98223 16.904C4.4474 16.1355 4.38287 15.0667 4.25384 12.9293L3.75 4.58331" stroke="#FF5555" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M2.5 4.58335H17.5M13.3797 4.58335L12.8109 3.4098C12.433 2.63024 12.244 2.24045 11.9181 1.99736C11.8458 1.94344 11.7693 1.89547 11.6892 1.85394C11.3283 1.66669 10.8951 1.66669 10.0287 1.66669C9.14067 1.66669 8.69667 1.66669 8.32973 1.86179C8.24842 1.90503 8.17082 1.95494 8.09774 2.011C7.76803 2.26394 7.58386 2.66798 7.21551 3.47607L6.71077 4.58335" stroke="#FF5555" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M7.91699 13.75V8.75" stroke="#FF5555" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M12.083 13.75V8.75" stroke="#FF5555" stroke-width="1.5" stroke-linecap="round" />
+  </svg>
+
+
+)
+
+
+export const SvgMap = () => (
+
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_892_1595)">
+      <path d="M18.3337 8.33332V7.68123C18.3337 6.06488 18.3337 5.25671 17.8455 4.75457C17.3573 4.25244 16.5717 4.25244 15.0003 4.25244H13.2682C12.5037 4.25244 12.4973 4.25096 11.8099 3.90694L9.03358 2.51761C7.87436 1.93752 7.29476 1.64748 6.67731 1.66764C6.05985 1.6878 5.4993 2.01506 4.3782 2.66958L3.35498 3.26696C2.53148 3.74773 2.11973 3.98812 1.89336 4.38802C1.66699 4.78793 1.66699 5.27493 1.66699 6.24893V13.0964C1.66699 14.3762 1.66699 15.0161 1.95221 15.3722C2.142 15.6092 2.40796 15.7685 2.70199 15.8213C3.14388 15.9007 3.68489 15.5848 4.76688 14.9531C5.50163 14.5242 6.20875 14.0787 7.08772 14.1995C7.82423 14.3007 8.50866 14.7654 9.16699 15.0948" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M6.66699 1.66666V14.1667" stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+      <path d="M12.5 4.16666V7.91666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M15.2566 18.0696C15.0759 18.2388 14.8344 18.3333 14.5831 18.3333C14.3318 18.3333 14.0903 18.2388 13.9096 18.0696C12.2549 16.5108 10.0376 14.7696 11.1189 12.2415C11.7036 10.8747 13.1071 10 14.5831 10C16.0591 10 17.4626 10.8747 18.0473 12.2415C19.1273 14.7663 16.9153 16.5162 15.2566 18.0696Z" stroke="white" stroke-width="1.5" />
+      <path d="M14.583 13.75H14.5905" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_892_1595">
+        <rect width="20" height="20" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+
+
+)
+
+
+export const SvgMap2 = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.5 15C12.5 15 7.5 11.3176 7.5 10C7.5 8.68233 12.5 5 12.5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
 
 export const PeopleCapacityIcon = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

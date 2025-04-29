@@ -2,7 +2,7 @@ import React from 'react';
 import api from '@/src/services/api';
 import InfiniteCarousel from '@/src/components/common/InfiniteCarousel';
 import DreamSection from '@/src/components/dreamDestination/dreamSectionContainer';
-import CategoryCarousel from '@/src/components/landingCategory/categoryCarousel';
+import CategoryCarousel from '@/src/components/Landing/landingCategory/categoryCarousel';
 import { SectionTop } from '@/src/components/common/sectionTop';
 
 export default async function LandingPage() {

@@ -1,29 +1,49 @@
-// app/components/ThemeSwitcher.tsx
-"use client";
+'use client';
 
-import {useTheme} from "next-themes";
-import { useEffect, useState } from "react";
-import { Moon02Icon, Sun01Icon } from "hugeicons-react";
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import { Moon02Icon, Sun01Icon } from 'hugeicons-react';
+import { Switch } from '@heroui/react';
 
-export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+export function ThemeSwitcher({ isMobile = false }) {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  if(!mounted) return null
+  if (!mounted) return null;
+
+  const isDark = theme === 'dark';
+
+  const handleToggle = () => {
+    setTheme(isDark ? 'light' : 'dark');
+  };
 
   return (
     <div>
-        {
-            theme === 'light' ? (
-                <button className="p-2.5 rounded-full cursor-pointer border-1.5 border-black" onClick={() => setTheme('dark')}><Moon02Icon /></button>
-            ) : (
-                <button  className="p-2.5 rounded-full cursor-pointer border-1.5 border-white bg-stone-500" onClick={() => setTheme('light')}><Sun01Icon /></button>
-            )
-        }
+      {isMobile ? (
+        <Switch
+          checked={isDark}
+          onChange={handleToggle}
+          size="lg"
+          color='secondary'
+          startContent={<Sun01Icon />}
+          endContent={<Moon02Icon />}
+        >
+          حالت شب
+        </Switch>
+      ) : (
+        <button
+          className={`p-2.5 rounded-full cursor-pointer border-1.5 ${
+            isDark ? 'border-white' : 'border-black'
+          }`}
+          onClick={handleToggle}
+        >
+          {isDark ? <Sun01Icon /> : <Moon02Icon />}
+        </button>
+      )}
     </div>
-  )
-};
+  );
+}
