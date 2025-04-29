@@ -1,5 +1,5 @@
 export const MapLocationIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="flex-shrink-0" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="32" height="32" rx="16" fill="#F3F3F3" />
     <g clipPath="url(#clip0_16_726)">
       <path d="M24.3334 14.3332V13.6811C24.3334 12.0647 24.3334 11.2566 23.8452 10.7544C23.357 10.2523 22.5714 10.2523 21 10.2523H19.2679C18.5034 10.2523 18.497 10.2508 17.8096 9.90679L15.0333 8.51745C13.8741 7.93737 13.2945 7.64733 12.677 7.66749C12.0595 7.68765 11.499 8.0149 10.3779 8.66943L9.35467 9.26681C8.53118 9.74758 8.11943 9.98797 7.89305 10.3879C7.66669 10.7878 7.66669 11.2748 7.66669 12.2488V19.0963C7.66669 20.376 7.66669 21.0159 7.9519 21.3721C8.1417 21.609 8.40765 21.7683 8.70169 21.8212C9.14357 21.9005 9.68459 21.5847 10.7666 20.9529C11.5013 20.524 12.2084 20.0785 13.0874 20.1993C13.8239 20.3005 14.5084 20.7653 15.1667 21.0947" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -129,10 +129,10 @@ export const SvgMap = () => (
 
 
 export const SvgMap2 = () => (
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12.5 15C12.5 15 7.5 11.3176 7.5 10C7.5 8.68233 12.5 5 12.5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.5 15C12.5 15 7.5 11.3176 7.5 10C7.5 8.68233 12.5 5 12.5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+)
 
 export const PeopleCapacityIcon = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -142,6 +142,25 @@ export const PeopleCapacityIcon = () => (
     <path d="M22.25 9.33341C22.25 10.2539 21.5038 11.0001 20.5833 11.0001C19.6628 11.0001 18.9167 10.2539 18.9167 9.33341C18.9167 8.41294 19.6628 7.66675 20.5833 7.66675C21.5038 7.66675 22.25 8.41294 22.25 9.33341Z" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M14.75 16.4166C14.75 14.8453 14.75 14.0596 14.2618 13.5714C13.7737 13.0833 12.988 13.0833 11.4167 13.0833C9.84532 13.0833 9.05964 13.0833 8.57149 13.5714C8.08334 14.0596 8.08334 14.8453 8.08334 16.4166V18.0833C8.08334 18.8689 8.08334 19.2618 8.32741 19.5058C8.57149 19.7499 8.96433 19.7499 9.75 19.7499V22.6666C9.75 23.4523 9.75 23.8451 9.99408 24.0892C10.2382 24.3333 10.631 24.3333 11.4167 24.3333C12.2023 24.3333 12.5952 24.3333 12.8393 24.0892C13.0833 23.8451 13.0833 23.4523 13.0833 22.6666V19.7499C13.869 19.7499 14.2618 19.7499 14.5059 19.5058C14.75 19.2618 14.75 18.8689 14.75 18.0833V16.4166Z" stroke="#595959" strokeWidth="1.5" strokeLinejoin="round" />
   </svg>
+)
 
+export const BellNightIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="32" height="32" rx="16" fill="#F3F3F3" />
+    <path d="M7.66699 23.0833H24.3337" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M8.54389 18.3124C8.93255 18.0659 9.32819 17.7083 9.38503 17.2517C9.79438 13.9622 12.6001 11.4167 16.0003 11.4167C19.4006 11.4167 22.2062 13.9622 22.6157 17.2517C22.6725 17.7083 23.0681 18.0659 23.4567 18.3124C23.8012 18.5309 24.0513 18.8894 24.1225 19.3163L24.3337 20.1667H7.66699L7.87816 19.3163C7.94931 18.8894 8.1994 18.5309 8.54389 18.3124Z" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M16.0003 11.4167V8.91666M16.0003 8.91666H13.917M16.0003 8.91666H18.0837" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M21.8337 10.5833L21.417 11.4167M23.917 12.6667L23.0844 13.0833" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M10.1663 10.5833L10.583 11.4167M8.91562 13.0833L8.08301 12.6667" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+export const PinPointDoubleIcon = () => (
+  <svg className="flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.5 10C14.0697 8.55426 12.5855 7.5 11 7.5C9.067 7.5 7.5 9.067 7.5 11C7.5 12.7632 8.80385 14.2574 10.5 14.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M19.9504 10C19.4697 5.53446 15.5596 2 11 2C6.12944 2 2 6.03298 2 10.9258C2 15.9137 6.2039 19.3616 10.073 21.7567C10.3555 21.9162 10.675 22 11 22C11.325 22 11.6445 21.9162 11.927 21.7567C12.1816 21.6009 12.4376 21.4403 12.6937 21.2748" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M17.5 12C19.9353 12 22 14.0165 22 16.4629C22 18.9482 19.9017 20.6924 17.9635 21.8783C17.8223 21.9581 17.6625 22 17.5 22C17.3375 22 17.1777 21.9581 17.0365 21.8783C15.1019 20.6808 13 18.9568 13 16.4629C13 14.0165 15.0647 12 17.5 12Z" stroke="white" stroke-width="1.5" />
+    <path d="M17.5 16.5H17.509" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
 
 )
