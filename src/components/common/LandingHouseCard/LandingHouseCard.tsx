@@ -111,7 +111,7 @@ export default function LandingHouseCard(
           </div>
         : null}
 
-        <div className="flex items-end gap-1 text-right font-medium">
+        <div className="flex flex-wrap items-end gap-1 text-right font-medium">
           {originalPrice ?
             <>
               <div className='relative flex items-end text-[#A6A6A6]'>
@@ -123,10 +123,10 @@ export default function LandingHouseCard(
               <span className='font-black'>/</span>
             </>
             : null}
-          {/* <div className="flex items-end"> */}
+          <div className="flex items-end">
             <span className="font-bold text-xl leading-6">{price}</span>
             <TomanIcon />
-          {/* </div> */}
+          </div>
         </div>
       </div>
     </div>
