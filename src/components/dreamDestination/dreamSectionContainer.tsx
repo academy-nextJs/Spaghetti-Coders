@@ -6,7 +6,7 @@ import DreamCarousel from './dreamCarousel';
 
 export default function DreamSection() {
   return (
-    <div className="rounded-3xl bg-[#F9F9F9] p-14 relative">
+    <div className="rounded-3xl bg-[#F9F9F9] dark:bg-darkMode p-14 relative">
       <motion.div
         className="absolute top-16 -left-0 overflow-hidden"
         animate={{
@@ -22,7 +22,7 @@ export default function DreamSection() {
         <div className="circle -ml-32"></div>
       </motion.div>
       <DreamSectionTop />
-      <div className="-ml-[55px] mt-12">
+      <div className="-ml-[56px] mt-12">
         <DreamCarousel />
       </div>
       <div className="absolute bottom-0 right-0 rounded-3xl overflow-hidden">
