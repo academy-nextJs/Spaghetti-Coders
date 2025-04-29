@@ -1,8 +1,9 @@
-import { ClockTimerIcon } from "@/src/assets/SVGs";
 import { MyChip } from "../../common/Buttons/Chip-btn";
 import LandingCarousel from "../LandingCarousel/LandingCarousel";
 import { ClientButton } from "../../common/Buttons/common-btn";
 import api from "@/src/services/api";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { TimeQuarter02Icon } from "@hugeicons/core-free-icons";
 
 export default async function LandingDiscountedSection() {
   const { data } = await api.get('/houses?page=1&limit=8&sort=price&order=DESC')
@@ -23,7 +24,7 @@ export default async function LandingDiscountedSection() {
           <MyChip size="lg" className="bg-[#FF5555] py-6 inline-flex">
             <span className="flex gap-2 items-center text-white">
               2:25:20
-              <ClockTimerIcon />
+              <HugeiconsIcon icon={TimeQuarter02Icon} />
             </span>
           </MyChip>
           <div className="text-[#FF5555] inline-flex">
