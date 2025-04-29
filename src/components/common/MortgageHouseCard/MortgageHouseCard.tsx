@@ -3,7 +3,7 @@
 import Image from "next/image";
 // import Pic from '@/public/Mansion.png'
 import { MortgageCardProps } from "@/src/types/types";
-import { BathroomIcon, BedroomIcon, MapLocationIcon, ParkingIcon, PeopleCapacityIcon, TomanIcon, YardIcon } from "@/src/assets/SVGs";
+import { BathroomIcon, BedroomIcon, LeftArrowIcon, MapLocationIcon, ParkingIcon, PeopleCapacityIcon, StarMedalIcon, TomanIcon, YardIcon } from "@/src/assets/SVGs";
 import Classes from './MortgageHouseCard.module.css'
 import Pic from '@/public/PoolHouse.png'
 
@@ -20,21 +20,22 @@ export default function MortgageHouseCard(
     // photos,
   }: MortgageCardProps) {
   return (
-    <div className="relative max-w-1/2 flex flex-row overflow-hidden">
-      {/* <div> */}
-        <Image
-          alt="Apartment view"
-          className="object-cover w-full aspect-square rounded-3xl"
-          src={Pic.src}
-          width={300}
-          height={280}
-          // unoptimized
-          // fill
-        />
-      {/* </div> */}
+    <div className="flex gap-4">
+      <Image
+        alt="Apartment view"
+        className="object-cover max-w-2/5 aspect-[1.19/1] rounded-3xl"
+        src={Pic.src}
+        width={300}
+        height={280}
+      />
 
-      <div className="flex flex-col gap-4">
-        <h3 className="text-xl font-semibold text-right">{title}</h3>
+      <div className="flex flex-col justify-between gap-4 max-w-[57.7%]">
+        <h3 className="text-xl font-semibold text-right w-fit">{title}</h3>
+
+        <div className="bg-[#7575FE] text-white text-md font-normal rounded-full px-2 py-1 w-fit flex gap-1">
+          <StarMedalIcon />
+          4 ستاره
+        </div>
 
         <div className="flex flex-nowrap items-center gap-1 text-right">
           <div className="flex items-center gap-1 flex-1 min-w-0">
@@ -82,9 +83,15 @@ export default function MortgageHouseCard(
           </div>
         : null}
 
-        <div className="flex items-end gap-1 text-right font-medium">
-          <span className="font-bold text-xl leading-6">{price}</span>
-          <TomanIcon />
+        <div className="flex justify-between gap-1 text-right font-medium">
+          <div className="flex items-end">
+            <span className="font-bold text-xl leading-6">{price}</span>
+            <TomanIcon />
+          </div>
+          <div className="text-[#7575FE] flex items-center gap-2">
+            مشاهده جزئیات
+            <LeftArrowIcon stroke="#7575FE" />
+          </div>
         </div>
       </div>
     </div>

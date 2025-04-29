@@ -29,11 +29,7 @@ export default function Header() {
         </ClientButton>
         <ThemeSwitcher />
       </aside>
-      <div className='relative'>
-        <div className='absolute left-0 w-1/2 inset-0 backdrop-invert-100'/>
-        <Image src={Logo.src} alt="Logo" width={78} height={78} />
-
-      </div>
+      <Image src={Logo.src} alt="Logo" width={78} height={78} />
       <aside className="hidden lg:flex items-center gap-4">
         <HeaderOptionSelect />
         <HeaderFastSelect />

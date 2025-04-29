@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: { serverSourceMaps: false },
+  productionBrowserSourceMaps: false,
   reactStrictMode: true,
   env: {
     BASE_URL: process.env.API_URL,
