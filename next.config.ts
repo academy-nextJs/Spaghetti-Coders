@@ -5,6 +5,16 @@ const nextConfig: NextConfig = {
   env: {
     BASE_URL: process.env.API_URL,
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'media.istockphoto.com',
+      },
+      {
+        hostname: 'heroui.com',
+      },
+    ]
+  }
   /* config options here */
 };
 

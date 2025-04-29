@@ -11,11 +11,11 @@ export default function CommonCardComment({
   isActive = false,
   isHidden = false,
 }: CommonCardCommentProps) {
-  const bgColor = isActive ? '#7575FE' : '#F9F9F9';
+  const bgColor = isActive ? 'bg-[#7575FE]' : 'bg-[#F9F9F9] dark:bg-darkMode';
   const txtColor = isActive? 'white': ''
   return (
     <Card
-      className={`min-w-[350px] rounded-3xl p-2 h-[350px] aspect-square transition-colors duration-300 text-${txtColor} bg-[${bgColor}]`}
+      className={`flex flex-col justify-between min-w-[350px] rounded-3xl p-2 h-[350px] aspect-square transition-colors duration-300 text-${txtColor} ${bgColor}`}
       shadow="none"
     >
       {!isHidden && (
