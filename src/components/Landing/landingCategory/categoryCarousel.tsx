@@ -1,8 +1,8 @@
 import React from 'react';
-import Carousel from '../common/carousel';
-import LandingCard2 from '../common/landingCard2';
+import Carousel from '../../common/carousel';
+import LandingCard2 from '../../common/landingCard2';
 import { Category } from '@/src/types/types';
-import { SectionTop } from '../common/sectionTop';
+import { SectionTop } from '../../common/sectionTop';
 
 export default function CategoryCarousel({ data }: { data: Category[] }) {
   const breakpoints = {

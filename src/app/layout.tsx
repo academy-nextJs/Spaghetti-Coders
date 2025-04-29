@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body dir="rtl" className="px-12 py-4 overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <header className="flex items-center justify-between w-full overflow-hidden">
+          <header className="flex items-center justify-between w-full overflow-hidden ">
             <Header />
           </header>
           <main>{children}</main>
