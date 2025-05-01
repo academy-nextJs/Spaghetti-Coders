@@ -1,13 +1,12 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import { FC } from 'react';
 
 const DynamicMap = dynamic(() => import('./MapComponent.tsx'), {
     ssr: false,
 });
 
-const LeafletMap: FC = () => {
+const LeafletMap = () => {
     return <DynamicMap />;
 };
 
