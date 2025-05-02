@@ -10,7 +10,8 @@ body {
 @theme inline {
   --color-darkMode: #57534d;
   --color-darkModText: white;
-  --color-darkModSubText:  #d6d3d1
+  --color-darkModSubText:  #d6d3d1;
+  --color-primaryPurple: #7575FE
 }
 .circle {
   width: 300px;
