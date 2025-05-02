@@ -180,7 +180,7 @@ export type HouseSearchParams = {
   search?: string;
   location?: string;
   propertyType?: string;
-  transactionType?: 'rental' | 'sale'; // adjust based on your app
+  transactionType?: string;
   minPrice?: string;
   maxPrice?: string;
   minRent?: string;
@@ -210,4 +210,5 @@ export type QueryValues = {
   maxPrice: string;
   minRent: string;
   maxRent: string;
+  transactionType: string;
 };

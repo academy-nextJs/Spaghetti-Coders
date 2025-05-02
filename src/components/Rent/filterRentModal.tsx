@@ -11,7 +11,7 @@ interface filterRentModalProp {
   updateFilter: (key: string, value: string) => void;
   locations: LocationType[];
   categories: Category[];
-  initialValues: QueryValues
+  initialValues: QueryValues;
 }
 export default function FilterRentModal({
   updateFilter,
@@ -28,6 +28,24 @@ export default function FilterRentModal({
       label: 'نزولی',
     },
   ];
+  const tradingType = [
+    {
+      key: 'rental',
+      label: 'اجاره'
+    },
+    {
+      key: 'direct_purchase',
+      label:'خرید مستقیم'
+    },
+    {
+      key : 'mortgage',
+      label: 'رهن'
+    },
+    {
+      key: 'reservation',
+      label: 'رزرو'
+    }
+  ]
 
   const selectLocation = props.locations.map((location) => ({
     key: location.id,
@@ -40,9 +58,7 @@ export default function FilterRentModal({
   return (
     <Modal isOpen={props.isOpen} onOpenChange={props.onOpenChange}>
       <ModalContent>
-        <ModalHeader>
-        فیلتر
-        </ModalHeader>
+        <ModalHeader>فیلتر</ModalHeader>
         <ModalBody>
           <div className="flex flex-wrap justify-between gap-y-3">
             <ClientInput
@@ -81,6 +97,15 @@ export default function FilterRentModal({
               defaultSelectedKeys={[initialValues.propertyType]}
               items={selectCatArray}
               onChange={(e) => updateFilter('propertyType', e.target.value)}
+            />
+            <SelectClient
+              labelPlacement="outside"
+              label="نوع معامله"
+              placeholder="انتخاب کنید"
+              className="w-[45%]"
+              items={tradingType}
+              defaultSelectedKeys={[initialValues.transactionType]}
+              onChange={(e) => updateFilter('transactionType', e.target.value)}
             />
             {/*  */}
             <ClientInput

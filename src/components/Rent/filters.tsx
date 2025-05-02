@@ -49,6 +49,7 @@ export default function Filters({ locations, categories }: RentFiltersProps) {
       category: params.get('category') || '',
       order: params.get('order') || '',
       propertyType: params.get('propertyType') || '',
+      transactionType: params.get('transactionType') || 'rental',
       maxPrice: params.get('maxPrice') || '',
       minRent: params.get('minRent') || '',
       maxRent: params.get('maxRent') || '',

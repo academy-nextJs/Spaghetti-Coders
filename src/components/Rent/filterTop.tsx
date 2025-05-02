@@ -35,10 +35,30 @@ export default function FilterTop({
   ))
   const selectCatArray = categories.map( category => (
     {
-      key: category.id,
+      key: category.name,
       label: category.name
     }
   ))
+
+  const tradingType = [
+    {
+      key: 'rental',
+      label: 'اجاره'
+    },
+    {
+      key: 'direct_purchase',
+      label:'خرید مستقیم'
+    },
+    {
+      key : 'mortgage',
+      label: 'رهن'
+    },
+    {
+      key: 'reservation',
+      label: 'رزرو'
+    }
+  ]
+
 
   return (
     <div className="flex items-center gap-4 flex-wrap my-6">
@@ -84,7 +104,9 @@ export default function FilterTop({
         label="نوع معامله"
         placeholder="انتخاب کنید"
         className="lg:w-1/6 w-[30%]"
-        items={orderArr}
+        items={tradingType}
+        defaultSelectedKeys={[initialValues.transactionType]}
+        onChange={(e) => updateFilter('transactionType', e.target.value)}
       />
     </div>
   );
