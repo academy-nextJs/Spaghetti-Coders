@@ -1,10 +1,10 @@
-import LandingShinyAlphaSection from "../components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection";
+import HouseReserveCardsGrid from "../components/HouseReservePage/HouseReserveCardsGrid";
 
 export default function Home() {
   return (
     <>
       <div className="pt-10">
-        <LandingShinyAlphaSection />
+        <HouseReserveCardsGrid />
       </div>
     </>
   );

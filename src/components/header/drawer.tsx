@@ -8,15 +8,15 @@ import {
 } from '@heroui/react';
 import Link from 'next/link';
 import DrawerAccordion from './drawerAccordion';
-import HamburgerMenu from '@/src/assets/menu-burger.svg'
-import Image from 'next/image';
+import { ThemeSwitcher } from '../ThemSwitcher';
+import { Menu03Icon } from 'hugeicons-react';
 
 export function HeaderDrawer() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-        <Image onClick={onOpen} src={HamburgerMenu.src} width={36} height={36} alt='menu'/>
+      <Menu03Icon onClick={onOpen}  width={36} height={36} />
       <Drawer
         isOpen={isOpen}
         motionProps={{
@@ -40,6 +40,7 @@ export function HeaderDrawer() {
             <>
               <DrawerHeader className="flex flex-col gap-1">منو</DrawerHeader>
               <DrawerBody>
+                <ThemeSwitcher isMobile={true}/>
                 <Link href="/">خانه</Link>
                 <Link href="">مقالات</Link>
                 <Link href="">درباره آلفا</Link>
