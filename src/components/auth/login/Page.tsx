@@ -1,6 +1,6 @@
 import { SvgBlue } from "@/src/assets/svgs";
 import LoginForm from "./LoginForm";
-import SwiperSlider from "../common/auth/SwiperSlider";
+import SwiperSlider from "../../common/auth/SwiperSlider";
 
 
 const LoginPage = () => {

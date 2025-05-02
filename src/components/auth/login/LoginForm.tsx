@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ClientButton } from "../ClientUI";
-import CommonInput from "../common/inputs/input-btn";
-import Btn from "./login/ui/btn";
-import Line from "./login/ui/line";
-import BackHome from "./login/ui/back-home-btn";
+import { ClientButton } from "../../ClientUI";
+import CommonInput from "../../common/inputs/input-btn";
+import Btn from "./ui/btn";
+import Line from "./ui/line";
+import BackHome from "./ui/back-home-btn";
 
 const LoginForm = () => {
     return (
