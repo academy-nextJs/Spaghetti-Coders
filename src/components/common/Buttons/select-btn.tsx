@@ -13,20 +13,18 @@ const PersianSelect: FC<PersianSelectProps> = ({
     selectedValue,
     onChange,
     className,
-    labelClass,
+    size
 }) => {
     return (
-        <div className="flex flex-col">
-            {label && (
-                <label className={`mb-2 text-sm font-semibold ${labelClass}`}>
-                    {label}
-                </label>
-            )}
+        <div className="">
             <Select
+                label={label}
                 value={selectedValue}
                 onChange={(event) => onChange(event.target.value)}
-                className={`font-semibold radius-full p-2 bg-[#F0F0F0] ${className}`}
+                className={`font-semibold ${className}`}
+                radius='full'
                 placeholder={placeholder}
+                size={size}
             >
                 {options.map((option) => (
                     <SelectItem

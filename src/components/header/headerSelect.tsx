@@ -1,21 +1,33 @@
 'use client';
 
-import { Select, SelectItem } from '@heroui/react';
+import PersianSelect from '../common/Buttons/select-btn';
 
 export function HeaderFastSelect() {
   return (
-    <Select label="رزرو سریع" className='w-28' radius='full' size='sm'>
-      <SelectItem>ویلا</SelectItem>
-      <SelectItem>آپارتمان</SelectItem>
-    </Select>
+    <PersianSelect
+    label="رزرو سریع"
+    className="w-28"
+    options={[
+      { label: 'ویلا', value: 'ویلا' },
+      { label: 'آپارتمان', value: 'آپارتمان' },
+    ]}
+    onChange={(value) => console.log(value)}
+    size='sm'
+  />
   );
 }
 export function HeaderOptionSelect() {
-    return (
-      <Select label="رهن و اجاره" className='w-28' radius='full' size='sm' >
-        <SelectItem>ویلا</SelectItem>
-        <SelectItem>آپارتمان</SelectItem>
-      </Select>
-    );
-  }
-  
+  return (
+    <PersianSelect
+      label="رهن و اجاره"
+      className="w-28"
+      options={[
+        { label: 'ویلا', value: 'ویلا' },
+        { label: 'آپارتمان', value: 'آپارتمان' },
+      ]}
+      onChange={(value) => console.log(value)}
+      size='sm'
+    />
+  );
+}
+

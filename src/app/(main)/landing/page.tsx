@@ -1,6 +1,9 @@
 import React from 'react';
 import api from '@/src/services/api';
-import CategoryCarousel from '@/src/components/landingCategory/categoryCarousel';
+import InfiniteCarousel from '@/src/components/common/InfiniteCarousel';
+import DreamSection from '@/src/components/dreamDestination/dreamSectionContainer';
+import CategoryCarousel from '@/src/components/Landing/landingCategory/categoryCarousel';
+import { SectionTop } from '@/src/components/common/sectionTop';
 
 export default async function LandingPage() {
   const { data } = await api.get('/categories');
@@ -9,6 +12,17 @@ export default async function LandingPage() {
     <div>
       <h1>Landing Page</h1>
       <CategoryCarousel data={data} />
+
+      <DreamSection />
+      <section>
+        <SectionTop
+          mainText={['نظرات کاربران درباره آلفا']} // Still supports string with \n
+          subText={[
+            'تیم دلتا با ارائه بهترین نیرو های خدماتی و سرویس های\n املاکی سعی دارد تا بتواند در تمام لحظات کنار شما باشد .',
+          ]}
+        />
+        <InfiniteCarousel />
+      </section>
     </div>
   );
 }
