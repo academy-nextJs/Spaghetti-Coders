@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -8,8 +8,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 import { User } from '@heroui/react';
-import { SvgLeftSlider, SvgRightSlider } from '@/src/assets/svgs';
-import { MyCircularProgress } from '../Buttons/loading-btn';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowLeft01Icon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
 
 const SwiperSlider = () => {
     const slides = [
@@ -36,8 +36,15 @@ const SwiperSlider = () => {
         },
     ];
 
+
+    const circleRef = useRef<SVGCircleElement>(null);
+    const radius = 20;
+    const circumference = 2 * Math.PI * radius;
+
+
+
     return (
-        <div className="w-full h-[695px] relative rounded-3xl overflow-hidden group">
+        <div className="w-full h-full relative rounded-3xl overflow-hidden group">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={30}
@@ -46,9 +53,14 @@ const SwiperSlider = () => {
                     prevEl: '.custom-prev',
                     nextEl: '.custom-next',
                 }}
-                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                loop={true}
-                dir="rtl"
+                autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                onAutoplayTimeLeft={(swiper, time, progress) => {
+                    const offset = circumference - (progress) * circumference;
+                    if (circleRef.current) {
+                        circleRef.current.style.strokeDashoffset = `${offset}`;
+                    }
+                }}
+                loop
                 className="h-full"
             >
                 {slides.map((slide) => (
@@ -73,15 +85,34 @@ const SwiperSlider = () => {
                 ))}
             </Swiper>
 
-            <div className="absolute bottom-6 left-6 flex gap-2 z-10">
-                <div className=' pt-3 pr-2 '>
-                    <MyCircularProgress />
+            <div className="absolute bottom-6 left-6 flex gap-4 z-10 justify-center items-center">
+                <svg width="45" height="45" className='-rotate-90'>
+                    <circle
+                        stroke="#ccc"
+                        fill="transparent"
+                        strokeWidth="3"
+                        r={radius}
+                        cx="22"
+                        cy="22"
+                    />
+                    <circle
+                        ref={circleRef}
+                        stroke="#6c63ff"
+                        fill="transparent"
+                        strokeWidth="3"
+                        r={radius}
+                        cx="22"
+                        cy="22"
+                        strokeDasharray={circumference}
+                        strokeDashoffset={circumference}
+                        strokeLinecap="round"
+                    />
+                </svg>
+                <div className="custom-prev w-[56px] h-[56px] cursor-pointer rounded-full bg-[#F9F9F963] flex justify-center items-center">
+                    <HugeiconsIcon icon={ArrowRight01Icon} color='#fff'/>
                 </div>
-                <div className="custom-prev w-[56px] h-[56px] ml-8 cursor-pointer">
-                    <SvgRightSlider />
-                </div>
-                <div className="custom-next w-[56px] h-[56px] mt-1 cursor-pointer rotate-180">
-                    <SvgLeftSlider />
+                <div className="custom-next w-[56px] h-[56px] cursor-pointer rounded-full bg-[#F9F9F963] flex justify-center items-center">
+                    <HugeiconsIcon icon={ArrowLeft01Icon} color='#fff'/>
                 </div>
             </div>
         </div>
