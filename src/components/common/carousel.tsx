@@ -6,7 +6,6 @@ import { Swiper as SwiperType } from 'swiper/types';
 import { Navigation } from 'swiper/modules';
 
 import { Button } from '@heroui/react';
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import { CarouselProps } from '@/src/types/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -80,7 +79,7 @@ export default function Carousel({
           onPress={() => swiperRef.current?.slidePrev()}
           className={`absolute top-1/2 -translate-y-1/2 z-10 rounded-full shadow-lg hover:shadow-xl transition ${houseCarousel ? 'right-2 bg-[#F9F9F970]' : '-right-6 bg-white'}`}
         >
-          {houseCarousel ? <HugeiconsIcon icon={ArrowRight01Icon} color='#fff' size={20} /> : <SlArrowRight color="black" size="1.5em" />}
+          {houseCarousel ? <HugeiconsIcon icon={ArrowRight01Icon} color='#fff' size={20} /> : <HugeiconsIcon icon={ArrowRight01Icon} size="1.5em" color='black'/>}
         </Button>
       )}
 
@@ -91,7 +90,7 @@ export default function Carousel({
           onPress={() => swiperRef.current?.slideNext()}
           className={`absolute top-1/2 -translate-y-1/2 z-10 rounded-full shadow-lg hover:shadow-xl transition ${houseCarousel ? 'left-2 bg-[#F9F9F970]' : '-left-6 bg-white'}`}
         >
-          {houseCarousel ? <HugeiconsIcon icon={ArrowLeft01Icon} color='#fff' size={20} /> : <SlArrowLeft color="black" size="1.5em" />}
+          {houseCarousel ? <HugeiconsIcon icon={ArrowLeft01Icon} color='#fff' size={20} /> : <HugeiconsIcon icon={ArrowLeft01Icon} size="1.5em" color='black'/>}
         </Button>
       )}
 
