@@ -1,8 +1,9 @@
 'use client';
 import { ClientButton } from "../Buttons/common-btn";
 import { Select, SelectItem } from "@heroui/react";
-import { SvgDelete } from "@/src/assets/sgvs";
 import CustomSlider from "../Range-slider/range-slider";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Delete02Icon } from "@hugeicons/core-free-icons";
 
 export default function FilterPanel() {
     
@@ -11,7 +12,7 @@ export default function FilterPanel() {
             <div className="flex justify-between items-center mb-4">
                 <h2 className="font-bold text-2xl">فیلتر ها</h2>
                 <ClientButton
-                    startIcon={<SvgDelete />}
+                    startIcon={<HugeiconsIcon icon={Delete02Icon} />}
                     className="text-red-500 text-sm flex bg-white items-center">
                     حذف همه
                 </ClientButton>
