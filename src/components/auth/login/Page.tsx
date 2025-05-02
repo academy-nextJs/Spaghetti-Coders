@@ -5,7 +5,7 @@ import Logo from '@/public/AlFA.svg';
 
 const LoginPage = () => {
     return (
-        <section className="flex">
+        <section className="h-full flex">
             <section className="w-full md:w-1/2 flex items-center justify-center">
                 <LoginForm />
             </section>

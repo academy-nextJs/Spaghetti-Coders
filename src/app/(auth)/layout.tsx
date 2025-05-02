@@ -6,7 +6,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="h-full flex flex-col justify-center">
+    <main className="h-full">
       <style jsx global>{`body { height: 100vh; overflow: hidden; }`}</style>
       {children}
     </main>

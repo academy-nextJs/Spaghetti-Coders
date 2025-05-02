@@ -7,7 +7,7 @@ import BackHome from "./ui/back-home-btn";
 
 const LoginForm = () => {
     return (
-        <section className="w-full max-w-md px-4 py-6 mt-4">
+        <section className="w-full max-w-md px-4 py-6">
             <header className="flex flex-col mb-8">
                 <div className="flex items-center justify-between">
                     <h1 className="text-3xl font-bold mb-4 text-right">خوش برگشتی!</h1>
