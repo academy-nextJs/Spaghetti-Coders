@@ -6,12 +6,12 @@ import { Swiper as SwiperType } from 'swiper/types';
 import { Navigation } from 'swiper/modules';
 
 import { Button } from '@heroui/react';
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import { CarouselProps } from '@/src/types/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { LeftArrowIcon, PinPointDoubleIcon, RightArrowIcon } from '@/src/assets/SVGs';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowLeft01Icon, ArrowRight01Icon, MapPinpoint01Icon } from '@hugeicons/core-free-icons';
 
 export default function Carousel({
   children,
@@ -74,27 +74,27 @@ export default function Carousel({
 
       {!isBeginning && !landingCardsCarousel && !locOnMap && (
         <Button
-          size={isMobile? 'md': 'lg'}
+          size={isMobile ? 'md' : 'lg'}
           isIconOnly
           onPress={() => swiperRef.current?.slidePrev()}
           className={`absolute top-1/2 -translate-y-1/2 z-10 rounded-full shadow-lg hover:shadow-xl transition ${houseCarousel ? 'right-2 bg-[#F9F9F970]' : '-right-6 bg-white'}`}
         >
-          {houseCarousel ? <RightArrowIcon /> : <SlArrowRight color="black" size="1.5em" />}
+          {houseCarousel ? <HugeiconsIcon icon={ArrowRight01Icon} color='#fff' size={20} /> : <HugeiconsIcon icon={ArrowRight01Icon} size="1.5em" color='black'/>}
         </Button>
       )}
 
       {!isEnd && !landingCardsCarousel && !locOnMap && (
         <Button
           isIconOnly
-          size={isMobile? 'md': 'lg'}
+          size={isMobile ? 'md' : 'lg'}
           onPress={() => swiperRef.current?.slideNext()}
           className={`absolute top-1/2 -translate-y-1/2 z-10 rounded-full shadow-lg hover:shadow-xl transition ${houseCarousel ? 'left-2 bg-[#F9F9F970]' : '-left-6 bg-white'}`}
         >
-          {houseCarousel ? <LeftArrowIcon /> : <SlArrowLeft color="black" size="1.5em" />}
+          {houseCarousel ? <HugeiconsIcon icon={ArrowLeft01Icon} color='#fff' size={20} /> : <HugeiconsIcon icon={ArrowLeft01Icon} size="1.5em" color='black'/>}
         </Button>
       )}
 
-      {houseCarousel && !locOnMap?
+      {houseCarousel && !locOnMap ?
         <div className='absolute bottom-2 z-10 w-full flex justify-center'>
           <div className="w-7/12 flex gap-2 justify-center">
             {Array.from({ length: totalSlides }).map((_, index) => (
@@ -108,12 +108,12 @@ export default function Carousel({
         </div>
         : null}
 
-      {locOnMap ? 
+      {locOnMap ?
         <div className="float-end group absolute bottom-2 left-2 z-10 inline-flex items-center justify-end text-sm font-medium text-white bg-[#7575FE] rounded-full p-1.5 overflow-hidden">
-          <span className='whitespace-nowrap max-w-0 group-hover:max-w-[7rem] text-[1vw] xl:group-hover:max-w-[10rem] group-hover:px-1.5 overflow-hidden transition-all duration-500 text-white'>نمایش داخل نقشه</span>  
-          <PinPointDoubleIcon /> 
+          <span className='whitespace-nowrap max-w-0 group-hover:max-w-[7rem] text-[1vw] xl:group-hover:max-w-[10rem] group-hover:px-1.5 overflow-hidden transition-all duration-500 text-white'>نمایش داخل نقشه</span>
+          <HugeiconsIcon icon={MapPinpoint01Icon} color='#fff' />
         </div>
-      : null}
+        : null}
     </div>
   );
 }

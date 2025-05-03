@@ -2,8 +2,9 @@
 
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { Moon02Icon, Sun01Icon } from 'hugeicons-react';
 import { Switch } from '@heroui/react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Moon02Icon, Sun02Icon } from '@hugeicons/core-free-icons';
 
 export function ThemeSwitcher({ isMobile = false }) {
   const [mounted, setMounted] = useState(false);
@@ -29,8 +30,8 @@ export function ThemeSwitcher({ isMobile = false }) {
           onChange={handleToggle}
           size="lg"
           color='secondary'
-          startContent={<Sun01Icon />}
-          endContent={<Moon02Icon />}
+          startContent={<HugeiconsIcon icon={Sun02Icon} />}
+          endContent={<HugeiconsIcon icon={Moon02Icon} />}
         >
           حالت شب
         </Switch>
@@ -41,7 +42,7 @@ export function ThemeSwitcher({ isMobile = false }) {
           }`}
           onClick={handleToggle}
         >
-          {isDark ? <Sun01Icon /> : <Moon02Icon />}
+          {isDark ? <HugeiconsIcon icon={Sun02Icon} /> : <HugeiconsIcon icon={Moon02Icon} />}
         </button>
       )}
     </div>
