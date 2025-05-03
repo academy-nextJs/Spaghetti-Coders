@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 import { User } from '@heroui/react';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowLeft01Icon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
+import { ArrowLeft01Icon, ArrowRight01Icon, QuoteDownIcon } from '@hugeicons/core-free-icons';
 import loginImg from '@/public/loginPic.png'
 
 const SwiperSlider = () => {
@@ -45,7 +45,7 @@ const SwiperSlider = () => {
 
 
     return (
-        <div className="relative w-full h-full rounded-3xl overflow-hidden">
+        <div className="relative w-full h-full rounded-4xl overflow-hidden hidden md:block md:w-1/2">
             <Image
                 src={loginImg.src}
                 alt="slider image"
@@ -55,7 +55,7 @@ const SwiperSlider = () => {
                 height={300}
                 className='h-full w-full'
             />
-            <div className='absolute bottom-7 right-5 w-[95%] z-10'>
+            <div className='absolute bottom-10 right-1/2 translate-x-1/2 w-[90%] z-10'>
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
                     spaceBetween={30}
@@ -75,21 +75,22 @@ const SwiperSlider = () => {
                     }}
                 >
                     {slides.map((slide) => (
-                        <SwiperSlide key={slide.id} className='flex items-end'>
-                            <div className="h-fit text-white">
-                                <p className="text-lg mb-4">{slide.text}</p>
-                                <User
-                                    name={slide.author}
-                                    description={slide.date}
-                                    className="text-white"
-                                />
+                        <SwiperSlide key={slide.id} className='h-fit !flex flex-col gap-6 text-white'>
+                            <div className='size-10 bg-[#F9F9F963] rounded-full flex justify-center items-center'>
+                                <HugeiconsIcon icon={QuoteDownIcon} size={20} />
                             </div>
+                            <p className="text-lg">{slide.text}</p>
+                            <User
+                                name={slide.author}
+                                description={slide.date}
+                                className="text-white justify-start"
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>
             </div>
 
-            <div className='absolute inset-0 z-[5] bg-gradient-to-b from-transparent to-[#00000070] '></div>
+            <div className='absolute inset-0 z-[5] bg-gradient-to-b from-transparent to-[#00000080] '></div>
 
             <div className="absolute bottom-8 left-6 flex gap-4 z-10 justify-center items-center">
                 <svg width="45" height="45" className='-rotate-90'>

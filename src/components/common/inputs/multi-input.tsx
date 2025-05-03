@@ -6,6 +6,7 @@ export default function OtpField(props) {
             <InputOtp
                 {...props}
                 inputClassName="rounded-full border-gray-300 focus:border-primary focus:ring-0 text-center"
+                containerClassName="flex justify-between"
             />
         </div>
     );

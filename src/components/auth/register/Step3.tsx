@@ -3,10 +3,11 @@
 import { ClientButton } from "../../ClientUI";
 import CommonInput from "../../common/inputs/input-btn";
 import BackHome from "../login/ui/back-home-btn";
-const FromStep = () => {
+
+export const CredentialStep = () => {
     return (
-        <div className="flex flex-col h-screen">
-            <div className="max-w-md w-[800px] mx-auto px-6 py-12">
+        // <div className="flex flex-col h-screen">
+            <article className="max-w-md w-full">
                 <header className="flex flex-col mb-8">
                     <div className="flex items-center justify-between">
                         <h1 className="text-3xl font-bold mb-4 text-right">ورود به آلفا</h1>
@@ -44,12 +45,7 @@ const FromStep = () => {
                         ثبت نام
                     </ClientButton>
                 </div>
-            </div>
-        </div>
+            </article>
+        // </div>
     );
 }
-
-
-
-
-export default FromStep;

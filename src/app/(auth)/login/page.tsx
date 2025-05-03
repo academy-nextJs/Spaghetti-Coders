@@ -1,4 +1,4 @@
-import LoginPage from '@/src/components/auth/login/Page';
+import LoginForm from '@/src/components/auth/login/LoginForm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,6 +6,10 @@ export const metadata: Metadata = {
     description: 'صفحه ورود',
 };
 
-export default function Login() {
-    return <LoginPage />;
+export default function LoginPage() {
+    return (
+        <section className="w-full md:w-1/2 flex items-center justify-center">
+            <LoginForm />
+        </section>
+    )
 }
