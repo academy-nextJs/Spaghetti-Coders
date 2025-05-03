@@ -21,7 +21,7 @@ export default function LandingCard2({
             radius="full"
             size="lg"
           >
-            <HugeiconsIcon icon={ArrowUpLeft01Icon} />
+            <HugeiconsIcon icon={ArrowUpLeft01Icon} color='white'/>
           </Button>
         </Link>
       </CardHeader>
