@@ -1,22 +1,15 @@
 "use client"
 
+import { useActionState } from "react"
 import { ClientButton } from "../../ClientUI"
 import CommonInput from "../../common/inputs/input-btn"
 import BackHome from "../login/ui/back-home-btn"
 import Btn from "../login/ui/btn"
 import Line from "../login/ui/line"
+import { registerEmail } from "@/src/lib/actions/login-register-actions"
 
 export const EmailStep = () => {
-
-    const handleEmailSubmit = (e) => {
-        e.preventDefault()
-        if (!email || !email.includes('@')) {
-            alert('لطفا یک ایمیل معتبر وارد کنید.')
-            return
-        }
-        console.log("Sending verification code to:", email)
-    }
-
+    const [actionState, formAction, isPending] = useActionState(registerEmail, { message: {}, payload: new FormData() })
     return (
         <article className="w-full flex flex-col justify-center max-w-md">
             <header className="flex flex-col mb-8">
@@ -34,19 +27,20 @@ export const EmailStep = () => {
             <Btn />
             <Line />
 
-            <form onSubmit={handleEmailSubmit} className="flex flex-col">
-                <fieldset>
-                    <CommonInput
-                        type="email"
-                        label="ایمیل"
-                        name="email"
-                        className="font-bold rounded-full p-3 text-right bg-[#F0F0F0] w-full"
-                        placeholder="ایمیل خود را وارد کنید"
-                        required
-                    />
-                </fieldset>
+            <form action={formAction} className="flex flex-col">
+                <CommonInput
+                    type="email"
+                    label="ایمیل"
+                    name="email"
+                    className="font-bold rounded-full p-3 text-right bg-[#F0F0F0] w-full"
+                    placeholder="ایمیل خود را وارد کنید"
+                    required
+                    defaultValue={(actionState?.payload?.get('email') || "") as string}
+                />
+                {actionState ? <span className="text-red-400 text-sm mt-2">{actionState.message.email}</span> : null}
 
                 <ClientButton
+                    disabled={isPending}
                     type="submit"
                     className="w-full bg-[#7575FE] text-white rounded-full py-3 mt-4"
                 >

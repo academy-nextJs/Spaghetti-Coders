@@ -93,9 +93,9 @@ const SwiperSlider = () => {
             <div className='absolute inset-0 z-[5] bg-gradient-to-b from-transparent to-[#00000080] '></div>
 
             <div className="absolute bottom-8 left-6 flex gap-4 z-10 justify-center items-center">
-                <svg width="45" height="45" className='-rotate-90'>
+                <svg width="45" height="45" className='-rotate-90 -scale-y-100'>
                     <circle
-                        stroke="#ccc"
+                        stroke="#6c63ff"
                         fill="transparent"
                         strokeWidth="3"
                         r={radius}
@@ -104,7 +104,7 @@ const SwiperSlider = () => {
                     />
                     <circle
                         ref={circleRef}
-                        stroke="#6c63ff"
+                        stroke="#ccc"
                         fill="transparent"
                         strokeWidth="3"
                         r={radius}
@@ -112,7 +112,7 @@ const SwiperSlider = () => {
                         cy="22"
                         strokeDasharray={circumference}
                         strokeDashoffset={circumference}
-                        strokeLinecap="round"
+                        // strokeLinecap="round"
                     />
                 </svg>
                 <div className="custom-prev w-[56px] h-[56px] cursor-pointer rounded-full bg-[#F9F9F963] flex justify-center items-center">
