@@ -16,7 +16,7 @@ const PersianSelect: FC<PersianSelectProps> = ({
     size
 }) => {
     return (
-        <div className="">
+        <>
             <Select
                 label={label}
                 value={selectedValue}
@@ -36,7 +36,7 @@ const PersianSelect: FC<PersianSelectProps> = ({
                     </SelectItem>
                 ))}
             </Select>
-        </div>
+        </>
     );
 };
 
