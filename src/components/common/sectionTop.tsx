@@ -35,7 +35,7 @@ export function SectionTop({
       )}
 
       {/* Main Text */}
-      <h1 className="text-3xl font-bold whitespace-pre-line animate-bounce">
+      <h1 className="text-3xl font-bold whitespace-pre-line">
         {renderMultilineText(mainText)}
       </h1>
 
