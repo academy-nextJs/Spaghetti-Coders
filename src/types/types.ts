@@ -125,7 +125,8 @@ export interface HouseCardProps {
   bedroom?: number;
   parking?: number;
   capacity?: number;
-  yardType?: string; 
+  yardType?: string;
+  yard?: boolean;
   price: number;
   originalPrice?: number;
   rating?: number;
@@ -136,8 +137,8 @@ export interface HouseCardProps {
 }
 
 export interface LandingCarouselProps {
-  data: ApartmentDataType[]; 
-  discountedSection?: boolean; 
+  data: ApartmentDataType[];
+  discountedSection?: boolean;
 }
 
 export interface MortgageCardProps {
@@ -186,3 +187,43 @@ export interface ApartmentDataType {
   sellerName: string;
   caption: string | null;
 }
+export type HouseSearchParams = {
+  page?: string;
+  limit?: string;
+  sort?: 'price' | 'area' | 'rent' | 'mortgage';
+  order?: 'ASC' | 'DESC';
+  search?: string;
+  location?: string;
+  propertyType?: string;
+  transactionType?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  minRent?: string;
+  maxRent?: string;
+  minMortgage?: string;
+  maxMortgage?: string;
+  minArea?: string;
+  maxArea?: string;
+};
+export interface LocationType {
+  id: string;
+  area_name: string;
+  lat: string;
+  lng: string;
+}
+export interface RentFiltersProps {
+  locations: LocationType[];
+  categories: Category[];
+}
+
+export type QueryValues = {
+  search: string;
+  location: string;
+  category: string;
+  order: string;
+  propertyType: string;
+  maxPrice: string;
+  minRent: string;
+  maxRent: string;
+  transactionType: string;
+};

@@ -3,9 +3,11 @@
 import Image from "next/image";
 // import Pic from '@/public/Mansion.png'
 import { HouseCardProps } from "@/src/types/types";
-import { BathroomIcon, BedroomIcon, BellNightIcon, MapLocationIcon, ParkingIcon, PeopleCapacityIcon, RatingHeartIcon, TomanIcon, YardIcon } from "@/src/assets/SVGs";
 import Carousel from "../carousel";
 import Classes from './LandingHouseCard.module.css'
+import IconWrapper from "../Icons/IconWrapper";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Bathtub01Icon, BedSingle02Icon, CarParking02Icon, FavouriteCircleIcon, HotelBellIcon, ManWomanIcon, MapsLocation01Icon, SlideIcon } from "@hugeicons/core-free-icons";
 
 export default function LandingHouseCard(
   {
@@ -50,7 +52,7 @@ export default function LandingHouseCard(
         {rating ?
           <div className="bg-[#7575FE] flex items-center rounded-full p-1">
             <span className="px-2">{rating}</span>
-            <RatingHeartIcon />
+            <HugeiconsIcon icon={FavouriteCircleIcon} />
           </div>
           : null}
       </div>
@@ -60,73 +62,89 @@ export default function LandingHouseCard(
 
         <div className="flex flex-nowrap items-center gap-1 text-right">
           <div className="flex items-center gap-1 flex-1 min-w-0">
-            <MapLocationIcon />
+            <IconWrapper>
+              <HugeiconsIcon icon={MapsLocation01Icon} className="flex-shrink-0" size={20} color="#595959" />
+            </IconWrapper>
             <span className="font-medium truncate">{address}</span>
           </div>
 
           {nights > 0 ?
             <div className="flex items-center gap-1 flex-shrink-0">
-              <BellNightIcon />
+              <IconWrapper>
+                <HugeiconsIcon icon={HotelBellIcon} size={20} color="#595959" />
+              </IconWrapper>
               <span className="font-medium">{nights} شب</span>
             </div>
-          : null}
+            : null}
         </div>
 
-        {bathroom > 0 || yardType || bedroom > 0 || capacity > 0 || parking > 0 ? 
+        {bathroom > 0 || yardType || bedroom > 0 || capacity > 0 || parking > 0 ?
           <div className={`w-full flex flex-wrap items-center gap-3 font-medium ${Classes['flex-container']}`}>
             {bathroom > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
-                <BathroomIcon />
+                <IconWrapper>
+                  <HugeiconsIcon icon={Bathtub01Icon} size={20} color="#595959" />
+                </IconWrapper>
                 <span className="mx-1 text-nowrap">{bathroom} حمام</span>
               </div>
               : null}
 
             {yardType ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
-                <YardIcon />
+                <IconWrapper>
+                  <HugeiconsIcon icon={SlideIcon} size={20} color="#595959" />
+                </IconWrapper>
                 <span className="mx-1">{yardType}</span>
               </div>
               : null}
 
             {bedroom > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
-                <BedroomIcon />
+                <IconWrapper>
+                  <HugeiconsIcon icon={BedSingle02Icon} size={20} color="#595959" />
+                </IconWrapper>
                 <span className="mx-1 text-nowrap">{bedroom} خواب</span>
               </div>
               : null}
 
             {capacity > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
-                <PeopleCapacityIcon />
+                <IconWrapper>
+                  <HugeiconsIcon icon={ManWomanIcon} size={20} color="#595959" />
+                </IconWrapper>
                 <span className="mx-1 text-nowrap">{capacity} نفر</span>
               </div>
               : null}
 
             {parking > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
-                <ParkingIcon />
+                <IconWrapper>
+                  <HugeiconsIcon icon={CarParking02Icon} size={20} color="#595959" />
+                </IconWrapper>
                 <span className="mx-1 text-nowrap">{parking} پارکینگ</span>
               </div>
               : null}
           </div>
-        : null}
+          : null}
 
-        <div className="flex items-end gap-1 text-right font-medium">
+        <div className="flex flex-wrap items-end gap-1 text-right font-medium">
           {originalPrice ?
             <>
               <div className='relative flex items-end text-[#A6A6A6]'>
                 <span className="font-bold text-xl leading-6">{originalPrice}</span>
-                <TomanIcon fill='#A6A6A6' />
+                {/* <TomanIcon fill='#A6A6A6' /> */}
+                <span className="text-[0.8rem]/[0.8rem] text-[#A6A6A6] font-semibold">تومان</span>
                 <div className="absolute top-1/2 left-0 w-full h-[1px] bg-red-500 rotate-[-10deg]"></div>
               </div>
 
               <span className='font-black'>/</span>
             </>
             : null}
-          {/* <div className="flex items-end"> */}
+          <div className="flex items-end">
             <span className="font-bold text-xl leading-6">{price}</span>
-            <TomanIcon />
-          {/* </div> */}
+            {/* <TomanIcon /> */}
+            <span className="text-[0.8rem]/[0.8rem] text-[#595959] font-semibold">تومان</span>
+          </div>
         </div>
       </div>
     </div>

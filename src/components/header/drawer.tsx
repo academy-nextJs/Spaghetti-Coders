@@ -9,14 +9,15 @@ import {
 import Link from 'next/link';
 import DrawerAccordion from './drawerAccordion';
 import { ThemeSwitcher } from '../ThemSwitcher';
-import { Menu03Icon } from 'hugeicons-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Menu03Icon } from '@hugeicons/core-free-icons';
 
 export function HeaderDrawer() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      <Menu03Icon onClick={onOpen}  width={36} height={36} />
+      <HugeiconsIcon icon={Menu03Icon} onClick={onOpen}  width={36} height={36}/>
       <Drawer
         isOpen={isOpen}
         motionProps={{

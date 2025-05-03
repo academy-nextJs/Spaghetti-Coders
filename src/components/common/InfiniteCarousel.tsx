@@ -9,7 +9,8 @@ import 'swiper/css/pagination';
 
 import styles from './styles.module.css';
 import { Button } from '@heroui/react';
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowLeft01Icon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
 const testimonials = [
   {
     text: 'خدمات عالی و رضایت بخش',
@@ -137,7 +138,7 @@ export default function InfiniteCarousel() {
         onPress={() => swiperRef.current?.slidePrev()}
         className="absolute top-1/2 -translate-y-1/2 md:right-[10%] -right-2 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition"
       >
-        <SlArrowRight color="black" size="1.5em" />
+        <HugeiconsIcon icon={ArrowRight01Icon} size="1.5em" color='black' />
       </Button>
       <Button
         isIconOnly
@@ -145,7 +146,7 @@ export default function InfiniteCarousel() {
         onPress={() => swiperRef.current?.slideNext()}
         className="absolute top-1/2 -translate-y-1/2 md:left-[10%] -left-2 z-10 bg-white rounded-full shadow-lg hover:shadow-xl transition "
       >
-        <SlArrowLeft color="black" size="1.5em" />
+        <HugeiconsIcon icon={ArrowLeft01Icon} size="1.5em" color='black'/>
       </Button>
     </div>
   );

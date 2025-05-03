@@ -1,7 +1,11 @@
+import HouseReserveCardsGrid from "../components/HouseReservePage/HouseReserveCardsGrid";
+
 export default function Home() {
   return (
-    <div>
-      LandingPage
-    </div>
+    <>
+      <div className="pt-10">
+        <HouseReserveCardsGrid />
+      </div>
+    </>
   );
 }
