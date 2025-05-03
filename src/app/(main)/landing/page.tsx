@@ -2,11 +2,10 @@ import React from 'react';
 import api from '@/src/services/api';
 import InfiniteCarousel from '@/src/components/common/InfiniteCarousel';
 import DreamSection from '@/src/components/dreamDestination/dreamSectionContainer';
-import CategoryCarousel from '@/src/components/landingCategory/categoryCarousel';
+import CategoryCarousel from '@/src/components/Landing/landingCategory/categoryCarousel';
 import { SectionTop } from '@/src/components/common/sectionTop';
 import HeroSection from '@/src/components/HomeContainer/HeroSection/HeroSection';
 import LandingShinyAlphaSection from '@/src/components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection';
-
 
 export default async function LandingPage() {
   const { data } = await api.get('/categories');
@@ -26,8 +25,8 @@ export default async function LandingPage() {
           ]}
         />
         <InfiniteCarousel />
-        <LandingShinyAlphaSection />
       </section>
+      <LandingShinyAlphaSection />
     </div>
   );
 }

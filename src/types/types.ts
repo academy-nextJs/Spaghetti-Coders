@@ -8,10 +8,7 @@ export interface LandingCard2Props {
   src?: string;
   href: string;
 }
-export interface Category {
-  id: string;
-  name: string;
-}
+
 export interface CarouselProps {
   children: ReactNode[];
   slidesPerView?: number;
@@ -27,6 +24,7 @@ export interface CarouselProps {
   className?: string;
   houseCarousel?: boolean;
   landingCardsCarousel?: boolean;
+  locOnMap?: boolean;
 }
 export type FilterModalProps = {
   isOpen: boolean;
@@ -122,13 +120,98 @@ export interface SectionTopProps {
 }
 export interface HouseCardProps {
   title: string;
-  location: string;
-  bathroom: number;
-  bedroom: number;
-  parking: number;
+  address: string;
+  bathroom?: number;
+  bedroom?: number;
+  parking?: number;
+  capacity?: number;
+  yardType?: string;
   yard?: boolean;
   price: number;
   originalPrice?: number;
   rating?: number;
   discountPercentage?: number;
+  photos: string[];
+  nights?: number;
+  locOnMap?: boolean;
 }
+
+export interface LandingCarouselProps {
+  data: ApartmentDataType[];
+  discountedSection?: boolean;
+}
+
+// API Types Below👇
+
+export interface Category {
+  id: string;
+  name: string;
+}
+
+export interface Location {
+  lat: number;
+  lng: number;
+}
+
+export interface ApartmentDataType {
+  id: string;
+  title: string;
+  address: string;
+  photos: string[];
+  rate: string;
+  price: string;
+  tags: string[];
+  last_updated: string;
+  capacity: number;
+  location: Location;
+  categories: Category;
+  bathrooms: number;
+  parking: number;
+  rooms: number;
+  yard_type: string;
+  num_comments: number;
+  transaction_type: string;
+  sellerId: string;
+  sellerName: string;
+  caption: string | null;
+}
+export type HouseSearchParams = {
+  page?: string;
+  limit?: string;
+  sort?: 'price' | 'area' | 'rent' | 'mortgage';
+  order?: 'ASC' | 'DESC';
+  search?: string;
+  location?: string;
+  propertyType?: string;
+  transactionType?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  minRent?: string;
+  maxRent?: string;
+  minMortgage?: string;
+  maxMortgage?: string;
+  minArea?: string;
+  maxArea?: string;
+};
+export interface LocationType {
+  id: string;
+  area_name: string;
+  lat: string;
+  lng: string;
+}
+export interface RentFiltersProps {
+  locations: LocationType[];
+  categories: Category[];
+}
+
+export type QueryValues = {
+  search: string;
+  location: string;
+  category: string;
+  order: string;
+  propertyType: string;
+  maxPrice: string;
+  minRent: string;
+  maxRent: string;
+  transactionType: string;
+};
