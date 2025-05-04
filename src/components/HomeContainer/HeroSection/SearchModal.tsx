@@ -22,7 +22,7 @@ const SearchModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
       className="fixed inset-0 z-[9999]  flex items-center justify-center bg-black/40 backdrop-gray-500"
       onClick={handleBackgroundClick}
     >
-      <aside className="w-[700px] rounded-xl  dark:bg-darkMode p-6 shadow-xl relative">
+      <aside className="w-[700px] rounded-xl bg-[#E9E9E9] dark:bg-darkMode p-6 shadow-xl relative">
         <aside className="flex flex-row gap-2 mb-6">
           <ClientButton className='h-9 bg-[#7575FE] text-white '>
             <div className='rounded-full bg-white w-2 h-2'></div>
