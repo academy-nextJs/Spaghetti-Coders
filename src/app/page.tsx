@@ -1,11 +1,14 @@
-import HouseReserveCardsGrid from "../components/HouseReservePage/HouseReserveCardsGrid";
 
+"use client";
+import { usePathname, useRouter } from "next/navigation";
 export default function Home() {
-  return (
-    <>
-      <div className="pt-10">
-        <HouseReserveCardsGrid />
-      </div>
-    </>
-  );
+  const pathname = usePathname();
+  const router = useRouter();
+  if (pathname === "/") {
+    router.push(
+    "/landing"
+    );
+  }
+
+  return null;
 }

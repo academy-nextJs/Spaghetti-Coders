@@ -10,7 +10,7 @@ import { ClientButton } from '../../common/Buttons/common-btn';
 
 const SearchModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
-
+  
   const handleBackgroundClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -19,19 +19,19 @@ const SearchModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
 
   return ReactDOM.createPortal(
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-gray-500"
+      className="fixed inset-0 z-[9999]  flex items-center justify-center bg-black/40 backdrop-gray-500"
       onClick={handleBackgroundClick}
     >
-      <aside className="w-[700px] rounded-xl bg-white p-6 shadow-xl relative">
+      <aside className="w-[700px] rounded-xl  dark:bg-darkMode p-6 shadow-xl relative">
         <aside className="flex flex-row gap-2 mb-6">
-          <ClientButton className='h-9 bg-[#7575FE] text-white'>
+          <ClientButton className='h-9 bg-[#7575FE] text-white '>
             <div className='rounded-full bg-white w-2 h-2'></div>
             رهن و اجاره
           </ClientButton>
-          <ClientButton className='h-9 bg-[#F0F0F0] text-black'>
+          <ClientButton className='h-9 bg-[#F0F0F0] text-black dark:bg-gray-800 dark:text-white'>
             رزرو ملک
           </ClientButton>
-          <ClientButton className='h-9 bg-[#F0F0F0] text-black'>
+          <ClientButton className='h-9 bg-[#F0F0F0] text-black dark:bg-gray-800 dark:text-white'>
             خرید و فروش
           </ClientButton>
         </aside>
@@ -45,7 +45,7 @@ const SearchModal: React.FC<FilterModalProps> = ({ isOpen, onClose }) => {
             </Select>
           </aside>
 
-          <aside className='flex flex-col w-1/2'>
+          <aside className='flex flex-col   w-1/2'>
             <CommonInput
               label="تعداد نفرات"
               placeholder="وارد کنید"
