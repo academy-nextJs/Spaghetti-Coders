@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body dir="rtl" className="px-12 py-4 overflow-x-hidden">
+      <body dir="rtl" className="py-4 overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="dark">
           <header className="flex items-center justify-between w-full overflow-hidden ">
             <Header />
