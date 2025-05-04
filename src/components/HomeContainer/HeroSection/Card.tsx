@@ -26,7 +26,7 @@ const StatCard = () => {
         <p className="text-2xl sm:text-3xl md:text-4xl font-semibold pt-1 pl-2 md:pl-4 mt-1 md:mt-2 dark:text-white text-black text-right">۸۵۰۰ +</p>
         <p className="text-[12px] xs:text-[14px] text-black mt-1 pl-2 md:pl-4 sm:mt-2 text-center dark:text-white">منطقه برای رزرو، ویلا و کلبه</p>
         <div className="flex justify-center h-16 sm:h-20 md:h-40 mt-4 md:mt-6">
-          <hr className="hidden md:block  border-0 border-1 border-dashed border-[#BABAFF] dark:border-white h-full  sm:h-[8rem] w-0" />
+                  <hr className="hidden md:block  border-1 border-dashed border-[#BABAFF] dark:border-white h-full  sm:h-[8rem] w-0" />
         </div>
       </div>
       <div className="w-full md:w-[13.75rem] h-auto md:h-[23.9rem] bg-[#F9F9F9] rounded-2xl sm:rounded-3xl dark:bg-darkMode p-4 mt-3 sm:mt-4">
@@ -34,7 +34,7 @@ const StatCard = () => {
         <p className="text-3xl sm:text-4xl md:text-5xl font-semibold pt-1 pl-2 md:pl-4 mt-1 md:mt-2 dark:text-white text-black text-right">۹۰۰۰ +</p>
         <p className="text-[12px] xs:text-[14px] text-black mt-1 sm:mt-2 text-center dark:text-white">ملک برای رزرو رهن و اجاره</p>
         <div className="flex justify-center h-16 sm:h-24 md:h-64 mt-6 md:mt-6">
-          <hr className="hidden md:block border-0 border-l border-dashed border-[#D1D1D1] dark:border-white sm:h-[13rem] h-full w-0" />
+                  <hr className="hidden md:block  border-l border-dashed border-[#D1D1D1] dark:border-white sm:h-[13rem] h-full w-0" />
         </div>
       </div>
     </div>
