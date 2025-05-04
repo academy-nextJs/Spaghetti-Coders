@@ -29,6 +29,7 @@ export function HouseRentCard(
         src={photo || Pic.src}
         width={300}
         height={280}
+        unoptimized
       />
 
       <div className="flex flex-col justify-between gap-4 max-w-[57.7%]">
@@ -42,14 +43,14 @@ export function HouseRentCard(
 
         <div className="flex flex-nowrap items-center gap-1 text-right">
           <div className="flex items-center gap-1 flex-1 min-w-0">
-          <IconWrapper>
-            <HugeiconsIcon icon={MapsLocation01Icon} className="flex-shrink-0 text-[#595959] dark:text-white" size={20} />
-          </IconWrapper>
+            <IconWrapper>
+              <HugeiconsIcon icon={MapsLocation01Icon} className="flex-shrink-0 text-[#595959] dark:text-white" size={20} />
+            </IconWrapper>
             <span className="font-medium truncate">{address}</span>
           </div>
         </div>
 
-        {bathroom > 0 || yardType || bedroom > 0 || capacity > 0 || parking > 0 ? 
+        {bathroom > 0 || yardType || bedroom > 0 || capacity > 0 || parking > 0 ?
           <div className={`w-full flex flex-wrap items-center gap-3 font-medium ${Classes['flex-container']}`}>
             {bathroom > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
@@ -96,14 +97,14 @@ export function HouseRentCard(
               </div>
               : null}
           </div>
-        : null}
+          : null}
 
         <div className="flex justify-between gap-1 text-right font-medium">
           <div className="flex items-end">
             <span className="font-bold text-xl leading-6">{price}</span>
             <span className="text-[0.8rem]/[0.8rem] text-[#595959] dark:text-[#A6A6A6] font-semibold">تومان</span>
           </div>
-          <div className="text-[#7575FE] flex items-center gap-2 text-nowrap">
+          <div className="text-[#7575FE] flex items-center gap-2 text-nowrap cursor-pointer">
             مشاهده جزئیات
             <HugeiconsIcon icon={ArrowLeft01Icon} color="#7575FE" />
           </div>

@@ -13,8 +13,10 @@ export default function HouseRentGrid({ houses }: { houses: ApartmentDataType[] 
           rate={house.rate}
           price={house.price}
           capacity={house.capacity}
-          bedroom={1}
-          bathroom={1}
+          bathroom={house.bathrooms}
+          parking={house.parking}
+          bedroom={house.rooms}
+          yardType={house.yard_type}
         />
       ))}
     </div>
