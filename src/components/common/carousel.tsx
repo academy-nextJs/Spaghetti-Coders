@@ -111,7 +111,7 @@ export default function Carousel({
       {locOnMap ?
         <div className="float-end group absolute bottom-2 left-2 z-10 inline-flex items-center justify-end text-sm font-medium text-white bg-[#7575FE] rounded-full p-1.5 overflow-hidden">
           <span className='whitespace-nowrap max-w-0 group-hover:max-w-[7rem] text-[1vw] xl:group-hover:max-w-[10rem] group-hover:px-1.5 overflow-hidden transition-all duration-500 text-white'>نمایش داخل نقشه</span>
-          <HugeiconsIcon icon={MapPinpoint01Icon} color='#fff' />
+          <HugeiconsIcon icon={MapPinpoint01Icon} />
         </div>
         : null}
     </div>
