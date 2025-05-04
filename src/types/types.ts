@@ -141,7 +141,7 @@ export interface LandingCarouselProps {
   discountedSection?: boolean;
 }
 
-export interface MortgageCardProps {
+export interface HouseRentCardProps {
   title: string;
   address: string;
   bathroom?: number;
@@ -149,8 +149,9 @@ export interface MortgageCardProps {
   parking?: number;
   capacity?: number;
   yardType?: string; 
-  price: number;
-  photos: string;
+  price: string;
+  photo: string;
+  rate: string
 }
 
 // API Types Below👇

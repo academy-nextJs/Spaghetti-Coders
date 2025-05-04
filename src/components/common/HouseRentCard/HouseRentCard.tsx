@@ -1,16 +1,14 @@
 'use client';
 
 import Image from "next/image";
-// import Pic from '@/public/Mansion.png'
-import { MortgageCardProps } from "@/src/types/types";
-// import { BathroomIcon, BedroomIcon, LeftArrowIcon, MapLocationIcon, ParkingIcon, PeopleCapacityIcon, StarMedalIcon, TomanIcon, YardIcon } from "@/src/assets/SVGs";
-import Classes from './MortgageHouseCard.module.css'
+import Classes from './HouseRentCard.module.css'
 import Pic from '@/public/PoolHouse.png'
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft01Icon, Bathtub01Icon, BedSingle02Icon, CarParking02Icon, ManWomanIcon, MapsLocation01Icon, SlideIcon, StarAward01Icon } from "@hugeicons/core-free-icons";
 import IconWrapper from "../Icons/IconWrapper";
+import { HouseRentCardProps } from "@/src/types/types";
 
-export default function MortgageHouseCard(
+export function HouseRentCard(
   {
     title,
     address,
@@ -20,14 +18,15 @@ export default function MortgageHouseCard(
     capacity = 0,
     yardType,
     price,
-    // photos,
-  }: MortgageCardProps) {
+    photo,
+    rate,
+  }: HouseRentCardProps) {
   return (
     <div className="flex gap-4">
       <Image
         alt="Apartment view"
         className="object-cover max-w-2/5 aspect-[1.19/1] rounded-3xl"
-        src={Pic.src}
+        src={photo || Pic.src}
         width={300}
         height={280}
       />
@@ -38,7 +37,7 @@ export default function MortgageHouseCard(
         <div className="bg-[#7575FE] text-white text-md font-normal rounded-full px-2 py-1 w-fit flex gap-1">
           {/* <StarMedalIcon /> */}
           <HugeiconsIcon icon={StarAward01Icon} />
-          4 ستاره
+          {rate} ستاره
         </div>
 
         <div className="flex flex-nowrap items-center gap-1 text-right">

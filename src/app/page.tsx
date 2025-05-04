@@ -1,4 +1,4 @@
-import HouseMortgageGrid from "../components/HouseMortgagePage/HouseMortgageGrid";
+import HouseMortgageGrid from "../components/HouseRentPage/HouseRentGrid";
 import HouseReserveCardsGrid from "../components/HouseReservePage/HouseReserveCardsGrid";
 
 export default function Home() {
