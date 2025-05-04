@@ -63,7 +63,7 @@ export default function LandingHouseCard(
         <div className="flex flex-nowrap items-center gap-1 text-right">
           <div className="flex items-center gap-1 flex-1 min-w-0">
             <IconWrapper>
-              <HugeiconsIcon icon={MapsLocation01Icon} className="flex-shrink-0" size={20} color="#595959" />
+              <HugeiconsIcon icon={MapsLocation01Icon} size={20} className="flex-shrink-0 text-[#595959] dark:text-white" />
             </IconWrapper>
             <span className="font-medium truncate">{address}</span>
           </div>
@@ -71,7 +71,7 @@ export default function LandingHouseCard(
           {nights > 0 ?
             <div className="flex items-center gap-1 flex-shrink-0">
               <IconWrapper>
-                <HugeiconsIcon icon={HotelBellIcon} size={20} color="#595959" />
+                <HugeiconsIcon icon={HotelBellIcon} size={20} className="text-[#595959] dark:text-white" />
               </IconWrapper>
               <span className="font-medium">{nights} شب</span>
             </div>
@@ -83,7 +83,7 @@ export default function LandingHouseCard(
             {bathroom > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
                 <IconWrapper>
-                  <HugeiconsIcon icon={Bathtub01Icon} size={20} color="#595959" />
+                  <HugeiconsIcon icon={Bathtub01Icon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
                 <span className="mx-1 text-nowrap">{bathroom} حمام</span>
               </div>
@@ -92,7 +92,7 @@ export default function LandingHouseCard(
             {yardType ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
                 <IconWrapper>
-                  <HugeiconsIcon icon={SlideIcon} size={20} color="#595959" />
+                  <HugeiconsIcon icon={SlideIcon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
                 <span className="mx-1">{yardType}</span>
               </div>
@@ -101,7 +101,7 @@ export default function LandingHouseCard(
             {bedroom > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
                 <IconWrapper>
-                  <HugeiconsIcon icon={BedSingle02Icon} size={20} color="#595959" />
+                  <HugeiconsIcon icon={BedSingle02Icon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
                 <span className="mx-1 text-nowrap">{bedroom} خواب</span>
               </div>
@@ -110,7 +110,7 @@ export default function LandingHouseCard(
             {capacity > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
                 <IconWrapper>
-                  <HugeiconsIcon icon={ManWomanIcon} size={20} color="#595959" />
+                  <HugeiconsIcon icon={ManWomanIcon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
                 <span className="mx-1 text-nowrap">{capacity} نفر</span>
               </div>
@@ -119,7 +119,7 @@ export default function LandingHouseCard(
             {parking > 0 ?
               <div className={`flex items-center ${Classes['flex-item']}`}>
                 <IconWrapper>
-                  <HugeiconsIcon icon={CarParking02Icon} size={20} color="#595959" />
+                  <HugeiconsIcon icon={CarParking02Icon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
                 <span className="mx-1 text-nowrap">{parking} پارکینگ</span>
               </div>
@@ -132,7 +132,6 @@ export default function LandingHouseCard(
             <>
               <div className='relative flex items-end text-[#A6A6A6]'>
                 <span className="font-bold text-xl leading-6">{originalPrice}</span>
-                {/* <TomanIcon fill='#A6A6A6' /> */}
                 <span className="text-[0.8rem]/[0.8rem] text-[#A6A6A6] font-semibold">تومان</span>
                 <div className="absolute top-1/2 left-0 w-full h-[1px] bg-red-500 rotate-[-10deg]"></div>
               </div>
@@ -142,8 +141,7 @@ export default function LandingHouseCard(
             : null}
           <div className="flex items-end">
             <span className="font-bold text-xl leading-6">{price}</span>
-            {/* <TomanIcon /> */}
-            <span className="text-[0.8rem]/[0.8rem] text-[#595959] font-semibold">تومان</span>
+            <span className="text-[0.8rem]/[0.8rem] text-[#595959] dark:text-[#A6A6A6] font-semibold">تومان</span>
           </div>
         </div>
       </div>

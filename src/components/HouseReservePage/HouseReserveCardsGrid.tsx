@@ -18,6 +18,11 @@ export default function HouseReserveCardsGrid() {
           rating={5}
           discountPercentage={50} 
           nights={3} 
+          bathroom={1}
+          bedroom={2}
+          capacity={3}
+          parking={4}
+          yardType="AHHH"
           locOnMap
           />
       )}
