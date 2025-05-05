@@ -215,3 +215,10 @@ export type QueryValues = {
   maxRent: string;
   transactionType: string;
 };
+
+
+
+export interface City {
+  key: string;
+  label: string;
+}

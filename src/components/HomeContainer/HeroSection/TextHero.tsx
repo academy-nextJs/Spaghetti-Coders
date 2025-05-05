@@ -3,7 +3,7 @@ import StatCard from "./Card"
 
 const TextHero = () => {
     return (
-        <div className=" h-[565px]  md:mb-14 w-full text-black dark:text-white">
+        <div className=" h-[565px]   w-full text-black dark:text-white ">
             <h4 className="text-4xl pr-8 pt-6">خانه ای که میخوای،
                 <br />
                 جایی که میخوای
