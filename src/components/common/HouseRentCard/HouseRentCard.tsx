@@ -1,15 +1,14 @@
 'use client';
 
 import Image from "next/image";
-// import Pic from '@/public/Mansion.png'
-import { HouseCardProps } from "@/src/types/types";
-import Carousel from "../carousel";
-import Classes from './LandingHouseCard.module.css'
-import IconWrapper from "../Icons/IconWrapper";
+import Classes from './HouseRentCard.module.css'
+import Pic from '@/public/PoolHouse.png'
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Bathtub01Icon, BedSingle02Icon, CarParking02Icon, FavouriteCircleIcon, HotelBellIcon, ManWomanIcon, MapsLocation01Icon, SlideIcon } from "@hugeicons/core-free-icons";
+import { ArrowLeft01Icon, Bathtub01Icon, BedSingle02Icon, CarParking02Icon, ManWomanIcon, MapsLocation01Icon, SlideIcon, StarAward01Icon } from "@hugeicons/core-free-icons";
+import IconWrapper from "../Icons/IconWrapper";
+import { HouseRentCardProps } from "@/src/types/types";
 
-export default function LandingHouseCard(
+export function HouseRentCard(
   {
     title,
     address,
@@ -19,63 +18,36 @@ export default function LandingHouseCard(
     capacity = 0,
     yardType,
     price,
-    originalPrice,
-    rating,
-    discountPercentage,
-    photos,
-    nights = 0,
-    locOnMap,
-  }: HouseCardProps) {
+    photo,
+    rate,
+  }: HouseRentCardProps) {
   return (
-    <div className="relative max-w-[300px] overflow-hidden">
-      <Carousel slidesPerView={1} houseCarousel locOnMap={locOnMap}>
-        {(photos || []).map((photo, index) => (
-          <Image
-            key={index}
-            alt="Apartment view"
-            className="object-cover w-full aspect-square rounded-3xl"
-            src={photo}
-            width={300}
-            height={280}
-            unoptimized
-          />
-        ))}
-      </Carousel>
+    <div className="flex gap-4">
+      <Image
+        alt="Apartment view"
+        className="object-cover max-w-2/5 aspect-[1.19/1] rounded-3xl"
+        src={photo || Pic.src}
+        width={300}
+        height={280}
+        unoptimized
+      />
 
-      <div className="absolute top-2 left-2 z-10 flex items-center gap-1 text-sm font-medium text-white">
-        {discountPercentage ?
-          <div className="bg-[#FF5555] flex items-center rounded-full h-full p-1.5">
-            <span className="px-1">%{discountPercentage}-</span>
-          </div>
-          : null}
+      <div className="flex flex-col justify-between gap-4 max-w-[57.7%]">
+        <h3 className="text-xl font-semibold text-right w-fit">{title}</h3>
 
-        {rating ?
-          <div className="bg-[#7575FE] flex items-center rounded-full p-1">
-            <span className="px-2">{rating}</span>
-            <HugeiconsIcon icon={FavouriteCircleIcon} />
-          </div>
-          : null}
-      </div>
-
-      <div className="pt-3 flex flex-col gap-4">
-        <h3 className="text-xl font-semibold text-right">{title}</h3>
+        <div className="bg-[#7575FE] text-white text-md font-normal rounded-full px-2 py-1 w-fit flex gap-1">
+          {/* <StarMedalIcon /> */}
+          <HugeiconsIcon icon={StarAward01Icon} />
+          {rate} ستاره
+        </div>
 
         <div className="flex flex-nowrap items-center gap-1 text-right">
           <div className="flex items-center gap-1 flex-1 min-w-0">
             <IconWrapper>
-              <HugeiconsIcon icon={MapsLocation01Icon} size={20} className="flex-shrink-0 text-[#595959] dark:text-white" />
+              <HugeiconsIcon icon={MapsLocation01Icon} className="flex-shrink-0 text-[#595959] dark:text-white" size={20} />
             </IconWrapper>
             <span className="font-medium truncate">{address}</span>
           </div>
-
-          {nights > 0 ?
-            <div className="flex items-center gap-1 flex-shrink-0">
-              <IconWrapper>
-                <HugeiconsIcon icon={HotelBellIcon} size={20} className="text-[#595959] dark:text-white" />
-              </IconWrapper>
-              <span className="font-medium">{nights} شب</span>
-            </div>
-            : null}
         </div>
 
         {bathroom > 0 || yardType || bedroom > 0 || capacity > 0 || parking > 0 ?
@@ -127,21 +99,14 @@ export default function LandingHouseCard(
           </div>
           : null}
 
-        <div className="flex flex-wrap items-end gap-1 text-right font-medium">
-          {originalPrice ?
-            <>
-              <div className='relative flex items-end text-[#A6A6A6]'>
-                <span className="font-bold text-xl leading-6">{originalPrice}</span>
-                <span className="text-[0.8rem]/[0.8rem] text-[#A6A6A6] font-semibold">تومان</span>
-                <div className="absolute top-1/2 left-0 w-full h-[1px] bg-red-500 rotate-[-10deg]"></div>
-              </div>
-
-              <span className='font-black'>/</span>
-            </>
-            : null}
+        <div className="flex justify-between gap-1 text-right font-medium">
           <div className="flex items-end">
             <span className="font-bold text-xl leading-6">{price}</span>
             <span className="text-[0.8rem]/[0.8rem] text-[#595959] dark:text-[#A6A6A6] font-semibold">تومان</span>
+          </div>
+          <div className="text-[#7575FE] flex items-center gap-2 text-nowrap cursor-pointer">
+            مشاهده جزئیات
+            <HugeiconsIcon icon={ArrowLeft01Icon} color="#7575FE" />
           </div>
         </div>
       </div>

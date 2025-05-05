@@ -141,6 +141,19 @@ export interface LandingCarouselProps {
   discountedSection?: boolean;
 }
 
+export interface HouseRentCardProps {
+  title: string;
+  address: string;
+  bathroom?: number;
+  bedroom?: number;
+  parking?: number;
+  capacity?: number;
+  yardType?: string; 
+  price: string;
+  photo: string;
+  rate: string
+}
+
 // API Types Below👇
 
 export interface Category {
