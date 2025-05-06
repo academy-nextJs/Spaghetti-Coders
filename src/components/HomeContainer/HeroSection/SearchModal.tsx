@@ -35,8 +35,9 @@ export default function ModalSearch() {
             onPress={() => handleOpen(size)}
             className="w-32 h-32 rounded-full text-md border-4 text-white border-white hover:bg-[#7575FE] bg-[#7575FE]"
           >
-            <div className="flex flex-col text-sm justify-center">
-              <HugeiconsIcon icon={Cursor02Icon} size={45} className="pr-2" />
+            <div className="flex flex-col md:text-sm text-xs justify-center">
+              <HugeiconsIcon size={40} icon={Cursor02Icon}/>
+
               جستجوی
               <br />
               سریع

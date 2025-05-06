@@ -23,7 +23,7 @@ export default async function LandingPage() {
       <div className="mb-24 mx-10"> <DreamSection /></div>
   <div className="mb-20 mr-10"> <LandingShinyAlphaSection /></div>
   <div className="mb-20 mx-10">
-     <LandingBuySellSection data={data} />
+     <LandingBuySellSection  />
      </div>
   <div className="mb-20 mx-10">    <LandingComments /></div>
       

@@ -6,8 +6,8 @@ const StatCard = () => {
       <div className="w-full md:w-[12.44rem] h-auto md:h-[13.06rem] bg-[#F9F9F9] dark:bg-darkMode rounded-2xl sm:rounded-3xl p-4 md:mt-48 mt-4 sm:mt-6">
         <h2 className="text-black dark:text-white pl-2 md:pl-4 pt-1 md:pt-3 text-sm text-right">بیش از</h2>
         <p className="pl-2 md:pl-4 sm:text-3xl md:text-4xl pt-1 md:pt-3 font-semibold text-sm text-right">۵۰۰۰ +</p>
-        <div className="flex flex-col items-center rtl mt-1 sm:mt-2">
-          <AvatarGroup size="sm"   className="scale-y-75 hidden sm:blocksm:scale-y-90 md:scale-y-100">
+       <div className="flex flex-col items-center rtl mt-1 sm:mt-2">
+  <AvatarGroup size="sm" className="hidden sm:flex md-md">
             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
             <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
             <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
