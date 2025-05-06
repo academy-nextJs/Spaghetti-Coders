@@ -64,7 +64,7 @@ export default function ModalSearch() {
                   </div>
                   <div className="flex flex-col w-[20rem]">
                     <span className="text-sm font-medium text-right">تعداد نفرات</span>
-                    <ClientInput placeholder="انتخاب کنید" />
+                    <ClientInput type="number" placeholder="انتخاب کنید" />
                   </div>
                 </div>
 
