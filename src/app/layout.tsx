@@ -13,10 +13,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body dir="rtl" className="px-12 py-4 overflow-x-hidden">
+    <html lang="en" suppressHydrationWarning>
+      <body dir="rtl" className="py-4 overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
+          <header className="flex items-center justify-between w-[97%] m-auto overflow-hidden ">
+            <Header />
+          </header>
+          <main className="w-[97%] m-auto">{children}</main>
+          <footer className="rounded-3xl bg-[#F9F9F9] dark:bg-darkMode w-[97%] m-auto px-7 py-8 flex flex-col gap-12">
+            <FooterContainer />
+          </footer>
 
           <div id="modal-root"></div>
         </ThemeProvider>

@@ -1,8 +1,9 @@
 'use client';
 import { Card, CardHeader, Image, Button, CardFooter } from '@heroui/react';
-import { PiArrowUpLeft } from 'react-icons/pi';
 import Link from 'next/link';
 import { LandingCard2Props } from '@/src/types/types';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowUpLeft01Icon } from '@hugeicons/core-free-icons';
 
 export default function LandingCard2({
   text = '',
@@ -20,7 +21,7 @@ export default function LandingCard2({
             radius="full"
             size="lg"
           >
-            <PiArrowUpLeft color="white" size="1.5em" />
+            <HugeiconsIcon icon={ArrowUpLeft01Icon} />
           </Button>
         </Link>
       </CardHeader>
