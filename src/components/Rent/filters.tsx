@@ -1,7 +1,7 @@
 'use client';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { SearchList01Icon } from '@hugeicons/core-free-icons';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useIsMobile } from '@/src/hooks/useIsMobile';
 import { ClientButton } from '../common/Buttons/common-btn';
 import { useDisclosure } from '@heroui/react';
@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic';
 import { RentFiltersProps } from '@/src/types/types';
 import FilterTop from './filterTop';
 import FilterBottom from './filterBottom';
-import { debounce } from 'lodash';
+import { useUpdateFilter } from '@/src/utils/updateFilter';
 const FilterRentModal = dynamic(() => import('./filterRentModal'), {
   ssr: false,
 });
@@ -23,24 +23,11 @@ export function SearchListBtn() {
   );
 }
 export default function Filters({ locations, categories }: RentFiltersProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const isMobile = useIsMobile();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const updateFilter = useMemo(
-    () =>
-      debounce((key: string, value: string) => {
-        const params = new URLSearchParams(searchParams);
-        if (value) {
-          params.set(key, value);
-        } else {
-          params.delete(key);
-        }
-        router.push(`/houses/rent/?${params.toString()}`);
-      }, 500),
-    [router, searchParams]
-  );
+  const updateFilter = useUpdateFilter()
   const queryValues = useMemo(() => {
     const params = new URLSearchParams(searchParams);
     return {
@@ -49,7 +36,7 @@ export default function Filters({ locations, categories }: RentFiltersProps) {
       category: params.get('category') || '',
       order: params.get('order') || '',
       propertyType: params.get('propertyType') || '',
-      transactionType: params.get('transactionType') || 'rental',
+      transactionType: params.get('transactionType') || '',
       maxPrice: params.get('maxPrice') || '',
       minRent: params.get('minRent') || '',
       maxRent: params.get('maxRent') || '',
