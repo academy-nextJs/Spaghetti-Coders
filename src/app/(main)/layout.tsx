@@ -9,11 +9,11 @@ export default function MainLayout({
 }>) {
   return (
     <main>
-      <header className="flex items-center justify-between w-full overflow-hidden">
+      <header className="flex items-center justify-between w-[97%] m-auto overflow-hidden">
         <Header />
       </header>
-      <main>{children}</main>
-      <footer className="rounded-3xl bg-[#F9F9F9] w-full px-7 py-8 flex flex-col gap-12">
+      <main className="w-[97%] m-auto">{children}</main>
+      <footer className="rounded-3xl bg-[#F9F9F9] dark:bg-darkMode w-[97%] m-auto px-7 py-8 flex flex-col gap-12">
         <FooterContainer />
       </footer>
     </main>

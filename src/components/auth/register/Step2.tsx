@@ -5,12 +5,13 @@ import { ClientButton } from "../../ClientUI";
 import BackPage from "../login/ui/back-page";
 import OtpField from "../../common/inputs/multi-input";
 import { redirect } from "next/navigation";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { TimeQuarter02Icon } from "@hugeicons/core-free-icons";
 // import { SvgClock } from "@/src/assets/svgs";
 
 export const VerificationStep = ({ email }: { email: string }) => {
     const [timer, setTimer] = useState(120);
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
-
 
 
     useEffect(() => {
@@ -58,9 +59,10 @@ export const VerificationStep = ({ email }: { email: string }) => {
             />
             <div className="flex flex-row gap-1">
                 <ClientButton
-                    label="01:20"
-                    className="bg-[#7575FE30] text-[#7575FE]"
-                // svg={<SvgClock />}
+                    label={String(timer)}
+                    className="bg-[#7575FE30] text-[#7575FE] p-0 h-10"
+                    svg={<HugeiconsIcon icon={TimeQuarter02Icon} />}
+                    svgClassName="mr-0"
                 />
                 <span className="text-[#767676] text-xs mt-3">بعد از اتمام 2 دقیقه ارسال مجدد فعال میشود</span>
             </div>

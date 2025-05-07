@@ -6,7 +6,7 @@ import CommonInput from "../../common/inputs/input-btn"
 import BackHome from "../login/ui/back-home-btn"
 import Btn from "../login/ui/btn"
 import Line from "../login/ui/line"
-import { registerEmail } from "@/src/lib/actions/login-register-actions"
+import { registerEmail } from "@/src/app/actions/login-register-actions"
 
 export const EmailStep = () => {
     const [actionState, formAction, isPending] = useActionState(registerEmail, { message: {}, payload: new FormData() })
@@ -32,7 +32,7 @@ export const EmailStep = () => {
                     type="email"
                     label="ایمیل"
                     name="email"
-                    className="font-bold rounded-full p-3 text-right bg-[#F0F0F0] w-full"
+                    className="font-bold rounded-full p-3 text-right bg-[#F0F0F0] dark:bg-transparent dark:border dark:border-gray-100 w-full"
                     placeholder="ایمیل خود را وارد کنید"
                     required
                     defaultValue={(actionState?.payload?.get('email') || "") as string}

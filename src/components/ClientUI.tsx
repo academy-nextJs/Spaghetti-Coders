@@ -7,6 +7,7 @@ interface ClientButtonProps extends ButtonProps {
   label?: string;
   svg?: React.ReactNode;
   labelPosition?: 'beforeChild' | 'afterChild';
+  svgClassName?: string;
 }
 
 export const ClientButton: React.FC<ClientButtonProps> = ({
@@ -15,6 +16,7 @@ export const ClientButton: React.FC<ClientButtonProps> = ({
   label,
   svg,
   labelPosition = 'beforeChild',
+  svgClassName = 'mr-2',
   ...props
 }) => {
   return (
@@ -23,7 +25,7 @@ export const ClientButton: React.FC<ClientButtonProps> = ({
       {...props}
       radius="full"
     >
-      {svg && <span className="mr-2">{svg}</span>} 
+      {svg && <span className={svgClassName}>{svg}</span>} 
       {label && labelPosition === 'beforeChild' && <span className="mr-2">{label}</span>}
       {children}
       {label && labelPosition === 'afterChild' && <span className="mr-1">{label}</span>}
