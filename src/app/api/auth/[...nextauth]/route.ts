@@ -1,22 +1,26 @@
-import api from "@/src/services/api";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export default NextAuth({
+const handler = NextAuth({
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
+        phoneNumber: { label: "PhoneNumber", type: "tel" },
         password: { label: "Password", type: "password" },
+        userId: 
       },
       async authorize(credentials) {
-        const user = await api.post("https://your-api.com/auth/login", {
-          email: credentials.email,
-          password: credentials.password,
+        const res = await fetch("https://your-api.com/auth/login", {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            phoneNumber: credentials.phoneNumber,
+            password: credentials.password,
+          })
         });
 
-        // const user = await res.json();
+        const user = await res.json();
 
         if (user.status === 200 && user) {
           return user;
@@ -42,3 +46,5 @@ export default NextAuth({
     },
   },
 });
+
+export { handler as GET, handler as POST }

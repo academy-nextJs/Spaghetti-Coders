@@ -1,26 +1,22 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { ClientButton } from "../../ClientUI";
 import BackPage from "../login/ui/back-page";
 import OtpField from "../../common/inputs/multi-input";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { TimeQuarter02Icon } from "@hugeicons/core-free-icons";
-// import { SvgClock } from "@/src/assets/svgs";
+import { formatTime } from "@/src/lib/helpers/formatTime";
+import { registerVerifyCode } from "@/src/lib/actions/register-verify-action";
 
-export const VerificationStep = ({ email }: { email: string }) => {
+export const VerificationStep = ({ email = 'ایمیل خود' }: { email: string | undefined }) => {
     const [timer, setTimer] = useState(120);
-    const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-
-    useEffect(() => {
-        inputRefs.current = inputRefs.current.slice(0, 5);
-    }, []);
+    const router = useRouter()
 
     useEffect(() => {
         if (timer <= 0) return;
-
         const countdown = setInterval(() => {
             setTimer((prevTimer) => prevTimer - 1);
         }, 1000);
@@ -28,12 +24,7 @@ export const VerificationStep = ({ email }: { email: string }) => {
         return () => clearInterval(countdown);
     }, [timer]);
 
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        redirect('/register/credential')
-    };
-
+    const [actionState, formAction, isPending] = useActionState(registerVerifyCode, { message: {}, payload: new FormData() })
 
     return (
         <article className="w-full max-w-md flex flex-col">
@@ -44,33 +35,43 @@ export const VerificationStep = ({ email }: { email: string }) => {
                 </section>
             </header>
 
-            <section className="flex items-center justify-between mb-4">
-                <p className="text-sm text-[#767676] mb-12">
+            <section className="text-sm items-center justify-between mb-12">
+                <p className="text-sm text-[#767676]">
                     کد تایید ارسال شده به <span className="text-[#7575FE]">{email}</span> را وارد کنید
                 </p>
+                <span className="text-[#7575FE] underline cursor-pointer" onClick={() => router.back()}>تغییر ایمیل</span>
             </section>
-
-            <span className="mb-4">کد تایید </span>
-            <OtpField
-                description=""
-                length={5}
-                isInvalid={false}
-                errorMessage="کد وارد شده صحیح نیست."
-            />
-            <div className="flex flex-row gap-1">
-                <ClientButton
-                    label={String(timer)}
-                    className="bg-[#7575FE30] text-[#7575FE] p-0 h-10"
-                    svg={<HugeiconsIcon icon={TimeQuarter02Icon} />}
-                    svgClassName="mr-0"
+            <form action={formAction}>
+                <span className="mb-4">کد تایید </span>
+                <OtpField
+                    length={6}
+                    // description=""
+                    // isInvalid={false}
+                    isRequired
+                    errorMessage="کد وارد شده صحیح نیست"
+                    radius="lg"
+                    size="lg"
+                    dir="ltr"
+                    name="verifyCode"
+                    value={(actionState.payload.get('verifyCode') || undefined) as string}
                 />
-                <span className="text-[#767676] text-xs mt-3">بعد از اتمام 2 دقیقه ارسال مجدد فعال میشود</span>
-            </div>
-
-            <form onSubmit={handleSubmit}>
+                <div className="flex flex-row gap-1 mt-4">
+                    <ClientButton
+                        label={formatTime(timer)}
+                        className="bg-[#7575FE30] text-[#7575FE] px-2 h-10 cursor-auto"
+                        svg={<HugeiconsIcon icon={TimeQuarter02Icon} />}
+                        svgClassName="mr-0"
+                        spanBeforeClassName="mr-0"
+                        disabled
+                        type="button"
+                    />
+                    <span className="text-[#767676] text-sm mt-3">بعد از اتمام 2 دقیقه ارسال مجدد فعال میشود</span>
+                </div>
+            
                 <ClientButton
                     type="submit"
-                    className="w-full bg-[#7575FE] text-white rounded-full py-3 mt-4"
+                    className="w-full bg-[#7575FE] text-white rounded-full py-3 mt-6"
+                    disabled={isPending}
                 >
                     ارسال
                 </ClientButton>

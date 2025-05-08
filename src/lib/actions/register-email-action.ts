@@ -1,8 +1,9 @@
 'use server'
 
-// import { registerStore } from "@/src/store/registerStore";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod"
+// import { registerStore } from "@/src/store/registerStore";
 
 interface ActionStateType {
   message: {
@@ -29,24 +30,34 @@ export async function registerEmail(_actionState: ActionStateType, formData: For
 
   const email = validatedFields.data.email
   console.log(email)
-  // const setUserEmail = registerStore((state) => state.setUserEmail)
-  // setUserEmail(email)
 
-  const res = await fetch(`${BASE_URL}/auth/start-registration`, {
-    body: JSON.stringify({ email }),
+  const result = await fetch(`${BASE_URL}/auth/start-registration`, {
     method: 'POST',
+    body: JSON.stringify({ email }),
     headers: { 'Content-Type': 'application/json' },
   })
-
-  const response = await res.json()
+  
+  const response = await result.json()
   console.log(response)
+  
+  if (!result.ok) throw new Error(`خطا در ارسال کد تایید: ${response.message}`);
 
-  if (!res.ok) throw new Error(`خطا در ارسال کد تایید: ${response.message}`)
+  const cookieStore = await cookies()
+  cookieStore.set({
+    name: 'tempUserId',
+    value: response.tempUserId,
+    path: '/register/verify',
+    httpOnly: true,
+    maxAge: 60 * 5,
+  });
 
-  redirect('/register/verification')
+  cookieStore.set({
+    name: 'userEmail',
+    value: email,
+    path: '/register/verify',
+    httpOnly: true,
+    maxAge: 60 * 5,
+  });
 
-  // return {
-  //   message: {},
-  //   payload: formData,
-  // };
+  redirect('/register/verify')
 }
