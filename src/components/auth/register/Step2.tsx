@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { TimeQuarter02Icon } from "@hugeicons/core-free-icons";
 import { formatTime } from "@/src/lib/helpers/formatTime";
-import { registerVerifyCode } from "@/src/lib/actions/register-verify-action";
+import { registerVerifyCode } from "@/src/lib/actions/register/register-verify-action";
 
 export const VerificationStep = ({ email = 'ایمیل خود' }: { email: string | undefined }) => {
     const [timer, setTimer] = useState(120);

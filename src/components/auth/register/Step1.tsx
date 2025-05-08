@@ -6,7 +6,7 @@ import CommonInput from "../../common/inputs/input-btn"
 import BackHome from "../login/ui/back-home-btn"
 import Btn from "../login/ui/btn"
 import Line from "../login/ui/line"
-import { registerEmail } from "@/src/lib/actions/register-email-action"
+import { registerEmail } from "@/src/lib/actions/register/register-email-action"
 
 export const EmailStep = () => {
     const [actionState, formAction, isPending] = useActionState(registerEmail, { message: {}, payload: new FormData() })

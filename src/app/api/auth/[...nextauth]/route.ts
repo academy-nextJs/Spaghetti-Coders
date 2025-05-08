@@ -2,6 +2,12 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const handler = NextAuth({
+  session: {
+    strategy: "jwt",
+  },
+  pages: {
+    newUser: '/register/setup',
+  },
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -30,9 +36,6 @@ const handler = NextAuth({
       },
     }),
   ],
-  session: {
-    strategy: "jwt",
-  },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {

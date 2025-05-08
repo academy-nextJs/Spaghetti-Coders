@@ -3,7 +3,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod"
-// import { registerStore } from "@/src/store/registerStore";
 
 interface ActionStateType {
   message: {
@@ -12,13 +11,14 @@ interface ActionStateType {
   payload: FormData
 }
 
+const BASE_URL = process.env.BASE_URL
+
 const schema = z.object({
   email: z.string().email({ message: 'ایمیل نامعتبر! ایمیل خود را چک کنید و دوباره تلاش کنید.' })
 })
 
-const BASE_URL = process.env.BASE_URL
-
 export async function registerEmail(_actionState: ActionStateType, formData: FormData): Promise<ActionStateType> {
+  const cookieStore = await cookies()
   const validatedFields = schema.safeParse({
     email: formData.get('email'),
   })
@@ -33,8 +33,8 @@ export async function registerEmail(_actionState: ActionStateType, formData: For
 
   const result = await fetch(`${BASE_URL}/auth/start-registration`, {
     method: 'POST',
-    body: JSON.stringify({ email }),
     headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
   })
   
   const response = await result.json()
@@ -42,7 +42,6 @@ export async function registerEmail(_actionState: ActionStateType, formData: For
   
   if (!result.ok) throw new Error(`خطا در ارسال کد تایید: ${response.message}`);
 
-  const cookieStore = await cookies()
   cookieStore.set({
     name: 'tempUserId',
     value: response.tempUserId,
@@ -50,7 +49,7 @@ export async function registerEmail(_actionState: ActionStateType, formData: For
     httpOnly: true,
     maxAge: 60 * 5,
   });
-
+  
   cookieStore.set({
     name: 'userEmail',
     value: email,
