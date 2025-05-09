@@ -1,7 +1,7 @@
 import Avatars from "./Avatar";
 const StatCard = () => {
   return (
-    <div className="w-full flex flex-row h-[12rem]  px-4 sm:px-6 md:flex-row gap-1 sm:gap-4 md:gap-5 mb-12 sm:mb-20 md:mb-32">
+    <div className="w-full flex flex-row h-[12rem]  px-4 sm:px-6 md:flex-row gap-1 sm:gap-4 md:gap-5  justify-center mb-12 sm:mb-20 md:mb-32">
       <div className="w-full md:w-[12.44rem] h-auto md:h-[13.06rem] bg-[#F9F9F9] dark:bg-darkMode rounded-2xl sm:rounded-3xl p-4 md:mt-48 mt-4 sm:mt-6">
         <h2 className="text-black dark:text-white pl-2 md:pl-4 pt-1 md:pt-3 text-sm text-right">بیش از</h2>
         <p className="pl-2 md:pl-4 sm:text-3xl md:text-4xl pt-1 md:pt-3 font-semibold text-sm text-right">۵۰۰۰ +</p>
