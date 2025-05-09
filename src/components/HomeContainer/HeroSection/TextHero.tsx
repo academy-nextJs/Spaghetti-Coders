@@ -1,9 +1,7 @@
-
 import StatCard from "./Card"
-
 const TextHero = () => {
     return (
-        <div className=" h-[565px]   w-full text-black dark:text-white ">
+        <div className=" h-[35.3125rem] w-full text-black dark:text-white ">
             <h4 className="md:text-4xl text-2xl pr-8 pt-6">خانه ای که میخوای،
                 <br />
                 جایی که میخوای
@@ -18,6 +16,5 @@ const TextHero = () => {
         </div>
     )
 }
-
 
 export default TextHero;
