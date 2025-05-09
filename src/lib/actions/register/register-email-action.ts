@@ -28,7 +28,7 @@ export async function registerEmail(_actionState: ActionStateType, formData: For
     payload: formData,
   }
 
-  const email = validatedFields.data.email
+  const { email } = validatedFields.data;
   console.log(email)
 
   const result = await fetch(`${BASE_URL}/auth/start-registration`, {
@@ -39,7 +39,6 @@ export async function registerEmail(_actionState: ActionStateType, formData: For
   
   const response = await result.json()
   console.log(response)
-  
   if (!result.ok) throw new Error(`خطا در ارسال کد تایید: ${response.message}`);
 
   cookieStore.set({
@@ -57,6 +56,6 @@ export async function registerEmail(_actionState: ActionStateType, formData: For
     httpOnly: true,
     maxAge: 60 * 5,
   });
-
+  
   redirect('/register/verify')
 }

@@ -28,7 +28,7 @@ export async function registerVerifyCode(_actionState: ActionStateType, formData
     payload: formData,
   }
 
-  const verifyCode = validateFields.data.verifyCode;
+  const { verifyCode } = validateFields.data;
 
   const tempUserId = cookieStore.get('tempUserId')?.value
   if (!tempUserId) throw new Error('مهلت ثبت نام شما به اتمام رسیده است. لطفا دوباره ایمیل خود را وارد کنید.')

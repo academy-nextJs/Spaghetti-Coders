@@ -14,10 +14,10 @@ export default function Error({
       <h2>مشکلی پیش آمده!</h2>
       <p>{error.message}</p>
       <div className="flex justify-between">
-        <button onClick={() => reset()}>
-          تلاش دوباره
+        <button className="cursor-pointer" onClick={() => reset()}>
+          لااااگگ ااااووووتتت
         </button>
-        <Link href='/register'>بازگشت به صفحه اول</Link>
+        <Link href='/'>بازگشت به خانه</Link>
       </div>
     </div>
   )

@@ -35,7 +35,7 @@ export const EmailStep = () => {
                     className="font-bold rounded-full p-3 text-right bg-[#F0F0F0] dark:bg-transparent dark:border dark:border-gray-100 w-full"
                     placeholder="ایمیل خود را وارد کنید"
                     required
-                    defaultValue={(actionState?.payload?.get('email') || "") as string}
+                    defaultValue={(actionState.payload.get('email') || undefined) as string}
                 />
                 {actionState ? <span className="text-red-400 text-sm mt-2">{actionState.message.email}</span> : null}
 

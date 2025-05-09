@@ -37,10 +37,7 @@ export async function registerSetup(_actionState: ActionStateType, formData: For
     payload: formData
   }
 
-  const { phoneNumber, password } = {
-    phoneNumber: validatedFields.data.phoneNumber,
-    password: validatedFields.data.password,
-  }
+  const { phoneNumber, password } = validatedFields.data
 
   const userId = cookieStore.get('userId')?.value
   if(!userId) throw new Error('مهلت ثبت نام شما به اتمام رسیده است. لطفا دوباره ایمیل خود را وارد کنید.')
@@ -53,10 +50,8 @@ export async function registerSetup(_actionState: ActionStateType, formData: For
 
   const response = await result.json()
   console.log(response)
-
   if(!result.ok) throw new Error(`خطا در تکمیل ثبت نام: ${response.message}`)
 
   cookieStore.delete('userId')
-
   redirect('/login')
 }
