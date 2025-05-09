@@ -5,7 +5,7 @@ import { ClientButton } from "../../common/Buttons/common-btn";
 import api from "@/src/services/api";
 
 export default async function LandingBuySellSection() {
-  const { data } = await api.get('/houses?page=1&limit=8&sort=rate&order=DESC')
+  const { data } = await api.get('/houses?limit=8&sort=rate&order=DESC&transactionType=')
   if(!data) throw new Error('Failed to fetch Hot Houses, Please try again later.')
 
   return (
