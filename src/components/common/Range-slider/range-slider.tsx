@@ -1,15 +1,9 @@
-import { Slider } from "@heroui/react";
+import { Slider, SliderProps } from "@heroui/react";
 
-type CustomSliderProps = {
-    value?: number;
-    onChange?: (value: number) => void;
-    className?: string;
-} & React.ComponentPropsWithoutRef<"input">; 
 
-export default function CustomSlider(props: CustomSliderProps) {
+export default function ClientSlider(props: SliderProps) {
     return (
         <Slider
-            className="max-w-md"
             {...props}
         />
     );
