@@ -13,7 +13,7 @@ const CommonInput: FC<PersianInputProps> = ({
     return (
         <div className="flex flex-col">
             {label && (
-                <label htmlFor={id} className="mb-2 text-sm font-semibold">
+                <label htmlFor={id} className="mb-2 text-sm  font-bold">
                     {label}
                 </label>
             )}

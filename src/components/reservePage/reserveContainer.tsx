@@ -7,9 +7,12 @@ import { ClientButton } from '../common/Buttons/common-btn';
 import { Breadcrumbs, BreadcrumbItem, useDisclosure } from '@heroui/react';
 import ReserveFilterDrawer from './reserveFilterDrawer';
 import { ReserveContainerProps } from '@/src/types/types';
-const HouseReserveCardsGrid = dynamic(() => import('../HouseReservePage/HouseReserveCardsGrid'), {
-  ssr: false,
-});
+const HouseReserveCardsGrid = dynamic(
+  () => import('../HouseReservePage/HouseReserveCardsGrid'),
+  {
+    ssr: false,
+  }
+);
 const DynamicMap = dynamic(() => import('./MapComponent'), {
   ssr: false,
 });
@@ -18,7 +21,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const updateFilter = useUpdateFilter();
   return (
-    <div className="flex justify-between my-8">
+    <div className="flex justify-between my-8 w-full">
       <div className="w-[37%] mt-8 flex flex-col gap-12">
         <Breadcrumbs>
           <BreadcrumbItem href="/">خانه</BreadcrumbItem>
@@ -41,8 +44,9 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
           />
         </div>
         <div>
-
-        <HouseReserveCardsGrid />
+          <div className="h-screen overflow-scroll">
+            <HouseReserveCardsGrid />
+          </div>
         </div>
       </div>
       <DynamicMap />
