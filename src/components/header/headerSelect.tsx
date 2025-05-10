@@ -9,7 +9,7 @@ export function HeaderFastSelect() {
   const handleReserveRoot = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedKey = event.target.value;
     console.log(selectedKey);
-    router.push(`/houses/reserv`);
+    router.push(`/reserve`);
   };
   return (
     <SelectClient
@@ -33,7 +33,7 @@ export function HeaderOptionSelect() {
   const handleRentRoot = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedKey = event.target.value;
     console.log(selectedKey);
-    router.push(`/houses/rent`);
+    router.push(`/rent&mort`);
   };
   return (
     <SelectClient
