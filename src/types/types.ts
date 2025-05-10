@@ -235,3 +235,20 @@ export interface City {
   key: string;
   label: string;
 }
+export interface ReserveContainerProps{
+  locations: LocationType[];
+  reserveData?: ApartmentDataType[]
+}
+export interface ReserveInitialValProps extends Omit<
+    QueryValues,
+    | 'search'
+    | 'category'
+    | 'propertyType'
+    | 'minRent'
+    | 'maxRent'
+    | 'transactionType'
+> {
+    sort: string;
+    rate: string;
+    minPrice:string;
+}
