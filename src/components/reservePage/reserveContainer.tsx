@@ -7,7 +7,9 @@ import { ClientButton } from '../common/Buttons/common-btn';
 import { Breadcrumbs, BreadcrumbItem, useDisclosure } from '@heroui/react';
 import ReserveFilterDrawer from './reserveFilterDrawer';
 import { ReserveContainerProps } from '@/src/types/types';
-import HouseReserveCardsGrid from '../HouseReservePage/HouseReserveCardsGrid';
+const HouseReserveCardsGrid = dynamic(() => import('../HouseReservePage/HouseReserveCardsGrid'), {
+  ssr: false,
+});
 const DynamicMap = dynamic(() => import('./MapComponent'), {
   ssr: false,
 });
@@ -17,13 +19,13 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   const updateFilter = useUpdateFilter();
   return (
     <div className="flex justify-between my-8">
-      <div className="w-[37%] mt-8">
+      <div className="w-[37%] mt-8 flex flex-col gap-12">
         <Breadcrumbs>
           <BreadcrumbItem href="/">خانه</BreadcrumbItem>
           <BreadcrumbItem href="/reserve">رزرو هتل</BreadcrumbItem>
           <BreadcrumbItem>رزرو هتل رشت</BreadcrumbItem>
         </Breadcrumbs>
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between">
           <ClientButton
             className="bg-[#7575FE] h-12 text-white"
             onPress={onOpen}
@@ -38,7 +40,10 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
             onChange={(e) => updateFilter('search', e.target.value)}
           />
         </div>
+        <div>
+
         <HouseReserveCardsGrid />
+        </div>
       </div>
       <DynamicMap />
       <ReserveFilterDrawer

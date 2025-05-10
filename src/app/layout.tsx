@@ -23,7 +23,7 @@ export default function RootLayout({
             <Header />
           </header>
           <main className='w-[97%] m-auto'>{children}</main>
-          <footer className="rounded-3xl bg-[#F9F9F9] dark:bg-darkMode w-[97%] m-auto px-7 py-8 flex flex-col gap-12">
+          <footer className="rounded-3xl bg-[#F9F9F9] dark:bg-darkMode w-[97%] m-auto px-7 py-8 flex flex-col gap-12 mt-12">
             <FooterContainer />
           </footer>
 
