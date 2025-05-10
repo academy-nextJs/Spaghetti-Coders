@@ -1,13 +1,5 @@
-import HouseMortgageGrid from "../components/HouseRentPage/HouseRentGrid";
-import HouseReserveCardsGrid from "../components/HouseReservePage/HouseReserveCardsGrid";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      <div className="pt-10">
-        <HouseReserveCardsGrid />
-        <HouseMortgageGrid />
-      </div>
-    </>
-  );
+  return redirect('/landing');
 }

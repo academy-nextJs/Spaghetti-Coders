@@ -1,6 +1,5 @@
 'use server'
 
-import { redirect } from "next/navigation";
 import { signIn } from "@/auth";
 import { z } from "zod";
 
@@ -18,8 +17,6 @@ const schema = z.object({
 })
 
 export async function loginAct(_actionState: ActionStateType, formData: FormData): Promise<ActionStateType> {
-  // const cookieStore = await cookies()
-
   const validatedFields = schema.safeParse({
     email: formData.get('email'),
   })
@@ -29,36 +26,27 @@ export async function loginAct(_actionState: ActionStateType, formData: FormData
     payload: formData,
   }
 
-  // const { email, password } = {
-  //   email: validatedFields.data.email,
-  //   password: formData.get('password')
-  // }
+  const { email, password } = {
+    email: validatedFields.data.email,
+    password: formData.get('password')
+  }
 
-  // const response = 
-  await signIn('credentials', formData)
-  
-  // console.log(response)
-  // if(!response?.ok) throw new Error('Res not OK')
+  // try {
+    return await signIn(
+      'credentials', 
+      // formData, 
+      // redirect("/"),
+      { email, password, redirectTo: "/" }
+    )
+    // redirect('/')
+    
+    // return {
+    //   message: {},
+    //   payload: new FormData,
+    // }
+    // console.log('actionResult')
+  // } catch {
+  //   throw new Error("Annoying server error this is bullshit")
+  // }  
 
-  // const res = await fetch(
-  //   `${process.env.NEXTAUTH_URL}/api/auth/signin/credentials`,
-  //   {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/x-www-form-urlencoded',
-  //       cookie: cookieStore.toString(),
-  //     },
-  //     body: new URLSearchParams({
-  //       // csrfToken,
-  //       callbackUrl: '/',
-  //       email: String(email),
-  //       password: String(password),
-  //     }),
-  //     credentials: 'include',
-  //   }
-  // );
-
-  // console.log(res.json())
-  
-  redirect('/')
 }

@@ -7,8 +7,12 @@ import { HeaderDrawer } from './drawer';
 import { ThemeSwitcher } from '../ThemSwitcher';
 import { ClientButton } from '../common/Buttons/common-btn';
 import Link from 'next/link';
+import { auth, signOut } from '@/auth';
 
-export default function Header() {
+export default async function Header() {
+  const session = await auth()
+  console.log("session", session)
+  
   return (
     <>
       <div className="lg:hidden">
@@ -40,9 +44,31 @@ export default function Header() {
         <HeaderOptionSelect />
         <HeaderFastSelect />
         <Divider orientation="vertical" className="h-6 w-[2px]" />
-        <ClientButton className="bg-[#7575FE] text-white h-12">
-          ثبت نام / ورود
-        </ClientButton>
+        {session ?
+          <form 
+            action={async () => {
+              'use server'
+              await signOut()
+            }} 
+          >
+            <ClientButton 
+              // formAction={async () => {
+              //   'use server'
+              //   await signOut()
+              // }} 
+              className="bg-[#7575FE] text-white h-12"
+              type='submit'
+            >
+              خروج
+            </ClientButton>
+          </form>
+        : 
+          <Link href='/login'>
+            <ClientButton className="bg-[#7575FE] text-white h-12">
+              ثبت نام / ورود
+            </ClientButton>
+          </Link>
+        }
       </aside>
       <aside className="lg:hidden flex gap-3">
         <ClientButton className="bg-[#7575FE] text-white h-12">

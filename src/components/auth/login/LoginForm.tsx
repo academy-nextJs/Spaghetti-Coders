@@ -12,26 +12,6 @@ import { loginAct } from "@/src/lib/actions/login/login-action";
 const LoginForm = () => {
     const [actionState, formAction, isPending] = useActionState(loginAct, { message: {}, payload: new FormData() })
 
-    // const onSubmit = async (e) => {
-    //     e.preventDefault()
-    //     console.log(e)
-    //     // const { email, password } = {
-    //     //     email: formData.get('email'),
-    //     //     password: formData.get('password')
-    //     // }
-
-    //     try {
-    //         const response = await signIn('credentials', {
-    //             email: 'nwryshayan500@gmail.com',
-    //             password: '123456789',
-    //             // redirect: false,
-    //         })
-    //         console.log(response)
-    //         if (!response?.ok) throw new Error('Error while signing in')
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
     return (
         <section className="w-full max-w-md p-4">
             <header className="flex flex-col mb-8">
@@ -47,7 +27,6 @@ const LoginForm = () => {
             <Btn />
             <Line />
             <form
-                // onSubmit={onSubmit}
                 action={formAction}
                 className="space-y-4"
             >
