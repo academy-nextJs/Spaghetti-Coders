@@ -228,6 +228,13 @@ export type QueryValues = {
   maxRent: string;
   transactionType: string;
 };
+
+
+
+export interface City {
+  key: string;
+  label: string;
+}
 export interface ReserveContainerProps{
   locations: LocationType[];
   reserveData?: ApartmentDataType[]
