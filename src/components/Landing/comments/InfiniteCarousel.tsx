@@ -2,7 +2,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
-import CommonCardComment from './commonCardComment';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -11,6 +10,7 @@ import styles from './styles.module.css';
 import { Button } from '@heroui/react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowLeft01Icon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
+import CommonCardComment from './commonCardComment';
 const testimonials = [
   {
     text: 'خدمات عالی و رضایت بخش',
@@ -42,7 +42,6 @@ const testimonials = [
     date: '۳۰ فروردین ۱۴۰۲',
     imageUrl: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
   },
-  // Add more testimonials for smooth infinite scrolling
   {
     text: 'مکان های زیبا و دیدنی',
     name: 'نیما اکبری',

@@ -35,13 +35,13 @@ export function SectionTop({
       )}
 
       {/* Main Text */}
-      <h1 className="text-3xl font-bold whitespace-pre-line animate-bounce">
+      <h1 className="text-3xl font-bold whitespace-pre-line">
         {renderMultilineText(mainText)}
       </h1>
 
       {/* Children or SubText */}
       {children || (
-        <p className="text-[#555555] whitespace-pre-line">
+        <p className="text-[#555555] dark:text-gray-400 whitespace-pre-line">
           {renderMultilineText(subText)}
         </p>
       )}

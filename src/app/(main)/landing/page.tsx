@@ -1,28 +1,42 @@
 import React from 'react';
 import api from '@/src/services/api';
-import InfiniteCarousel from '@/src/components/common/InfiniteCarousel';
-import DreamSection from '@/src/components/dreamDestination/dreamSectionContainer';
-import CategoryCarousel from '@/src/components/Landing/landingCategory/categoryCarousel';
-import { SectionTop } from '@/src/components/common/sectionTop';
+import dynamic from 'next/dynamic';
+
+const DreamSection = dynamic(() => import('@/src/components/Landing/dreamDestination/dreamSectionContainer'));
+const CategoryCarousel = dynamic(() => import('@/src/components/Landing/landingCategory/categoryCarousel'));
+const HeroSection = dynamic(() => import('@/src/components/HomeContainer/HeroSection/index'));
+const LandingShinyAlphaSection = dynamic(() => import('@/src/components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection'));
+const LandingCarousel = dynamic(() => import('@/src/components/Landing/LandingCarousel/LandingCarousel'));
+const LandingComments = dynamic(() => import('@/src/components/Landing/comments/commentsContainer'));
+const LandingDiscountedSection = dynamic(() => import('@/src/components/Landing/LandingDiscountedSection/LandingDiscountedSection'));
+const LandingBuySellSection = dynamic(() => import('@/src/components/Landing/LandingBuySellSection/LandingBuySellSection'));
+
 
 export default async function LandingPage() {
   const { data } = await api.get('/categories');
 
   return (
-    <div>
-      <h1>Landing Page</h1>
-      <CategoryCarousel data={data} />
-
-      <DreamSection />
-      <section>
-        <SectionTop
-          mainText={['نظرات کاربران درباره آلفا']} // Still supports string with \n
-          subText={[
-            'تیم دلتا با ارائه بهترین نیرو های خدماتی و سرویس های\n املاکی سعی دارد تا بتواند در تمام لحظات کنار شما باشد .',
-          ]}
-        />
-        <InfiniteCarousel />
-      </section>
+    <div className="w-full flex flex-col gap-20 justify-ceneter">
+      <HeroSection />
+      <div className="flex justify-end">
+        <CategoryCarousel data={data} />
+      </div>
+      <div className="">
+        <LandingDiscountedSection />
+        <LandingCarousel data={data} discountedSection={true} />
+      </div>
+      <div className="">
+        <DreamSection />
+      </div>
+      <div className=" ">
+        <LandingShinyAlphaSection />
+      </div>
+      <div className="">
+        <LandingBuySellSection />
+      </div>
+      <div className="">
+        <LandingComments />
+      </div>
     </div>
   );
 }

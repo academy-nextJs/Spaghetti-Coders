@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Carousel from '../common/carousel';
-import LandingCard2 from '../common/landingCard2';
+import Carousel from '../../common/carousel';
+import LandingCard2 from '../../common/landingCard2';
 import axios from 'axios';
-import Loading from '../common/loading';
+import Loading from '../../common/loading';
 interface Locations {
   id: string;
   area_name: string;
@@ -43,15 +43,15 @@ export default function DreamCarousel() {
   if (error) return <div>{error}</div>;
   const breakpoints = {
     0: {
-      slidesPerView: 3.5-2,
+      slidesPerView: 3.5 - 2,
     },
     768: {
-      slidesPerView: 3.5-1,
+      slidesPerView: 3.5 - 1,
     },
     1280: {
       slidesPerView: 3.5,
     },
-  }
+  };
   return (
     <>
       <Carousel slidesPerView={3.5} breakpoints={breakpoints}>
