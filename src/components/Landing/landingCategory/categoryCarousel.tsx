@@ -9,6 +9,9 @@ export default function CategoryCarousel({ data }: { data: Category[] }) {
     0: {
       slidesPerView: 1,
     },
+    480: {
+      slidesPerView: 1.5,
+    },
     768: {
       slidesPerView: 2,
     },

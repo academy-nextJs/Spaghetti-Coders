@@ -1,3 +1,4 @@
+'use client'
 import { Avatar, AvatarGroup } from '@heroui/react';
 import React from 'react'
 const Avatars = () => {

@@ -22,7 +22,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   const updateFilter = useUpdateFilter();
   return (
     <div className="flex justify-between my-8 w-full">
-      <div className="w-[37%] mt-8 flex flex-col gap-12">
+      <div className="w-[57%] mt-8 flex flex-col gap-12">
         <Breadcrumbs>
           <BreadcrumbItem href="/">خانه</BreadcrumbItem>
           <BreadcrumbItem href="/reserve">رزرو هتل</BreadcrumbItem>
@@ -44,12 +44,14 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
           />
         </div>
         <div>
-          <div className="h-screen overflow-scroll">
+          <div className="h-[80vh] overflow-y-scroll">
             <HouseReserveCardsGrid />
           </div>
         </div>
       </div>
-      <DynamicMap />
+      <div className="w-2/5 h-screen">
+        <DynamicMap />
+      </div>
       <ReserveFilterDrawer
         onOpenChange={onOpenChange}
         isOpen={isOpen}

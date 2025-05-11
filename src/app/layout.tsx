@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <body dir="rtl" className="py-4 overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
