@@ -148,10 +148,10 @@ export interface HouseRentCardProps {
   bedroom?: number;
   parking?: number;
   capacity?: number;
-  yardType?: string; 
+  yardType?: string;
   price: string;
   photo: string;
-  rate: string
+  rate: string;
 }
 
 // API Types Below👇
@@ -229,17 +229,16 @@ export type QueryValues = {
   transactionType: string;
 };
 
-
-
 export interface City {
   key: string;
   label: string;
 }
-export interface ReserveContainerProps{
+export interface ReserveContainerProps {
   locations: LocationType[];
-  reserveData?: ApartmentDataType[]
+  reserveData?: ApartmentDataType[];
 }
-export interface ReserveInitialValProps extends Omit<
+export interface ReserveInitialValProps
+  extends Omit<
     QueryValues,
     | 'search'
     | 'category'
@@ -247,8 +246,17 @@ export interface ReserveInitialValProps extends Omit<
     | 'minRent'
     | 'maxRent'
     | 'transactionType'
-> {
-    sort: string;
-    rate: string;
-    minPrice:string;
+  > {
+  sort: string;
+  rate: string;
+  minPrice: string;
 }
+export type Feature = {
+  label: string;
+  text: string;
+};
+export type Props = {
+  features: Feature[];
+  responsiveCols?: string;
+  className?: string;
+};

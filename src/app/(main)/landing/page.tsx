@@ -1,6 +1,7 @@
 import React from 'react';
 import api from '@/src/services/api';
 import dynamic from 'next/dynamic';
+import HotelFacilites from '@/src/components/common/HotelFacilities/HotelFacilites';
 
 const DreamSection = dynamic(() => import('@/src/components/Landing/dreamDestination/dreamSectionContainer'));
 const CategoryCarousel = dynamic(() => import('@/src/components/Landing/landingCategory/categoryCarousel'));
@@ -36,6 +37,9 @@ export default async function LandingPage() {
       </div>
       <div className="">
         <LandingComments />
+      </div>
+      <div className="">
+        <HotelFacilites />
       </div>
     </div>
   );
