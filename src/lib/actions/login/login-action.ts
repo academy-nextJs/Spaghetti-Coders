@@ -32,12 +32,11 @@ export async function loginAct(_actionState: ActionStateType, formData: FormData
   }
 
   // try {
-    return await signIn(
-      'credentials', 
-      // formData, 
-      // redirect("/"),
-      { email, password, redirectTo: "/" }
-    )
+    return await signIn('credentials', {
+      email, 
+      password, 
+      redirectTo: "/" 
+    })
     // redirect('/')
     
     // return {
