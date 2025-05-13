@@ -8,15 +8,13 @@ const BackPage = () => {
   const router = useRouter()
 
   return (
-    <div>
-      <ClientButton 
-        className="text-sm bg-[#F0F0F0] text-black" 
-        onPress={() => router.back()}
-        endIcon={<HugeiconsIcon icon={ArrowLeft01Icon} />}
-      >
-        بازگشت
-      </ClientButton>
-    </div>
+    <ClientButton 
+      className="text-sm bg-[#F0F0F0] text-black" 
+      onPress={() => router.back()}
+      endIcon={<HugeiconsIcon icon={ArrowLeft01Icon} />}
+    >
+      بازگشت
+    </ClientButton>
   )
 }
 
