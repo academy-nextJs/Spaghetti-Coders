@@ -6,6 +6,7 @@
 body {
   font-family: 'Noto Sans Arabic', sans-serif;
   font-weight: 600;
+  scrollbar-color: #7575FE transparent;
 }
 @theme inline {
   --color-darkMode: #57534d;
@@ -27,9 +28,10 @@ body {
   overflow: hidden;
 }
 .leaflet-container {
-  height: 90vh;
-  width: 60%;
+  height: 100%;
+  width: 100%;
   border-radius: 2rem;
+  z-index: 0 !important;
 }
 
 .leaflet-popup-content-wrapper {

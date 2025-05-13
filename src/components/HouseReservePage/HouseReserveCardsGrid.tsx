@@ -2,7 +2,7 @@ import LandingHouseCard from "../common/LandingHouseCard/LandingHouseCard";
 
 export default function HouseReserveCardsGrid() {
   return (
-    <section className=" grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <section className=" grid grid-cols-2 lg:grid-cols-3 gap-8">
       {Array(10).fill(null).map((_, index) => 
         <LandingHouseCard 
           key={index}
