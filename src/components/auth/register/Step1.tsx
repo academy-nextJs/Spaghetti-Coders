@@ -1,12 +1,12 @@
 "use client"
 
 import { useActionState } from "react"
-import { ClientButton } from "../../ClientUI"
 import CommonInput from "../../common/inputs/input-btn"
 import BackHome from "../login/ui/back-home-btn"
 import Btn from "../login/ui/btn"
 import Line from "../login/ui/line"
 import { registerEmail } from "@/src/lib/actions/register/register-email-action"
+import { ClientButton } from "../../common/Buttons/common-btn"
 
 export const EmailStep = () => {
     const [actionState, formAction, isPending] = useActionState(registerEmail, { message: {}, payload: new FormData() })
