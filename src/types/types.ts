@@ -251,12 +251,10 @@ export interface ReserveInitialValProps
   rate: string;
   minPrice: string;
 }
-export type Feature = {
+export type FacilityData = {
   label: string;
   text: string;
 };
-export type Props = {
-  features: Feature[];
-  responsiveCols?: string;
-  className?: string;
+export type FacilitiesProps = {
+  FacilityData: FacilityData[];
 };

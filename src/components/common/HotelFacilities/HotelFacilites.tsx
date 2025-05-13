@@ -1,7 +1,7 @@
 import { MyChip } from '../Buttons/Chip-btn';
 import Facilities from './Facilities';
 
-const features = [
+const FacilityData = [
   { label: 'تعداد اتاق', text: '۴ خواب' },
   { label: 'گرمایش', text: 'شوفاژ' },
   { label: 'سرمایش', text: 'کولر' },
@@ -19,8 +19,8 @@ const features = [
 const HotelFacilites = () => {
   return (
       <div className='w-1/2 flex gap-4 flex-col' >
-      <MyChip className='border-1 text-[#7575FE] border-[#7575FE] bg-white'>امکانات هتل</MyChip>
-      <Facilities features={features} />
+      <MyChip className='border-1 text-[#7575FE] border-[#7575FE]  dark:bg-black dark:text-[#7575FE] bg-white'>امکانات هتل</MyChip>
+      <Facilities FacilityData={FacilityData} />
     </div>
   );
 };
