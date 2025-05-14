@@ -1,6 +1,6 @@
 import '../globals.css';
-import Header from '../../components/header/header';
-import FooterContainer from '../../components/footer/container';
+import Header from '../../components/Layout/header/header';
+import FooterContainer from '../../components/Layout/footer/container';
 
 export default function MainLayout({
   children,

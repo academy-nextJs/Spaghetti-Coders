@@ -24,7 +24,7 @@ export default function ModalSearch() {
   const sizes = ['3xl'] as const;
   const handleOpen = (size: string) => {
     setSize(
-      size as  | 'md' | '3xl' | 'xs'| 'sm' | 'lg' | 'xl' | '2xl' | '4xl' | '5xl' | 'full');
+      size as | 'md' | '3xl' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl' | '4xl' | '5xl' | 'full');
     onOpen();
   };
   const cities: City[] = [
