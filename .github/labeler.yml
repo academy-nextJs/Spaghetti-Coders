@@ -1,0 +1,33 @@
+app:
+  - "src/app/**/*"
+  - "src/middleware.ts"
+
+components:
+  - "src/components/**/*"
+
+lib:
+  - "src/lib/**/*"
+
+styles:
+  - "src/styles/**/*"
+
+hooks:
+  - "src/hooks/**/*"
+
+types:
+  - "src/types/**/*"
+
+config:
+  - "src/config/**/*"
+  - "next.config.js"
+  - "tsconfig.json"
+
+tests:
+  - "src/__tests__/**/*"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+
+docs:
+  - "*.md"
+  - "docs/**/*"
+
