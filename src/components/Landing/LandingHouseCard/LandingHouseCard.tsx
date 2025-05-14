@@ -1,11 +1,10 @@
 'use client';
 
 import Image from "next/image";
-// import Pic from '@/public/Mansion.png'
 import { HouseCardProps } from "@/src/types/types";
-import Carousel from "../carousel";
+import Carousel from "../../common/Carousel";
 import Classes from './LandingHouseCard.module.css'
-import IconWrapper from "../Icons/IconWrapper";
+import IconWrapper from "../../common/Icons/IconWrapper";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Bathtub01Icon, BedSingle02Icon, CarParking02Icon, FavouriteCircleIcon, HotelBellIcon, ManWomanIcon, MapsLocation01Icon, SlideIcon } from "@hugeicons/core-free-icons";
 

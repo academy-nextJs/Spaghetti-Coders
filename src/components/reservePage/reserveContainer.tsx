@@ -1,7 +1,7 @@
 'use client';
 import dynamic from 'next/dynamic';
 import { ClientInput } from '../common/inputs/clientInput';
-import { SearchListBtn } from '../Rent/filters';
+import { SearchListBtn } from '../RentPage/filters';
 import { useUpdateFilter } from '@/src/utils/updateFilter';
 import { ClientButton } from '../common/Buttons/common-btn';
 import {
@@ -12,10 +12,10 @@ import {
 } from '@heroui/react';
 import ReserveFilterDrawer from './reserveFilterDrawer';
 import { ReserveContainerProps } from '@/src/types/types';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { throttle } from 'lodash';
+import { useEffect, useRef } from 'react';
+// import { throttle } from 'lodash';
 const HouseReserveCardsGrid = dynamic(
-  () => import('../HouseReservePage/HouseReserveCardsGrid'),
+  () => import('./HouseReserveCardsGrid'),
   {
     ssr: false,
   }
@@ -28,21 +28,34 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const updateFilter = useUpdateFilter();
 
-  const [mapWidth, setMapWidth] = useState(60); // percent
+  // const [mapWidth, setMapWidth] = useState(60); // percent
+
+  const mapWidth = useRef(60)
   const isResizing = useRef(false);
+
+  const mapRef = useRef<HTMLDivElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null)
 
   const startResizing = () => {
     isResizing.current = true;
     document.body.style.userSelect = 'none';
   };
 
-  const handleResizing = useCallback(throttle((e: MouseEvent) => {
+  const handleResizing = (e: MouseEvent) => {
+    console.log("Func execute")
     if (!isResizing.current) return;
-    const newMapWidth = (e.clientX / window.innerWidth) * 100;
-    if (newMapWidth >= 30 && newMapWidth < 70) {
-      setMapWidth(newMapWidth);
-    }
-  }),[]);
+    // const newMapWidth = (e.clientX / window.innerWidth) * 100;
+    // if (newMapWidth >= 30 && newMapWidth < 70) {
+      //   mapWidth.current = newMapWidth;
+      // }
+      const newMapWidth = (e.clientX / window.innerWidth) * 100;
+      if (newMapWidth >= 30 && newMapWidth < 70) {
+        if(mapRef.current) mapRef.current.style.width = newMapWidth + '%'
+        if(cardRef.current) cardRef.current.style.width = 100 - newMapWidth + '%'
+      }
+
+  };
+
   const stopResizing = () => {
     isResizing.current = false;
     document.body.style.userSelect = '';
@@ -52,16 +65,18 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     window.addEventListener('mousemove', handleResizing);
     window.addEventListener('mouseup', stopResizing);
 
+    
     return () => {
       window.removeEventListener('mousemove', handleResizing);
       window.removeEventListener('mouseup', stopResizing);
     };
-  }, [handleResizing]);
+  }, []);
 
   return (
     <div className="flex justify-between my-8 w-full">
       <div
-        style={{ width: `${100 - mapWidth}%` }}
+        ref={cardRef}
+        style={{ width: `${100 - mapWidth.current}%` }}
         className=" mt-8 flex flex-col gap-12"
       >
         <Breadcrumbs>
@@ -92,7 +107,8 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
       </div>
 
       <div
-        style={{ width: `${mapWidth}%` }}
+        ref={mapRef}
+        style={{ width: `${mapWidth.current}%` }}
         className=" h-screen flex relative"
       >
         <Tooltip

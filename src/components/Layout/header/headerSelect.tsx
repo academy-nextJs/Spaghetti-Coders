@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import SelectClient from '../common/SelectClient';
+import SelectClient from '../../common/SelectClient';
 
 export function HeaderFastSelect() {
   const router = useRouter();
@@ -18,7 +18,7 @@ export function HeaderFastSelect() {
       size='sm'
       classNames={{
         trigger: 'bg-[#F0F0F0] dark:bg-[#57534d]',
-        label:'dark:text-[#fff]'
+        label: 'dark:text-[#fff]'
       }}
       items={[
         { label: 'ویلا', key: 'ویلا' },
@@ -42,7 +42,7 @@ export function HeaderOptionSelect() {
       size='sm'
       classNames={{
         trigger: 'bg-[#F0F0F0] dark:bg-[#57534d]',
-        label:'dark:text-[#fff]'
+        label: 'dark:text-[#fff]'
       }}
       items={[
         { label: 'ویلا', key: 'ویلا' },
