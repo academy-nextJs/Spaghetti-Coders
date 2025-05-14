@@ -1,13 +1,13 @@
 'use client'
 
 import Link from "next/link";
-import { ClientButton } from "../../ClientUI";
 import CommonInput from "../../common/inputs/input-btn";
 import Btn from "./ui/btn";
 import Line from "./ui/line";
 import BackHome from "./ui/back-home-btn";
 import { useActionState } from "react";
 import { loginAct } from "@/src/lib/actions/login/login-action";
+import { ClientButton } from "../../common/Buttons/common-btn";
 
 const LoginForm = () => {
     const [actionState, formAction, isPending] = useActionState(loginAct, { message: {}, payload: new FormData() })

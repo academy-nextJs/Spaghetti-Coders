@@ -1,10 +1,10 @@
 "use client";
 
 import { useActionState } from "react";
-import { ClientButton } from "../../ClientUI";
 import CommonInput from "../../common/inputs/input-btn";
 import BackPage from "../login/ui/back-page";
 import { registerSetup } from "@/src/lib/actions/register/register-setup-action";
+import { ClientButton } from "../../common/Buttons/common-btn";
 
 export const CredentialStep = () => {
     const [actionState, formAction, isPending] = useActionState(registerSetup, { message: {}, payload: new FormData() })

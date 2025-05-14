@@ -1,28 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
 import GoogleIcon from '@/src/assets/Google.svg'
-import AppleIcon from '@/src/assets/Apple.svg'
+import GithubIcon from '@/src/assets/Github.png'
 import { ClientButton } from '@/src/components/common/Buttons/common-btn'
 
 
 const Btn = () => {
     return (
-        <section className="flex justify-center flex-wrap gap-4 mt-12 mb-8">
+        <section className="flex justify-center gap-4 mt-12 mb-8">
             <ClientButton
-                className="flex items-center justify-center gap-1 bg-transparent border-1 border-[#d5d2d2] rounded-full py-3 px-2 basis-[40%] lg:basis-[48%]"
+                className="flex items-center justify-center gap-1 bg-transparent border-1 border-[#d5d2d2] rounded-full py-3 px-2 w-1/2"
                 startIcon={<Image src={GoogleIcon} alt='Google Icon'/>}
             >
-                <Image src={GoogleIcon} alt='Google Icon'/>
+                <span className="mr-1">ورود با گوگل</span>
             </ClientButton>
             <ClientButton
-                className="flex items-center justify-center gap-1 bg-transparent border-1 border-[#d5d2d2] rounded-full py-3 px-4 basis-[40%] lg:basis-[48%]"
-                startIcon={<Image src={AppleIcon} alt='Apple Icon' className='dark:invert' />}
-            >
-                <span className="mr-1">ورود با اپل</span>
-            </ClientButton>
-            <ClientButton
-                className="flex items-center justify-center gap-1 bg-transparent border-1 border-[#d5d2d2] rounded-full py-3 px-4 basis-[40%] lg:basis-[48%]"
-                startIcon={<Image src={AppleIcon} alt='Apple Icon' className='dark:invert' />}
+                className="flex items-center justify-center gap-1 bg-transparent border-1 border-[#d5d2d2] rounded-full py-3 px-4 w-1/2"
+                startIcon={<Image src={GithubIcon} alt='Apple Icon' className='size-6 dark:invert' />}
             >
                 <span className="mr-1">ورود با گیت هاب</span>
             </ClientButton>
