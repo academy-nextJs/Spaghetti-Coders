@@ -1,4 +1,4 @@
-import ReserveContainer from '@/src/components/reservePage/reserveContainer';
+import ReserveContainer from '@/src/components/ReservePage/reserveContainer';
 import { getResrvationData } from '@/src/lib/getReserveData';
 import api from '@/src/services/api';
 import { HouseSearchParams } from '@/src/types/types';
