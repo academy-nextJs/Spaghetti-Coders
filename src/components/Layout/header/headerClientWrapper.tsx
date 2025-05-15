@@ -11,7 +11,7 @@ export const HeaderClientWrapper = ({ children }: { children: React.ReactNode}) 
     const positionHeader = () => {
       console.log('Scroll')
       const curScrollY = window.pageYOffset;
-      if(curScrollY > prevScrollY.current && curScrollY > window.innerHeight) {
+      if(curScrollY > prevScrollY.current && curScrollY > (window.innerHeight / 3)) {
         setIsHidden(true)
       } else {
         setIsHidden(false)
