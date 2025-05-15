@@ -1,6 +1,6 @@
 import React from 'react';
-import { SectionTop } from '../../common/sectionTop';
 import InfiniteCarousel from './InfiniteCarousel';
+import { SectionTop } from '../../common/sectionTop';
 
 export default function LandingComments() {
   return (
@@ -13,7 +13,7 @@ export default function LandingComments() {
       />
       <div className='w-[110%] mr-[-5%]'>
 
-      <InfiniteCarousel />
+        <InfiniteCarousel />
       </div>
     </section>
   );

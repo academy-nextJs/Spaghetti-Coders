@@ -1,5 +1,5 @@
 import { ApartmentDataType } from "@/src/types/types";
-import { HouseRentCard } from "../common/HouseRentCard/HouseRentCard";
+import { HouseRentCard } from "./HouseRentCard/HouseRentCard";
 
 export default function HouseRentGrid({ houses }: { houses: ApartmentDataType[] }) {
   return (
@@ -7,7 +7,7 @@ export default function HouseRentGrid({ houses }: { houses: ApartmentDataType[] 
       {(houses || []).map((house) => (
         <HouseRentCard
           key={house.id}
-          title={house.title} 
+          title={house.title}
           address={house.address}
           photo={house.photos?.[0]}
           rate={house.rate}

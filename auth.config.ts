@@ -1,5 +1,7 @@
 import { CredentialsSignin, type NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials";
+import GitHub from "next-auth/providers/github";
+import Google from "next-auth/providers/google";
 
 const BASE_URL = process.env.BASE_URL
 
@@ -9,11 +11,9 @@ class InvalidLoginError extends CredentialsSignin {
 
 export default { 
   providers: [
+    Google,
+    GitHub,
     Credentials({
-      credentials: {
-        email: {},
-        password: {},
-      },
       authorize: async (credentials) => {
         // try {
           let user = null
@@ -42,5 +42,30 @@ export default {
         // }
       },
     })
-  ]
+  ],
+  callbacks: {
+    jwt: async ({ user, token }) => {
+      if(user) {
+        token.accessToken = user.accessToken;
+        token.refreshToken = user.refreshToken;
+      }
+      return token
+    },
+    session: async ({ session, token }) => {
+      session.accessToken = token.accessToken;
+      session.refreshToken = token.refreshToken;
+      return session
+    },
+    authorized: async ({ auth, request }) => {
+      const isAuthorized = !!auth?.accessToken;
+      const IsPrivateRoute = request.nextUrl.pathname.startsWith('/dashboard');
+
+      if(!isAuthorized && IsPrivateRoute) {
+        const url = new URL(request.nextUrl)
+        url.pathname = '/login'
+        return Response.redirect(url)
+      }
+      return true
+    },
+  }
 } satisfies NextAuthConfig

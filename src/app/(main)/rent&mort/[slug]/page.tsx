@@ -1,6 +1,4 @@
-import DetailTopContainer from '@/src/components/Rent/DetailPage/topSection/DetailTopContainer';
-import ImageGallery from '@/src/components/Rent/DetailPage/topSection/ImageGallery';
-import TopBtn from '@/src/components/Rent/DetailPage/topSection/TopBtn';
+import DetailTopContainer from '@/src/components/RentPage/DetailPage/topSection/DetailTopContainer';
 import api from '@/src/services/api';
 import React from 'react';
 

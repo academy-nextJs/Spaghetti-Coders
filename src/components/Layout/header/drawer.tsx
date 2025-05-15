@@ -8,7 +8,7 @@ import {
 } from '@heroui/react';
 import Link from 'next/link';
 import DrawerAccordion from './drawerAccordion';
-import { ThemeSwitcher } from '../ThemSwitcher';
+import { ThemeSwitcher } from '../../ThemSwitcher';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Menu03Icon } from '@hugeicons/core-free-icons';
 
@@ -17,7 +17,7 @@ export function HeaderDrawer() {
 
   return (
     <>
-      <HugeiconsIcon icon={Menu03Icon} onClick={onOpen}  width={36} height={36}/>
+      <HugeiconsIcon icon={Menu03Icon} onClick={onOpen} width={36} height={36} />
       <Drawer
         isOpen={isOpen}
         motionProps={{
@@ -41,11 +41,11 @@ export function HeaderDrawer() {
             <>
               <DrawerHeader className="flex flex-col gap-1">منو</DrawerHeader>
               <DrawerBody>
-                <ThemeSwitcher isMobile={true}/>
+                <ThemeSwitcher isMobile={true} />
                 <Link href="/">خانه</Link>
                 <Link href="">مقالات</Link>
                 <Link href="">درباره آلفا</Link>
-                <DrawerAccordion/>
+                <DrawerAccordion />
               </DrawerBody>
             </>
           }

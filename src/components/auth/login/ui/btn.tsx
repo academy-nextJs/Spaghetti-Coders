@@ -1,28 +1,36 @@
-import React from 'react'
+import React, { useActionState } from 'react'
 import Image from 'next/image'
-import { ClientButton } from '../../../ClientUI'
 import GoogleIcon from '@/src/assets/Google.svg'
-import AppleIcon from '@/src/assets/Apple.svg'
+import GithubIcon from '@/src/assets/Github.png'
+import { ClientButton } from '@/src/components/common/Buttons/common-btn'
+import { socialLoginAct } from '@/src/lib/actions/login/login-action'
 
 
 const Btn = () => {
+    const [ ,formAction, isPending] = useActionState(socialLoginAct, undefined)
     return (
-        <section className="flex justify-between gap-4 mt-12 mb-8">
+        <form action={formAction} className="flex justify-center gap-4 mt-12 mb-8">
             <ClientButton
-                label="ورود با گوگل"
                 className="flex items-center justify-center gap-1 bg-transparent border-1 border-[#d5d2d2] rounded-full py-3 px-2 w-1/2"
-                labelPosition='afterChild'
+                startIcon={<Image src={GoogleIcon} alt='Google Icon'/>}
+                type='submit'
+                disabled={isPending}
+                name='provider'
+                value='google'
             >
-                <Image src={GoogleIcon} alt='Google Icon'/>
+                <span className="mr-1">ورود با گوگل</span>
             </ClientButton>
             <ClientButton
-                label="ورود با اپل"
                 className="flex items-center justify-center gap-1 bg-transparent border-1 border-[#d5d2d2] rounded-full py-3 px-4 w-1/2"
-                labelPosition='afterChild'
+                startIcon={<Image src={GithubIcon} alt='Apple Icon' className='size-6 dark:invert' />}
+                type='submit'
+                disabled={isPending}
+                name='provider'
+                value='github'
             >
-                <Image src={AppleIcon} alt='Apple Icon' className='dark:invert' />
+                <span className="mr-1">ورود با گیت هاب</span>
             </ClientButton>
-        </section>
+        </form>
     )
 }
 

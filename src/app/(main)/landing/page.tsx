@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 const DreamSection = dynamic(() => import('@/src/components/Landing/dreamDestination/dreamSectionContainer'));
 const CategoryCarousel = dynamic(() => import('@/src/components/Landing/landingCategory/categoryCarousel'));
-const HeroSection = dynamic(() => import('@/src/components/HomeContainer/HeroSection/index'));
+const HeroSection = dynamic(() => import('@/src/components/Landing/HeroSection/index'));
 const LandingShinyAlphaSection = dynamic(() => import('@/src/components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection'));
 const LandingComments = dynamic(() => import('@/src/components/Landing/comments/commentsContainer'));
 const LandingDiscountedSection = dynamic(() => import('@/src/components/Landing/LandingDiscountedSection/LandingDiscountedSection'));
@@ -15,7 +15,7 @@ export default async function LandingPage() {
   const { data } = await api.get('/categories');
 
   return (
-    <div className="w-full flex flex-col gap-20 justify-ceneter">
+    <div className="w-full flex flex-col gap-20 justify-center">
       <HeroSection />
       <div className="flex justify-end">
         <CategoryCarousel data={data} />

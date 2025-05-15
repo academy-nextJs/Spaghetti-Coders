@@ -1,7 +1,6 @@
 "use client";
 
 import { useActionState, useEffect, useState } from "react";
-import { ClientButton } from "../../ClientUI";
 import BackPage from "../login/ui/back-page";
 import OtpField from "../../common/inputs/multi-input";
 import { useRouter } from "next/navigation";
@@ -9,6 +8,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { TimeQuarter02Icon } from "@hugeicons/core-free-icons";
 import { formatTime } from "@/src/lib/helpers/formatTime";
 import { registerVerifyCode } from "@/src/lib/actions/register/register-verify-action";
+import { ClientButton } from "../../common/Buttons/common-btn";
 
 export const VerificationStep = ({ email = 'ایمیل خود' }: { email: string | undefined }) => {
     const [timer, setTimer] = useState(120);
@@ -57,14 +57,13 @@ export const VerificationStep = ({ email = 'ایمیل خود' }: { email: strin
                 />
                 <div className="flex flex-row gap-1 mt-4">
                     <ClientButton
-                        label={formatTime(timer)}
                         className="bg-[#7575FE30] text-[#7575FE] px-2 h-10 cursor-auto"
-                        svg={<HugeiconsIcon icon={TimeQuarter02Icon} />}
-                        svgClassName="mr-0"
-                        spanBeforeClassName="mr-0"
+                        startIcon={<HugeiconsIcon icon={TimeQuarter02Icon} />}
                         disabled
                         type="button"
-                    />
+                    >
+                        <span className="ml-1">{formatTime(timer)}</span>
+                    </ClientButton>
                     <span className="text-[#767676] text-sm mt-3">بعد از اتمام 2 دقیقه ارسال مجدد فعال میشود</span>
                 </div>
             

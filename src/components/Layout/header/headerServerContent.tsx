@@ -1,14 +1,15 @@
-import React from 'react';
-import { Divider } from '@heroui/react';
-import Logo from '@/public/AlFA.svg';
-import Image from 'next/image';
-import { HeaderDrawer } from './drawer';
-import { ThemeSwitcher } from '../ThemSwitcher';
-import { ClientButton } from '../common/Buttons/common-btn';
 import Link from 'next/link';
-import { auth, signOut } from '@/auth';
+import Image from 'next/image';
+import { auth } from '@/auth';
+import { Divider } from '@heroui/react';
 
-export default async function Header() {
+import { HeaderDrawer } from './drawer';
+import { ThemeSwitcher } from '../../ThemSwitcher';
+import { ClientButton } from '../../common/Buttons/common-btn';
+import { signOutAct } from '@/src/lib/actions/signOut/signOutAction';
+import Logo from '@/public/AlFA.svg';
+
+export async function HeaderServerContent() {
   const session = await auth();
   console.log('session', session);
 
@@ -52,17 +53,8 @@ export default async function Header() {
         </Link>
         <Divider orientation="vertical" className="h-6 w-[2px]" />
         {session ? (
-          <form
-            action={async () => {
-              'use server';
-              await signOut();
-            }}
-          >
+          <form action={signOutAct}>
             <ClientButton
-              // formAction={async () => {
-              //   'use server'
-              //   await signOut()
-              // }}
               className="bg-[#7575FE] text-white h-12"
               type="submit"
             >
