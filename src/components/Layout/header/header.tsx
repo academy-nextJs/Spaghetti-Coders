@@ -59,10 +59,6 @@ export default async function Header() {
             }}
           >
             <ClientButton
-              // formAction={async () => {
-              //   'use server'
-              //   await signOut()
-              // }}
               className="bg-[#7575FE] text-white h-12"
               type="submit"
             >
