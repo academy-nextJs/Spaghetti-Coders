@@ -17,6 +17,7 @@ export default function HouseRentGrid({ houses }: { houses: ApartmentDataType[] 
           parking={house.parking}
           bedroom={house.rooms}
           yardType={house.yard_type}
+          listId={house.id}
         />
       ))}
     </div>

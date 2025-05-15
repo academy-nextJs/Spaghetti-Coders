@@ -1,4 +1,4 @@
-import HouseRentGrid from '@/src/components/HouseRentPage/HouseRentGrid';
+import HouseRentGrid from '@/src/components/Rent/HouseRentGrid';
 import api from '@/src/services/api';
 import { HouseSearchParams } from '@/src/types/types';
 import dynamic from 'next/dynamic';

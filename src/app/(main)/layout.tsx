@@ -9,7 +9,7 @@ export default function MainLayout({
 }>) {
   return (
     <main className="md:w-[95%] lg:w-[97%] w-[88%] m-auto">
-      <header className="flex items-center justify-between m-auto overflow-hidden relative">
+      <header className="flex items-center justify-between m-auto overflow-hidden relative mb-12">
         <Header />
       </header>
       <main >{children}</main>

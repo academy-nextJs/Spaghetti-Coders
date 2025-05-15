@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { ThemeProvider } from 'next-themes';
-import localFont from 'next/font/local'
+import localFont from 'next/font/local';
 import './globals.css';
+import { Providers } from './Providers';
 
 export const metadata: Metadata = {
   title: 'ALFA',
@@ -9,10 +9,12 @@ export const metadata: Metadata = {
 };
 
 const yekanFont = localFont({
-  src: [{
-    path: '../../public/fonts/IRANYekanXVFaNumVF.ttf',
-  }]
-})
+  src: [
+    {
+      path: '../../public/fonts/IRANYekanXVFaNumVF.ttf',
+    },
+  ],
+});
 
 export default function RootLayout({
   children,
@@ -21,12 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body dir="rtl" className={`${yekanFont.className} py-4 overflow-x-hidden`}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
+      <body
+        dir="rtl"
+        className={`${yekanFont.className} py-4 overflow-x-hidden`}
+      >
+        <Providers>
           {children}
 
           <div id="modal-root"></div>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

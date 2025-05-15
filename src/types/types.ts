@@ -152,6 +152,7 @@ export interface HouseRentCardProps {
   price: string;
   photo: string;
   rate: string
+  listId:string
 }
 
 // API Types Below👇

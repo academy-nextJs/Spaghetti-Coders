@@ -1,0 +1,24 @@
+import React from 'react';
+import ImageGallery from './ImageGallery';
+import TopBtn from './TopBtn';
+import DetailTopText from './DetailTopText';
+
+export default function DetailTopContainer({
+  photos,
+  title,
+  address,
+}: {
+  photos: string[];
+  title: string;
+  address: string;
+}) {
+  return (
+    <section>
+      <ImageGallery photos={photos} />
+      <div className='flex justify-between'>
+        <DetailTopText title={title} address={address} />
+        <TopBtn />
+      </div>
+    </section>
+  );
+}
