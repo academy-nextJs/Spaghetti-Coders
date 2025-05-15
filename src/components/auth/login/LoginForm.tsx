@@ -6,11 +6,11 @@ import Btn from "./ui/btn";
 import Line from "./ui/line";
 import BackHome from "./ui/back-home-btn";
 import { useActionState } from "react";
-import { loginAct } from "@/src/lib/actions/login/login-action";
 import { ClientButton } from "../../common/Buttons/common-btn";
+import { credentialLoginAct } from "@/src/lib/actions/login/login-action";
 
 const LoginForm = () => {
-    const [actionState, formAction, isPending] = useActionState(loginAct, { message: {}, payload: new FormData() })
+    const [actionState, formAction, isPending] = useActionState(credentialLoginAct, { message: {}, payload: new FormData() })
 
     return (
         <section className="w-full max-w-md p-4">

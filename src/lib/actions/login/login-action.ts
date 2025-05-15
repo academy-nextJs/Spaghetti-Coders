@@ -16,7 +16,7 @@ const schema = z.object({
   email: z.string().email({ message: 'ایمیل نامعتبر! ایمیل خود را چک کنید و دوباره تلاش کنید.' })
 })
 
-export async function loginAct(_actionState: ActionStateType, formData: FormData): Promise<ActionStateType> {
+export async function credentialLoginAct(_actionState: ActionStateType, formData: FormData): Promise<ActionStateType> {
   const validatedFields = schema.safeParse({
     email: formData.get('email'),
   })
@@ -47,5 +47,13 @@ export async function loginAct(_actionState: ActionStateType, formData: FormData
   // } catch {
   //   throw new Error("Annoying server error this is bullshit")
   // }  
+}
 
+export async function socialLoginAct(_actionState: undefined, formData: FormData) {
+  const provider = formData.get('provider')
+  console.log('provider', provider)
+
+  if(provider === "google" || provider === "github") {
+    return await signIn(provider, { redirectTo: '/' })
+  }
 }

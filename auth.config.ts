@@ -1,5 +1,7 @@
 import { CredentialsSignin, type NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials";
+import GitHub from "next-auth/providers/github";
+import Google from "next-auth/providers/google";
 
 const BASE_URL = process.env.BASE_URL
 
@@ -9,6 +11,8 @@ class InvalidLoginError extends CredentialsSignin {
 
 export default { 
   providers: [
+    Google,
+    GitHub,
     Credentials({
       authorize: async (credentials) => {
         // try {
