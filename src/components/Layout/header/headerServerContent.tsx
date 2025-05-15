@@ -1,11 +1,13 @@
-import { Divider } from '@heroui/react';
-import Logo from '@/public/AlFA.svg';
+import Link from 'next/link';
 import Image from 'next/image';
+import { auth } from '@/auth';
+import { Divider } from '@heroui/react';
+
 import { HeaderDrawer } from './drawer';
 import { ThemeSwitcher } from '../../ThemSwitcher';
 import { ClientButton } from '../../common/Buttons/common-btn';
-import Link from 'next/link';
-import { auth } from '@/auth';
+import { signOutAct } from '@/src/lib/actions/signOut/signOutAction';
+import Logo from '@/public/AlFA.svg';
 
 export async function HeaderServerContent() {
   const session = await auth();
