@@ -1,11 +1,10 @@
 'use client';
 
 import Image from "next/image";
-import Classes from './HouseRentCard.module.css'
 import Pic from '@/public/PoolHouse.png'
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft01Icon, Bathtub01Icon, BedSingle02Icon, CarParking02Icon, ManWomanIcon, MapsLocation01Icon, SlideIcon, StarAward01Icon } from "@hugeicons/core-free-icons";
-import IconWrapper from "../Icons/IconWrapper";
+import IconWrapper from "../../common/Icons/IconWrapper";
 import { HouseRentCardProps } from "@/src/types/types";
 
 export function HouseRentCard(
@@ -51,9 +50,9 @@ export function HouseRentCard(
         </div>
 
         {bathroom > 0 || yardType || bedroom > 0 || capacity > 0 || parking > 0 ?
-          <div className={`w-full flex flex-wrap items-center gap-3 font-medium ${Classes['flex-container']}`}>
+          <div className={`w-full flex flex-wrap items-center gap-3 font-medium`}>
             {bathroom > 0 ?
-              <div className={`flex items-center ${Classes['flex-item']}`}>
+              <div className={`flex items-center`}>
                 <IconWrapper>
                   <HugeiconsIcon icon={Bathtub01Icon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
@@ -62,7 +61,7 @@ export function HouseRentCard(
               : null}
 
             {yardType ?
-              <div className={`flex items-center ${Classes['flex-item']}`}>
+              <div className={`flex items-center`}>
                 <IconWrapper>
                   <HugeiconsIcon icon={SlideIcon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
@@ -71,7 +70,7 @@ export function HouseRentCard(
               : null}
 
             {bedroom > 0 ?
-              <div className={`flex items-center ${Classes['flex-item']}`}>
+              <div className={`flex items-center`}>
                 <IconWrapper>
                   <HugeiconsIcon icon={BedSingle02Icon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
@@ -80,7 +79,7 @@ export function HouseRentCard(
               : null}
 
             {capacity > 0 ?
-              <div className={`flex items-center ${Classes['flex-item']}`}>
+              <div className={`flex items-center`}>
                 <IconWrapper>
                   <HugeiconsIcon icon={ManWomanIcon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>
@@ -89,7 +88,7 @@ export function HouseRentCard(
               : null}
 
             {parking > 0 ?
-              <div className={`flex items-center ${Classes['flex-item']}`}>
+              <div className={`flex items-center`}>
                 <IconWrapper>
                   <HugeiconsIcon icon={CarParking02Icon} size={20} className="text-[#595959] dark:text-white" />
                 </IconWrapper>

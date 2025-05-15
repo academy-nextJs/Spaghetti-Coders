@@ -1,13 +1,16 @@
 import React from 'react';
-import Carousel from '../../common/carousel';
-import LandingCard2 from '../../common/landingCard2';
+import Carousel from '../../common/Carousel';
+import LandingCard2 from '../../common/LandingCard2';
 import { Category } from '@/src/types/types';
-import { SectionTop } from '../../common/sectionTop';
+import { SectionTop } from '../../common/SectionTop';
 
 export default function CategoryCarousel({ data }: { data: Category[] }) {
   const breakpoints = {
     0: {
       slidesPerView: 1,
+    },
+    480: {
+      slidesPerView: 1.5,
     },
     768: {
       slidesPerView: 2,

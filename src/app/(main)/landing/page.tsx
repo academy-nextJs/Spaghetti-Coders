@@ -5,9 +5,8 @@ import HotelFacilites from '@/src/components/common/HotelFacilities/HotelFacilit
 
 const DreamSection = dynamic(() => import('@/src/components/Landing/dreamDestination/dreamSectionContainer'));
 const CategoryCarousel = dynamic(() => import('@/src/components/Landing/landingCategory/categoryCarousel'));
-const HeroSection = dynamic(() => import('@/src/components/HomeContainer/HeroSection/index'));
+const HeroSection = dynamic(() => import('@/src/components/Landing/HeroSection/index'));
 const LandingShinyAlphaSection = dynamic(() => import('@/src/components/Landing/LandingShinyAlphaSection/LandingShinyAlphaSection'));
-const LandingCarousel = dynamic(() => import('@/src/components/Landing/LandingCarousel/LandingCarousel'));
 const LandingComments = dynamic(() => import('@/src/components/Landing/comments/commentsContainer'));
 const LandingDiscountedSection = dynamic(() => import('@/src/components/Landing/LandingDiscountedSection/LandingDiscountedSection'));
 const LandingBuySellSection = dynamic(() => import('@/src/components/Landing/LandingBuySellSection/LandingBuySellSection'));
@@ -24,7 +23,6 @@ export default async function LandingPage() {
       </div>
       <div className="">
         <LandingDiscountedSection />
-        <LandingCarousel data={data} discountedSection={true} />
       </div>
       <div className="">
         <DreamSection />

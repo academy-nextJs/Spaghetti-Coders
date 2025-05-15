@@ -1,3 +1,0 @@
-.flex-container:has(> :nth-child(4)) .flex-item {
-  /* flex-basis: calc(40% - 1rem); */
-}

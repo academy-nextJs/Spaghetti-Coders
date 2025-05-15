@@ -1,4 +1,4 @@
-import ReserveContainer from '@/src/components/reservePage/reserveContainer';
+import ReserveContainer from '@/src/components/ReservePage/reserveContainer';
 import { getResrvationData } from '@/src/lib/getReserveData';
 import api from '@/src/services/api';
 import { HouseSearchParams } from '@/src/types/types';
@@ -9,8 +9,6 @@ export default async function ReservePage({searchParams}: { searchParams: Promis
   const { data:locations } = await api.get('/locations');
   console.log(reservData);
   return (
-    <div>
       <ReserveContainer locations ={locations}/>
-    </div>
   );
 }

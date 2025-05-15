@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Logo from '@/public/AlFA.svg';
-import SwiperSlider from "@/src/components/common/auth/SwiperSlider";
+import SwiperSlider from "@/src/components/common/Auth/SwiperSlider";
 
 export default function AuthLayout({
   children,

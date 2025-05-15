@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Carousel from '../../common/carousel';
-import LandingCard2 from '../../common/landingCard2';
+import Carousel from '../../common/Carousel';
+import LandingCard2 from '../../common/LandingCard2';
 import axios from 'axios';
-import Loading from '../../common/loading';
+import Loading from '../../common/Loading/loading';
 interface Locations {
   id: string;
   area_name: string;
