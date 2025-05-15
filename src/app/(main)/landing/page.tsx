@@ -15,7 +15,7 @@ export default async function LandingPage() {
   const { data } = await api.get('/categories');
 
   return (
-    <div className="w-full flex flex-col gap-20 justify-center mt-20">
+    <div className="w-full flex flex-col gap-20 justify-center">
       <HeroSection />
       <div className="flex justify-end">
         <CategoryCarousel data={data} />
