@@ -15,9 +15,11 @@ const nextConfig: NextConfig = {
       {
         hostname: 'heroui.com',
       },
+      {
+        hostname: 'lh3.googleusercontent.com',
+      },
     ]
   }
-  /* config options here */
 };
 
 export default nextConfig;

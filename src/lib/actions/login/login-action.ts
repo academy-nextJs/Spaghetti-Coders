@@ -10,8 +10,6 @@ interface ActionStateType {
   payload: FormData
 }
 
-// const BASE_URL = process.env.BASE_URL
-
 const schema = z.object({
   email: z.string().email({ message: 'ایمیل نامعتبر! ایمیل خود را چک کنید و دوباره تلاش کنید.' })
 })
@@ -31,27 +29,15 @@ export async function credentialLoginAct(_actionState: ActionStateType, formData
     password: formData.get('password')
   }
 
-  // try {
-    return await signIn('credentials', {
-      email, 
-      password, 
-      redirectTo: "/" 
-    })
-    // redirect('/')
-    
-    // return {
-    //   message: {},
-    //   payload: new FormData,
-    // }
-    // console.log('actionResult')
-  // } catch {
-  //   throw new Error("Annoying server error this is bullshit")
-  // }  
+  return await signIn('credentials', {
+    email, 
+    password, 
+    redirectTo: "/" 
+  }) 
 }
 
 export async function socialLoginAct(_actionState: undefined, formData: FormData) {
   const provider = formData.get('provider')
-  console.log('provider', provider)
 
   if(provider === "google" || provider === "github") {
     return await signIn(provider, { redirectTo: '/' })

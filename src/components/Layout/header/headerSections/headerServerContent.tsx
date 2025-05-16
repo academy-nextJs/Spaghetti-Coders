@@ -3,15 +3,15 @@ import Image from 'next/image';
 import { auth } from '@/auth';
 import { Divider } from '@heroui/react';
 
-import { HeaderDrawer } from './drawer';
-import { ThemeSwitcher } from '../../ThemSwitcher';
-import { ClientButton } from '../../common/Buttons/common-btn';
-import { signOutAct } from '@/src/lib/actions/signOut/signOutAction';
+import { HeaderDrawer } from '../drawer';
+import { ThemeSwitcher } from '../../../ThemSwitcher';
+import { ClientButton } from '../../../common/Buttons/common-btn';
 import Logo from '@/public/AlFA.svg';
+import { HeaderSignOutBtn } from './headerSignOutBtn';
 
 export async function HeaderServerContent() {
   const session = await auth();
-  console.log('session', session);
+  console.log({ session });
 
   return (
     <>
@@ -40,27 +40,20 @@ export async function HeaderServerContent() {
         width={78}
         height={78}
       />
-      <aside className="hidden lg:flex items-center gap-4">
-        <Link href="/rent&mort">
+      <aside className="flex items-center gap-4">
+        <Link href="/rent&mort" className='hidden lg:flex'>
           <ClientButton className="bg-[#F0F0F0] dark:bg-darkMode h-12">
             رهن و اجاره
           </ClientButton>
         </Link>
-        <Link href="/reserve">
+        <Link href="/reserve" className='hidden lg:flex'>
           <ClientButton className="bg-[#F0F0F0] dark:bg-darkMode h-12">
             رزرو سریع
           </ClientButton>
         </Link>
-        <Divider orientation="vertical" className="h-6 w-[2px]" />
+        <Divider orientation="vertical" className="hidden lg:flex h-6 w-[2px]" />
         {session ? (
-          <form action={signOutAct}>
-            <ClientButton
-              className="bg-[#7575FE] text-white h-12"
-              type="submit"
-            >
-              خروج
-            </ClientButton>
-          </form>
+          <HeaderSignOutBtn session={session}/>
         ) : (
           <Link href="/login">
             <ClientButton className="bg-[#7575FE] text-white h-12">
@@ -68,11 +61,6 @@ export async function HeaderServerContent() {
             </ClientButton>
           </Link>
         )}
-      </aside>
-      <aside className="lg:hidden flex gap-3">
-        <ClientButton className="bg-[#7575FE] text-white h-12">
-          ثبت نام / ورود
-        </ClientButton>
       </aside>
     </>
   );

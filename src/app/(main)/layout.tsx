@@ -17,5 +17,3 @@ export default function MainLayout({
     </main>
   );
 }
-
-
