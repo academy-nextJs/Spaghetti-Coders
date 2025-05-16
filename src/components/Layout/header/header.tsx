@@ -1,5 +1,5 @@
-import { HeaderClientWrapper } from "./headerClientWrapper";
-import { HeaderServerContent } from "./headerServerContent";
+import { HeaderClientWrapper } from "./headerSections/headerClientWrapper";
+import { HeaderServerContent } from "./headerSections/headerServerContent";
 
 
 export default function Header() {

@@ -1,18 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { auth } from '@/auth';
-import { Divider } from '@heroui/react';
+import { Divider, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
 
-import { HeaderDrawer } from './drawer';
-import { ThemeSwitcher } from '../../ThemSwitcher';
-import { ClientButton } from '../../common/Buttons/common-btn';
-import { ClientUser } from '../../common/UserAvatar/ClientUser';
+import { HeaderDrawer } from '../drawer';
+import { ThemeSwitcher } from '../../../ThemSwitcher';
+import { ClientButton } from '../../../common/Buttons/common-btn';
+import { ClientUser } from '../../../common/UserAvatar/ClientUser';
 import { signOutAct } from '@/src/lib/actions/signOut/signOutAction';
 import Logo from '@/public/AlFA.svg';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowDown01Icon } from '@hugeicons/core-free-icons';
 
 export async function HeaderServerContent() {
   const session = await auth();
-  console.log('session', session);
+  console.log({ session });
 
   return (
     <>
@@ -55,20 +57,30 @@ export async function HeaderServerContent() {
         <Divider orientation="vertical" className="h-6 w-[2px]" />
         {session ? (
           <form action={signOutAct}>
-            <ClientButton
-              className="bg-[#7575FE] text-white h-12 px-2"
-              type="submit"
-            >
-              <ClientUser
-                avatarProps={{
-                  src: session?.user?.image ?? undefined
-                }}
-                name={session?.user?.name}
-                // description={session?.user?.email}
-                
-                className="text-white justify-start"
-              />
-            </ClientButton>
+            <Popover>
+              <PopoverTrigger>
+                <ClientButton
+                  className="bg-transparent text-white h-12 px-2"
+                  type='button'
+                >
+                  <HugeiconsIcon icon={ArrowDown01Icon} className='text-black dark:text-white' />
+                  <ClientUser
+                    name={session?.user?.name}
+                    avatarProps={{
+                      src: session?.user?.image ?? undefined,
+                      showFallback: true,
+                    }}
+                    classNames={{
+                      name: "leading-normal text-xs text-black dark:text-white"
+                    }}
+                  />
+                </ClientButton>
+              </PopoverTrigger>
+              <PopoverContent>
+                <ClientButton>خروج</ClientButton>
+              </PopoverContent>
+            </Popover>
+
           </form>
         ) : (
           <Link href="/login">
