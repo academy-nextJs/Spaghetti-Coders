@@ -1,4 +1,4 @@
-import { SectionTop } from '../../common/SectionTop';
+import { SectionTop } from "../../common/sectionTop";
 
 export default function DreamSectionTop() {
   return (

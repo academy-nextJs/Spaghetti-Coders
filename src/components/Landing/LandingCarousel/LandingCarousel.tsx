@@ -1,6 +1,6 @@
 import { LandingCarouselProps } from '@/src/types/types';
 import LandingHouseCard from '../LandingHouseCard/LandingHouseCard';
-import Carousel from '../../common/Carousel';
+import Carousel from '../../common/carousel';
 
 export default function LandingCarousel({
   data,

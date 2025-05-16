@@ -1,6 +1,6 @@
 import React from 'react';
-import { SectionTop } from '../../common/SectionTop';
 import InfiniteCarousel from './InfiniteCarousel';
+import { SectionTop } from '../../common/sectionTop';
 
 export default function LandingComments() {
   return (
