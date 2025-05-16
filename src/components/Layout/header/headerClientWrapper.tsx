@@ -15,8 +15,8 @@ export const HeaderClientWrapper = ({
     const positionHeader = () => {
       console.log('Scroll');
       const curScrollY = window.pageYOffset;
-      if (curScrollY > prevScrollY.current && curScrollY > window.innerHeight) {
-        setIsHidden(true);
+      if(curScrollY > prevScrollY.current && curScrollY > (window.innerHeight / 3)) {
+        setIsHidden(true)
       } else {
         setIsHidden(false);
       }
