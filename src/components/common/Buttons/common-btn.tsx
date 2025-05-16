@@ -20,8 +20,8 @@ export const ClientButton: React.FC<ClientButtonProps> = ({
     return (
         <Button
             className={`font-semibold flex items-center gap-2 ${className}`}
-            {...props}
             radius="full"
+            {...props}
         >
             {startIcon && <span className="flex items-center">{startIcon}</span>}
             {children}
