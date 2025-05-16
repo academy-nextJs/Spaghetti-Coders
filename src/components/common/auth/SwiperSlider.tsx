@@ -50,7 +50,7 @@ const SwiperSlider = () => {
                 src={loginImg.src}
                 alt="slider image"
                 width={300}
-                height={100}
+                height={300}
                 className='w-full max-h-screen'
             />
             <div className='absolute bottom-10 right-1/2 translate-x-1/2 w-[90%] z-10'>
