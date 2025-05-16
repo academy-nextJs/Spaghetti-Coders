@@ -6,7 +6,7 @@ import Google from "next-auth/providers/google";
 const BASE_URL = process.env.BASE_URL
 
 class InvalidLoginError extends CredentialsSignin {
-  code = "Invalid identifier or password"
+  code = "Invalid Email or Password"
 }
 
 export default { 
