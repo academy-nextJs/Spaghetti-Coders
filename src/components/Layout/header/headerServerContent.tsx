@@ -6,6 +6,7 @@ import { Divider } from '@heroui/react';
 import { HeaderDrawer } from './drawer';
 import { ThemeSwitcher } from '../../ThemSwitcher';
 import { ClientButton } from '../../common/Buttons/common-btn';
+import { ClientUser } from '../../common/UserAvatar/ClientUser';
 import { signOutAct } from '@/src/lib/actions/signOut/signOutAction';
 import Logo from '@/public/AlFA.svg';
 
@@ -55,10 +56,18 @@ export async function HeaderServerContent() {
         {session ? (
           <form action={signOutAct}>
             <ClientButton
-              className="bg-[#7575FE] text-white h-12"
+              className="bg-[#7575FE] text-white h-12 px-2"
               type="submit"
             >
-              خروج
+              <ClientUser
+                avatarProps={{
+                  src: session?.user?.image ?? undefined
+                }}
+                name={session?.user?.name}
+                // description={session?.user?.email}
+                
+                className="text-white justify-start"
+              />
             </ClientButton>
           </form>
         ) : (
