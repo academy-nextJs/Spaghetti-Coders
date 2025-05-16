@@ -1,3 +1,4 @@
+import { DetailAboutContainer } from '@/src/components/RentPage/DetailPage/aboutSection/DetailAboutContainer';
 import DetailTopContainer from '@/src/components/RentPage/DetailPage/topSection/DetailTopContainer';
 import api from '@/src/services/api';
 import React from 'react';
@@ -13,6 +14,7 @@ export default async function RentDetailPage({
   return (
     <>
       <DetailTopContainer photos={singleData.photos} title={singleData.title} address ={singleData.address}/>
+      <DetailAboutContainer photos={singleData.photos}/>
     </>
   );
 }
