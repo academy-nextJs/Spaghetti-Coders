@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { HouseCardProps } from "@/src/types/types";
-import Carousel from "../../common/Carousel";
 import Classes from './LandingHouseCard.module.css'
 import IconWrapper from "../../common/Icons/IconWrapper";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Bathtub01Icon, BedSingle02Icon, CarParking02Icon, FavouriteCircleIcon, HotelBellIcon, ManWomanIcon, MapsLocation01Icon, SlideIcon } from "@hugeicons/core-free-icons";
+import Carousel from "../../common/carousel";
 
 export default function LandingHouseCard(
   {
@@ -27,7 +27,7 @@ export default function LandingHouseCard(
   }: HouseCardProps) {
   return (
     <div className="relative max-w-[300px] overflow-hidden">
-      <Carousel slidesPerView={1} houseCarousel locOnMap={locOnMap}>
+      <Carousel  slidesPerView={1} houseCarousel locOnMap={locOnMap}>
         {(photos || []).map((photo, index) => (
           <Image
             key={index}
