@@ -12,11 +12,12 @@ export default function Error({
   return (
     <div>
       <h2>مشکلی پیش آمده!</h2>
-      <p>{error.message}</p>
+      <p className="text-xl text-red-400">{error.message}</p>
       <div className="flex justify-between">
         <button onClick={() => reset()}>
-          تلاش دوباره
+          تلاش مجدد
         </button>
+
         <Link href='/register'>بازگشت به صفحه اول</Link>
       </div>
     </div>
