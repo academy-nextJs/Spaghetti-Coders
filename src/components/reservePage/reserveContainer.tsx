@@ -28,9 +28,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const updateFilter = useUpdateFilter();
 
-  // const [mapWidth, setMapWidth] = useState(60); // percent
-
-  const mapWidth = useRef(60)
+  // const mapWidth = useRef(60)
   const isResizing = useRef(false);
 
   const mapRef = useRef<HTMLDivElement>(null)
@@ -55,17 +53,16 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   };
 
   const handleResizing = (e: MouseEvent) => {
-    console.log(window.innerWidth)
-    // if(gridRef.current) gridRef.current.style.gridTemplateColumns = 'repeat(1, minmax(0, 1fr))'
     if (!isResizing.current) return;
     
     const newMapWidth = (e.clientX / window.innerWidth) * 100;
-    if (newMapWidth >= 20 && newMapWidth < 80) {
-      if(mapRef.current) mapRef.current.style.width = newMapWidth + '%'
-      if(cardRef.current) cardRef.current.style.width = 100 - newMapWidth + '%'
-      
-      if(gridRef.current) {
-        gridRef.current.style.gridTemplateColumns = calculateGridColumns(newMapWidth)
+
+    if (window.innerWidth > 1024) {
+      if (newMapWidth >= 20 && newMapWidth < 80) {
+        if(mapRef.current) mapRef.current.style.width = newMapWidth + '%'
+        if(cardRef.current) cardRef.current.style.width = 100 - newMapWidth + '%'
+        
+        if(gridRef.current) gridRef.current.style.gridTemplateColumns = calculateGridColumns(newMapWidth)
       }
     }
   };
@@ -78,7 +75,6 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   useEffect(() => {
     window.addEventListener('mousemove', throttle(handleResizing, 100));
     window.addEventListener('mouseup', stopResizing);
-
     
     return () => {
       window.removeEventListener('mousemove', throttle(handleResizing, 100));
@@ -90,8 +86,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     <div className="h-full w-full flex flex-col-reverse lg:flex-row justify-between gap-6">
       <div
         ref={cardRef}
-        style={{ width: `${100 - mapWidth.current}%` }}
-        className="w-full mt-8 flex flex-col gap-12"
+        className="max-lg:w-full! lg:w-2/5 m-0 lg:mt-8 flex flex-col gap-12"
       >
         <Breadcrumbs>
           <BreadcrumbItem href="/">خانه</BreadcrumbItem>
@@ -120,8 +115,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
 
       <div
         ref={mapRef}
-        style={{ width: `${mapWidth.current}%` }}
-        className="flex relative"
+        className="h-80 lg:h-full max-lg:w-full! lg:w-3/5 flex relative"
       >
         <Tooltip
           content="برای تغییر اندازه بکشید"
@@ -140,7 +134,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
         >
           <div
             onMouseDown={startResizing}
-            className="w-2 h-12 cursor-ew-resize bg-[#7575EF] hover:scale-110 hover:bg-pink-600 duration-200 absolute -right-4 top-1/2 -translate-y-1/2 rounded-full text-white "
+            className="w-2 h-12 cursor-ew-resize bg-[#7575EF] hover:scale-110 hover:bg-pink-600 duration-200 absolute -right-4 top-1/2 -translate-y-1/2 rounded-full text-white hidden lg:block"
           />
         </Tooltip>
         <DynamicMap />
