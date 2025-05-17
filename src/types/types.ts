@@ -259,3 +259,11 @@ export type FacilityData = {
 export type FacilitiesProps = {
   FacilityData: FacilityData[];
 };
+
+export interface DetailsTextAreaProps {
+  chipText?: string;
+  descriptionText: string;
+  photos?: string[];
+  location?: Location
+  headingText?: string
+}
