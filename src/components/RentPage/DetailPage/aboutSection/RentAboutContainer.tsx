@@ -1,9 +1,8 @@
-import { TextArea } from "./TextArea";
-// import Pic from '@/public/PoolHouse.png'
+import { TextArea } from "../../../common/DetailPage/TextArea";
 
-export function DetailAboutContainer({ photos }: { photos: string[] }) {
+export function RentAboutContainer({ photos }: { photos: string[] }) {
   return (
-    <section className="max-w-1/2">
+    <section className="max-w-full md:max-w-1/2 flex flex-col gap-10">
       <TextArea
         chipText="درباره هتل"
         headingText="چرا هتل همایون رو انتخاب کنیم؟"
