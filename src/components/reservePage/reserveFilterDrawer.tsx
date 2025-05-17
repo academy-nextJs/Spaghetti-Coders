@@ -13,10 +13,11 @@ import { ClientButton } from '../common/Buttons/common-btn';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Delete02Icon } from '@hugeicons/core-free-icons';
 import { useImmediateUpdateFilter } from '@/src/utils/useImmediateUpdateFilter';
+
+import { useSearchParams } from 'next/navigation';
 import FilterLocationAndSort from './filterLocationSort';
 import FilterPriceSlider from './filterPriceSlider';
 import FilterAmenitiesAndRating from './filterAmenitiesRent';
-import { useSearchParams } from 'next/navigation';
 
 type ReserveFilterProps = Omit<DrawerProps, 'children'> & {
   locations: LocationType[];

@@ -1,13 +1,10 @@
-'use client';
-
 import Image from "next/image";
 import Pic from '@/public/PoolHouse.png'
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowLeft01Icon, Bathtub01Icon, BedSingle02Icon, CarParking02Icon, ManWomanIcon, MapsLocation01Icon, SlideIcon, StarAward01Icon } from "@hugeicons/core-free-icons";
+import { Bathtub01Icon, BedSingle02Icon, CarParking02Icon, ManWomanIcon, MapsLocation01Icon, SlideIcon, StarAward01Icon } from "@hugeicons/core-free-icons";
 import IconWrapper from "../../common/Icons/IconWrapper";
 import { HouseRentCardProps } from "@/src/types/types";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import SeeDetail from "./SeeDetail";
 
 export function HouseRentCard(
   {
@@ -23,7 +20,6 @@ export function HouseRentCard(
     rate,
     listId
   }: HouseRentCardProps) {
-  const pathname = usePathname();
   return (
     <div className="flex gap-4">
       <Image
@@ -107,12 +103,7 @@ export function HouseRentCard(
             <span className="font-bold text-xl leading-6">{price}</span>
             <span className="text-[0.8rem]/[0.8rem] text-[#595959] dark:text-[#A6A6A6] font-semibold">تومان</span>
           </div>
-          <Link href={`${pathname}/${listId}`}>
-          <div className="text-[#7575FE] flex items-center gap-2 text-nowrap cursor-pointer">
-            مشاهده جزئیات
-            <HugeiconsIcon icon={ArrowLeft01Icon} color="#7575FE" />
-          </div>
-          </Link>
+          <SeeDetail listId={listId} />
         </div>
       </div>
     </div>
