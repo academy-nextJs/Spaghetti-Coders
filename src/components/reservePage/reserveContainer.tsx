@@ -108,7 +108,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
             onChange={(e) => updateFilter('search', e.target.value)}
           />
         </div>
-        <div className="h-[80vh] overflow-y-scroll flex flex-wrap justify-center">
+        <div className="overflow-y-scroll flex flex-wrap justify-center">
           <HouseReserveCardsGrid ref={gridRef}/>
         </div>
       </div>
