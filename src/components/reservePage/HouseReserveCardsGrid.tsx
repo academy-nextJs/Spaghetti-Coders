@@ -1,8 +1,9 @@
+import { Ref } from "react";
 import LandingHouseCard from "../Landing/LandingHouseCard/LandingHouseCard";
 
-export default function HouseReserveCardsGrid() {
+export default function HouseReserveCardsGrid({ ref }: { ref: Ref<HTMLElement> | undefined}) {
   return (
-    <section className=" grid grid-cols-2 lg:grid-cols-3 gap-8">
+    <section ref={ref} className="w-fit grid max-sm:grid-cols-1! max-md:grid-cols-2! max-lg:grid-cols-3! lg:grid-cols-2 gap-8">
       {Array(10).fill(null).map((_, index) =>
         <LandingHouseCard
           key={index}
