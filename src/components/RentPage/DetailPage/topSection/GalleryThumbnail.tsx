@@ -1,79 +1,72 @@
 'use client';
-import React, { useState, useRef } from 'react';
-import { Navigation, Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Swiper as SwiperType } from 'swiper/types';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Image } from '@heroui/react';
-import { ArrowLeft01Icon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
-import { HugeiconsIcon } from '@hugeicons/react';
+import ThumbnailItem from './ThumbnailItem';
+import GallerySlider from './GallerySlider';
 
 type GalleryThumbnailProp = {
   allPhotos: string[];
 };
+
 export default function GalleryThumbnail({ allPhotos }: GalleryThumbnailProp) {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
-  const handleSlideChange = (swiper: SwiperType) => {
-    setActiveIndex(swiper.activeIndex);
-  };
-
-  const handleThumbnailClick = (index: number) => {
+  const handleThumbnailClick = useCallback((index: number) => {
     setActiveIndex(index);
-    if (swiperRef.current) {
-      swiperRef.current.slideTo(index);
+    swiperRef.current?.slideTo(index);
+  }, []);
+
+  const handleArrowNavigation = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const nextIndex = Math.min(activeIndex + 1, allPhotos.length - 1);
+      handleThumbnailClick(nextIndex);
+      focusThumbnail(nextIndex);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      const prevIndex = Math.max(activeIndex - 1, 0);
+      handleThumbnailClick(prevIndex);
+      focusThumbnail(prevIndex);
     }
+  },[activeIndex, allPhotos.length,  handleThumbnailClick]);
+
+  const focusThumbnail = (index: number) => {
+    const thumbnails =
+      gridRef.current?.querySelectorAll('[data-thumbnail]') || [];
+    const target = thumbnails[index] as HTMLElement | undefined;
+    target?.focus();
   };
 
   return (
     <div>
       <div className="w-4/5 m-auto">
-        <Swiper
-          pagination={{
-            type: 'fraction',
-          }}
-          navigation={{
-            nextEl: '.custom-next',
-            prevEl: '.custom-prev',
-          }}
-          modules={[Pagination, Navigation]}
-          className="mySwiper relative"
-          onSlideChange={handleSlideChange}
-          initialSlide={activeIndex}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
+        <GallerySlider
+          allPhotos={allPhotos}
+          activeIndex={activeIndex}
+          onSlideChange={setActiveIndex}
+          swiperRef={swiperRef}
+        />
+
+        {/* Thumbnails */}
+        <div
+          ref={gridRef}
+          className="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2 mt-4"
+          tabIndex={0}
+          onKeyDown={handleArrowNavigation}
         >
           {allPhotos.map((photo, index) => (
-            <SwiperSlide key={index}>
-              <Image src={photo} alt="" className="w-screen md:h-screen md:aspect-auto aspect-square" />
-            </SwiperSlide>
-          ))}
-          <div className="custom-next absolute left-2 top-1/2 z-10 -translate-y-1/2 transform cursor-pointer rounded-full bg-black/30 p-2 text-white hover:bg-black/50 ">
-            <HugeiconsIcon icon={ArrowLeft01Icon} size={32} /> 
-          </div>
-          <div className="custom-prev absolute right-2 top-1/2 z-10 -translate-y-1/2 transform cursor-pointer rounded-full bg-black/30 p-2 text-white hover:bg-black/50">
-            <HugeiconsIcon icon={ArrowRight01Icon} size={32} /> 
-          </div>
-        </Swiper>
-        <div className="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2 mt-4">
-          {allPhotos.map((photo, index) => (
-            <div
+            <ThumbnailItem
               key={index}
-              onClick={() => handleThumbnailClick(index)}
-              className={`cursor-pointer border-2 rounded-large overflow-hidden ${
-                index === activeIndex ? 'border-[#7575EF]' : 'border-transparent'
-              }`}
-            >
-              <Image
-                src={photo}
-                alt={`Thumb ${index}`}
-                className=" aspect-square object-cover"
-              />
-            </div>
+              photo={photo}
+              index={index}
+              isActive={index === activeIndex}
+              onClick={handleThumbnailClick}
+            />
           ))}
         </div>
       </div>
