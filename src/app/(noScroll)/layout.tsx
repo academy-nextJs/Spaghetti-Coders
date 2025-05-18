@@ -1,5 +1,5 @@
 import '../globals.css';
-import './body.css';
+import './layout.css';
 import Header from '../../components/Layout/header/header';
 
 export default function ReserveLayout({
