@@ -9,9 +9,10 @@ import GallerySlider from './GallerySlider';
 
 type GalleryThumbnailProp = {
   allPhotos: string[];
+  isModal?:boolean
 };
 
-export default function GalleryThumbnail({ allPhotos }: GalleryThumbnailProp) {
+export default function GalleryThumbnail({ allPhotos, isModal }: GalleryThumbnailProp) {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -44,12 +45,13 @@ export default function GalleryThumbnail({ allPhotos }: GalleryThumbnailProp) {
 
   return (
     <div>
-      <div className="w-4/5 m-auto">
+      <div className={isModal? 'w-full m-auto':"w-4/5 m-auto"}>
         <GallerySlider
           allPhotos={allPhotos}
           activeIndex={activeIndex}
           onSlideChange={setActiveIndex}
           swiperRef={swiperRef}
+          isModal={isModal}
         />
 
         {/* Thumbnails */}

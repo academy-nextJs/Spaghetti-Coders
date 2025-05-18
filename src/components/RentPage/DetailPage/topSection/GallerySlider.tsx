@@ -15,10 +15,18 @@ type GallerySliderProps = {
   allPhotos: string[];
   activeIndex: number;
   onSlideChange: (index: number) => void;
-   swiperRef: React.RefObject<SwiperType> | React.MutableRefObject<SwiperType | null>;
+  swiperRef:
+    | React.RefObject<SwiperType>
+    | React.MutableRefObject<SwiperType | null>;
+  isModal?:boolean
 };
 
-const GallerySlider = ({ allPhotos, activeIndex, onSlideChange, swiperRef }: GallerySliderProps) => {
+const GallerySlider = ({
+  allPhotos,
+  activeIndex,
+  onSlideChange,
+  swiperRef,
+}: GallerySliderProps) => {
   useEffect(() => {
     // sync index manually when updated outside swiper
     swiperRef.current?.slideTo(activeIndex);

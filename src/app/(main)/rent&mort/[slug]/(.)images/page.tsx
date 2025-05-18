@@ -3,6 +3,7 @@ import {
   mockHouse,
   mockInterior,
 } from '@/src/components/MockImages';
+import GalleryModal from '@/src/components/RentPage/DetailPage/topSection/GalleryModal';
 import GalleryThumbnail from '@/src/components/RentPage/DetailPage/topSection/GalleryThumbnail';
 import api from '@/src/services/api';
 import React from 'react';
@@ -19,7 +20,7 @@ export default async function InterceptedImagePage({
 
   return (
     <div>
-      <GalleryThumbnail allPhotos={allPhotos} />
+      <GalleryModal allPhotos={allPhotos} />
     </div>
   );
 }
