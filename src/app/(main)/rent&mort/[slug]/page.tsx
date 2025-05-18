@@ -9,10 +9,9 @@ export default async function RentDetailPage({
 }) {
   const { slug } = await params;
   const { data: singleData } = await api(`/houses/${slug}`);
-  console.log(singleData);
   return (
     <>
-      <DetailTopContainer photos={singleData.photos} title={singleData.title} address ={singleData.address}/>
+      <DetailTopContainer photos={singleData.photos} title={singleData.title} address ={singleData.address} slug={slug}/>
     </>
   );
 }

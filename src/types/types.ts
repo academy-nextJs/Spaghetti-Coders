@@ -259,3 +259,6 @@ export type FacilityData = {
 export type FacilitiesProps = {
   FacilityData: FacilityData[];
 };
+export interface AllPhotosType {
+  allPhotos: string[];
+}
