@@ -28,14 +28,15 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const updateFilter = useUpdateFilter();
 
-  // const mapWidth = useRef(60)
+  const mapWidth = useRef<number>(60)
   const isResizing = useRef(false);
 
   const mapRef = useRef<HTMLDivElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
-  const gridRef = useRef<HTMLElement>(null)
+  const gridRef = useRef<HTMLElement>(null) //Section Element
 
   function calculateGridColumns(mapWidth: number): string {
+    const tablet = window.innerWidth < 1250
     const breakpoints = [
       { width: 40, cols: 4 },
       { width: 55, cols: 3 },
@@ -44,9 +45,13 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     ];
 
     const columns = breakpoints.find(point => mapWidth < point.width)?.cols || 4;
-    return `repeat(${columns}, minmax(0, 1fr))`;
+    return `repeat(${tablet ? columns - 1 : columns}, minmax(0, 1fr))`;
   }
 
+  function setGridColumns() { //this logic must be separate as a function, cause we should pass it to our resize eventListener
+    if(gridRef.current) gridRef.current.style.gridTemplateColumns = calculateGridColumns(mapWidth.current)
+  }
+  
   const startResizing = () => {
     isResizing.current = true;
     document.body.style.userSelect = 'none';
@@ -55,14 +60,15 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   const handleResizing = (e: MouseEvent) => {
     if (!isResizing.current) return;
     
-    const newMapWidth = (e.clientX / window.innerWidth) * 100;
-
-    if (window.innerWidth > 1024) {
-      if (newMapWidth >= 20 && newMapWidth < 80) {
-        if(mapRef.current) mapRef.current.style.width = newMapWidth + '%'
-        if(cardRef.current) cardRef.current.style.width = 100 - newMapWidth + '%'
+    const calculatedMapWidth = (e.clientX / window.innerWidth) * 100;
+    
+    if (window.innerWidth >= 1024) {
+      if (calculatedMapWidth >= 20 && calculatedMapWidth < 80) {
+        if(mapRef.current) mapRef.current.style.width = calculatedMapWidth + '%'
+        if(cardRef.current) cardRef.current.style.width = 100 - calculatedMapWidth + '%'
+        mapWidth.current = calculatedMapWidth; //set the map's width in a ref to be accessible outside of this function
         
-        if(gridRef.current) gridRef.current.style.gridTemplateColumns = calculateGridColumns(newMapWidth)
+        setGridColumns() //wrapped this logic inside a function
       }
     }
   };
@@ -75,12 +81,14 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   useEffect(() => {
     window.addEventListener('mousemove', throttle(handleResizing, 100));
     window.addEventListener('mouseup', stopResizing);
+    window.addEventListener('resize', throttle(setGridColumns, 500));
     
     return () => {
       window.removeEventListener('mousemove', throttle(handleResizing, 100));
       window.removeEventListener('mouseup', stopResizing);
+      window.removeEventListener('resize', throttle(setGridColumns, 500));
     };
-  }, []);
+  });
 
   return (
     <div className="h-full w-full flex flex-col-reverse lg:flex-row justify-between gap-6">
@@ -119,7 +127,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
       >
         <Tooltip
           content="برای تغییر اندازه بکشید"
-          placement="left"
+          placement="bottom"
           closeDelay={0}
           showArrow
           classNames={{
