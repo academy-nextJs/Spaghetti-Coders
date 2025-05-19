@@ -1,4 +1,4 @@
-import { CredentialsSignin, type NextAuthConfig, type DefaultSession} from "next-auth"
+import { CredentialsSignin, type NextAuthConfig} from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
@@ -8,7 +8,7 @@ declare module "next-auth" {
     accessToken: string;
     refreshToken: string;
   }
-  interface Session extends DefaultSession {
+  interface Session {
     accessToken: string;
     refreshToken: string;
   }
