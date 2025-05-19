@@ -19,7 +19,7 @@ const HotelReservation = () => {
       <div className='flex flex-row w-1/2 gap-4 '>
         <div className='flex flex-col font-bold gap-4 w-1/2'>
           <span> تعداد نفرات </span>
-          <ClientInput type='number' placeholder="انتخاب کنید" />
+          <ClientInput type='number' placeholder="وارد کنید "></ClientInput>
         </div>
         <div className='flex flex-col font-bold gap-4 w-1/2'>
           <span className='text-[#7575FE] '>مجموع قیمت </span>
