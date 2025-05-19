@@ -52,6 +52,8 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     if(gridRef.current) gridRef.current.style.gridTemplateColumns = calculateGridColumns(mapWidth.current)
   }
   
+
+
   const startResizing = () => {
     isResizing.current = true;
     document.body.style.userSelect = 'none';
@@ -88,7 +90,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
       window.removeEventListener('mouseup', stopResizing);
       window.removeEventListener('resize', throttle(setGridColumns, 500));
     };
-  });
+  }, []);
 
   return (
     <div className="h-full w-full flex flex-col-reverse lg:flex-row justify-between gap-6">
