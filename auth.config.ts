@@ -50,16 +50,16 @@ export default {
       session.refreshToken = token.refreshToken;
       return session
     },
-    authorized: async ({ auth, request }) => {
-      const isAuthorized = !!auth?.accessToken;
-      const IsPrivateRoute = request.nextUrl.pathname.startsWith('/dashboard');
+    // authorized: async ({ auth, request }) => {
+    //   const isAuthorized = !!auth?.accessToken;
+    //   const IsPrivateRoute = request.nextUrl.pathname.startsWith('/dashboard');
 
-      if(!isAuthorized && IsPrivateRoute) {
-        const url = new URL(request.nextUrl)
-        url.pathname = '/login'
-        return Response.redirect(url)
-      }
-      return true
-    },
+    //   if(!isAuthorized && IsPrivateRoute) {
+    //     const url = new URL(request.nextUrl)
+    //     url.pathname = '/login'
+    //     return Response.redirect(url)
+    //   }
+    //   return true
+    // },
   }
 } satisfies NextAuthConfig
