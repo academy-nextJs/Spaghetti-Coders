@@ -29,7 +29,7 @@ import { NextResponse } from "next/server"
 
 export default auth((request) => {
   const isAuthorized = !!request.auth?.accessToken
-  
+
   if (request.nextUrl.pathname === '/') {
     return NextResponse.redirect(new URL('/landing', request.url))
   }
@@ -43,5 +43,15 @@ export default auth((request) => {
     return Response.redirect(newUrl)
   }
 
+  const requestHeaders = new Headers(request.headers)
+  requestHeaders.set('Authorization', `Bearer ${request.auth?.accessToken}`)
 
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    }
+  })
+  
+  // console.log({ response })
+  return response
 })
