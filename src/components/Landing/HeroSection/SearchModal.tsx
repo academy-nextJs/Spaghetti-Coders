@@ -12,7 +12,6 @@ import {
 import { ClientButton } from '../../common/Buttons/common-btn';
 import { ClientInput } from '../../common/inputs/clientInput';
 import SelectClient from '../../common/SelectClient';
-import Calender from '../../common/Calender/calender';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Cursor02Icon } from '@hugeicons/core-free-icons';
 import { City } from '@/src/types/types';
@@ -31,7 +30,6 @@ export default function ModalSearch() {
     { key: 'babol', label: 'بابل' },
     { key: 'sari', label: 'ساری' },
   ];
-
   return (
     <>
       <div className="flex flex-wrap gap-3">
@@ -57,41 +55,34 @@ export default function ModalSearch() {
                 <ClientButton className="h-9 bg-[#7575FE] text-white">
                   رزرو ملک
                 </ClientButton>
-                <ClientButton className="h-9 bg-[#F0F0F0] text-black dark:bg-darkMode dark:text-white">
-                  رهن و اجاره
-                </ClientButton>
-                <ClientButton className="h-9 bg-[#F0F0F0] text-black dark:bg-darkMode dark:text-white">
-                  خرید و فروش
-                </ClientButton>
               </ModalHeader>
               <ModalBody className="flex flex-col gap-4">
                 <div className="flex flex-row gap-5 mr-8">
                   <div className="flex flex-col w-[20rem]">
                     <span className="text-sm font-medium text-right pr-2">
-                      انتخاب مقصد
+                      محل مورد نظر
                     </span>
                     <SelectClient items={cities} placeholder="انتخاب کنید" />
                   </div>
                   <div className="flex flex-col w-[20rem]">
                     <span className="text-sm font-medium text-right">
-                      تعداد نفرات
+                      نوع ملک
                     </span>
-                    <ClientInput type="number" placeholder="انتخاب کنید" />
+                   <SelectClient items={cities} placeholder="انتخاب کنید" />
                   </div>
                 </div>
-
                 <div className="flex flex-row mt-4 mr-8 font-medium">
                   <div className="flex flex-col w-1/2">
                     <span className="text-sm font-medium text-right mb-2">
-                      تاریخ ورود
+                       حداقل اجاره 
                     </span>
-                    <Calender />
+                    <ClientInput type="number" />
                   </div>
                   <div className="flex flex-col w-1/2">
                     <span className="text-sm font-medium text-right mb-2">
-                      تاریخ خروج
+                       حداکثر اجاره
                     </span>
-                    <Calender />
+                    <ClientInput type="number" />
                   </div>
                 </div>
               </ModalBody>
