@@ -1,7 +1,18 @@
-import { CredentialsSignin, type NextAuthConfig } from "next-auth"
+import { CredentialsSignin, type NextAuthConfig, type DefaultSession} from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
+
+declare module "next-auth" {
+  interface User {
+    accessToken: string;
+    refreshToken: string;
+  }
+  interface Session extends DefaultSession {
+    accessToken: string;
+    refreshToken: string;
+  }
+}
 
 const BASE_URL = process.env.BASE_URL
 
@@ -46,8 +57,8 @@ export default {
       return token
     },
     session: async ({ session, token }) => {
-      session.accessToken = token.accessToken;
-      session.refreshToken = token.refreshToken;
+      session.accessToken = token.accessToken as string;
+      session.refreshToken = token.refreshToken as string;
       return session
     },
     // authorized: async ({ auth, request }) => {
