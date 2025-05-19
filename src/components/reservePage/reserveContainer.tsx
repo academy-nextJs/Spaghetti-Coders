@@ -12,7 +12,7 @@ import {
 } from '@heroui/react';
 import ReserveFilterDrawer from './reserveFilterDrawer';
 import { ReserveContainerProps } from '@/src/types/types';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { throttle } from 'lodash';
 const HouseReserveCardsGrid = dynamic(
   () => import('./HouseReserveCardsGrid'),
@@ -52,8 +52,6 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     if(gridRef.current) gridRef.current.style.gridTemplateColumns = calculateGridColumns(mapWidth.current)
   }
   
-
-
   const startResizing = () => {
     isResizing.current = true;
     document.body.style.userSelect = 'none';
@@ -80,17 +78,23 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     document.body.style.userSelect = '';
   };
 
+  const throttledHandleResizing = useMemo(() => throttle(handleResizing, 100), [])
+  const throttledSetGridColumns = useMemo(() => throttle(setGridColumns, 500), [])
+
   useEffect(() => {
-    window.addEventListener('mousemove', throttle(handleResizing, 100));
+    window.addEventListener('mousemove', throttledHandleResizing);
     window.addEventListener('mouseup', stopResizing);
-    window.addEventListener('resize', throttle(setGridColumns, 500));
+    window.addEventListener('resize', throttledSetGridColumns);
     
     return () => {
-      window.removeEventListener('mousemove', throttle(handleResizing, 100));
+      window.removeEventListener('mousemove', throttledHandleResizing);
       window.removeEventListener('mouseup', stopResizing);
-      window.removeEventListener('resize', throttle(setGridColumns, 500));
+      window.removeEventListener('resize', throttledSetGridColumns);
+
+      throttledHandleResizing.cancel() //a method for canceling any pending invocation of the debounced function, neccessary for clean up
+      throttledSetGridColumns.cancel()
     };
-  }, []);
+  }, [throttledHandleResizing, throttledSetGridColumns]);
 
   return (
     <div className="h-full w-full flex flex-col-reverse lg:flex-row justify-between gap-6">
