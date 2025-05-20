@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   experimental: { serverSourceMaps: false },
@@ -18,8 +18,14 @@ const nextConfig: NextConfig = {
       {
         hostname: 'lh3.googleusercontent.com',
       },
-    ]
-  }
+      {
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        hostname: 'cdn.sanity.io',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
