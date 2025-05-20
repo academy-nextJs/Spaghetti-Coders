@@ -3,6 +3,17 @@ import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 
+declare module "next-auth" {
+  interface User {
+    accessToken: string;
+    refreshToken: string;
+  }
+  interface Session {
+    accessToken: string;
+    refreshToken: string;
+  }
+}
+
 const BASE_URL = process.env.BASE_URL
 
 class InvalidLoginError extends CredentialsSignin {
@@ -46,20 +57,20 @@ export default {
       return token
     },
     session: async ({ session, token }) => {
-      session.accessToken = token.accessToken;
-      session.refreshToken = token.refreshToken;
+      session.accessToken = token.accessToken as string;
+      session.refreshToken = token.refreshToken as string;
       return session
     },
-    authorized: async ({ auth, request }) => {
-      const isAuthorized = !!auth?.accessToken;
-      const IsPrivateRoute = request.nextUrl.pathname.startsWith('/dashboard');
+    // authorized: async ({ auth, request }) => {
+    //   const isAuthorized = !!auth?.accessToken;
+    //   const IsPrivateRoute = request.nextUrl.pathname.startsWith('/dashboard');
 
-      if(!isAuthorized && IsPrivateRoute) {
-        const url = new URL(request.nextUrl)
-        url.pathname = '/login'
-        return Response.redirect(url)
-      }
-      return true
-    },
+    //   if(!isAuthorized && IsPrivateRoute) {
+    //     const url = new URL(request.nextUrl)
+    //     url.pathname = '/login'
+    //     return Response.redirect(url)
+    //   }
+    //   return true
+    // },
   }
 } satisfies NextAuthConfig
