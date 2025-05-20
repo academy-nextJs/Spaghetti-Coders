@@ -19,7 +19,7 @@ export default function DetailTopContainer({
       <ImageGallery photos={photos} slug={slug}/>
       <div className='flex justify-between'>
         <DetailTopText title={title} address={address} />
-        <TopBtn />
+        <TopBtn id={slug} />
       </div>
     </section>
   );
