@@ -1,10 +1,15 @@
 import { HouseSearchParams } from '@/src/types/types';
 import dynamic from 'next/dynamic';
 import { getRentMortData } from '@/src/lib/getRentMortData';
-import Loading from '@/src/components/common/Loading/loading';
+import Loading from '@/src/components/common/Loading/LoadingSpinner';
 import Filters from '@/src/components/RentPage/filters';
-const HouseRentGrid = dynamic(()=> import('@/src/components/RentPage/HouseRentGrid'), {loading: () => <Loading/>})
-const RentPagination = dynamic(() => import('@/src/components/RentPage/RentPagination'))
+const HouseRentGrid = dynamic(
+  () => import('@/src/components/RentPage/HouseRentGrid'),
+  { loading: () => <Loading /> }
+);
+const RentPagination = dynamic(
+  () => import('@/src/components/RentPage/RentPagination')
+);
 
 export default async function RentPage({
   searchParams,

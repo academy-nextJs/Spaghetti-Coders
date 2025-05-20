@@ -260,6 +260,11 @@ export type FacilitiesProps = {
   FacilityData: FacilityData[];
 };
 
+export interface AllPhotosType {
+  allPhotos: string[];
+}
+
+
 export interface DetailsTextAreaProps {
   chipText?: string;
   descriptionText: string;
@@ -267,3 +272,4 @@ export interface DetailsTextAreaProps {
   location?: Location
   headingText?: string
 }
+
