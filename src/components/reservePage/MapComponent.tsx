@@ -27,7 +27,7 @@ const MapComponent = () => {
   ];
 
   return (
-      <MapContainer center={position} zoom={15}>
+      <MapContainer center={position} zoom={15} className='dark:invert dark:hue-rotate-180'>
         <TileLayer
           attribution="Google Maps"
           url="https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}" // regular
@@ -40,7 +40,7 @@ const MapComponent = () => {
             position={marker.geocode as LatLngExpression}
             icon={customIcon}
           >
-            <Popup>
+            <Popup className='dark:invert dark:hue-rotate-180'>
             <div className="flex text-white ">
                 {/* <Image
                 /> */}
