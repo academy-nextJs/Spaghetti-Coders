@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en" className='smooth'>
+    <html suppressHydrationWarning lang="en">
       <body
         dir="rtl"
         className={`${yekanFont.className} py-4 overflow-x-hidden`}

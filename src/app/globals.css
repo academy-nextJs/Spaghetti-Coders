@@ -45,8 +45,7 @@
 }
 
 @layer base {
-  .smooth,
-  .smooth * {
+   * {
     @apply transition-background duration-500 ease-out
-  }
+  };
 }
