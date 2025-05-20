@@ -43,3 +43,8 @@
   font-size: 18px;              
   display:none
 }
+
+.smooth,
+.smooth * {
+  @apply transition-all duration-500 ease-out
+}
