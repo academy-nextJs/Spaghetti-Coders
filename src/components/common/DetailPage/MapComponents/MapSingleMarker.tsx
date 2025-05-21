@@ -9,7 +9,11 @@ import { customIcon } from "@/src/components/ReservePage/MapComponent";
 export function MapSingleMarker({ location }: { location: Location }) {
   const Position = [location.lat, location.lng]
   return (
-    <MapContainer className="h-96!" center={Position as LatLngExpression} zoom={15}>
+    <MapContainer 
+      className="h-96! dark:invert dark:hue-rotate-180" 
+      center={Position as LatLngExpression} 
+      zoom={15}
+    >
       <TileLayer
         attribution="Google Maps"
         url="https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
