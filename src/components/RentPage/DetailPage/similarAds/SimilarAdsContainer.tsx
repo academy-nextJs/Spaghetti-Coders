@@ -9,7 +9,7 @@ export async function SimilarAdsContainer() {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
-        <MyChip size="lg" className="bg-transparent border border-[#7575FE] text-[#7575FE] !font-black py-6 px-3">
+        <MyChip size="lg" className="bg-transparent border border-[#7575FE] text-[#7575FE] py-5 px-3">
           آگهی های مشابه
         </MyChip>
       </div>
