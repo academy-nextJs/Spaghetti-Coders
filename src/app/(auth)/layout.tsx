@@ -1,9 +1,10 @@
 'use client'
 
 import Image from "next/image";
+import Link from "next/link";
 import Logo from '@/public/AlFA.svg';
 import SwiperSlider from "@/src/components/common/Auth/SwiperSlider";
-import Link from "next/link";
+import './layout.css'
 
 export default function AuthLayout({
   children,
@@ -12,8 +13,6 @@ export default function AuthLayout({
 }>) {
   return (
     <main className="h-full">
-      <style jsx global>{`body { height: 100vh; overflow: hidden; padding: 1rem; }`}</style>
-
       <section className="h-full flex">
         <main className="w-full md:w-1/2 flex items-center justify-center">
           {children}
