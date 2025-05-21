@@ -8,6 +8,7 @@ export default async function ReservePage({searchParams}: { searchParams: Promis
   const reservData = await getResrvationData(resolvedSearchParams);
   const { data:locations } = await api.get('/locations');
   console.log(reservData);
+  
   return (
       <ReserveContainer locations ={locations}/>
   );
