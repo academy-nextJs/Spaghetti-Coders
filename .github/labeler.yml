@@ -1,0 +1,19 @@
+pages:
+  - 'src/app/**/*'
+assets:
+  - 'src/assets'
+hooks:
+  - 'src/hooks'
+lib:
+  - 'src/lib'
+
+styles:
+  - '**/*.css'
+  - '**/*.scss'
+  - '**/*.sass'
+config:
+  - '.github/**/*'
+  - '**/*.yml'
+  - '**/*.yaml'
+  - 'next.config.ts'
+  - 'postcss.config.mjs'
