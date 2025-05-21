@@ -7,17 +7,19 @@ export default function DetailTopContainer({
   photos,
   title,
   address,
+  slug
 }: {
   photos: string[];
   title: string;
   address: string;
+  slug:string
 }) {
   return (
     <section>
-      <ImageGallery photos={photos} />
+      <ImageGallery photos={photos} slug={slug}/>
       <div className='flex justify-between'>
         <DetailTopText title={title} address={address} />
-        <TopBtn />
+        <TopBtn id={slug} />
       </div>
     </section>
   );

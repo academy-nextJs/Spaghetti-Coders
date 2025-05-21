@@ -11,7 +11,7 @@ import { HeaderSignOutBtn } from './headerSignOutBtn';
 
 export async function HeaderServerContent() {
   const session = await auth();
-  console.log({ session });
+  // console.log({ session });
 
   return (
     <>
@@ -33,13 +33,15 @@ export async function HeaderServerContent() {
         </ClientButton>
         <ThemeSwitcher />
       </aside>
-      <Image
-        className="justify-center dark:invert-100 absolute bottom-1/2 translate-1/2 right-1/2 translate-x-1/2"
-        src={Logo.src}
-        alt="Logo"
-        width={78}
-        height={78}
-      />
+      <Link href='/'>
+        <Image
+          className="justify-center dark:invert-100 absolute bottom-1/2 translate-1/2 right-1/2 translate-x-1/2"
+          src={Logo.src}
+          alt="Logo"
+          width={78}
+          height={78}
+        />
+      </Link>
       <aside className="flex items-center gap-4">
         <Link href="/rent&mort" className='hidden lg:flex'>
           <ClientButton className="bg-[#F0F0F0] dark:bg-darkMode h-12">

@@ -43,3 +43,9 @@
   font-size: 18px;              
   display:none
 }
+
+@layer base {
+   * {
+    @apply transition-background duration-500 ease-out
+  };
+}
