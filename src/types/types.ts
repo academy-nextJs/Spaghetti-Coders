@@ -136,7 +136,7 @@ export interface HouseCardProps {
   locOnMap?: boolean;
 }
 
-export interface LandingCarouselProps {
+export interface CardCarouselContainerProps {
   data: ApartmentDataType[];
   discountedSection?: boolean;
 }

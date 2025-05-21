@@ -1,9 +1,9 @@
 import { MyChip } from "../../common/Buttons/Chip-btn";
-import LandingCarousel from "../LandingCarousel/LandingCarousel";
 import { ClientButton } from "../../common/Buttons/common-btn";
 import api from "@/src/services/api";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { TimeQuarter02Icon } from "@hugeicons/core-free-icons";
+import { CardCarouselContainer } from "../../common/CardCarouselContainer/CardCarouselContainer";
 
 export default async function LandingDiscountedSection() {
   const { data } = await api.get('/houses?limit=8&sort=price&order=DESC&transactionType=')
@@ -34,7 +34,7 @@ export default async function LandingDiscountedSection() {
           <ClientButton size="lg" className="bg-[#7575FE] text-white py-6 mr-auto inline-flex">مشاهده همه</ClientButton>
         </div>
       </div>
-      <LandingCarousel data={data} discountedSection />
+      <CardCarouselContainer data={data} discountedSection />
     </div>
   );
 }

@@ -1,11 +1,11 @@
-import { LandingCarouselProps } from '@/src/types/types';
-import LandingHouseCard from '../LandingHouseCard/LandingHouseCard';
-import Carousel from '../../common/carousel';
+import { CardCarouselContainerProps } from '@/src/types/types';
+import LandingHouseCard from '../../Landing/LandingHouseCard/LandingHouseCard';
+import Carousel from '../carousel';
 
-export default function LandingCarousel({
+export function CardCarouselContainer({
   data,
   discountedSection,
-}: LandingCarouselProps) {
+}: CardCarouselContainerProps) {
   return (
     <Carousel
       breakpoints={{
@@ -48,7 +48,7 @@ export default function LandingCarousel({
             bedroom={item.rooms}
             parking={item.parking}
             yardType={item.yard_type}
-            price={!isNaN(Number(item.price)) ? Number(item.price) : 0} 
+            price={!isNaN(Number(item.price)) ? Number(item.price) : 0}
             photos={item.photos}
           />
         ))}
