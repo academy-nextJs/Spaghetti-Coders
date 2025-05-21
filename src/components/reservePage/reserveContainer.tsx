@@ -100,7 +100,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     <div className="h-full w-full flex flex-col-reverse lg:flex-row justify-between gap-6">
       <div
         ref={cardRef}
-        className="max-lg:w-full! lg:w-2/5 m-0 lg:mt-8 flex flex-col gap-12"
+        className="max-lg:w-full! lg:w-2/5 m-0 lg:mt-8 flex flex-col gap-12 transition-all duration-75 ease-linear"
       >
         <Breadcrumbs>
           <BreadcrumbItem href="/">خانه</BreadcrumbItem>
@@ -129,7 +129,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
 
       <div
         ref={mapRef}
-        className="h-80 lg:h-full max-lg:w-full! lg:w-3/5 flex relative"
+        className="h-80 lg:h-full max-lg:w-full! lg:w-3/5 flex relative transition-all duration-75 ease-linear"
       >
         <Tooltip
           content="برای تغییر اندازه بکشید"
