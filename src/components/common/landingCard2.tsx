@@ -27,9 +27,10 @@ export default function LandingCard2({
       </CardHeader>
       <div className="relative">
         <Image
-          alt="Woman listing to music"
+          alt="luxary apartment"
+          loading='lazy'
           className="object-cover z-0 w-full aspect-square"
-          src={src ? src : 'https://heroui.com/images/card-example-6.jpeg'}
+          src={src ? src : 'https://res.cloudinary.com/sentral/image/upload/w_1000,h_1000,q_auto:eco,c_fill/f_auto/v1684782440/miro_hero_building_exterior_2000x1125.jpg'}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>

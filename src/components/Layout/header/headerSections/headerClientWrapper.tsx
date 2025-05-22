@@ -13,7 +13,6 @@ export const HeaderClientWrapper = ({
 
   useEffect(() => {
     const positionHeader = () => {
-      console.log('Scroll');
       const curScrollY = window.pageYOffset;
       if(curScrollY > prevScrollY.current && curScrollY > (window.innerHeight / 3)) {
         setIsHidden(true)
