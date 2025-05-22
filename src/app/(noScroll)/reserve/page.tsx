@@ -11,6 +11,8 @@ export default async function ReservePage({
   const resolvedSearchParams = await searchParams;
   const reservData = await getResrvationData(resolvedSearchParams);
   const { data: locations } = await api.get('/locations');
-  console.log(reservData);
-  return <ReserveContainer locations={locations} />;
+  console.log(reservData);  
+  return (
+      <ReserveContainer locations ={locations}/>
+  );
 }
