@@ -1,14 +1,16 @@
+'use client'
+
 import { ClientButton } from "@/src/components/common/Buttons/common-btn"
+import { CommentCardsPropsType } from "@/src/types/types"
 import { Accordion, AccordionItem, Avatar } from "@heroui/react"
 import { FavouriteCircleIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
-export function ReplyCard({Index, selectedKeys, setSelectedKeys, fullName= 'ناشناس', title= 'تایتل وارد نشده', caption= 'کپشن وارد نشده', rating= 'x' }) {
+export function ReplyCard({Index, selectedKeys, fullName= 'ناشناس', title= 'تایتل وارد نشده', caption= 'کپشن وارد نشده', rating= 'x', pic }: CommentCardsPropsType) {
   console.log('selectedKeys ReplyCard', selectedKeys)
   return (
     <Accordion 
       selectedKeys={selectedKeys}
-      // onSelectionChange={(keys) => console.log('onSelectionChange', keys) } 
       className={`p-0 w-fit flex-col gap-4 hidden has-[div[data-open="true"]]:flex`} 
       itemClasses={{ trigger: 'hidden' }}
       isCompact 
@@ -20,7 +22,7 @@ export function ReplyCard({Index, selectedKeys, setSelectedKeys, fullName= 'نا
       <AccordionItem key={Index}>
         <li className='flex gap-3 mr-10 before:content-[""] before:absolute before:w-0.5 before:h-[200%] before:bottom-0 before:-right-5 before:translate-x-1/2 before:bg-primaryPurple relative'>
           <aside>
-            <Avatar src='' />
+            <Avatar src={pic ?? undefined} />
           </aside>
           <main className='flex flex-col gap-1'>
             <span>{fullName} <span className='text-primaryPurple'>در</span> 25 اردیبهشت 1404</span>

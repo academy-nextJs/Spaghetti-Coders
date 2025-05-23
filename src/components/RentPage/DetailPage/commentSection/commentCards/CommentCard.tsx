@@ -5,17 +5,20 @@ import { Avatar } from "@heroui/react";
 import { ArrowDown01Icon, FavouriteCircleIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 
-import type { Selection } from '@heroui/react'
+import { CommentCardsPropsType } from "@/src/types/types";
 
-export function CommentCard({Index, selectedKeys, setSelectedKeys, fullName= 'ناشناس', title= 'تایتل وارد نشده', caption= 'کپشن وارد نشده', rating= 'x' }) {
+export function CommentCard({Index, selectedKeys, setSelectedKeys, fullName= 'ناشناس', title= 'تایتل وارد نشده', caption= 'کپشن وارد نشده', rating= 'x', pic }: CommentCardsPropsType) {
   console.log('Index CommentCard', Index)
   console.log('selectedKeys.has("3")', selectedKeys?.has('3'))
 
-  const isItemOpen = selectedKeys?.has(Index)
-  
+  let isItemOpen: boolean | undefined
+  if(Index) isItemOpen = selectedKeys?.has(Index)
+
   const handleAcordionState = () => {
+    if(!setSelectedKeys || !Index) return
+
     if(!isItemOpen) {
-      setSelectedKeys((prevSet: Selection) => new Set(prevSet).add(Index))
+      setSelectedKeys((prevSet: Set<string>) => new Set(prevSet).add(Index))
     } else {
       const deletedValueSet = new Set(selectedKeys)
       deletedValueSet.delete(Index)
@@ -26,7 +29,7 @@ export function CommentCard({Index, selectedKeys, setSelectedKeys, fullName= 'ن
   return (
     <li className='flex gap-3'>
       <aside>
-        <Avatar className="z-10" src='' />
+        <Avatar className="z-10" src={pic ?? undefined} />
       </aside>
       <main className='flex flex-col gap-1'>
         <span>{fullName} <span className='text-primaryPurple'>در</span> 25 اردیبهشت 1404</span>
@@ -38,7 +41,7 @@ export function CommentCard({Index, selectedKeys, setSelectedKeys, fullName= 'ن
             <HugeiconsIcon icon={FavouriteCircleIcon} />
           </div>
           <ClientButton className="text-primaryPurple w-fit h-full p-0 bg-transparent">پاسخ دادن</ClientButton>
-          {setSelectedKeys && 
+          {setSelectedKeys ?
             <ClientButton 
               className="text-gray-500 w-fit h-fit p-0 bg-transparent" 
               // onPress={() => {setSelectedKeys((prevSet) => prevSet.add(String(Index))); console.log(selectedKeys)}}
@@ -49,7 +52,7 @@ export function CommentCard({Index, selectedKeys, setSelectedKeys, fullName= 'ن
               مشاهده پاسخ
               <HugeiconsIcon icon={ArrowDown01Icon} className={isItemOpen ? '' : 'rotate-90'}/>
             </ClientButton>
-          }
+          : null}
         </div>
       </main>
     </li>

@@ -4,9 +4,10 @@ import { PlusSignIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { CommentList } from "./commentList/CommentList";
 import api from "@/src/services/api";
+import { CommentDataType } from "@/src/types/types";
 
 export async function DetailCommentContainer({ ID }: { ID: string }) {
-  const { data: comments } = await api.get(`/houses/${ID}/comments?page=1&limit=10`);
+  const { data: comments }: { data: CommentDataType[] } = await api.get(`/houses/${ID}/comments?page=1&limit=20`);
   return (
     <section className="max-w-full md:max-w-1/2 flex flex-col gap-12">
       <div className="flex gap-4">

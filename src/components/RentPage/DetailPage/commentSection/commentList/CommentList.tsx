@@ -3,14 +3,14 @@
 import { Fragment, useState } from "react";
 import dynamic from "next/dynamic";
 import { Divider } from "@heroui/react";
-import { ReplyCard } from "../commentCards/ReplyCard";
 
-import type { Selection } from '@heroui/react'
+import { CommentDataType } from "@/src/types/types";
 
 const CommentCard = dynamic(() => import('../commentCards/CommentCard').then(mod => mod.CommentCard), { ssr: false })
+const ReplyCard = dynamic(() => import('../commentCards/ReplyCard').then(mod => mod.ReplyCard), { ssr: false })
 
-export function CommentList({ comments }) {
-  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set());
+export function CommentList({ comments }: { comments: CommentDataType[] }) {
+  const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set());
   console.log('Initial selectedKeys', selectedKeys)
 
   return (
@@ -20,10 +20,11 @@ export function CommentList({ comments }) {
           return (
             <Fragment key={index}>
               <CommentCard
-                fullName={comment.user.fullName} 
+                fullName={comment.user.fullName}
                 title={comment.title}
                 caption={comment.caption}
                 rating={comment.rating}
+                pic={comment.user.profilePicture}
               />
               <Divider />
             </Fragment>
@@ -39,15 +40,16 @@ export function CommentList({ comments }) {
                 title={comment.parent_comment.title}
                 caption={comment.parent_comment.caption}
                 rating={comment.parent_comment.rating}
+                pic={comment.parent_comment.user.profilePicture}
               />
               <ReplyCard
                 Index={String(index)}
                 selectedKeys={selectedKeys} 
-                setSelectedKeys={setSelectedKeys} 
                 fullName={comment.user.fullName} 
                 title={comment.title}
                 caption={comment.caption}
                 rating={comment.rating}
+                pic={comment.user.profilePicture}
               />
               <Divider />
             </Fragment>
