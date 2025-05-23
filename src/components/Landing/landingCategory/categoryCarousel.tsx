@@ -20,7 +20,7 @@ export default function CategoryCarousel({ data }: { data: Category[] }) {
     },
   };
   return (
-    <div className="w-4/5 flex flex-col gap-6">
+    <div className="w-4/5 flex flex-col gap-6 p-2 ml-4">
       <SectionTop
         mainText={['هر ملکی بخوای\n اینجا پیدا میشه!']} // Still supports string with \n
         subText={[
