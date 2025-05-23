@@ -19,10 +19,10 @@ export function ReplyCard({
   return (
     <Accordion 
       selectedKeys={selectedKeys}
-      className={`p-0 w-fit flex-col gap-4 hidden has-[div[data-open="true"]]:flex`} 
+      className={`p-0 flex-col gap-4 hidden has-[div[data-open="true"]]:flex`}
       itemClasses={{ trigger: 'hidden' }}
-      isCompact 
-      hideIndicator 
+      isCompact
+      hideIndicator
       showDivider={false}
       selectionMode="multiple"
       selectionBehavior="toggle"
@@ -32,7 +32,7 @@ export function ReplyCard({
           <aside>
             <Avatar src={pic ?? undefined} />
           </aside>
-          <main className='flex flex-col gap-1'>
+          <main className='flex flex-col gap-2'>
             <span>{fullName}<span className='text-primaryPurple'> در </span>{createdAt}</span>
             <p className='font-bold'>{title}</p>
             <p className=''>{caption}</p>

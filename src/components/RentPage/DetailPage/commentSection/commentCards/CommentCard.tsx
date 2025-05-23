@@ -32,13 +32,13 @@ export function CommentCard({
       setSelectedKeys(manipulatedValueSet)
     }
   }
-  
+
   return (
     <li className='flex gap-3'>
       <aside>
         <Avatar className="z-10" src={pic ?? undefined} />
       </aside>
-      <main className='flex flex-col gap-1'>
+      <main className='flex flex-col gap-2'>
         <span>{fullName}<span className='text-primaryPurple'> در </span>{createdAt}</span>
         <p className='font-bold'>{title}</p>
         <p className=''>{caption}</p>

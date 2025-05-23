@@ -5,6 +5,8 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { CommentList } from "./commentList/CommentList";
 import api from "@/src/services/api";
 import { CommentDataType } from "@/src/types/types";
+import { Suspense } from "react";
+import LoadingSpinner from "@/src/components/common/Loading/LoadingSpinner";
 
 export async function DetailCommentContainer({ ID }: { ID: string }) {
   const { data: comments }: { data: CommentDataType[] } = await api.get(`/houses/${ID}/comments?page=1&limit=20`);
@@ -19,7 +21,9 @@ export async function DetailCommentContainer({ ID }: { ID: string }) {
           نظر شما
         </ClientButton>
       </div>
-      <CommentList comments={comments} />
+      <Suspense fallback={<LoadingSpinner />}>
+        <CommentList comments={comments} />
+      </Suspense>
     </section>
   );
 }

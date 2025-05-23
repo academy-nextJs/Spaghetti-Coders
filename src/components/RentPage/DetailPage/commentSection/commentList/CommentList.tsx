@@ -27,7 +27,7 @@ export function CommentList({ comments }: { comments: CommentDataType[] }) {
                 pic={comment.user.profilePicture}
                 createdAt={formatDate(comment.created_at)}
               />
-              <Divider />
+              {index !== comments.length - 1 ? <Divider /> : null}
             </Fragment>
           )
         } else {
@@ -54,7 +54,7 @@ export function CommentList({ comments }: { comments: CommentDataType[] }) {
                 pic={comment.user.profilePicture}
                 createdAt={formatDate(comment.created_at)}
               />
-              <Divider />
+              {index !== comments.length - 1 ? <Divider /> : null}
             </Fragment>
           )
         }
