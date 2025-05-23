@@ -303,4 +303,5 @@ export interface CommentCardsPropsType {
   caption: string;
   rating: string;
   pic: string | null;
+  createdAt: string;
 }

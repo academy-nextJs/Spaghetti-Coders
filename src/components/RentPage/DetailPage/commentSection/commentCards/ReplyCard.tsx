@@ -6,8 +6,16 @@ import { Accordion, AccordionItem, Avatar } from "@heroui/react"
 import { FavouriteCircleIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
-export function ReplyCard({Index, selectedKeys, fullName= 'ناشناس', title= 'تایتل وارد نشده', caption= 'کپشن وارد نشده', rating= 'x', pic }: CommentCardsPropsType) {
-  console.log('selectedKeys ReplyCard', selectedKeys)
+export function ReplyCard({
+  Index, 
+  selectedKeys, 
+  fullName= 'ناشناس', 
+  title= 'تایتل وارد نشده', 
+  caption= 'کپشن وارد نشده', 
+  rating= 'x', 
+  pic,
+  createdAt,
+}: CommentCardsPropsType) {
   return (
     <Accordion 
       selectedKeys={selectedKeys}
@@ -25,7 +33,7 @@ export function ReplyCard({Index, selectedKeys, fullName= 'ناشناس', title=
             <Avatar src={pic ?? undefined} />
           </aside>
           <main className='flex flex-col gap-1'>
-            <span>{fullName} <span className='text-primaryPurple'>در</span> 25 اردیبهشت 1404</span>
+            <span>{fullName}<span className='text-primaryPurple'> در </span>{createdAt}</span>
             <p className='font-bold'>{title}</p>
             <p className=''>{caption}</p>
             <div className='flex gap-4'>
