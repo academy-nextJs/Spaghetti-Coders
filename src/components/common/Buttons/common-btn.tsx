@@ -13,8 +13,6 @@ interface ClientButtonProps extends ButtonProps {
 export const ClientButton: React.FC<ClientButtonProps> = ({
     children,
     className = '',
-    startIcon,
-    endIcon,
     ...props
 }) => {
     return (
@@ -23,9 +21,7 @@ export const ClientButton: React.FC<ClientButtonProps> = ({
             radius="full"
             {...props}
         >
-            {startIcon && <span className="flex items-center">{startIcon}</span>}
             {children}
-            {endIcon && <span className="flex items-center">{endIcon}</span>}
         </Button>
     );
 };
