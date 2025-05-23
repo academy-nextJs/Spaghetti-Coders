@@ -16,13 +16,13 @@ export default async function RentDetailPage({
   const { data: singleData } = await api(`/houses/${slug}`);
   return (
     <main className='flex flex-col gap-12'>
-      <DetailTopContainer photos={singleData.photos} title={singleData.title} address ={singleData.address} slug={slug}/>
+      <DetailTopContainer photos={singleData.photos} title={singleData.title} address={singleData.address} slug={slug}/>
       <section className='flex flex-col md:flex-row justify-between gap-4 md:gap-12 lg:gap-20'>
         <HotelFacilites />
         <RentAboutContainer photos={singleData.photos}/>
       </section>
         <ReserveAboutContainer location={singleData.location} />
-        <DetailCommentContainer />
+        <DetailCommentContainer ID={slug} />
         <SimilarAdsContainer />
     </main>
   );
