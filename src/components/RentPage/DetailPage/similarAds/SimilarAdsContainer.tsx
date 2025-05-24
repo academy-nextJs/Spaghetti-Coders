@@ -1,6 +1,6 @@
 import { MyChip } from "@/src/components/common/Buttons/Chip-btn";
 import { CardCarouselContainer } from "@/src/components/common/CardCarouselContainer/CardCarouselContainer";
-import api from "@/src/services/api";
+import api from "@/src/services/interceptors/server";
 
 export async function SimilarAdsContainer() {
   const { data } = await api.get('/houses?limit=8&sort=rate&order=DESC&transactionType=')

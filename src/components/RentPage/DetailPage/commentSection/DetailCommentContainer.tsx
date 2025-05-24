@@ -3,7 +3,7 @@ import { ClientButton } from "@/src/components/common/Buttons/common-btn";
 import { PlusSignIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { CommentList } from "./commentList/CommentList";
-import api from "@/src/services/api";
+import api from "@/src/services/interceptors/server";
 import { CommentDataType } from "@/src/types/types";
 import { Suspense } from "react";
 import LoadingSpinner from "@/src/components/common/Loading/LoadingSpinner";
