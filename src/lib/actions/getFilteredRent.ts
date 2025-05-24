@@ -6,7 +6,7 @@ export async function getFilteredHouses(filters: Record<string, unknown>) {
     return acc;
   }, {} as Record<string, string>)).toString();
 
-  const res = await fetch(`${process.env.BASE_URL}/houses?${params}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/houses?${params}`);
 
   if (!res.ok) throw new Error('Failed to fetch houses');
   return res.json();
