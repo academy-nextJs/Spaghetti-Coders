@@ -27,6 +27,7 @@
   width: 100%;
   border-radius: 2rem;
   z-index: 0 !important;
+  transition-property: filter;
 }
 
 .leaflet-popup-content-wrapper {
@@ -46,6 +47,6 @@
 
 @layer base {
    * {
-    @apply transition-background duration-500 ease-out
+    @apply transition-colors duration-500 ease-out
   };
 }
