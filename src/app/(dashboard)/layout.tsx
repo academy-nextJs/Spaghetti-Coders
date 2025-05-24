@@ -4,13 +4,11 @@ import React from "react";
    children,
  }: Readonly<{
    children: React.ReactNode;
- }>)  {
+ }>) {
    return (
-     <html lang="en">
-       <body>
-         {children}
-       </body>
-     </html>
+     <main className="p-4 bg-primaryGray overflow-hidden" dir="rtl">
+      {children}
+     </main>
    );
  };
  
