@@ -1,16 +1,32 @@
+import { decodeJwt } from "jose";
 import { CredentialsSignin, type NextAuthConfig } from "next-auth"
+// import { JWT } from "next-auth/jwt"
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
+import 'next-auth/jwt'
 
 declare module "next-auth" {
   interface User {
     accessToken: string;
     refreshToken: string;
   }
+
   interface Session {
     accessToken: string;
     refreshToken: string;
+  }
+}
+
+declare module 'next-auth/jwt' {
+  interface JWT {
+    user: {
+      id: string;
+      name: string;
+      email: string;
+      role: string;
+      image: string;
+    }
   }
 }
 
@@ -50,13 +66,31 @@ export default {
   ],
   callbacks: {
     jwt: async ({ user, token }) => {
-      if(user) {
-        token.accessToken = user.accessToken;
-        token.refreshToken = user.refreshToken;
-      }
-      return token
+        if(user?.accessToken) {
+          const userData = decodeJwt(user.accessToken)
+          console.log('userData', userData)
+          
+          token.user.id = userData.id as string
+          token.user.name = userData.name as string
+          token.user.email = userData.email as string
+          token.user.role = userData.role as string
+          token.user.image = userData.profilePicture as string | null ?? ''
+          
+          token.accessToken = user.accessToken;
+          token.refreshToken = user.refreshToken;
+        }
+
+        return token
     },
     session: async ({ session, token }) => {
+      if (token.user) {
+        session.user.id = token.user.id;
+        session.user.name = token.userName;
+        session.user.email = token.userEmail;
+        session.user.role = token.userRole;
+        session.user.image = token.userImage
+      }
+      
       session.accessToken = token.accessToken as string;
       session.refreshToken = token.refreshToken as string;
       return session
