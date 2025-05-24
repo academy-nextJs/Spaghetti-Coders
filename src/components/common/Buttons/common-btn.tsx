@@ -10,23 +10,17 @@ interface ClientButtonProps extends ButtonProps {
 }
 
 export const ClientButton: React.FC<ClientButtonProps> = ({
-  children,
-  className = '',
-  startContent,
-  endContent,
-  ...props
+    children,
+    className = '',
+    ...props
 }) => {
-  return (
-    <Button
-      className={`font-semibold flex items-center gap-2 ${className}`}
-      radius="full"
-      {...props}
-    >
-      {startContent && (
-        <span className="flex items-center">{startContent}</span>
-      )}
-      {children}
-      {endContent && <span className="flex items-center">{endContent}</span>}
-    </Button>
-  );
+    return (
+        <Button
+            className={`font-semibold flex items-center gap-2 ${className}`}
+            radius="full"
+            {...props}
+        >
+            {children}
+        </Button>
+    );
 };

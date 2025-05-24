@@ -19,8 +19,8 @@ export default async function RentPage({
   const resolvedSearchParams = await searchParams;
   const [houses, locations, categories] = await Promise.all([
     getRentMortData(resolvedSearchParams),
-    fetch(`${process.env.BASE_URL}/locations`).then((res) => res.json()),
-    fetch(`${process.env.BASE_URL}/categories`).then((res) => res.json()),
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/locations`).then((res) => res.json()),
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/categories`).then((res) => res.json()),
   ]);
 
   return (

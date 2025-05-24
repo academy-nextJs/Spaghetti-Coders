@@ -1,31 +1,29 @@
+'use client';
+
 import axios from 'axios';
-import { useSession } from 'next-auth/react';
+import { getSession, } from 'next-auth/react';
 
-export function ApiClient() {
-    const { data: session } = useSession();
-    const token = (session?.accessToken);
-  const instance = axios.create({
-    baseURL: process.env.BASE_URL,
-  });
-  instance.interceptors.request.use((config) => {
+const apiClient = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+});
 
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+apiClient.interceptors.request.use(async (config) => {
+  const session = await getSession(); 
+  const token = session?.accessToken;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401 && typeof window !== 'undefined') {
+      window.location.href = '/login';
     }
-    return config;
-  });
+    return Promise.reject(error);
+  }
+);
 
-  instance.interceptors.response.use(
-    (response) => response,
-    (error) => {
-      if (error.response?.status === 401) {
-        if (typeof window !== 'undefined') {
-          window.location.href = '/login';
-        }
-      }
-      return Promise.reject(error);
-    }
-  );
-
-  return instance;
-}
+export default apiClient;
