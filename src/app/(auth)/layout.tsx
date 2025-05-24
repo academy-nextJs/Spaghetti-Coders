@@ -38,7 +38,10 @@ export default function AuthLayout({
         </Link>
 
         <SwiperSlider />
-        {/* <SvgBlue /> */}
+        
+        {/* Gradiants */}
+        <div className="quarter-circle absolute bottom-0 right-0" />
+        <div className="circle size-[35rem]! absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 -z-10" />
       </section>
     </main>
   );
