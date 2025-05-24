@@ -1,5 +1,7 @@
 import HotelFacilites from '@/src/components/common/HotelFacilities/HotelFacilites';
 import { RentAboutContainer } from '@/src/components/RentPage/DetailPage/aboutSection/RentAboutContainer';
+import { DetailCommentContainer } from '@/src/components/RentPage/DetailPage/commentSection/DetailCommentContainer';
+import { SimilarAdsContainer } from '@/src/components/RentPage/DetailPage/similarAds/SimilarAdsContainer';
 import DetailTopContainer from '@/src/components/RentPage/DetailPage/topSection/DetailTopContainer';
 import { ReserveAboutContainer } from '@/src/components/ReservePage/DetailPage/aboutSection/ReserveAboutContainer';
 import api from '@/src/services/interceptors/server';
@@ -24,7 +26,9 @@ export default async function RentDetailPage({
         <HotelFacilites />
         <RentAboutContainer photos={singleData.photos} />
       </section>
-      <ReserveAboutContainer location={singleData.location} />
+        <ReserveAboutContainer location={singleData.location} />
+        <DetailCommentContainer ID={slug} />
+        <SimilarAdsContainer />
     </main>
   );
 }
