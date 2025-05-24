@@ -13,7 +13,7 @@ import {
 import ReserveFilterDrawer from './reserveFilterDrawer';
 import { ReserveContainerProps } from '@/src/types/types';
 import { useEffect } from 'react';
-import { useReserveHelpers } from '@/src/hooks/useReserveHelpers';
+import { useReserveLogics } from '@/src/hooks/useReserveLogics';
 
 const HouseReserveCardsGrid = dynamic(() => import('./HouseReserveCardsGrid'), {
   ssr: false,
@@ -34,7 +34,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     stopResizing,
     throttledHandleResizing,
     throttledSetGridColumns,
-  } = useReserveHelpers()
+  } = useReserveLogics()
 
   
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
         >
           <div
             onMouseDown={startResizing}
-            className="w-2 h-12 cursor-ew-resize bg-[#7575EF] hover:scale-110 hover:bg-pink-600 duration-200 absolute -right-4 top-1/2 -translate-y-1/2 rounded-full text-white hidden lg:block"
+            className="w-2 h-16 cursor-ew-resize bg-[#7575EF] hover:scale-110 hover:bg-pink-600 duration-200 absolute -right-4 top-1/2 -translate-y-1/2 rounded-full text-white hidden lg:block"
           />
         </Tooltip>
         <DynamicMap />

@@ -1,7 +1,7 @@
 import { useMemo, useRef } from "react";
 import { throttle } from "lodash";
 
-export function useReserveHelpers() {
+export function useReserveLogics() {
   const mapWidth = useRef<number>(60);
   const isResizing = useRef(false);
 
