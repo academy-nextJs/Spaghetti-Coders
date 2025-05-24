@@ -17,7 +17,7 @@ const FilterRentModal = dynamic(() => import('./filterRentModal'), {
 
 export function SearchListBtn() {
   return (
-    <div className="rounded-full bg-[#7575FE] p-3 text-white cursor-pointer -mr-5">
+    <div className="rounded-full bg-primaryPurple p-3 text-white cursor-pointer -mr-5">
       <HugeiconsIcon icon={SearchList01Icon} />
     </div>
   );
@@ -27,7 +27,7 @@ export default function Filters({ locations, categories }: RentFiltersProps) {
   const isMobile = useIsMobile();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const updateFilter = useUpdateFilter()
+  const updateFilter = useUpdateFilter();
   const queryValues = useMemo(() => {
     const params = new URLSearchParams(searchParams);
     return {

@@ -5,7 +5,7 @@ import ClientSlider from '../common/Range-slider/range-slider';
 type Props = {
   value: [number, number];
   onChangeEnd: (value: [number, number]) => void;
-  initialValues: ReserveInitialValProps
+  initialValues: ReserveInitialValProps;
 };
 
 export default function FilterPriceSlider({ value, onChangeEnd }: Props) {
@@ -29,11 +29,11 @@ export default function FilterPriceSlider({ value, onChangeEnd }: Props) {
           onChangeEnd([min, max]);
         }}
         aria-label="قیمت"
-        classNames={{ filler: 'bg-[#7575FE]' }}
+        classNames={{ filler: 'bg-primaryPurple' }}
         renderThumb={(props) => (
           <div
             {...props}
-            className="group p-1 top-1/2 bg-[#7575FE] border-2 border-background shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing"
+            className="group p-1 top-1/2 bg-primaryPurple border-2 border-background shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing"
           >
             <span className="transition-transform bg-background rounded-full w-5 h-5 block group-data-[dragging=true]:scale-80" />
           </div>

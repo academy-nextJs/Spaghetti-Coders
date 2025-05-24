@@ -29,7 +29,7 @@ export function SectionTop({
   return (
     <div className="flex flex-col gap-6">
       {chipText && (
-        <MyChip className="bg-transparent text-[#7575FE] border-1 border-[#7575FE]">
+        <MyChip className="bg-transparent text-primaryPurple border-1 border-primaryPurple">
           {chipText}
         </MyChip>
       )}

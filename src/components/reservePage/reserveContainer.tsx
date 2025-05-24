@@ -14,12 +14,9 @@ import ReserveFilterDrawer from './reserveFilterDrawer';
 import { ReserveContainerProps } from '@/src/types/types';
 import { useEffect, useMemo, useRef } from 'react';
 import { throttle } from 'lodash';
-const HouseReserveCardsGrid = dynamic(
-  () => import('./HouseReserveCardsGrid'),
-  {
-    ssr: false,
-  }
-);
+const HouseReserveCardsGrid = dynamic(() => import('./HouseReserveCardsGrid'), {
+  ssr: false,
+});
 const DynamicMap = dynamic(() => import('./MapComponent'), {
   ssr: false,
 });
@@ -28,30 +25,35 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const updateFilter = useUpdateFilter();
 
-  const mapWidth = useRef<number>(60)
+  const mapWidth = useRef<number>(60);
   const isResizing = useRef(false);
 
-  const mapRef = useRef<HTMLDivElement>(null)
-  const cardRef = useRef<HTMLDivElement>(null)
-  const gridRef = useRef<HTMLElement>(null) //Section Element
+  const mapRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLElement>(null); //Section Element
 
   function calculateGridColumns(mapWidth: number): string {
-    const tablet = window.innerWidth < 1250
+    const tablet = window.innerWidth < 1250;
     const breakpoints = [
       { width: 40, cols: 4 },
       { width: 55, cols: 3 },
       { width: 70, cols: 2 },
-      { width: 80, cols: 1 }
+      { width: 80, cols: 1 },
     ];
 
-    const columns = breakpoints.find(point => mapWidth < point.width)?.cols || 4;
+    const columns =
+      breakpoints.find((point) => mapWidth < point.width)?.cols || 4;
     return `repeat(${tablet ? columns - 1 : columns}, minmax(0, 1fr))`;
   }
 
-  function setGridColumns() { //this logic must be separate as a function, cause we should pass it to our resize eventListener
-    if(gridRef.current) gridRef.current.style.gridTemplateColumns = calculateGridColumns(mapWidth.current)
+  function setGridColumns() {
+    //this logic must be separate as a function, cause we should pass it to our resize eventListener
+    if (gridRef.current)
+      gridRef.current.style.gridTemplateColumns = calculateGridColumns(
+        mapWidth.current
+      );
   }
-  
+
   const startResizing = () => {
     isResizing.current = true;
     document.body.style.userSelect = 'none';
@@ -59,16 +61,18 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
 
   const handleResizing = (e: MouseEvent) => {
     if (!isResizing.current) return;
-    
+
     const calculatedMapWidth = (e.clientX / window.innerWidth) * 100;
-    
+
     if (window.innerWidth >= 1024) {
       if (calculatedMapWidth >= 20 && calculatedMapWidth < 80) {
-        if(mapRef.current) mapRef.current.style.width = calculatedMapWidth + '%'
-        if(cardRef.current) cardRef.current.style.width = 100 - calculatedMapWidth + '%'
+        if (mapRef.current)
+          mapRef.current.style.width = calculatedMapWidth + '%';
+        if (cardRef.current)
+          cardRef.current.style.width = 100 - calculatedMapWidth + '%';
         mapWidth.current = calculatedMapWidth; //set the map's width in a ref to be accessible outside of this function
-        
-        setGridColumns() //wrapped this logic inside a function
+
+        setGridColumns(); //wrapped this logic inside a function
       }
     }
   };
@@ -78,21 +82,27 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
     document.body.style.userSelect = '';
   };
 
-  const throttledHandleResizing = useMemo(() => throttle(handleResizing, 100), [])
-  const throttledSetGridColumns = useMemo(() => throttle(setGridColumns, 500), [])
+  const throttledHandleResizing = useMemo(
+    () => throttle(handleResizing, 100),
+    []
+  );
+  const throttledSetGridColumns = useMemo(
+    () => throttle(setGridColumns, 500),
+    []
+  );
 
   useEffect(() => {
     window.addEventListener('mousemove', throttledHandleResizing);
     window.addEventListener('mouseup', stopResizing);
     window.addEventListener('resize', throttledSetGridColumns);
-    
+
     return () => {
       window.removeEventListener('mousemove', throttledHandleResizing);
       window.removeEventListener('mouseup', stopResizing);
       window.removeEventListener('resize', throttledSetGridColumns);
 
-      throttledHandleResizing.cancel() //a method for canceling any pending invocation of the debounced function, neccessary for clean up
-      throttledSetGridColumns.cancel()
+      throttledHandleResizing.cancel(); //a method for canceling any pending invocation of the debounced function, neccessary for clean up
+      throttledSetGridColumns.cancel();
     };
   }, [throttledHandleResizing, throttledSetGridColumns]);
 
@@ -109,7 +119,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
         </Breadcrumbs>
         <div className="flex justify-between">
           <ClientButton
-            className="bg-[#7575FE] h-12 text-white"
+            className="bg-primaryPurple h-12 text-white"
             onPress={onOpen}
           >
             فیلتر ها
@@ -123,7 +133,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
           />
         </div>
         <div className="overflow-y-scroll flex flex-wrap justify-center">
-          <HouseReserveCardsGrid ref={gridRef}/>
+          <HouseReserveCardsGrid ref={gridRef} />
         </div>
       </div>
 
@@ -137,9 +147,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
           closeDelay={0}
           showArrow
           classNames={{
-            base: [
-              'before:bg-pink-600 ',
-            ],
+            base: ['before:bg-pink-600 '],
             content: [
               'py-2 px-4 shadow-xl',
               'text-white bg-gradient-to-br from-[#7575EF] to-pink-600',

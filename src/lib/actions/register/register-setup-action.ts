@@ -13,7 +13,7 @@ interface ActionStateType {
   payload: FormData
 }
 
-const BASE_URL = process.env.BASE_URL
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 const schema = z
   .object({

@@ -18,8 +18,10 @@ const FacilityData = [
 
 const HotelFacilites = () => {
   return (
-    <div className='w-full md:w-1/2 flex gap-4 flex-col' >
-      <MyChip className='border-1 text-[#7575FE] border-[#7575FE]  dark:bg-black dark:text-[#7575FE] bg-white'>امکانات هتل</MyChip>
+    <div className="w-full md:w-1/2 flex gap-4 flex-col">
+      <MyChip className="border-1 text-primaryPurple border-primaryPurple  dark:bg-black dark:text-primaryPurple bg-white">
+        امکانات هتل
+      </MyChip>
       <Facilities FacilityData={FacilityData} />
     </div>
   );

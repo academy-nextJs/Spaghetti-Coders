@@ -14,11 +14,11 @@ export function HeaderFastSelect() {
   return (
     <SelectClient
       className="w-28"
-      label='رزرو سریع'
-      size='sm'
+      label="رزرو سریع"
+      size="sm"
       classNames={{
-        trigger: 'bg-[#F0F0F0] dark:bg-[#57534d]',
-        label: 'dark:text-[#fff]'
+        trigger: 'bg-primaryGray dark:bg-[#57534d]',
+        label: 'dark:text-[#fff]',
       }}
       items={[
         { label: 'ویلا', key: 'ویلا' },
@@ -38,11 +38,11 @@ export function HeaderOptionSelect() {
   return (
     <SelectClient
       className="w-28"
-      label='رهن و اجاره'
-      size='sm'
+      label="رهن و اجاره"
+      size="sm"
       classNames={{
-        trigger: 'bg-[#F0F0F0] dark:bg-[#57534d]',
-        label: 'dark:text-[#fff]'
+        trigger: 'bg-primaryGray dark:bg-[#57534d]',
+        label: 'dark:text-[#fff]',
       }}
       items={[
         { label: 'ویلا', key: 'ویلا' },

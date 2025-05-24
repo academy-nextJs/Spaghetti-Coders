@@ -20,20 +20,20 @@ export async function HeaderServerContent() {
       </div>
       <aside className="hidden lg:flex items-center gap-4">
         <Link href="/">
-          <ClientButton className="bg-[#F0F0F0] dark:bg-darkMode h-12 flex">
+          <ClientButton className="bg-primaryGray dark:bg-darkMode h-12 flex">
             <div className="rounded-full bg-black dark:bg-darkModSubText w-2 h-2"></div>
             خانه
           </ClientButton>
         </Link>
-        <ClientButton className="bg-[#F0F0F0] dark:bg-darkMode h-12">
+        <ClientButton className="bg-primaryGray dark:bg-darkMode h-12">
           مقالات
         </ClientButton>
-        <ClientButton className="bg-[#F0F0F0] dark:bg-darkMode h-12">
+        <ClientButton className="bg-primaryGray dark:bg-darkMode h-12">
           درباره آلفا
         </ClientButton>
         <ThemeSwitcher />
       </aside>
-      <Link href='/'>
+      <Link href="/">
         <Image
           className="justify-center dark:invert-100 absolute bottom-1/2 translate-1/2 right-1/2 translate-x-1/2"
           src={Logo.src}
@@ -43,22 +43,25 @@ export async function HeaderServerContent() {
         />
       </Link>
       <aside className="flex items-center gap-4">
-        <Link href="/rent&mort" className='hidden lg:flex'>
-          <ClientButton className="bg-[#F0F0F0] dark:bg-darkMode h-12">
+        <Link href="/rent&mort" className="hidden lg:flex">
+          <ClientButton className="bg-primaryGray dark:bg-darkMode h-12">
             رهن و اجاره
           </ClientButton>
         </Link>
-        <Link href="/reserve" className='hidden lg:flex'>
-          <ClientButton className="bg-[#F0F0F0] dark:bg-darkMode h-12">
+        <Link href="/reserve" className="hidden lg:flex">
+          <ClientButton className="bg-primaryGray dark:bg-darkMode h-12">
             رزرو سریع
           </ClientButton>
         </Link>
-        <Divider orientation="vertical" className="hidden lg:flex h-6 w-[2px]" />
+        <Divider
+          orientation="vertical"
+          className="hidden lg:flex h-6 w-[2px]"
+        />
         {session ? (
-          <HeaderSignOutBtn session={session}/>
+          <HeaderSignOutBtn session={session} />
         ) : (
           <Link href="/login">
-            <ClientButton className="bg-[#7575FE] text-white h-12">
+            <ClientButton className="bg-primaryPurple text-white h-12">
               ثبت نام / ورود
             </ClientButton>
           </Link>

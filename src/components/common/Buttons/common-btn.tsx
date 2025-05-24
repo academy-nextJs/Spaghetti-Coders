@@ -1,13 +1,12 @@
-
 'use client';
 
 import { Button, ButtonProps } from '@heroui/react';
 import { ReactNode } from 'react';
 
 interface ClientButtonProps extends ButtonProps {
-    customProp?: string;
-    startIcon?: ReactNode;
-    endIcon?: ReactNode;
+  customProp?: string;
+  startContent?: ReactNode;
+  endContent?: ReactNode;
 }
 
 export const ClientButton: React.FC<ClientButtonProps> = ({
