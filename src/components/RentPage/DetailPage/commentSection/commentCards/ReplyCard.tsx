@@ -24,11 +24,9 @@ export function ReplyCard({
       isCompact
       hideIndicator
       showDivider={false}
-      selectionMode="multiple"
-      selectionBehavior="toggle"
     >
       <AccordionItem key={Index}>
-        <li className='flex gap-3 mr-10 before:content-[""] before:absolute before:w-0.5 before:h-[200%] before:bottom-0 before:-right-5 before:translate-x-1/2 before:bg-primaryPurple relative'>
+        <li className='flex gap-3 mr-12 before:content-[""] before:absolute before:w-0.5 before:h-[200%] before:bottom-0 before:-right-7 before:translate-x-1/2 before:bg-primaryPurple relative'>
           <aside>
             <Avatar src={pic ?? undefined} />
           </aside>

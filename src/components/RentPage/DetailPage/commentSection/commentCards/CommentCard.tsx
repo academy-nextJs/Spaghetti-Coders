@@ -22,7 +22,7 @@ export function CommentCard({
   if(Index) isItemOpen = selectedKeys?.has(Index)
 
   const handleAcordionState = () => {
-    if(!setSelectedKeys || !Index) return
+    if(!setSelectedKeys || !Index) return null
 
     if(!isItemOpen) {
       setSelectedKeys((prevSet: Set<string>) => new Set(prevSet).add(Index))
@@ -54,7 +54,7 @@ export function CommentCard({
               onPress={handleAcordionState}
             >
               مشاهده پاسخ
-              <HugeiconsIcon icon={ArrowDown01Icon} className={isItemOpen ? '' : 'rotate-90'}/>
+              <HugeiconsIcon icon={ArrowDown01Icon} className={`transition-all duration-300 ${isItemOpen ? '' : 'rotate-90'}`}/>
             </ClientButton>
           : null}
         </div>
