@@ -16,7 +16,7 @@ export default async function LandingBuySellSection() {
       <div className="flex flex-col gap-4">
         <MyChip
           size="lg"
-          className="bg-transparent border border-[#7575FE] text-[#7575FE] !font-black py-6 px-3"
+          className="bg-transparent border border-primaryPurple text-primaryPurple !font-black py-6 px-3"
         >
           خرید و فروش
         </MyChip>
@@ -28,7 +28,7 @@ export default async function LandingBuySellSection() {
           </h1>
           <ClientButton
             size="lg"
-            className="bg-[#7575FE] text-white py-6 mr-auto inline-flex"
+            className="bg-primaryPurple text-white py-6 mr-auto inline-flex"
           >
             مشاهده همه
           </ClientButton>

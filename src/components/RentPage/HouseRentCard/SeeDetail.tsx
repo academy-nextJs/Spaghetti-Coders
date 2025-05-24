@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-export default function SeeDetail({listId}: {listId: string}) {
-      const pathname = usePathname();
+export default function SeeDetail({ listId }: { listId: string }) {
+  const pathname = usePathname();
   return (
     <Link href={`${pathname}/${listId}`}>
-      <div className="text-[#7575FE] flex items-center gap-2 text-nowrap cursor-pointer">
+      <div className="text-primaryPurple flex items-center gap-2 text-nowrap cursor-pointer">
         مشاهده جزئیات
         <HugeiconsIcon icon={ArrowLeft01Icon} color="#7575FE" />
       </div>

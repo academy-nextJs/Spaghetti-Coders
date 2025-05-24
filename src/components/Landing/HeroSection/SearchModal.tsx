@@ -20,11 +20,23 @@ import { City } from '@/src/types/types';
 export default function ModalSearch() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [size, setSize] = React.useState<
-    'md' | '3xl' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl' | '4xl' | '5xl' | 'full'>('md');
+    'md' | '3xl' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl' | '4xl' | '5xl' | 'full'
+  >('md');
   const sizes = ['3xl'] as const;
   const handleOpen = (size: string) => {
     setSize(
-      size as | 'md' | '3xl' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl' | '4xl' | '5xl' | 'full');
+      size as
+        | 'md'
+        | '3xl'
+        | 'xs'
+        | 'sm'
+        | 'lg'
+        | 'xl'
+        | '2xl'
+        | '4xl'
+        | '5xl'
+        | 'full'
+    );
     onOpen();
   };
   const cities: City[] = [
@@ -39,11 +51,12 @@ export default function ModalSearch() {
           <Button
             key={size}
             onPress={() => handleOpen(size)}
-            className="md:w-32 md:h-32 w-22 h-22 rounded-full text-md border-4 text-white border-white hover:bg-[#7575FE] bg-[#7575FE]"
+            className="md:w-32 md:h-32 w-22 h-22 rounded-full text-md border-4 text-white border-white hover:bg-primaryPurple bg-primaryPurple"
           >
             <div className="flex flex-col md:text-sm text-xs justify-center">
               <HugeiconsIcon size={40} icon={Cursor02Icon} />
-              جستجوی<br /> سریع
+              جستجوی
+              <br /> سریع
             </div>
           </Button>
         ))}
@@ -54,13 +67,13 @@ export default function ModalSearch() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-row gap-2">
-                <ClientButton className="h-9 bg-[#7575FE] text-white">
+                <ClientButton className="h-9 bg-primaryPurple text-white">
                   رزرو ملک
                 </ClientButton>
-                <ClientButton className="h-9 bg-[#F0F0F0] text-black dark:bg-darkMode dark:text-white">
+                <ClientButton className="h-9 bg-primaryGray text-black dark:bg-darkMode dark:text-white">
                   رهن و اجاره
                 </ClientButton>
-                <ClientButton className="h-9 bg-[#F0F0F0] text-black dark:bg-darkMode dark:text-white">
+                <ClientButton className="h-9 bg-primaryGray text-black dark:bg-darkMode dark:text-white">
                   خرید و فروش
                 </ClientButton>
               </ModalHeader>
@@ -99,13 +112,11 @@ export default function ModalSearch() {
               <ModalFooter className="flex flex-row justify-start mt-5">
                 <Button
                   onPress={onClose}
-                  className="rounded-full bg-[#F0F0F0] dark:bg-darkMode"
+                  className="rounded-full bg-primaryGray dark:bg-darkMode"
                 >
                   بستن
                 </Button>
-                <Button
-                  className="rounded-full bg-[#7575FE] text-white w-32"
-                >
+                <Button className="rounded-full bg-primaryPurple text-white w-32">
                   مشاهده نتیجه
                 </Button>
               </ModalFooter>

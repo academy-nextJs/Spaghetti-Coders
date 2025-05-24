@@ -72,8 +72,8 @@ export type PersianSelectProps = {
 
 export type ClientButtonProps = ButtonProps & {
   customProp?: string;
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
+  startContent?: ReactNode;
+  endContent?: ReactNode;
 };
 
 export type UserProps = {
@@ -152,7 +152,7 @@ export interface HouseRentCardProps {
   price: string;
   photo: string;
   rate: string;
-  listId:string;
+  listId: string;
 }
 
 // API Types Below👇
@@ -264,12 +264,10 @@ export interface AllPhotosType {
   allPhotos: string[];
 }
 
-
 export interface DetailsTextAreaProps {
   chipText?: string;
   descriptionText: string;
   photos?: string[];
-  location?: Location
-  headingText?: string
+  location?: Location;
+  headingText?: string;
 }
-

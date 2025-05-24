@@ -1,21 +1,21 @@
-import React from 'react'
-import { useRouter } from 'next/navigation'
-import { HugeiconsIcon } from '@hugeicons/react'
-import { ArrowLeft01Icon } from '@hugeicons/core-free-icons'
-import { ClientButton } from '@/src/components/common/Buttons/common-btn'
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowLeft01Icon } from '@hugeicons/core-free-icons';
+import { ClientButton } from '@/src/components/common/Buttons/common-btn';
 
 const BackPage = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
-    <ClientButton 
-      className="text-sm bg-[#F0F0F0] text-black" 
+    <ClientButton
+      className="text-sm bg-primaryGray text-black"
       onPress={() => router.back()}
-      endIcon={<HugeiconsIcon icon={ArrowLeft01Icon} />}
+      endContent={<HugeiconsIcon icon={ArrowLeft01Icon} />}
     >
       بازگشت
     </ClientButton>
-  )
-}
+  );
+};
 
-export default BackPage
+export default BackPage;
