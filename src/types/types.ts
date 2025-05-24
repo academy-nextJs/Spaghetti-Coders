@@ -1,5 +1,5 @@
 import { InputProps } from '@heroui/react';
-import { ReactNode } from 'react';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
 import { ButtonProps } from '@heroui/react';
 
 export interface LandingCard2Props {
@@ -136,7 +136,7 @@ export interface HouseCardProps {
   locOnMap?: boolean;
 }
 
-export interface LandingCarouselProps {
+export interface CardCarouselContainerProps {
   data: ApartmentDataType[];
   discountedSection?: boolean;
 }
@@ -273,3 +273,35 @@ export interface DetailsTextAreaProps {
   headingText?: string
 }
 
+export interface CommentUserDateType {
+  id: string;
+  firstName: string;
+  lastName: string;
+  fullName: string;
+  profilePicture: string | null;
+}
+
+export interface CommentDataType {
+  id: string;
+  house_id: string;
+  user_id: string;
+  title: string;
+  caption: string;
+  rating: string;
+  created_at: string;
+  parent_comment_id: string | null;
+  user: CommentUserDateType;
+  parent_comment: CommentDataType | null;
+}
+
+export interface CommentCardsPropsType {
+  Index?: string; 
+  selectedKeys?: Set<string>;
+  setSelectedKeys?: Dispatch<SetStateAction<Set<string>>>; 
+  fullName: string;
+  title: string;
+  caption: string;
+  rating: string;
+  pic: string | null;
+  createdAt: string;
+}
