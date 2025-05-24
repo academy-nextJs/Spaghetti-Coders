@@ -1,8 +1,9 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import Carousel from '../../common/carousel';
 import LandingCard2 from '../../common/landingCard2';
-import axios from 'axios';
 import Loading from '../../common/Loading/LoadingSpinner';
+import apiClient from '@/src/services/interceptors/client';
 interface Locations {
   id: string;
   area_name: string;
@@ -16,18 +17,13 @@ export default function DreamCarousel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(
-          'https://delta-project.liara.run/api/locations'
-        );
-        // Create the new location object you want to add
+        const { data } = await apiClient.get('/locations');
         const newLocation: Locations = {
           id: '342',
           area_name: 'سیرالئون',
           lat: '35.6892',
           long: '51.3890',
         };
-
-        // Add it to the existing data
         setLocations([...data, newLocation]);
         setLoading(false);
         // eslint-disable-next-line @typescript-eslint/no-unused-vars

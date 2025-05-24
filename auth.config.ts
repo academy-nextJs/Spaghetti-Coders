@@ -14,7 +14,7 @@ declare module "next-auth" {
   }
 }
 
-const BASE_URL = process.env.BASE_URL
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 class InvalidLoginError extends CredentialsSignin {
   message = "ایمیل یا کلمه عبور شما صحیح نیست!"
