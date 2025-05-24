@@ -1,38 +1,20 @@
 'use server';
 
-import { cookies } from "next/headers";
+import { ApiClient } from '@/src/services/interceptors/client';
+import axios from 'axios';
 
 export async function favouriteHouse(_prevState: unknown, formData: FormData) {
   const houseId = Number(formData.get('house_id'));
-  const baseUrl = process.env.BASE_URL!;
-  const token = (await cookies()).get('accessToken')?.value;
-  console.log('token', token);
-
   try {
-    const res = await fetch(`${baseUrl}/favorites`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ house_id: houseId }),
-    });
-
-    if (!res.ok) {
-      const error = await res.json();
-      throw new Error(error.message || 'Something went wrong');
+    const res = await ApiClient().post('/favorites/add', { house_id: houseId });
+    return res.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error(error.response?.data);
+      throw error;
     }
 
-    const data = await res.json();
-
-    return {
-      success: true,
-      data,
-    };
-  } catch (err: unknown) {
-    const error = err as Error;
-    return {
-      success: false,
-      error: error.message,
-    };
+    console.error('Unexpected error:', error);
+    throw error;
   }
 }

@@ -4,7 +4,7 @@ import {
   mockInterior,
 } from '@/src/components/MockImages';
 import GalleryThumbnail from '@/src/components/RentPage/DetailPage/topSection/GalleryThumbnail';
-import api from '@/src/services/api';
+import api from '@/src/services/interceptors/server';
 import Link from 'next/link';
 import React from 'react';
 
