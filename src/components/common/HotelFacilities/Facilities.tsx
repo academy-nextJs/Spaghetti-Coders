@@ -4,7 +4,7 @@ const Facilities: React.FC<FacilitiesProps> = ({
   FacilityData,
 }) => {
   return (
-    <div className={`w-2/3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-8 text-right rtl`}>
+    <div className={` grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-8 text-right rtl`}>
       
       {FacilityData.map((item,index) => (
         <div key={index} className="flex flex-col border-r-2 border-[#7575FE] pr-2">

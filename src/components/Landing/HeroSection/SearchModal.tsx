@@ -12,19 +12,31 @@ import {
 import { ClientButton } from '../../common/Buttons/common-btn';
 import { ClientInput } from '../../common/inputs/clientInput';
 import SelectClient from '../../common/SelectClient';
-import Calender from '../../common/Calender/calender';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Cursor02Icon } from '@hugeicons/core-free-icons';
 import { City } from '@/src/types/types';
+import CustomCalendar from '../../common/Calender/CustomCalendar';
 
 export default function ModalSearch() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [size, setSize] = React.useState<
-    'md' | '3xl' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl' | '4xl' | '5xl' | 'full'>('md');
+    'md' | '3xl' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl' | '4xl' | '5xl' | 'full'
+  >('md');
   const sizes = ['3xl'] as const;
   const handleOpen = (size: string) => {
     setSize(
-      size as | 'md' | '3xl' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl' | '4xl' | '5xl' | 'full');
+      size as
+        | 'md'
+        | '3xl'
+        | 'xs'
+        | 'sm'
+        | 'lg'
+        | 'xl'
+        | '2xl'
+        | '4xl'
+        | '5xl'
+        | 'full'
+    );
     onOpen();
   };
   const cities: City[] = [
@@ -43,7 +55,8 @@ export default function ModalSearch() {
           >
             <div className="flex flex-col md:text-sm text-xs justify-center">
               <HugeiconsIcon size={40} icon={Cursor02Icon} />
-              جستجوی<br /> سریع
+              جستجوی
+              <br /> سریع
             </div>
           </Button>
         ))}
@@ -66,13 +79,13 @@ export default function ModalSearch() {
               </ModalHeader>
               <ModalBody className="flex flex-col gap-4">
                 <div className="flex flex-row gap-5 mr-8">
-                  <div className="flex flex-col w-[20rem]">
+                  <div className=" w-1/2">
                     <span className="text-sm font-medium text-right pr-2">
                       انتخاب مقصد
                     </span>
                     <SelectClient items={cities} placeholder="انتخاب کنید" />
                   </div>
-                  <div className="flex flex-col w-[20rem]">
+                  <div className=" w-1/2">
                     <span className="text-sm font-medium text-right">
                       تعداد نفرات
                     </span>
@@ -80,18 +93,18 @@ export default function ModalSearch() {
                   </div>
                 </div>
 
-                <div className="flex flex-row mt-4 mr-8 font-medium">
-                  <div className="flex flex-col w-1/2">
+                <div className="flex mt-4 mr-8 font-medium gap-5">
+                  <div className="w-1/2">
                     <span className="text-sm font-medium text-right mb-2">
                       تاریخ ورود
                     </span>
-                    <Calender />
+                    <CustomCalendar />
                   </div>
-                  <div className="flex flex-col w-1/2">
+                  <div className="w-1/2">
                     <span className="text-sm font-medium text-right mb-2">
                       تاریخ خروج
                     </span>
-                    <Calender />
+                    <CustomCalendar />
                   </div>
                 </div>
               </ModalBody>
@@ -103,9 +116,7 @@ export default function ModalSearch() {
                 >
                   بستن
                 </Button>
-                <Button
-                  className="rounded-full bg-[#7575FE] text-white w-32"
-                >
+                <Button className="rounded-full bg-[#7575FE] text-white w-32">
                   مشاهده نتیجه
                 </Button>
               </ModalFooter>

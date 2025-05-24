@@ -35,7 +35,7 @@ export default function LandingHouseCard(
             className="object-cover w-full aspect-square rounded-3xl"
             src={photo}
             width={300}
-            height={280}
+            height={300}
             unoptimized
           />
         ))}
