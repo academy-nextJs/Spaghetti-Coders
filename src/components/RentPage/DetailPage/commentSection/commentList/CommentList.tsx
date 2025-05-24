@@ -14,7 +14,7 @@ export function CommentList({ comments }: { comments: CommentDataType[] }) {
   const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set());
 
   return (
-    <ul className="p-6 flex flex-col gap-6 bg-gray-50 rounded-4xl">
+    <ul className="p-6 flex flex-col gap-6 rounded-4xl backdrop-contrast-[.95] dark:backdrop-contrast-[.9]">
       {comments.map((comment, index) => {
         if(comment.parent_comment === null) {
           return (
