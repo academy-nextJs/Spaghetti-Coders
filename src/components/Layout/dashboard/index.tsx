@@ -1,15 +1,24 @@
 import React from 'react';
-import SideMenu from './SideMenu';
-import DashboardHeader from './Header';
-import MainContent from './MainContent';
+
+import SideMenuLayout from './SideMenu';
+import MainContentLayout from './MainContent';
+import DashHeader from '../../dashboard/header/DashHeader';
+import DrawerMenu from './DrawerMenu';
 
 export default function DashboardContainer() {
   return (
     <div className="flex gap-4">
-      <SideMenu>منو</SideMenu>
-      <div className="flex flex-col gap-4 w-4/5 h-full">
-        <DashboardHeader>header</DashboardHeader>
-        <MainContent> constent</MainContent>
+      <div className="w-1/4 hidden md:block">
+        <SideMenuLayout>منو</SideMenuLayout>
+      </div>
+      <div className="flex flex-col gap-4 md:w-4/5  w-full h-full">
+        <DashHeader />
+        <MainContentLayout> constent</MainContentLayout>
+      <div className='md:hidden w-fit m-auto'>
+        <DrawerMenu>
+          hikgjladfs
+        </DrawerMenu>
+      </div>
       </div>
     </div>
   );

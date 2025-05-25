@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MainContent({
+export default function MainContentLayout({
    children,
  }: Readonly<{
    children: React.ReactNode;
