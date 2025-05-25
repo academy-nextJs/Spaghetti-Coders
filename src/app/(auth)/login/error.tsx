@@ -1,5 +1,6 @@
 'use client'
 
+import { ClientButton } from "@/src/components/common/Buttons/common-btn"
 import Link from "next/link"
 
 export default function Error({
@@ -10,15 +11,19 @@ export default function Error({
   reset: () => void
 }) {
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       <h2>مشکلی پیش آمده!</h2>
       <p className="text-xl text-red-400">{error.message}</p>
       <div className="flex justify-between min-w-72">
-        <button className="cursor-pointer" onClick={() => reset()}>
+        <ClientButton className="cursor-pointer" onPress={() => reset()}>
           تلاش مجدد
-        </button>
+        </ClientButton>
 
-        <Link href='/'>بازگشت به خانه</Link>
+        <Link href='/'>
+          <ClientButton>
+              بازگشت به خانه
+          </ClientButton>
+        </Link>
       </div>
     </div>
   )

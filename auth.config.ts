@@ -65,10 +65,8 @@ export default {
         user = await res.json();
         console.log('credentials', credentials)
         console.log('user', user)
-        if(!res.ok || !user) {
-          throw new InvalidLoginError()
-          // return null
-        }          
+        if(!res.ok || !user) throw new InvalidLoginError()
+        
         return user;
       },
     })
@@ -113,16 +111,5 @@ export default {
       }
       return session
     },
-    // authorized: async ({ auth, request }) => {
-    //   const isAuthorized = !!auth?.accessToken;
-    //   const IsPrivateRoute = request.nextUrl.pathname.startsWith('/dashboard');
-
-    //   if(!isAuthorized && IsPrivateRoute) {
-    //     const url = new URL(request.nextUrl)
-    //     url.pathname = '/login'
-    //     return Response.redirect(url)
-    //   }
-    //   return true
-    // },
   }
 } satisfies NextAuthConfig
