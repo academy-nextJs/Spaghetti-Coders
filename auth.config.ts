@@ -1,5 +1,5 @@
 import { decodeJwt } from "jose";
-import { CredentialsSignin, type NextAuthConfig } from "next-auth"
+import { CredentialsSignin, DefaultSession, type NextAuthConfig } from "next-auth"
 // import { JWT } from "next-auth/jwt"
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
@@ -13,18 +13,22 @@ declare module "next-auth" {
   }
 
   interface Session {
-    user: {
-      role: string;
-    }
     accessToken: string;
     refreshToken: string;
     issuedAt: Date;
     expires: Date;
+    user: {
+      role: string;
+    } & DefaultSession['user']
   }
 }
 
 declare module 'next-auth/jwt' {
   interface JWT {
+    accessToken: string;
+    refreshToken: string;
+    issuedAt: Date;
+    expires: Date;
     user: {
       id: string;
       name: string;
@@ -32,11 +36,17 @@ declare module 'next-auth/jwt' {
       role: string;
       image: string;
     }
-    accessToken: string;
-    refreshToken: string;
-    issuedAt: Date;
-    expires: Date;
   }
+}
+
+interface decodedJwt {
+  id: string;
+  email: string;
+  role: string;
+  name: string;
+  profilePicture: string | null;
+  iat: number;
+  exp: number;
 }
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
@@ -46,6 +56,7 @@ class InvalidLoginError extends CredentialsSignin {
 }
 
 export default {
+  debug: true,
   providers: [
     Google,
     GitHub,
@@ -72,28 +83,37 @@ export default {
     })
   ],
   callbacks: {
-    jwt: async ({ user, token }) => {
+    jwt: async ({ user, token, trigger, session }) => {  //TODO: can we avoid the session callbakc and directly add values to session instead of passing it to token and then adding it to session through session callback???
         if(user?.accessToken) {
           token.hasAccessToken = true;
 
-          const userData = decodeJwt(user.accessToken);
-          console.log('userData', userData);
+          const userData = decodeJwt(user.accessToken) as decodedJwt;
+          // console.log('userData', userData);+
           const iatISO = new Date(userData.iat! * 1000);
           const expISO = new Date(userData.exp! * 1000);
-          // console.log('tokenExpired?', new Date() > expISO)
+          // console.log('tokenExpired?', new Date() < expISO)
 
           token.user = {
-            id: userData.id as string ?? '', //TODO: declare interface for userData object !!!
-            name: userData.name as string ?? '',
-            email: userData.email as string ?? '',
-            role: userData.role as string ?? '',
-            image: userData.profilePicture as string | null ?? '',
+            id: userData.id ?? '',
+            name: userData.name ?? '',
+            email: userData.email ?? '',
+            role: userData.role ?? '',
+            image: userData.profilePicture ?? '',
           };
           token.issuedAt = iatISO;
           token.expires = expISO;
           token.accessToken = user.accessToken;
           token.refreshToken = user.refreshToken;
         };
+
+        if(trigger === 'update' && session) {
+          token.user = {
+            ...token.user,
+            role: session.user.role as string
+          }
+          console.log('token.user.role', token.user.role)
+          return token;
+        }
         return token;
     },
     session: async ({ session, token }) => {

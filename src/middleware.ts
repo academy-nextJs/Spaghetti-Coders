@@ -1,5 +1,6 @@
 import { auth } from "@/auth"
 import { NextResponse } from "next/server"
+import { updateAccessToken } from "./utils/updateAccessToken"
 
 export default auth((request) => {
   const isAuthorized = !!request.auth?.accessToken
@@ -17,15 +18,29 @@ export default auth((request) => {
     return Response.redirect(newUrl)
   }
 
-  const requestHeaders = new Headers(request.headers)
-  requestHeaders.set('Authorization', `Bearer ${request.auth?.accessToken}`)
+  if (request.auth) {
+    const expireDate = new Date(request.auth.expires)
+    const currentDate = new Date()
+    const isTokenValid = currentDate < expireDate
+    // console.log('currentDate' ,currentDate)
+    console.log('isTokenValid', isTokenValid)
+    
+    // if(!isTokenValid) {
+      updateAccessToken(request.auth.refreshToken)
+    // }
 
-  const response = NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    }
-  })
+  }
+  // console.log("aaaaaaaaaaaaaaaaa")
+
+  // const requestHeaders = new Headers(request.headers)
+  // requestHeaders.set('Authorization', `Bearer ${request.auth?.accessToken}`)
+
+  // const response = NextResponse.next({
+  //   request: {
+  //     headers: requestHeaders,
+  //   }
+  // })
   
   // console.log({ response })
-  return response
+  // return NextResponse.next()
 })
