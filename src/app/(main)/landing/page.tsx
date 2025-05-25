@@ -1,6 +1,7 @@
 import React from 'react';
 import api from '@/src/services/interceptors/server';
 import dynamic from 'next/dynamic';
+import RentReservation from '@/src/components/common/Rent-reservation/RentReservation';
 
 const DreamSection = dynamic(
   () =>
@@ -49,6 +50,7 @@ export default async function LandingPage() {
       <LandingShinyAlphaSection />
       <LandingBuySellSection />
       <LandingComments />
+      <RentReservation />
     </div>
   );
 }
