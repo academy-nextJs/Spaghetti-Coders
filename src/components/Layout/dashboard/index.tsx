@@ -3,7 +3,7 @@ import React from 'react';
 import SideMenuLayout from './SideMenu';
 import MainContentLayout from './MainContent';
 import DashHeader from '../../dashboard/header/DashHeader';
-import DrawerMenu from './DrawerMenu';
+import MobileQuickAccess from '../../dashboard/MobileQuickAccess';
 
 export default function DashboardContainer() {
   return (
@@ -15,9 +15,9 @@ export default function DashboardContainer() {
         <DashHeader />
         <MainContentLayout> constent</MainContentLayout>
       <div className='md:hidden w-fit m-auto'>
-        <DrawerMenu>
+        <MobileQuickAccess>
           hikgjladfs
-        </DrawerMenu>
+        </MobileQuickAccess>
       </div>
       </div>
     </div>
