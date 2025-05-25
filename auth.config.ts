@@ -13,8 +13,13 @@ declare module "next-auth" {
   }
 
   interface Session {
+    user: {
+      role: string;
+    }
     accessToken: string;
     refreshToken: string;
+    issuedAt: Date;
+    expires: Date;
   }
 }
 
@@ -27,6 +32,10 @@ declare module 'next-auth/jwt' {
       role: string;
       image: string;
     }
+    accessToken: string;
+    refreshToken: string;
+    issuedAt: Date;
+    expires: Date;
   }
 }
 
@@ -67,32 +76,41 @@ export default {
   callbacks: {
     jwt: async ({ user, token }) => {
         if(user?.accessToken) {
-          const userData = decodeJwt(user.accessToken)
-          console.log('userData', userData)
-          
-          token.user.id = userData.id as string
-          token.user.name = userData.name as string
-          token.user.email = userData.email as string
-          token.user.role = userData.role as string
-          token.user.image = userData.profilePicture as string | null ?? ''
-          
+          token.hasAccessToken = true;
+
+          const userData = decodeJwt(user.accessToken);
+          console.log('userData', userData);
+          const iatISO = new Date(userData.iat! * 1000);
+          const expISO = new Date(userData.exp! * 1000);
+          // console.log('tokenExpired?', new Date() > expISO)
+
+          token.user = {
+            id: userData.id as string ?? '', //TODO: declare interface for userData object !!!
+            name: userData.name as string ?? '',
+            email: userData.email as string ?? '',
+            role: userData.role as string ?? '',
+            image: userData.profilePicture as string | null ?? '',
+          };
+          token.issuedAt = iatISO;
+          token.expires = expISO;
           token.accessToken = user.accessToken;
           token.refreshToken = user.refreshToken;
-        }
-
-        return token
+        };
+        return token;
     },
     session: async ({ session, token }) => {
-      if (token.user) {
+      if (token.hasAccessToken) {
         session.user.id = token.user.id;
-        session.user.name = token.userName;
-        session.user.email = token.userEmail;
-        session.user.role = token.userRole;
-        session.user.image = token.userImage
+        session.user.name = token.user.name;
+        session.user.email = token.user.email;
+        session.user.role = token.user.role;
+        session.user.image = token.user.image;
+
+        session.issuedAt = token.issuedAt;
+        session.expires = token.expires;
+        session.accessToken = token.accessToken;
+        session.refreshToken = token.refreshToken;
       }
-      
-      session.accessToken = token.accessToken as string;
-      session.refreshToken = token.refreshToken as string;
       return session
     },
     // authorized: async ({ auth, request }) => {
