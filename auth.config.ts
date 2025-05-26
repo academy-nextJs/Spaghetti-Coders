@@ -1,53 +1,10 @@
 import { decodeJwt } from "jose";
-import { CredentialsSignin, DefaultSession, type NextAuthConfig } from "next-auth"
-// import { JWT } from "next-auth/jwt"
+import { CredentialsSignin, decodedJwt, type NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import 'next-auth/jwt'
 
-declare module "next-auth" {
-  interface User {
-    accessToken: string;
-    refreshToken: string;
-  }
-
-  interface Session {
-    accessToken: string;
-    refreshToken: string;
-    issuedAt: Date;
-    expires: Date;
-    user: {
-      role: string;
-    } & DefaultSession['user']
-  }
-}
-
-declare module 'next-auth/jwt' {
-  interface JWT {
-    accessToken: string;
-    refreshToken: string;
-    issuedAt: Date;
-    expires: Date;
-    user: {
-      id: string;
-      name: string;
-      email: string;
-      role: string;
-      image: string;
-    }
-  }
-}
-
-interface decodedJwt {
-  id: string;
-  email: string;
-  role: string;
-  name: string;
-  profilePicture: string | null;
-  iat: number;
-  exp: number;
-}
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
@@ -83,39 +40,40 @@ export default {
     })
   ],
   callbacks: {
-    jwt: async ({ user, token, trigger, session }) => {  //TODO: can we avoid the session callback and directly add values to session instead of passing it to token and then adding it to session through session callback???
-        if(trigger === 'signIn' && user?.accessToken) {
-          token.hasAccessToken = true;
+    jwt: async ({ user, token, trigger, session }) => {
+      if(trigger === 'signIn' && user?.accessToken) {
+        token.hasAccessToken = true;
 
-          const userData = decodeJwt(user.accessToken) as decodedJwt;
-          console.log('userData', userData);
-          const iatISO = new Date(userData.iat! * 1000);
-          const expISO = new Date(userData.exp! * 1000);
-          // console.log('tokenExpired?', new Date() < expISO)
+        const userData = decodeJwt(user.accessToken) as decodedJwt;
+        console.log('userData', userData);
+        const iatISO = new Date(userData.iat! * 1000);
+        const expISO = new Date(userData.exp! * 1000);
+        // console.log('tokenExpired?', new Date() < expISO)
 
-          token.user = {
-            id: userData.id ?? '',
-            name: userData.name ?? '',
-            email: userData.email ?? '',
-            role: userData.role ?? '',
-            image: userData.profilePicture ?? '',
-          };
-          token.issuedAt = iatISO;
-          token.expires = expISO;
-          token.accessToken = user.accessToken;
-          token.refreshToken = user.refreshToken;
-          console.log('if(user?.accessToken) Running')
+        token.user = {
+          id: userData.id ?? '',
+          name: userData.name ?? '',
+          email: userData.email ?? '',
+          role: userData.role ?? '',
+          image: userData.profilePicture ?? '',
         };
+        token.issuedAt = iatISO;
+        token.expires = expISO;
+        token.accessToken = user.accessToken;
+        token.refreshToken = user.refreshToken;
+        console.log('JWT SignIn Callback Running')
+        return token
+      };
 
-        if(trigger === 'update' && session) {
-          token.user = {
-            ...token.user,
-            role: session.user.role as string
-          }
-          console.log('token.user.role', token.user.role)
-          // return token;
+      if(trigger === 'update' && session) {
+        token = {
+          ...token,
+          ...session
         }
+        // console.log('JWT Update Callback Running')
         return token;
+      }
+      return token;
     },
     session: async ({ session, token }) => {
       if (token.hasAccessToken) {
@@ -129,7 +87,8 @@ export default {
         session.expires = token.expires;
         session.accessToken = token.accessToken;
         session.refreshToken = token.refreshToken;
-        console.log('session callback Running', session.user)
+        // console.log('session callback Running')
+        return session
       }
 
       // if (trigger === 'update') {
@@ -140,7 +99,7 @@ export default {
       //   console.log('session UPDATE callback Running', session.user)
       // }
 
-      console.log('returned session')
+      // console.log('returned session')
       return session
     },
   }

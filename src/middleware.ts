@@ -1,6 +1,5 @@
 import { auth } from "@/auth"
 import { NextResponse } from "next/server"
-import { updateAccessToken } from "./utils/updateAccessToken"
 
 export default auth((request) => {
   const isAuthorized = !!request.auth?.accessToken
@@ -17,20 +16,20 @@ export default auth((request) => {
     const newUrl = new URL("/login", request.nextUrl.origin)
     return Response.redirect(newUrl)
   }
-
-  if (request.auth) {
-    const expireDate = new Date(request.auth.expires)
-    const currentDate = new Date()
-    const isTokenValid = currentDate < expireDate
-    // console.log('currentDate' ,currentDate)
-    console.log('isTokenValid', isTokenValid)
+  
+  // //this whole IF block must be diagnosed, as using the updateAccessToken action here will run the console.logs inside it ( multiple times rapidly ), but wont update the actuall session!!! TODO: fix maybe
+  // if (request.auth) { 
+  //   const expireDate = new Date(request.auth.expires)
+  //   const currentDate = new Date()
+  //   const isTokenValid = currentDate < expireDate
+  //   console.log('currentDate' ,currentDate)
+  //   console.log('isTokenValid', isTokenValid)
     
-    // if(!isTokenValid) {
-      updateAccessToken(request.auth.refreshToken)
-    // }
+  //   if(!isTokenValid) {
+  //     updateAccessToken()
+  //   }
 
-  }
-  // console.log("aaaaaaaaaaaaaaaaa")
+  // }
 
   // const requestHeaders = new Headers(request.headers)
   // requestHeaders.set('Authorization', `Bearer ${request.auth?.accessToken}`)
