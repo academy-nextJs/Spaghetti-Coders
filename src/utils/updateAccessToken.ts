@@ -8,8 +8,10 @@ export async function updateAccessToken(refreshToken: string) {
 
   // const { refreshToken } = session
   const { data } = await api.post('/auth/refresh', { token: refreshToken })
-  console.log(data.accessToken)
+  // console.log(data.accessToken)
 
   await update({  ...session, user: { ...session?.user, role: 'Kharrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'} })
   // console.log('newSession', newSession)
+  // console.log('accessToken Updated Successfully!')
+
 }

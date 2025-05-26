@@ -56,7 +56,7 @@ class InvalidLoginError extends CredentialsSignin {
 }
 
 export default {
-  debug: true,
+  // debug: true,
   providers: [
     Google,
     GitHub,
@@ -83,12 +83,12 @@ export default {
     })
   ],
   callbacks: {
-    jwt: async ({ user, token, trigger, session }) => {  //TODO: can we avoid the session callbakc and directly add values to session instead of passing it to token and then adding it to session through session callback???
-        if(user?.accessToken) {
+    jwt: async ({ user, token, trigger, session }) => {  //TODO: can we avoid the session callback and directly add values to session instead of passing it to token and then adding it to session through session callback???
+        if(trigger === 'signIn' && user?.accessToken) {
           token.hasAccessToken = true;
 
           const userData = decodeJwt(user.accessToken) as decodedJwt;
-          // console.log('userData', userData);+
+          console.log('userData', userData);
           const iatISO = new Date(userData.iat! * 1000);
           const expISO = new Date(userData.exp! * 1000);
           // console.log('tokenExpired?', new Date() < expISO)
@@ -104,6 +104,7 @@ export default {
           token.expires = expISO;
           token.accessToken = user.accessToken;
           token.refreshToken = user.refreshToken;
+          console.log('if(user?.accessToken) Running')
         };
 
         if(trigger === 'update' && session) {
@@ -112,7 +113,7 @@ export default {
             role: session.user.role as string
           }
           console.log('token.user.role', token.user.role)
-          return token;
+          // return token;
         }
         return token;
     },
@@ -128,7 +129,18 @@ export default {
         session.expires = token.expires;
         session.accessToken = token.accessToken;
         session.refreshToken = token.refreshToken;
+        console.log('session callback Running', session.user)
       }
+
+      // if (trigger === 'update') {
+      //   session.user = {
+      //     ...session.user,
+      //     ...token.user
+      //   }
+      //   console.log('session UPDATE callback Running', session.user)
+      // }
+
+      console.log('returned session')
       return session
     },
   }
