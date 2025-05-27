@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 import { throttle } from "lodash";
 
 export function useReserveLogics() {
@@ -9,7 +9,7 @@ export function useReserveLogics() {
   const cardRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLElement>(null); //Section Element
   
-  function calculateGridColumns(mapWidth: number): string {
+  const calculateGridColumns = (mapWidth: number): string => {
     const tablet = window.innerWidth < 1250;
     const breakpoints = [
       { width: 40, cols: 4 },
@@ -18,16 +18,13 @@ export function useReserveLogics() {
       { width: 80, cols: 1 },
     ];
 
-    const columns =
-      breakpoints.find((point) => mapWidth < point.width)?.cols || 4;
+    const columns = breakpoints.find((point) => mapWidth < point.width)?.cols || 4;
     return `repeat(${tablet ? columns - 1 : columns}, minmax(0, 1fr))`;
   }
 
-  function setGridColumns() { //this logic must be separate as a function, cause we should pass it to our resize eventListener
+  const setGridColumns = () => { //this logic must be separate as a function, cause we should pass it to our resize eventListener
     if (gridRef.current)
-      gridRef.current.style.gridTemplateColumns = calculateGridColumns(
-        mapWidth.current
-      );
+      gridRef.current.style.gridTemplateColumns = calculateGridColumns(mapWidth.current);
   }
 
   const startResizing = () => {
@@ -58,12 +55,8 @@ export function useReserveLogics() {
     document.body.style.userSelect = '';
   };
 
-  const throttledHandleResizing = useMemo(
-    () => throttle(handleResizing, 100), []
-  );
-  const throttledSetGridColumns = useMemo(
-    () => throttle(setGridColumns, 500), []
-  );
+  const throttledHandleResizing = throttle(handleResizing, 100);
+  const throttledSetGridColumns = throttle(setGridColumns, 500);
   
   return {
     mapRef,

@@ -50,7 +50,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
       throttledHandleResizing.cancel(); //a method for canceling any pending invocation of the debounced function, neccessary for clean up
       throttledSetGridColumns.cancel();
     };
-  }, [throttledHandleResizing, throttledSetGridColumns]);
+  }, [throttledHandleResizing, stopResizing, throttledSetGridColumns]);
 
   return (
     <div className="h-full w-full flex flex-col-reverse lg:flex-row justify-between gap-6">
