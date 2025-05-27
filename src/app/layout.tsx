@@ -25,7 +25,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body
         dir="rtl"
-        className={`${yekanFont.className} py-4 overflow-x-hidden`}
+        className={`${yekanFont.className} overflow-x-hidden`}
       >
         <Providers>
           {children}
