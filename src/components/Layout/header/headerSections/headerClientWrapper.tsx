@@ -13,7 +13,7 @@ export const HeaderClientWrapper = ({
 
   useEffect(() => {
     const positionHeader = () => {
-      const curScrollY = window.pageYOffset;
+      const curScrollY = window.pageYOffset; //TODO: pageYOffset is deprecated use scrollY instead
       if(curScrollY > prevScrollY.current && curScrollY > (window.innerHeight / 3)) {
         setIsHidden(true)
       } else {
@@ -22,9 +22,10 @@ export const HeaderClientWrapper = ({
       prevScrollY.current = curScrollY;
     };
 
-    window.addEventListener('scroll', throttle(positionHeader, 500));
+    window.addEventListener('scroll', throttle(positionHeader, 500)); //TODO: Create a const holding the throttled position header
     return () =>
       window.removeEventListener('scroll', throttle(positionHeader, 500));
+    //TODO: add throttle.cancel()
   }, []);
 
   return (

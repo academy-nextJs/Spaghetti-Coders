@@ -11,7 +11,7 @@ import { HeaderSignOutBtn } from './headerSignOutBtn';
 
 export async function HeaderServerContent() {
   const session = await auth();
-  // console.log({ session });
+  // console.log('headerSession', session);
 
   return (
     <>

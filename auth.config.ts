@@ -1,18 +1,10 @@
-import { CredentialsSignin, type NextAuthConfig } from "next-auth"
+import { decodeJwt } from "jose";
+import { CredentialsSignin, decodedJwt, type NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
+import 'next-auth/jwt'
 
-declare module "next-auth" {
-  interface User {
-    accessToken: string;
-    refreshToken: string;
-  }
-  interface Session {
-    accessToken: string;
-    refreshToken: string;
-  }
-}
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
@@ -21,6 +13,7 @@ class InvalidLoginError extends CredentialsSignin {
 }
 
 export default {
+  // debug: true,
   providers: [
     Google,
     GitHub,
@@ -47,16 +40,66 @@ export default {
     })
   ],
   callbacks: {
-    jwt: async ({ user, token }) => {
-      if(user) {
+    jwt: async ({ user, token, trigger, session }) => {
+      if(trigger === 'signIn' && user?.accessToken) {
+        token.hasAccessToken = true;
+
+        const userData = decodeJwt(user.accessToken) as decodedJwt;
+        console.log('userData', userData);
+        const iatISO = new Date(userData.iat! * 1000);
+        const expISO = new Date(userData.exp! * 1000);
+        // console.log('tokenExpired?', new Date() < expISO)
+
+        token.user = {
+          id: userData.id ?? '',
+          name: userData.name ?? '',
+          email: userData.email ?? '',
+          role: userData.role ?? '',
+          image: userData.profilePicture ?? '',
+        };
+        token.issuedAt = iatISO;
+        token.expires = expISO;
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
+        console.log('JWT SignIn Callback Running')
+        return token
+      };
+
+      if(trigger === 'update' && session) {
+        token = {
+          ...token,
+          ...session
+        }
+        // console.log('JWT Update Callback Running')
+        return token;
       }
-      return token
+      return token;
     },
     session: async ({ session, token }) => {
-      session.accessToken = token.accessToken as string;
-      session.refreshToken = token.refreshToken as string;
+      if (token.hasAccessToken) {
+        session.user.id = token.user.id;
+        session.user.name = token.user.name;
+        session.user.email = token.user.email;
+        session.user.role = token.user.role;
+        session.user.image = token.user.image;
+
+        session.issuedAt = token.issuedAt;
+        session.expires = token.expires;
+        session.accessToken = token.accessToken;
+        session.refreshToken = token.refreshToken;
+        // console.log('session callback Running')
+        return session
+      }
+
+      // if (trigger === 'update') {
+      //   session.user = {
+      //     ...session.user,
+      //     ...token.user
+      //   }
+      //   console.log('session UPDATE callback Running', session.user)
+      // }
+
+      // console.log('returned session')
       return session
     },
   }

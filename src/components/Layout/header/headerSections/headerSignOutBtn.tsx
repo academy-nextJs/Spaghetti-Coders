@@ -19,13 +19,15 @@ export function HeaderSignOutBtn({ session }: { session: Session }) {
           >
             <HugeiconsIcon icon={ArrowDown01Icon} className='text-black dark:text-white' />
             <ClientUser
-              name={session?.user?.name}
+              name={session.user?.name}
+              description={session.user?.email}
               avatarProps={{
-                src: session?.user?.image ?? undefined,
+                src: session.user?.image ?? undefined,
                 showFallback: true,
               }}
               classNames={{
-                name: "leading-normal text-xs text-black dark:text-white max-w-[5rem] text-wrap break-all"
+                name: "leading-normal text-xs text-black dark:text-white max-w-[5rem] text-wrap break-all",
+                description: 'text-primaryPurple text-[.4rem] hover:text-[.7rem] transition-all'
               }}
             />
           </ClientButton>
