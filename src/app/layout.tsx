@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { Providers } from './Providers';
+import { PageTransitionEffect } from '../components/common/PageTransitionEffect';
 
 export const metadata: Metadata = {
   title: 'ALFA',
@@ -28,9 +29,11 @@ export default function RootLayout({
         className={`${yekanFont.className} py-4 overflow-x-hidden`}
       >
         <Providers>
-          {children}
+          <PageTransitionEffect>
+            {children}
 
-          <div id="modal-root"></div>
+            <div id="modal-root"></div>
+          </PageTransitionEffect>
         </Providers>
       </body>
     </html>
