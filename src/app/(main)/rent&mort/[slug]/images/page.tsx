@@ -11,9 +11,9 @@ import React from 'react';
 export default async function ImagePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const { data } = await api(`/houses/${slug}`);
   const allPhotos = data.photos.concat(mockHouse, mockApartment, mockInterior);
