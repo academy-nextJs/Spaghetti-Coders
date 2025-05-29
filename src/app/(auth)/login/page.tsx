@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import LoginForm from '@/src/components/auth/login/LoginForm';
-import { auth } from '@/auth';
+import { loginCheck } from '@/src/utils/errors/loginCheck';
 
 export const metadata: Metadata = {
     title: ' ورود',
@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default async function LoginPage() {
-    const session = await auth()
-    if (session?.user) throw new Error("شما لاگین هستید")
+    await loginCheck()
     return <LoginForm />
 }
