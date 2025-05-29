@@ -8,6 +8,7 @@ import { ThemeSwitcher } from '../../../ThemSwitcher';
 import { ClientButton } from '../../../common/Buttons/common-btn';
 import Logo from '@/public/AlFA.svg';
 import { HeaderSignOutBtn } from './headerSignOutBtn';
+import { NavLink } from '@/src/components/common/Links/NavLink';
 
 export async function HeaderServerContent() {
   const session = await auth();
@@ -20,10 +21,9 @@ export async function HeaderServerContent() {
       </div>
       <aside className="hidden lg:flex items-center gap-4">
         <ClientButton className="bg-primaryGray dark:bg-darkMode h-12">
-          <Link href="/" className='flex items-center gap-2 size-full'>
-            <div className="rounded-full bg-black dark:bg-darkModSubText w-2 h-2"></div>
+          <NavLink href="/landing" className='flex justify-center items-center size-full'>
             خانه
-          </Link>
+          </NavLink>
         </ClientButton>
         <ClientButton className="bg-primaryGray dark:bg-darkMode h-12">
           مقالات
@@ -44,14 +44,14 @@ export async function HeaderServerContent() {
       </Link>
       <aside className="flex items-center gap-4">
         <ClientButton className="hidden lg:block  bg-primaryGray dark:bg-darkMode h-12">
-          <Link href="/rent&mort" className="flex size-full items-center">
+          <NavLink href="/rent&mort" className="flex size-full items-center">
             رهن و اجاره
-          </Link>
+          </NavLink>
         </ClientButton>
         <ClientButton className="hidden lg:block bg-primaryGray dark:bg-darkMode h-12">
-          <Link href="/reserve" className="flex size-full items-center">
+          <NavLink href="/reserve" className="flex size-full items-center">
             رزرو سریع
-          </Link>
+          </NavLink>
         </ClientButton>
         <Divider
           orientation="vertical"
