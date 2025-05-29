@@ -46,6 +46,14 @@
   display:none
 }
 
+.motion-sizing-fix {
+  padding: 0px !important;
+  #motionDiv {
+    padding-block: 1rem !important;
+    top: 0px !important;
+  }
+}
+
 @layer base {
    * {
     @apply transition-colors duration-500 ease-out
