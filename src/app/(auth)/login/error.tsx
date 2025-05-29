@@ -19,11 +19,11 @@ export default function Error({
           تلاش مجدد
         </ClientButton>
 
-        <Link href='/'>
-          <ClientButton>
+        <ClientButton>
+          <Link href='/' className="size-full flex items-center">
               بازگشت به خانه
-          </ClientButton>
-        </Link>
+          </Link>
+        </ClientButton>
       </div>
     </div>
   )

@@ -14,16 +14,16 @@ export default function LandingCard2({
   return (
     <Card isBlurred className="border-none w-fit relative rounded-[10%]" >
       <CardHeader className="absolute z-10 w-full flex justify-end top-2 left-2">
-        <Link href={href}>
-          <Button
-            isIconOnly
-            className="bg-white/20 backdrop-blur-lg hover:bg-white/20"
-            radius="full"
-            size="lg"
-          >
+        <Button
+          isIconOnly
+          className="bg-white/20 backdrop-blur-lg hover:bg-white/20"
+          radius="full"
+          size="lg"
+        >
+          <Link href={href} className='size-full flex justify-center items-center'>
             <HugeiconsIcon icon={ArrowUpLeft01Icon} color='white'/>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </CardHeader>
       <div className="relative">
         <Image

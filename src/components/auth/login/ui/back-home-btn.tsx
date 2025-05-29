@@ -6,14 +6,14 @@ import { ClientButton } from '@/src/components/common/Buttons/common-btn';
 
 const BackHome = () => {
   return (
-    <Link href="/">
-      <ClientButton
-        className="text-sm bg-primaryGray text-black"
-        endContent={<HugeiconsIcon icon={ArrowLeft01Icon} />}
-      >
+    <ClientButton
+      className="text-sm bg-primaryGray text-black"
+      endContent={<HugeiconsIcon icon={ArrowLeft01Icon} />}
+    >
+      <Link href="/" className='size-full flex items-center'>
         صفحه اصلی
-      </ClientButton>
-    </Link>
+      </Link>
+    </ClientButton>
   );
 };
 
