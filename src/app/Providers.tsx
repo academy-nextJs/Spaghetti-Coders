@@ -1,4 +1,3 @@
-// app/providers.tsx
 'use client';
 
 import { HeroUIProvider, ToastProvider } from '@heroui/react';
