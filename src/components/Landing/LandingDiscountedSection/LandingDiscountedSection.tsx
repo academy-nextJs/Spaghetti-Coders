@@ -1,9 +1,9 @@
-import { MyChip } from "../../common/Buttons/Chip-btn";
-import { ClientButton } from "../../common/Buttons/common-btn";
-import api from "@/src/services/interceptors/server";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { TimeQuarter02Icon } from "@hugeicons/core-free-icons";
-import { CardCarouselContainer } from "../../common/CardCarouselContainer/CardCarouselContainer";
+import { MyChip } from '../../common/Buttons/Chip-btn';
+import { ClientButton } from '../../common/Buttons/common-btn';
+import api from '@/src/services/interceptors/server';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { TimeQuarter02Icon } from '@hugeicons/core-free-icons';
+import { CardCarouselContainer } from '../../common/CardCarouselContainer/CardCarouselContainer';
 
 export default async function LandingDiscountedSection() {
   const { data } = await api.get(

@@ -26,9 +26,9 @@ export default async function RentDetailPage({
         <HotelFacilites />
         <RentAboutContainer photos={singleData.photos} />
       </section>
-        <ReserveAboutContainer location={singleData.location} />
-        <DetailCommentContainer ID={slug} />
-        <SimilarAdsContainer />
+      <ReserveAboutContainer location={singleData.location} />
+      <DetailCommentContainer ID={slug} />
+      <SimilarAdsContainer />
     </main>
   );
 }
