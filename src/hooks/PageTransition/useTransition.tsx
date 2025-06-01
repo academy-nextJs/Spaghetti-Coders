@@ -24,8 +24,8 @@ export function useTransition() {
   }
 
   const handleTransition = (path: string) => (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
     if(path === pathname) {
-      e.preventDefault();
       return;
     }
 

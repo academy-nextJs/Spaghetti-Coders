@@ -70,7 +70,7 @@
 }
 
 ::view-transition-new(root) {
-  z-index: 1000;
+  z-index: 100;
   animation: none !important;
 }
 

@@ -25,7 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html suppressHydrationWarning lang="en">
+      <html 
+        suppressHydrationWarning 
+        lang="en" 
+        className='overflow-x-hidden'
+      >
         <body
           dir="rtl"
           className={`${yekanFont.className} py-4 overflow-x-hidden`}

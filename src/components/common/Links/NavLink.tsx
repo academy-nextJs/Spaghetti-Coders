@@ -12,7 +12,7 @@ interface NavLinkProps extends LinkProps {
 
 export function NavLink({ children, href, className = '', ...props }: NavLinkProps) {
   const pathname = usePathname()
-  const isRelevantRoute = pathname === href
+  const isRelevantRoute = pathname.startsWith(href)
 
   return (
     <TransitionLink

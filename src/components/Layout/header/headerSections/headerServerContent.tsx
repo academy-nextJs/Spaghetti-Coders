@@ -33,7 +33,7 @@ export async function HeaderServerContent() {
         </ClientButton>
         <ThemeSwitcher />
       </aside>
-      <TransitionLink href="/">
+      <TransitionLink href="/landing">
         <Image
           className="justify-center dark:invert-100 absolute bottom-1/2 translate-1/2 right-1/2 translate-x-1/2"
           src={Logo.src}
