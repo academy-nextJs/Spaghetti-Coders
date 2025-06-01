@@ -1,11 +1,11 @@
-import Link from 'next/link';
 import React from 'react';
+import { TransitionLink } from '../../common/Links/TransitionLink';
 
 export default function DrawerAccordion() {
   return (
     <>
-      <Link href="/rent&mort">رهن و اجاره</Link>
-      <Link href="/reserve">رزرو</Link>
+      <TransitionLink href="/rent&mort">رهن و اجاره</TransitionLink>
+      <TransitionLink href="/reserve">رزرو</TransitionLink>
     </>
   );
 }

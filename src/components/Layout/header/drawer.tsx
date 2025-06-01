@@ -6,11 +6,11 @@ import {
   DrawerBody,
   useDisclosure,
 } from '@heroui/react';
-import Link from 'next/link';
 import DrawerAccordion from './drawerAccordion';
 import { ThemeSwitcher } from '../../ThemSwitcher';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Menu03Icon } from '@hugeicons/core-free-icons';
+import { TransitionLink } from '../../common/Links/TransitionLink';
 
 export function HeaderDrawer() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -42,9 +42,9 @@ export function HeaderDrawer() {
               <DrawerHeader className="flex flex-col gap-1">منو</DrawerHeader>
               <DrawerBody>
                 <ThemeSwitcher isMobile={true} />
-                <Link href="/">خانه</Link>
-                <Link href="">مقالات</Link>
-                <Link href="">درباره آلفا</Link>
+                <TransitionLink href="/">خانه</TransitionLink>
+                <TransitionLink href="">مقالات</TransitionLink>
+                <TransitionLink href="">درباره آلفا</TransitionLink>
                 <DrawerAccordion />
               </DrawerBody>
             </>

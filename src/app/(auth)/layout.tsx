@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import Logo from '@/public/AlFA.svg';
 import SwiperSlider from "@/src/components/common/Auth/SwiperSlider";
+import { TransitionLink } from "@/src/components/common/Links/TransitionLink";
 // import './layout.css'
 
 export default function AuthLayout({
@@ -17,7 +17,7 @@ export default function AuthLayout({
             {children}
           </main>
 
-          <Link href='/'>
+          <TransitionLink href='/'>
             <div className='hidden md:block absolute left-1/2 transform -translate-x-1/2 top-15 z-10 dark:invert-100'>
               <Image
                 className="relative z-10"
@@ -34,7 +34,7 @@ export default function AuthLayout({
                 height={78}
                 />
             </div>
-          </Link>
+          </TransitionLink>
 
           <SwiperSlider />
           

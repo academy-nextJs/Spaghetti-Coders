@@ -4,6 +4,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useContext, useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 function FrozenRouter(props: { children: React.ReactNode }) {
   const context = useContext(LayoutRouterContext ?? {});
@@ -164,33 +165,36 @@ function FrozenRouter(props: { children: React.ReactNode }) {
 //   }
 // };
 
-const variants: Variants = {
-  hidden: { 
-    opacity: 1, 
-    x: -1700,
-    rotateY: 45,
-    backgroundColor: 'white',
-  },
-  enter: { 
-    opacity: 1, 
-    x: 0,
-    rotateY: 0,
-    backgroundColor: 'white',
-  },
-  exit: { 
-    opacity: 0,
-    x: 0,
-    backdropFilter: 'blur(10px)',
-  }
-};
 
 export const PageTransitionEffect = ({ children }: { children: React.ReactNode }) => {
   const key = usePathname();
   const body = useRef<HTMLBodyElement>(null);
-
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+  
   useEffect(() => {
     body.current = document.body as HTMLBodyElement
   }, [])
+
+  const variants: Variants = {
+    hidden: { 
+      opacity: 1, 
+      x: -1700,
+      rotateY: 45,
+      backgroundColor: `${isDark ? 'black' : 'white'}`,
+    },
+    enter: { 
+      opacity: 1, 
+      x: 0,
+      rotateY: 0,
+      backgroundColor: `${isDark ? 'black' : 'white'}`,
+    },
+    exit: { 
+      opacity: 0,
+      x: 0,
+      backdropFilter: 'blur(10px)',
+    }
+  };
 
   return (
     <AnimatePresence mode="popLayout">
