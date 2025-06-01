@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { auth } from '@/auth';
 import { Divider } from '@heroui/react';
@@ -9,6 +8,7 @@ import { ClientButton } from '../../../common/Buttons/common-btn';
 import Logo from '@/public/AlFA.svg';
 import { HeaderSignOutBtn } from './headerSignOutBtn';
 import { NavLink } from '@/src/components/common/Links/NavLink';
+import { TransitionLink } from '@/src/components/common/Links/TransitionLink';
 
 export async function HeaderServerContent() {
   const session = await auth();
@@ -33,7 +33,7 @@ export async function HeaderServerContent() {
         </ClientButton>
         <ThemeSwitcher />
       </aside>
-      <Link href="/">
+      <TransitionLink href="/">
         <Image
           className="justify-center dark:invert-100 absolute bottom-1/2 translate-1/2 right-1/2 translate-x-1/2"
           src={Logo.src}
@@ -41,7 +41,7 @@ export async function HeaderServerContent() {
           width={78}
           height={78}
         />
-      </Link>
+      </TransitionLink>
       <aside className="flex items-center gap-4">
         <ClientButton className="hidden lg:block  bg-primaryGray dark:bg-darkMode h-12">
           <NavLink href="/rent&mort" className="flex size-full items-center">
@@ -61,9 +61,9 @@ export async function HeaderServerContent() {
           <HeaderSignOutBtn session={session} />
         ) : (
           <ClientButton className="bg-primaryPurple text-white h-12">
-            <Link href="/login" className='flex size-full items-center'>
+            <TransitionLink href="/login" className='flex size-full items-center'>
               ثبت نام / ورود
-            </Link>
+            </TransitionLink>
           </ClientButton>
         )}
       </aside>
