@@ -1,18 +1,22 @@
 'use client';
+import { UserProfile } from '@/src/types/dashboard_types';
 import { Popover, PopoverContent, PopoverTrigger, User } from '@heroui/react';
 import { ArrowDown01Icon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
 import React from 'react';
+interface DashUserProps {
+  data: UserProfile;
+}
 
-export default function DashUser() {
+export default function DashUser({data}:DashUserProps) {
   return (
     <div className="flex items-center gap-1.5">
       <User
         avatarProps={{
-          src: 'https://avatars.githubusercontent.com/u/30373425?v=4',
+          src: data?.profilePicture ?? 'https://avatars.githubusercontent.com/u/30373425?v=4',
         }}
-        description="role"
-        name="Junior Garcia"
+        description={data?.role ?? 'نامشخص'}
+        name={data?.fullName ?? 'بی نام'}
       />
       <Popover placement="bottom-start" showArrow={true} offset={20} classNames={{content:'dark:bg-darkMode'}} backdrop='opaque'>
         <PopoverTrigger>

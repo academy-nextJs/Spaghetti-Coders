@@ -53,7 +53,7 @@ export default function ReserveContainer({ locations }: ReserveContainerProps) {
   }, [throttledHandleResizing, stopResizing, throttledSetGridColumns]);
 
   return (
-    <div className="h-full w-full flex flex-col-reverse lg:flex-row justify-between gap-6">
+    <div className="h-full w-full flex flex-col-reverse lg:flex-row justify-between gap-6 mt-24">
       <div
         ref={cardRef}
         className="max-lg:w-full! lg:w-2/5 m-0 lg:mt-8 flex flex-col gap-12 transition-all duration-75 ease-linear"
