@@ -29,11 +29,11 @@ export default function RootLayout({
         className={`${yekanFont.className} overflow-x-hidden`}
       >
         <Providers>
-          <PageTransitionEffect>
+          {/* <PageTransitionEffect> */}
             {children}
 
             <div id="modal-root"></div>
-          </PageTransitionEffect>
+          {/* </PageTransitionEffect> */}
         </Providers>
       </body>
     </html>
