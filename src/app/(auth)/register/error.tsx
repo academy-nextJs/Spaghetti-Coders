@@ -1,7 +1,7 @@
 'use client'
 
 import { ClientButton } from "@/src/components/common/Buttons/common-btn"
-import Link from "next/link"
+import { TransitionLink } from "@/src/components/common/Links/TransitionLink"
 
 export default function Error({
   error,
@@ -20,9 +20,9 @@ export default function Error({
         </ClientButton>
 
         <ClientButton>
-          <Link href='/register' className="size-full flex items-center">
+          <TransitionLink href='/register' className="size-full flex items-center">
             بازگشت به صفحه اول
-          </Link>
+          </TransitionLink>
         </ClientButton>
       </div>
     </div>

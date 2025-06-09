@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { Providers } from './Providers';
-import { PageTransitionEffect } from '../components/common/PageTransitionEffect';
+import { ViewTransitions } from 'next-view-transitions';
+
 
 export const metadata: Metadata = {
   title: 'ALFA',
@@ -23,19 +24,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en">
-      <body
-        dir="rtl"
-        className={`${yekanFont.className} overflow-x-hidden`}
+    <ViewTransitions>
+      <html 
+        suppressHydrationWarning 
+        lang="en" 
+        className='overflow-x-hidden'
       >
-        <Providers>
-          {/* <PageTransitionEffect> */}
+        <body
+          dir="rtl"
+          className={`${yekanFont.className} py-4 overflow-x-hidden`}
+        >
+          <Providers>
             {children}
 
             <div id="modal-root"></div>
-          {/* </PageTransitionEffect> */}
-        </Providers>
-      </body>
-    </html>
+          </Providers>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

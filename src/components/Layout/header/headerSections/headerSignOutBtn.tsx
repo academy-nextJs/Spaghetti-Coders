@@ -7,7 +7,7 @@ import { Session } from 'next-auth';
 import { ClientButton } from '@/src/components/common/Buttons/common-btn';
 import { ClientUser } from '@/src/components/common/UserAvatar/ClientUser';
 import { signOutAct } from '@/src/lib/actions/signOut/signOutAction';
-import Link from 'next/link';
+import { TransitionLink } from '@/src/components/common/Links/TransitionLink';
 
 export function HeaderSignOutBtn({ session }: { session: Session }) {
   return (
@@ -39,11 +39,11 @@ export function HeaderSignOutBtn({ session }: { session: Session }) {
       </PopoverTrigger>
       <PopoverContent>
         <form action={signOutAct}>
-          <Link href='/dashboard'>
+          <TransitionLink href='/dashboard'>
             <p className="p-2 text-center cursor-pointer hover:text-shadow-sm transition-all w-full">
               داشبورد
             </p>
-          </Link>
+          </TransitionLink>
           <ClientButton
             className="bg-transparent text-red-400 h-12 px-2"
             type="submit"
