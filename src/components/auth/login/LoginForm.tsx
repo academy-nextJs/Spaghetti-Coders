@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import CommonInput from '../../common/inputs/input-btn';
 import Btn from './ui/btn';
 import Line from './ui/line';
@@ -8,6 +7,7 @@ import BackHome from './ui/back-home-btn';
 import { useActionState } from 'react';
 import { ClientButton } from '../../common/Buttons/common-btn';
 import { credentialLoginAct } from '@/src/lib/actions/login/login-action';
+import { TransitionLink } from '../../common/Links/TransitionLink';
 
 const LoginForm = () => {
   const [actionState, formAction, isPending] = useActionState(
@@ -52,12 +52,12 @@ const LoginForm = () => {
           <div className="flex flex-row justify-between items-center mb-2">
             <label className="font-semibold">رمز عبور</label>
 
-            <Link
+            <TransitionLink
               href="/forgot-password"
               className="text-sm text-primaryPurple underline"
             >
               فراموشی رمز عبور
-            </Link>
+            </TransitionLink>
           </div>
           <CommonInput
             name="password"
@@ -82,9 +82,9 @@ const LoginForm = () => {
 
       <footer className="flex justify-center gap-1 mt-4">
         <p className="text-sm text-gray-600">حساب کاربری ندارید؟</p>
-        <Link href="/register" className="text-primaryPurple text-sm underline">
+        <TransitionLink href="/register" className="text-primaryPurple text-sm underline">
           ثبت نام در آلفا
-        </Link>
+        </TransitionLink>
       </footer>
     </section>
   );

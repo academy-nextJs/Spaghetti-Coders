@@ -1,9 +1,9 @@
 'use client';
 import { Card, CardHeader, Image, Button, CardFooter } from '@heroui/react';
-import Link from 'next/link';
 import { LandingCard2Props } from '@/src/types/types';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowUpLeft01Icon } from '@hugeicons/core-free-icons';
+import { TransitionLink } from './Links/TransitionLink';
 
 export default function LandingCard2({
   text = '',
@@ -20,9 +20,9 @@ export default function LandingCard2({
           radius="full"
           size="lg"
         >
-          <Link href={href} className='size-full flex justify-center items-center'>
+          <TransitionLink href={href} className='size-full flex justify-center items-center'>
             <HugeiconsIcon icon={ArrowUpLeft01Icon} color='white'/>
-          </Link>
+          </TransitionLink>
         </Button>
       </CardHeader>
       <div className="relative">
