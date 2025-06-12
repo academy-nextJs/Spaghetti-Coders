@@ -31,8 +31,8 @@ export default {
         });
 
         user = await res.json();
-        console.log('credentials', credentials);
-        console.log('user', user);
+        // console.log('credentials', credentials);
+        // console.log('user', user);
         if (!res.ok || !user) throw new InvalidLoginError();
 
         return user;
@@ -45,7 +45,7 @@ export default {
         token.hasAccessToken = true;
 
         const userData = decodeJwt(user.accessToken) as decodedJwt;
-        console.log('userData', userData);
+        // console.log('userData', userData);
         const iatISO = new Date(userData.iat! * 1000);
         const expISO = userData.exp! * 1000;
         // console.log('tokenExpired?', new Date() < expISO)
@@ -61,7 +61,7 @@ export default {
         token.expires = expISO;
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
-        console.log('JWT SignIn Callback Running');
+        // console.log('JWT SignIn Callback Running');
         return token;
       }
 
@@ -79,19 +79,8 @@ export default {
             token: token.refreshToken,
           });
 
-          const refreshedUser = res.data;
-          const userData = decodeJwt(refreshedUser.accessToken) as decodedJwt;
-          token.user = {
-            id: userData.id ?? '',
-            name: userData.name ?? '',
-            email: userData.email ?? '',
-            role: userData.role ?? '',
-            image: userData.profilePicture ?? '',
-          };
-          token.issuedAt = new Date(userData.iat! * 1000);
-          token.expires = userData.exp! * 1000;
+          const refreshedUser = res.data;          
           token.accessToken = refreshedUser.accessToken;
-          token.refreshToken = refreshedUser.refreshToken;
           token.hasAccessToken = true;
 
           console.log('🔄 Token successfully refreshed');
