@@ -24,7 +24,7 @@ export default function DreamCarousel() {
           lat: '35.6892',
           long: '51.3890',
         };
-        setLocations([...data, newLocation]);
+        setLocations([...data.data, newLocation]);
         setLoading(false);
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err: unknown) {

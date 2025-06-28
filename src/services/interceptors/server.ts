@@ -1,5 +1,5 @@
 'use server';
-import { auth } from '@/auth';
+import { auth, signOut } from '@/auth';
 import axios from 'axios';
 import { redirect } from 'next/navigation';
 
@@ -23,8 +23,10 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
+      signOut();
       redirect('/login');
     } else if (error.response?.status === 403) {
+      signOut();
       redirect('/login');
     }
     return Promise.reject(error);

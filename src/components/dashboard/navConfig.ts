@@ -7,22 +7,22 @@ export const navObj =[
         icon: Home01Icon
     },
     {
-        href:'/dashboard/userInfo',
+        href:'/userInfo',
         label: 'اطلاعات کاربری',
         icon: User02Icon
     },
     {
-        href:'/dashboard/reserveMng',
+        href:'/reserveMng',
         label: 'مدیریت رزروها',
         icon: TimeManagementCircleIcon
     },
     {
-        href:'/dashboard/fav',
+        href:'/fav',
         label: 'علاقه‌مندی‌ها',
         icon: FavouriteCircleIcon
     },
     {
-        href:'/dashboard/payments',
+        href:'/payments',
         label: 'پرداخت‌ها',
         icon: Cash01Icon
     },
