@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function UserInfoPage() {
+export default function ProfilePercent() {
   return (
     <div>
-      UserInfoPage
+      
     </div>
   )
 }

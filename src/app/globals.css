@@ -4,11 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-darkMode: #57534d;
-  --color-darkModText: white;
-  --color-darkModSubText:  #d6d3d1;
-  --color-primaryPurple: #7575FE;
-  --color-primaryGray: #F0F0F0;
+  --color-darkMode: #57534d ;
+  --color-darkModText: white ;
+  --color-darkModSubText:  #d6d3d1 ;
+  --color-primaryPurple: #7575FE ;
+  --color-primaryGray: #F0F0F0 ;
+  --color-lightBg: #FBFBFB ;
 }
 .circle {
   width: 300px;

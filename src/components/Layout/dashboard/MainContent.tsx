@@ -14,7 +14,7 @@ export default function MainContentLayout({
 
   return (
     <div
-      className={`h-fit p-6 ${
+      className={`h-fit ${
         isExactDashboard ? '' : 'bg-white dark:bg-black rounded-3xl'
       }`}
     >
