@@ -23,10 +23,10 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      signOut();
+      signOut()
       redirect('/login');
     } else if (error.response?.status === 403) {
-      signOut();
+      signOut()
       redirect('/login');
     }
     return Promise.reject(error);

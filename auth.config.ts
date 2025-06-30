@@ -1,15 +1,15 @@
-import { decodeJwt } from "jose";
-import { CredentialsSignin, decodedJwt, type NextAuthConfig } from "next-auth"
-import Credentials from "next-auth/providers/credentials";
-import GitHub from "next-auth/providers/github";
-import Google from "next-auth/providers/google";
-import 'next-auth/jwt'
+import { decodeJwt } from 'jose';
+import { CredentialsSignin, decodedJwt, type NextAuthConfig } from 'next-auth';
+import Credentials from 'next-auth/providers/credentials';
+import GitHub from 'next-auth/providers/github';
+import Google from 'next-auth/providers/google';
+import 'next-auth/jwt';
+import axios from 'axios';
 
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 class InvalidLoginError extends CredentialsSignin {
-  message = "ایمیل یا کلمه عبور شما صحیح نیست!"
+  message = 'ایمیل یا کلمه عبور شما صحیح نیست!';
 }
 
 export default {
@@ -19,11 +19,11 @@ export default {
     GitHub,
     Credentials({
       authorize: async (credentials) => {
-        let user = null
+        let user = null;
 
         const res = await fetch(`${BASE_URL}/auth/login`, {
           method: 'POST',
-          headers: { "Content-Type": "application/json" },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             email: credentials?.email,
             password: credentials?.password,
@@ -31,23 +31,23 @@ export default {
         });
 
         user = await res.json();
-        console.log('credentials', credentials)
-        console.log('user', user)
-        if(!res.ok || !user) throw new InvalidLoginError()
-        
+        // console.log('credentials', credentials);
+        // console.log('user', user);
+        if (!res.ok || !user) throw new InvalidLoginError();
+
         return user;
       },
-    })
+    }),
   ],
   callbacks: {
     jwt: async ({ user, token, trigger, session }) => {
-      if(trigger === 'signIn' && user?.accessToken) {
+      if (trigger === 'signIn' && user?.accessToken) {
         token.hasAccessToken = true;
 
         const userData = decodeJwt(user.accessToken) as decodedJwt;
-        console.log('userData', userData);
+        // console.log('userData', userData);
         const iatISO = new Date(userData.iat! * 1000);
-        const expISO = new Date(userData.exp! * 1000);
+        const expISO = userData.exp! * 1000;
         // console.log('tokenExpired?', new Date() < expISO)
 
         token.user = {
@@ -61,17 +61,36 @@ export default {
         token.expires = expISO;
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
-        console.log('JWT SignIn Callback Running')
-        return token
-      };
+        // console.log('JWT SignIn Callback Running');
+        return token;
+      }
 
-      if(trigger === 'update' && session) {
+      if (trigger === 'update' && session) {
         token = {
           ...token,
-          ...session
-        }
+          ...session,
+        };
         // console.log('JWT Update Callback Running')
         return token;
+      }
+      if (Date.now() >= token.expires-2000) {
+        try {
+          const res = await axios.post(`${BASE_URL}/auth/refresh`, {
+            token: token.refreshToken,
+          });
+
+          const refreshedUser = res.data;          
+          token.accessToken = refreshedUser.accessToken;
+          token.hasAccessToken = true;
+
+          console.log('🔄 Token successfully refreshed');
+
+          return token;
+        } catch (err) {
+          console.error('❌ Error refreshing token', err);
+          // Optional: clear token so user gets logged out
+          return null
+        }
       }
       return token;
     },
@@ -84,11 +103,10 @@ export default {
         session.user.image = token.user.image;
 
         session.issuedAt = token.issuedAt;
-        session.expires = token.expires;
         session.accessToken = token.accessToken;
         session.refreshToken = token.refreshToken;
         // console.log('session callback Running')
-        return session
+        return session;
       }
 
       // if (trigger === 'update') {
@@ -100,7 +118,7 @@ export default {
       // }
 
       // console.log('returned session')
-      return session
+      return session;
     },
-  }
-} satisfies NextAuthConfig
+  },
+} satisfies NextAuthConfig;
