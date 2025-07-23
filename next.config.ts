@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
       {
         hostname: 'cdn.sanity.io',
       },
+      {
+        hostname:'avatars.githubusercontent.com'
+      }
     ],
   },
 };

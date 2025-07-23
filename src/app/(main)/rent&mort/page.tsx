@@ -25,7 +25,7 @@ export default async function RentPage({
 
   return (
     <>
-      <Filters locations={locations} categories={categories} />
+      <Filters locations={locations.data} categories={categories.data} />
       <HouseRentGrid houses={houses} />
       <RentPagination />
     </>
