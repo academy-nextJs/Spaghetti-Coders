@@ -6,14 +6,10 @@ import { TimeQuarter02Icon } from '@hugeicons/core-free-icons';
 import { CardCarouselContainer } from '../../common/CardCarouselContainer/CardCarouselContainer';
 
 export default async function LandingDiscountedSection() {
-  const { data } = await api.get(
-    '/houses?limit=8&sort=price&order=DESC&transactionType='
-  );
-  if (!data)
-    throw new Error(
-      'Failed to fetch Discounted Houses, Please try again later.'
-    );
+  const { data } = await api.get('/houses?limit=8&sort=price&order=DESC&transactionType=');
+  if (!data) throw new Error('Failed to fetch Discounted Houses, Please try again later.');
 
+  const { houses } = data;
   return (
     <div className="relative flex flex-col gap-6">
       <div className="absolute -top-28 -left-96 -z-10 w-[500px] aspect-square bg-radial from-[#7575fe96] to-white dark:from-[#7575fe3d] dark:to-[#7575fe45] blur-[100px]" />
@@ -48,7 +44,7 @@ export default async function LandingDiscountedSection() {
           </ClientButton>
         </div>
       </div>
-      <CardCarouselContainer data={data} discountedSection />
+      <CardCarouselContainer data={houses} discountedSection />
     </div>
   );
 }

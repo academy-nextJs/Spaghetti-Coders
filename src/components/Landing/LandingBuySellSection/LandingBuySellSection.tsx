@@ -5,12 +5,10 @@ import api from '@/src/services/interceptors/server';
 import { CardCarouselContainer } from '../../common/CardCarouselContainer/CardCarouselContainer';
 
 export default async function LandingBuySellSection() {
-  const { data } = await api.get(
-    '/houses?limit=8&sort=rate&order=DESC&transactionType='
-  );
-  if (!data)
-    throw new Error('Failed to fetch Hot Houses, Please try again later.');
+  const { data } = await api.get('/houses?limit=8&sort=rate&order=DESC&transactionType=');
+  if (!data) throw new Error('Failed to fetch Hot Houses, Please try again later.');
 
+  const { houses } = data;
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
@@ -34,7 +32,7 @@ export default async function LandingBuySellSection() {
           </ClientButton>
         </div>
       </div>
-      <CardCarouselContainer data={data} />
+      <CardCarouselContainer data={houses} />
     </div>
   );
 }

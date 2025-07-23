@@ -19,8 +19,7 @@ export function CardCarouselContainer({
       centeredSlidesBounds
       landingCardsCarousel
     >
-      {discountedSection
-        ? (data || []).map((item) => (
+      {discountedSection ? (data || []).map((item) => (
           <LandingHouseCard
             key={item.id}
             title={item.title}
