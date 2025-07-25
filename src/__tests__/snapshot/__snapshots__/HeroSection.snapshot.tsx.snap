@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders HeroSection unchanged 1`] = `
+<div>
+  <div
+    class="flex flex-col lg:flex-row justify-between items-center"
+  >
+    <div
+      class="w-full lg:w-1/2 "
+    >
+      <div
+        class="md:w-full md:h-[35.35rem] h-[20rem] sm:flex-center rounded-2xl relative"
+      >
+        <img
+          alt="Modern apartment building"
+          class="rounded-3xl relative w-full object-cover"
+          data-nimg="fill"
+          decoding="async"
+          loading="lazy"
+          sizes="100vw"
+          src="/_next/image?url=%2Fhero.png&w=3840&q=75"
+          srcset="/_next/image?url=%2Fhero.png&w=640&q=75 640w, /_next/image?url=%2Fhero.png&w=750&q=75 750w, /_next/image?url=%2Fhero.png&w=828&q=75 828w, /_next/image?url=%2Fhero.png&w=1080&q=75 1080w, /_next/image?url=%2Fhero.png&w=1200&q=75 1200w, /_next/image?url=%2Fhero.png&w=1920&q=75 1920w, /_next/image?url=%2Fhero.png&w=2048&q=75 2048w, /_next/image?url=%2Fhero.png&w=3840&q=75 3840w"
+          style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+        />
+        <div
+          class="absolute top-27/28 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:left-2.5 lg:top-1/2"
+        >
+          <div
+            class="flex flex-wrap gap-3"
+          >
+            <button
+              class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-hidden data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover md:w-32 md:h-32 w-22 h-22 rounded-full text-md border-4 text-white border-white hover:bg-primaryPurple bg-primaryPurple"
+              data-react-aria-pressable="true"
+              tabindex="0"
+              type="button"
+            >
+              <div
+                class="flex flex-col md:text-sm text-xs justify-center"
+              >
+                <svg
+                  class=""
+                  color="currentColor"
+                  fill="none"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  width="40"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.80282 4.62973L15.8364 6.99069C19.3164 8.35243 21.0564 9.03329 20.9987 10.1133C20.941 11.1934 19.1251 11.6886 15.4933 12.6791C14.412 12.974 13.8713 13.1215 13.4964 13.4963C13.1215 13.8712 12.9741 14.4119 12.6791 15.4933C11.6887 19.125 11.1934 20.9409 10.1134 20.9986C9.03335 21.0563 8.35249 19.3163 6.99075 15.8363L4.62979 9.80276C3.20411 6.15934 2.49127 4.33764 3.41448 3.41442C4.3377 2.49121 6.15941 3.20405 9.80282 4.62973Z"
+                    stroke="currentColor"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                جستجوی
+                <br />
+                 سریع
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full lg:w-1/2"
+    >
+      <div
+        class=" h-[35.3125rem] w-full text-black dark:text-white "
+      >
+        <h4
+          class="md:text-4xl text-2xl pr-8 pt-6"
+        >
+          خانه ای که میخوای،
+          <br />
+          جایی که میخوای
+        </h4>
+        <p
+          class="text-[#767676] md:text-lg text-sm pr-8 pt-4"
+        >
+           رزرو ، رهن ، اجاره و حتی خرید و فروش ملک مورد نظرتون
+          <br />
+          مثل آب خوردن فقط در دلتا
+        </p>
+        <div>
+          <div
+            class="w-full flex flex-row h-[12rem]  px-4 sm:px-6 md:flex-row gap-1 sm:gap-4 md:gap-5  justify-center mb-12 sm:mb-20 md:mb-32"
+          >
+            <div
+              class="w-full md:w-[12.44rem] h-auto md:h-[13.06rem] bg-[#F9F9F9] dark:bg-darkMode rounded-2xl sm:rounded-3xl p-4 md:mt-48 mt-4 sm:mt-6"
+            >
+              <h2
+                class="text-black dark:text-white pl-2 md:pl-4 pt-1 md:pt-3 text-sm text-right"
+              >
+                بیش از
+              </h2>
+              <div
+                class="flex flex-col items-center rtl mt-1 sm:mt-2"
+              >
+                <div>
+                  <div
+                    class="items-center justify-center h-auto w-max hidden sm:flex md-md"
+                    role="group"
+                  >
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-hidden data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-8 h-8 text-tiny bg-default text-default-foreground rounded-full data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 ms-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                      />
+                    </span>
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-hidden data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-8 h-8 text-tiny bg-default text-default-foreground rounded-full data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 -ms-2"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
+                      />
+                    </span>
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-hidden data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-8 h-8 text-tiny bg-default text-default-foreground rounded-full data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 -ms-2"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      />
+                    </span>
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-hidden data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-8 h-8 text-tiny bg-default text-default-foreground rounded-full data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 -ms-2"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                      />
+                    </span>
+                    <span
+                      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-hidden data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-8 h-8 text-tiny bg-default text-default-foreground rounded-full data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 -ms-2 hover:-translate-x-0"
+                      tabindex="-1"
+                    >
+                      <img
+                        alt="avatar"
+                        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                        src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      />
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="text-[10px] xs:text-[12px] md:text-[12px] dark:text-white text-black mt-2 text-center md:text-right"
+                >
+                  رضایت مشتریانی که به آلفا
+                  <br />
+                  اعتماد کرده اند
+                </p>
+              </div>
+            </div>
+            <div
+              class="w-full md:w-[12.5rem] h-auto md:h-[18.75rem]  bg-[#DFDFFF] rounded-2xl sm:rounded-3xl dark:bg-darkMode p-4 mt-3 sm:mt-4 md:mt-26"
+            >
+              <h2
+                class="text-xs sm:text-sm font-bold text-black text-right dark:text-white pt-1 md:pt-3 pl-2 md:pl-4"
+              >
+                بیش از
+              </h2>
+              <p
+                class="text-[12px] xs:text-[14px] text-black mt-1 pl-2 md:pl-4 sm:mt-2 text-center dark:text-white"
+              >
+                منطقه برای رزرو، ویلا و کلبه
+              </p>
+              <div
+                class="flex justify-center h-16 sm:h-20 md:h-40 mt-4 md:mt-6"
+              >
+                <hr
+                  class="hidden md:block  border-1 border-dashed border-[#BABAFF] dark:border-white h-full  sm:h-[8rem] w-0"
+                />
+              </div>
+            </div>
+            <div
+              class="w-full md:w-[13.75rem] h-auto md:h-[23.9rem] bg-[#F9F9F9] rounded-2xl sm:rounded-3xl dark:bg-darkMode p-4 mt-3 sm:mt-4"
+            >
+              <h2
+                class="text-xs sm:text-sm font-bold text-black text-right dark:text-white pt-1 md:pt-3 pl-2 md:pl-4"
+              >
+                بیش از
+              </h2>
+              <p
+                class="text-[12px] xs:text-[14px] text-black mt-1 sm:mt-2 text-center dark:text-white"
+              >
+                ملک برای رزرو رهن و اجاره
+              </p>
+              <div
+                class="flex justify-center h-16 sm:h-24 md:h-64 mt-6 md:mt-6"
+              >
+                <hr
+                  class="hidden md:block  border-l border-dashed border-[#D1D1D1] dark:border-white sm:h-[13rem] h-full w-0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

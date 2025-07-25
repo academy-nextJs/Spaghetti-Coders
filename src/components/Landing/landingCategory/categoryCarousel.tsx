@@ -29,7 +29,7 @@ export default function CategoryCarousel({ data }: { data: Category[] }) {
         chipText="دسته بندی"
       />
       <Carousel className="mt-4" breakpoints={breakpoints}>
-        {data.data.map((item) => (
+        {data.map((item) => (
           <LandingCard2
             key={item.id}
             href={`houses/${item.id}`}

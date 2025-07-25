@@ -1,4 +1,3 @@
-// import { ClockTimerIcon } from "@/src/assets/SGVs";
 import { MyChip } from '../../common/Buttons/Chip-btn';
 import { ClientButton } from '../../common/Buttons/common-btn';
 import api from '@/src/services/interceptors/server';
